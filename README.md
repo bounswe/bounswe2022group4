@@ -4,7 +4,7 @@
 - Hatice Kübra Aksu
 - Yusuf Bayındır (*Communicator*)
 - Berat Damar
-- Erginç Günaydın
+- Erdinç Günaydın
 - Miraç Batuhan Malazgirt
 - Yiğit Can Özkaya
 - Umut Deniz Şener
