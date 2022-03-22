@@ -4,8 +4,6 @@
 This project aims to develop a medical experience sharing platform where users can search for
 information, share experiences, and read about the experiences of others.
 
-<!---
-Project information will be described here on update. Stay tuned.
 
 ## Publishments
 
@@ -25,7 +23,6 @@ Please follow these steps before contributing to the project.
 3. Check Meeting Notes section and join us next meeting scheduled to get involved. Check [Pre-meeting Resources Page](https://github.com/bounswe/bounswe2022group4/wiki/Pre_meeting-Resources) before meeting.
 
 * If you are here as a student of CMPE 352, a template for [Personal Effort Tracking Page](https://github.com/bounswe/bounswe2022group4/wiki/Personal-Effort) is available.
--->
 
 ## Team Members
 
