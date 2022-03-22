@@ -44,7 +44,7 @@ Please follow these steps before contributing to the project.
   * [Erdinç Günaydın](https://github.com/bounswe/bounswe2022group4/wiki/Erdinç-Günaydın)
   * [Elif Tokluoğlu](https://github.com/bounswe/bounswe2022group4/wiki/Elif-Tokluo%C4%9Flu)
   * Hatice Kübra Aksu
-  * Yiğit Can Özkaya
+  * [Yiğit Can Özkaya](https://github.com/bounswe/bounswe2022group4/wiki/Yigit-Can-Ozkaya)
   
 </details>
 
