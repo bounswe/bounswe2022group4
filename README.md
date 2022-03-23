@@ -5,25 +5,6 @@ This project aims to develop a medical experience sharing platform where users c
 information, share experiences, and read about the experiences of others.
 
 
-## Publishments
-
-* [Git Research](https://github.com/bounswe/bounswe2022group4/wiki/Git-Research) - Research on version control systems focused on Git as a distrubuted vcs.
-* [Github Repository Examples](https://github.com/bounswe/bounswe2022group4/wiki/Github-Repository-Examples) - Several github repositories to get perspectives on github repositories, group contributed software development, open-source projects.
-
-## How to Use
-
-*One day...*
-
-## How to Contribute
-
-Please follow these steps before contributing to the project.
-
-1. First need to create a personal page to identify yourself. A Template for [Contributor Personal Page](https://github.com/bounswe/bounswe2022group4/wiki/Contributor-Page) is available.
-2. Get communication information from [Communication Page](https://github.com/bounswe/bounswe2022group4/wiki/Communication-Plan) to get contact with other members and get update on current project status.
-3. Check Meeting Notes section and join us next meeting scheduled to get involved. Check [Pre-meeting Resources Page](https://github.com/bounswe/bounswe2022group4/wiki/Pre_meeting-Resources) before meeting.
-
-* If you are here as a student of CMPE 352, a template for [Personal Effort Tracking Page](https://github.com/bounswe/bounswe2022group4/wiki/Personal-Effort) is available.
-
 ## Team Members
 
 <details>
