@@ -1,4 +1,4 @@
-# Cmpe 352-451 Group 4
+# Cmpe 352-451 - Group 4
 
 ## Project Description
 This project aims to develop a medical experience sharing platform where users can search for
