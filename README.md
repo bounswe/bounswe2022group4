@@ -1,7 +1,7 @@
 # 🏥 Medical Experience Sharing Platform
 
- This project provides a environment for doctors and people that have medical experience or want to gain information about some medical problems.The platform works as follows:
- * People post their medical experiences or medical problems specifying its catagory. Doctors and other users make comments to the post and vote the post.
+ This project provides an environment for doctors and those who have medical experience to share or want to gain information about some medical issues.The platform works as follows:
+ * People post their medical experiences or medical problems specifying its category. Doctors and other users make comments to the post and vote the post.
  * Doctors share articles about a catagory. Other users read and vote articles.
 
 For further information, please see our [Wiki page](https://github.com/bounswe/bounswe2022group4/wiki).
