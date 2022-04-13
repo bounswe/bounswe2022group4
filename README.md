@@ -1,17 +1,12 @@
-# Cmpe 352-451 - Group 4
+# 🏥 Medical Experience Sharing Platform
 
-## Project Description
-This project aims to develop a medical experience sharing platform where users can search for
-information, share experiences, and read about the experiences of others.
+ This project provides a environment for doctors and people that have medical experience or want to gain information about some medical problems.The platform works as follows:
+ * People post their medical experiences or medical problems specifying its catagory. Doctors and other users make comments to the post and vote the post.
+ * Doctors share articles about a catagory. Other users read and vote articles.
 
+For further information, please see our [Wiki page](https://github.com/bounswe/bounswe2022group4/wiki).
+## 🐝  Team Members
 
-## Team Members
-
-<details>
-  <summary>
-    Active Members
-  </summary> 
-  
   * [Berat Damar](https://github.com/bounswe/bounswe2022group4/wiki/Berat-Damar)
   * [Umut Deniz Şener](https://github.com/bounswe/bounswe2022group4/wiki/Umut-Deniz-%C5%9Eener)
   * [Miraç Batuhan Malazgirt](https://github.com/bounswe/bounswe2022group4/wiki/Mira%C3%A7-Batuhan-Malazgirt)
@@ -23,13 +18,4 @@ information, share experiences, and read about the experiences of others.
   * [Elif Tokluoğlu](https://github.com/bounswe/bounswe2022group4/wiki/Elif-Tokluo%C4%9Flu)
   * Hatice Kübra Aksu
   * [Yiğit Can Özkaya](https://github.com/bounswe/bounswe2022group4/wiki/Yigit-Can-Ozkaya)
-  
-</details>
-
-<details>
-  <summary>
-    Former Members
-  </summary> 
-</details>
-
 
