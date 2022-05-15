@@ -6,4 +6,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', user_views.register_user, name='register'),
     path('', include('post.urls')),
+    path('register/', user_views.register_user, name='register'),
+    path('all-users/', user_views.getUsers, name='all-users'),
 ]
