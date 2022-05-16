@@ -5,6 +5,7 @@ from django.urls import reverse
 
 # Create your models here.
 
+
 class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
@@ -16,4 +17,5 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('home-page')
+        return reverse('post-detail', kwargs={'pk':self.pk})
+
