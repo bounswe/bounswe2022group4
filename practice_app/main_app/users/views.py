@@ -10,15 +10,18 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.http import HttpResponseRedirect
 # Create your views here.
+
+
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField()  # required=True
 
     class Meta:
         model = User
-        fields = ['username', 'email','password1', 'password2']
+        fields = ['username', 'email', 'password1', 'password2']
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
+
 
 class UserView(generics.ListAPIView):
 
@@ -27,18 +30,18 @@ class UserView(generics.ListAPIView):
 
     def post(self, req):
 
-        user = User.objects.create_user(username=req.data.get('username'),email=req.data.get('email'),
-                                        password=req.data.get('password'))
-        data ={'username': req.data.get('username'), 'email': req.data.get('email'), 'password':req.data.get('password') }
+        user = User.objects.create_user(username=req.data.get('username'), email=req.data.get('email'),
+                                        password=req.data.get('password1'))
+
+        data = {'username': req.data.get('username'), 'email': req.data.get(
+            'email'), 'password': req.data.get('password1')}
         return Response(data=data, status=status.HTTP_201_CREATED)
-
-
 
     def get(self, req):
         users = User.objects.all()
-        response = [{ "username": user.username, "email": user.email } for user in users]
+        response = [{"username": user.username, "email": user.email}
+                    for user in users]
         return Response(data=response, status=status.HTTP_200_OK)
-
 
 
 @api_view(['GET', 'POST'])
@@ -48,8 +51,10 @@ def register_user(request):
         if form_created.is_valid():
             view = UserView()
             response = view.post(req=request)
-            messages.success(request, f'Your account has been created! You are now able to log in')
-            return redirect('login')      # I  included login html for redirection
+            messages.success(
+                request, f'Your account has been created! You are now able to log in')
+            # I  included login html for redirection
+            return redirect('login')
     else:
         form_created = RegistrationForm()
     return render(request, 'users/register.html', {'form': form_created})
