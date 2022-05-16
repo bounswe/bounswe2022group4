@@ -49,7 +49,7 @@ def register_user(request):
             view = UserView()
             response = view.post(req=request)
             messages.success(request, f'Your account has been created! You are now able to log in')
-            return redirect('login')      # I will include login html for redirection
+            return redirect('login')      # I  included login html for redirection
     else:
         form_created = RegistrationForm()
     return render(request, 'users/register.html', {'form': form_created})
