@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Post
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.models import User
@@ -42,7 +42,7 @@ class PostListView(ListView):
     template_name = 'post/home.html'
     context_object_name = 'posts'
     ordering = ['-date']
-    paginate_by = 5
+    paginate_by = 7
 
 
 class PostDetailView(DetailView):
@@ -63,3 +63,14 @@ class PostUpdateView(UserPassesTestMixin, UpdateView):
         if self.request.user == post.author:
             return True
         return False
+
+
+class UserPostListView(ListView):
+    model = Post
+    template_name = 'post/user_posts.html'
+    context_object_name = 'posts'
+    paginate_by = 7
+
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Post.objects.filter(author=user).order_by('-date')
