@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Post
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.models import User
-from django.views.generic import CreateView, ListView, DetailView, DeleteView
+from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
 
 
 # Create your views here.
@@ -47,3 +47,19 @@ class PostListView(ListView):
 
 class PostDetailView(DetailView):
     model = Post
+
+
+# after login is implemented, LoginRequiredMixin will be added.
+class PostUpdateView(UserPassesTestMixin, UpdateView):
+    model = Post
+    fields = ['title', 'content', 'location']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
