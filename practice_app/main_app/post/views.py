@@ -3,17 +3,23 @@ from .models import Post
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
-
+from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy, reverse
 
 # Create your views here.
 
 
 def home(request):
     context = {
-        'posts': Post.objects.all()
-    }
+        'posts': Post.objects.all(),
+    }   
     return render(request, 'post/home.html', context)
 
+def LikeView(request, pk):
+    post = get_object_or_404(Post, id=request.POST.get("post_id"))
+    post.likes.add(request.user)
+    return HttpResponseRedirect(reverse("home-page"))
+    
 
 # when the login feature is added, add loginrequiredmixin
 class PostCreateView(CreateView):

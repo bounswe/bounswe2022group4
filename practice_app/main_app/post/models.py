@@ -13,6 +13,12 @@ class Post(models.Model):
     date = models.DateTimeField(default=timezone.now)   # the date and time when the post is created.
     author = models.ForeignKey(User, on_delete=models.CASCADE) # if the user is deleted,their post will also be deleted.
 
+    likes = models.ManyToManyField(User, related_name="blog_post")
+
+    @property
+    def total_likes(self):
+        return self.likes.count()
+
     def __str__(self):
         return self.title
 
