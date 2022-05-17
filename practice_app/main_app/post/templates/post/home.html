@@ -10,6 +10,25 @@
             </div>
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
             <p class="article-content">{{ post.content }}</p>
+            <h5 class="article-content">Comments...</h5>
+            <a href = "{% url 'comment-create' post.id  %}">Add Comment</a>
+            <h5></h5>
+            {% if not post.comments.all %}
+            <p> No Comments </p>
+            {% else %}
+            {% for comment in post.comments.all %}
+            <div>
+              Title:
+            <strong>
+               {{comment.title}}
+            </strong>
+          </div>
+            <p>Content: {{comment.content}}</p>
+            <p>Author: {{comment.author}}</p>
+            <p>{{comment.date}}</p>
+            <hr>
+            {% endfor %}
+            {% endif %}
           </div>
         </article>
         {% endfor %}
@@ -32,5 +51,4 @@
             {% endif %}
         {% endif %}
 {% endblock content %}
-
 
