@@ -3,8 +3,11 @@ from .models import Post
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse_lazy, reverse
+import json
+from rest_framework.decorators import api_view
+from django.contrib import messages
 
 # Create your views here.
 
@@ -16,10 +19,31 @@ def home(request):
     return render(request, 'post/home.html', context)
 
 def LikeView(request, pk):
-    post = get_object_or_404(Post, id=request.POST.get("post_id"))
-    post.likes.add(request.user)
+    if request.user.is_authenticated:
+        post = get_object_or_404(Post, id=request.POST.get("post_id"))
+        post.likes.add(request.user)
+    else:
+        messages.info(request, 'You have to login to like a post!')
     return HttpResponseRedirect(reverse("home-page"))
-    
+
+@api_view(["GET"])
+def get_likes(request, pk):
+    post = get_object_or_404(Post, id=pk)
+    total_likes = post.likes.count()
+    response = json.dumps([{ "Post Id": pk, "Post Title": post.title, "Total Likes": total_likes }])
+    return HttpResponse(response, content_type="text/json")
+
+@api_view(["POST"])
+def add_likes(request):
+    if request.method == "POST":
+        body_unicode = request.body.decode('utf-8')
+        body = json.loads(body_unicode)
+        user_id = body["user_id"]
+        post_id = body["post_id"]
+        post = get_object_or_404(Post, id=post_id)
+        user = get_object_or_404(User, id=user_id)
+        post.likes.add(user)
+        return HttpResponse("<h1>{} liked the '{}' titled post</h1>".format(user.username, post.title))
 
 # when the login feature is added, add loginrequiredmixin
 class PostCreateView(CreateView):
@@ -29,7 +53,6 @@ class PostCreateView(CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
-
 
 # after login is implemented, LoginRequiredMixin will be added.
 class PostDeleteView(UserPassesTestMixin, DeleteView):
