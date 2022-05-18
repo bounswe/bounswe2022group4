@@ -3,11 +3,16 @@ from .models import Post
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
+<<<<<<< Updated upstream
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse_lazy, reverse
 import json
 from rest_framework.decorators import api_view
 from django.contrib import messages
+=======
+from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy, reverse
+>>>>>>> Stashed changes
 
 # Create your views here.
 
@@ -19,6 +24,7 @@ def home(request):
     return render(request, 'post/home.html', context)
 
 def LikeView(request, pk):
+<<<<<<< Updated upstream
     if request.user.is_authenticated:
         post = get_object_or_404(Post, id=request.POST.get("post_id"))
         post.likes.add(request.user)
@@ -44,6 +50,17 @@ def add_likes(request):
         user = get_object_or_404(User, id=user_id)
         post.likes.add(user)
         return HttpResponse("<h1>{} liked the '{}' titled post</h1>".format(user.username, post.title))
+=======
+    post = get_object_or_404(Post, id=request.POST.get("post_id"))
+    post.likes.add(request.user)
+    return HttpResponseRedirect(reverse("home-page"))
+
+def DislikeView(request, pk):
+    post = get_object_or_404(Post, id=request.POST.get("post_id"))
+    post.dislikes.add(request.user)
+    return HttpResponseRedirect(reverse("home-page"))
+    
+>>>>>>> Stashed changes
 
 # when the login feature is added, add loginrequiredmixin
 class PostCreateView(CreateView):
@@ -54,6 +71,10 @@ class PostCreateView(CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 # after login is implemented, LoginRequiredMixin will be added.
 class PostDeleteView(UserPassesTestMixin, DeleteView):
     model = Post
