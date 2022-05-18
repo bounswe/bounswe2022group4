@@ -28,6 +28,14 @@ class RegistrationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
 
+    def clean_email(self):
+        """
+        Returns the email if entered email is unique otherwise gives duplicate_email error.
+        """
+        email = self.cleaned_data['email']
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError('duplicate_email')
+        return email
 
 
 #I create a user view to provide post method. It has post and get methods. (for API)
