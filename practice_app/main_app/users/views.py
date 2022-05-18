@@ -1,4 +1,4 @@
-
+from pickle import FALSE, TRUE
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
@@ -11,6 +11,11 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.http import HttpResponseRedirect
 from rest_framework import viewsets
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic import CreateView
+from .models import City
+import os
+api_key = os.environ['current_wheather_data']
 
 # Create your views here.
 class RegistrationForm(UserCreationForm):
@@ -22,6 +27,8 @@ class RegistrationForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
+
+
 
 #I create a user view to provide post method. It has post and get methods. (for API)
 class UserView(generics.ListAPIView,viewsets.ModelViewSet):
@@ -70,3 +77,32 @@ def getUsers(request):
         "users/ListAllUsers.html",
         {"users": api_response}
     )
+class get_city_form(LoginRequiredMixin, CreateView):
+    model = City
+    fields = ['name']
+#########33
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+def get_weather_data(request):
+    city_name = request.POST["name"]
+
+    api_response = requests.get(
+        'https://api.openweathermap.org/data/2.5/weather?q=' + city_name + '&appid='+api_key).json()
+
+    if api_response['cod'] == '404':
+        messages.success(request, f'The city for the name you entered could not be found.')
+        return redirect( 'city-form')
+
+    weather = {
+        'city': city_name,
+        'temperature': api_response['main']['temp'],
+        'description': api_response['weather'][0]['description'],
+        'icon': api_response['weather'][0]['icon'],
+        'wind_speed': api_response['wind']['speed']
+
+    }
+    return render(request, 'users/city_data.html', {'weather' : weather, 'truef': TRUE})
