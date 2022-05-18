@@ -3,6 +3,8 @@ from .models import Comment, Post
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
+from .serializers import CommentSerializer
+from rest_framework import viewsets
 
 
 # Create your views here.
@@ -81,9 +83,10 @@ class CommentCreateView(CreateView):
     fields = [ 'title', 'content']
 
     def form_valid(self, form):
-        
         form.instance.author = self.request.user
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
 
-
+class CommentViewSet(viewsets.ModelViewSet):
+    queryset = Comment.objects.all().order_by('id')
+    serializer_class = CommentSerializer
