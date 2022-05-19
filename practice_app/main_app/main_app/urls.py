@@ -18,6 +18,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('city/', user_views.get_city_form.as_view(), name='city-form'),
     path('city_data/',user_views.get_weather_data, name='city-data'),
+    path('display_joke/', user_views.getJoke, name='display-joke'),
     path('', include('dnsApi.urls')),
 ]
 

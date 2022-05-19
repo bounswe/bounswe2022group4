@@ -39,6 +39,7 @@
             <p>Content: {{comment.content}}</p>
             <p>Author: {{comment.author}}</p>
             <p>{{comment.date}}</p>
+            <a href = "{% url 'comment-delete' comment.id  %}">Delete {{comment.title}} Comment</a>
             <hr>
             {% endfor %}
             {% endif %}

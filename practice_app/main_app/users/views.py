@@ -15,8 +15,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import CreateView
 from .models import City
 import os
+
 os.environ['current_wheather_data'] = "276027f9c2d690dfc36c80f833f0a709"
 api_key = os.environ['current_wheather_data']
+
 
 # Create your views here.
 class RegistrationForm(UserCreationForm):
@@ -115,3 +117,23 @@ def get_weather_data(request):
 
     }
     return render(request, 'users/city_data.html', {'weather' : weather, 'truef': TRUE})
+
+@api_view(['GET'])
+def getJoke(request):
+    """
+    Random joke generator.
+    """
+    api_response=requests.get("https://v2.jokeapi.dev/joke/Any?type=twopart")
+    api_response = api_response.json()
+    if api_response["error"] == False:
+        joke = {
+            'setup' : api_response["setup"],
+            'delivery' : api_response["delivery"]
+        }
+        return render(
+            request, 'post/display_jokes.html',{'joke' : joke}
+        )
+    else: 
+        return render({
+            'status' : 'non-existent'
+        },status = 404) 

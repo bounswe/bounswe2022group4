@@ -150,6 +150,17 @@ class CommentCreateView(CreateView):
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
 
+class CommentDeleteView(UserPassesTestMixin, DeleteView):
+    model = Comment
+    template_name = 'post/comment_confirm_delete.html'
+    success_url = '/'
+
+    def test_func(self):
+        Comment = self.get_object()
+        if self.request.user == Comment.author:
+            return True
+        return False
+
 class CommentViewSet(generics.ListAPIView, viewsets.ModelViewSet):
     queryset = Comment.objects.all().order_by('id')
     serializer_class = CommentSerializer
