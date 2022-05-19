@@ -1,12 +1,7 @@
 from django.urls import path, include
 from . import views
-<<<<<<< Updated upstream
 from .views import PostCreateView, PostDeleteView, PostDetailView, PostUpdateView, UserPostListView, PostListView, LikeView, get_likes, add_likes
 from django.views.decorators.csrf import csrf_exempt
-=======
-from .views import PostCreateView, PostDeleteView, PostDetailView, PostUpdateView, UserPostListView, PostListView, LikeView, DislikeView
-
->>>>>>> Stashed changes
 urlpatterns = [
     path('', PostListView.as_view(), name='home-page'),
     path('post/new/', PostCreateView.as_view(), name='post-create'),
@@ -15,11 +10,7 @@ urlpatterns = [
     path('post/<int:pk>/update/', PostUpdateView.as_view(), name='post-update'),
     path('user/<str:username>', UserPostListView.as_view(), name='user-posts'),
     path("like/<int:pk>", LikeView, name="like_post"),
-<<<<<<< Updated upstream
     path("like/count/<int:pk>", get_likes, name="get_likes"),
     path("like/post/", csrf_exempt(add_likes), name="add_likes")
-=======
-    path("dislike/<int:pk>", DislikeView, name="dislike_post")
->>>>>>> Stashed changes
 ]
 

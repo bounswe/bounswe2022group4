@@ -14,12 +14,7 @@
                 {% csrf_token %}
                 <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary btn-sm">Like</button>
             </form>  
-<<<<<<< Updated upstream
             <small class="text-muted">{{ post.total_likes }} Likes</small>
-=======
-            <small class="text-muted">{{ post.total_likes }} Likes</small> 
-            <small class="text-muted">{{ post.total_dislikes }} Dislikes</small>
->>>>>>> Stashed changes
         </div>
         </article>
 
@@ -45,7 +40,6 @@
         {% endif %}
 {% endblock content %}
 
-<<<<<<< Updated upstream
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
@@ -53,6 +47,4 @@
     {% endfor %}
 </ul>
 {% endif %}
-=======
->>>>>>> Stashed changes
 
