@@ -1,12 +1,13 @@
 {% extends "post/base.html" %} {% block content %}
 
-<article class="media content-section">
-  <div class="media-body">
-    <div class="article-metadata">
-      <a class="mr-2" href="#">{{ object.author }}</a>
-      <small class="text-muted">{{ post.date }}</small>
-      <small class="text-muted">{{ post.location }}</small>
-
+    <article class="media content-section">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="#">{{ object.author }}</a>
+          <small class="text-muted">{{ post.date }}</small>
+            <small class="text-muted">{{ post.location }}</small>
+          
+          
       {% if object.author == user %}
       <div>
         <a
@@ -19,11 +20,18 @@
           href="{% url 'post-update' object.id %}"
           >Update</a
         >
-      </div>
-      {% endif %}
-    </div>
-    <h2 class="article-title">{{ object.title }}</h2>
-    <p class="article-content">{{ object.content }}</p>
+           </div>
+            {% endif %}
+        </div>
+        
+        
+        
+        
+        <h2 class="article-title">{{ object.title }}</h2>
+        <p class="article-content">{{ object.content }}</p>
+        <small class="text-muted">{{ post.total_likes }} Likes</small>
+        <small class="text-muted">{{ post.total_dislikes }} Dislikes</small>
+        
   </div>
 </article>
 
