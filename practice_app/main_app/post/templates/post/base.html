@@ -28,10 +28,22 @@
               <div class="collapse navbar-collapse" id="navbarToggle">
                 <div class="navbar-nav mr-auto">
                   <a class="nav-item nav-link" href="{% url 'home-page' %}">Home</a>
-                </div>
-                <div class="navbar-nav mr-auto">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Categories
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      {% for item in cat_menu %}
+                     
+                      <a class="dropdown-item" href="{% url 'category-posts' item%}">{{item}}</a>
+                     {%endfor%}
+                    </div>
+                  </li>
                   <a class="nav-item nav-link" href="{% url 'bmi_calculator' %}">BMI Calculator</a>
                 </div>
+                
+                  
+                
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav">
                     {% if user.is_authenticated %}

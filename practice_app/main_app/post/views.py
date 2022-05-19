@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Comment, Post
+from .models import Category, Comment, Post
 from django.contrib.auth.mixins import UserPassesTestMixin
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User 
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
 from .serializers import CommentSerializer
 from rest_framework import viewsets
@@ -23,6 +23,20 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
 
+
+
+
+
+
+def CategoryPostListView(request,cats):
+    
+    model = Post
+    template_name = 'blog/category_posts.html' # <app>/<model>_<viewtype>.html
+    context_object_name = 'posts'
+    paginate_by = 10
+
+    category_posts = Post.objects.filter(category=cats).order_by('-date')
+    return render(request,'post/category_posts.html',{'cats':cats,'category_posts':category_posts})
 
 
 def home(request):
@@ -82,11 +96,16 @@ def add_likes(request):
 # when the login feature is added, add loginrequiredmixin
 class PostCreateView(CreateView):
     model = Post
-    fields = ['title', 'content', 'location']
+    fields = ['title', 'category','content', 'location']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+    def get_context_data(self,*args,**kwargs):
+        cat_menu = Category.objects.all()
+        context = super(PostCreateView,self).get_context_data(*args,**kwargs)
+        context['cat_menu'] = cat_menu
+        return context 
 
 
 # after login is implemented, LoginRequiredMixin will be added.
@@ -99,6 +118,11 @@ class PostDeleteView(UserPassesTestMixin, DeleteView):
         if self.request.user == post.author:
             return True
         return False
+    def get_context_data(self,*args,**kwargs):
+        cat_menu = Category.objects.all()
+        context = super(PostDeleteView,self).get_context_data(*args,**kwargs)
+        context['cat_menu'] = cat_menu
+        return context 
 
 
 class PostListView(ListView):
@@ -107,6 +131,11 @@ class PostListView(ListView):
     context_object_name = 'posts'
     ordering = ['-date']
     paginate_by = 7
+    def get_context_data(self,*args,**kwargs):
+        cat_menu = Category.objects.all()
+        context = super(PostListView,self).get_context_data(*args,**kwargs)
+        context['cat_menu'] = cat_menu
+        return context 
 
 
 class PostDetailView(DetailView):
@@ -116,7 +145,7 @@ class PostDetailView(DetailView):
 # after login is implemented, LoginRequiredMixin will be added.
 class PostUpdateView(UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['title', 'content', 'location']
+    fields = ['title','category', 'content', 'location']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -127,6 +156,11 @@ class PostUpdateView(UserPassesTestMixin, UpdateView):
         if self.request.user == post.author:
             return True
         return False
+    def get_context_data(self,*args,**kwargs):
+        cat_menu = Category.objects.all()
+        context = super(PostUpdateView,self).get_context_data(*args,**kwargs)
+        context['cat_menu'] = cat_menu
+        return context 
 
 
 class UserPostListView(ListView):
@@ -138,6 +172,12 @@ class UserPostListView(ListView):
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
         return Post.objects.filter(author=user).order_by('-date')
+    
+    def get_context_data(self,*args,**kwargs):
+        cat_menu = Category.objects.all()
+        context = super(UserPostListView,self).get_context_data(*args,**kwargs)
+        context['cat_menu'] = cat_menu
+        return context 
 
 class CommentCreateView(CreateView):
     model = Comment
@@ -148,6 +188,11 @@ class CommentCreateView(CreateView):
         form.instance.author = self.request.user
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
+    def get_context_data(self,*args,**kwargs):
+        cat_menu = Category.objects.all()
+        context = super(CommentCreateView,self).get_context_data(*args,**kwargs)
+        context['cat_menu'] = cat_menu
+        return context 
 
 class CommentViewSet(generics.ListAPIView, viewsets.ModelViewSet):
     queryset = Comment.objects.all().order_by('id')
@@ -164,6 +209,11 @@ class CommentViewSet(generics.ListAPIView, viewsets.ModelViewSet):
         comments = Comment.objects.all
         response = [{"title": comment.title, "content": comment.content, "author": comment.author, "post": comment.post} for comment in comments]
         return Response(data=response, status=status.HTTP_200_OK)
+    def get_context_data(self,*args,**kwargs):
+        cat_menu = Category.objects.all()
+        context = super(CommentViewSet,self).get_context_data(*args,**kwargs)
+        context['cat_menu'] = cat_menu
+        return context 
 
 def bmi_calculator(req):
     weight = req.POST.get("weight", "1")

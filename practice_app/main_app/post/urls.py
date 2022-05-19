@@ -24,6 +24,10 @@ urlpatterns = [
     path('post/bmi-calculator/', views.bmi_calculator, name="bmi_calculator"),
     path("like/<int:pk>", LikeView, name="like_post"),
     path("dislike/<int:pk>", DislikeView, name="dislike_post"),
-    path('post/<int:pk>/comment/', CommentCreateView.as_view(), name='comment-create')
+    path('post/<int:pk>/comment/', CommentCreateView.as_view(), name='comment-create'),
+
+
+    path('category/<str:cats>/', views.CategoryPostListView, name='category-posts'),
+
 ]
 
