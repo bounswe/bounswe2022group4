@@ -15,7 +15,7 @@ class Post(models.Model):
 
     likes = models.ManyToManyField(User, related_name="blog_post")
     
-    dislikes = models.ManyToManyField(User, related_name="blog_post")
+    dislikes = models.ManyToManyField(User, related_name="blog_post_dislike")
 
     @property
     def total_likes(self):

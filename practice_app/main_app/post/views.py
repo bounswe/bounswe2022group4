@@ -23,9 +23,23 @@ def home(request):
 def LikeView(request, pk):
     if request.user.is_authenticated:
         post = get_object_or_404(Post, id=request.POST.get("post_id"))
-        post.likes.add(request.user)
+        if request.user in post.likes.all():
+            post.likes.remove(request.user)
+        elif not request.user in post.dislikes.all():
+            post.likes.add(request.user)
     else:
         messages.info(request, 'You have to login to like a post!')
+    return HttpResponseRedirect(reverse("home-page"))
+
+def DislikeView(request, pk):
+    if request.user.is_authenticated:
+        post = get_object_or_404(Post, id=request.POST.get("post_id"))
+        if request.user in post.dislikes.all():
+            post.dislikes.remove(request.user)
+        elif not request.user in post.likes.all():
+            post.dislikes.add(request.user)
+    else:
+        messages.info(request, 'You have to login to dislike a post!')
     return HttpResponseRedirect(reverse("home-page"))
 
 @api_view(["GET"])
@@ -50,10 +64,7 @@ def add_likes(request):
     post.likes.add(request.user)
     return HttpResponseRedirect(reverse("home-page"))
 
-def DislikeView(request, pk):
-    post = get_object_or_404(Post, id=request.POST.get("post_id"))
-    post.dislikes.add(request.user)
-    return HttpResponseRedirect(reverse("home-page"))
+
     
 
 # when the login feature is added, add loginrequiredmixin
