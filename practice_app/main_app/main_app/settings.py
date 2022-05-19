@@ -14,7 +14,7 @@ from pathlib import Path
 
 os.environ['MYSQL_NAME'] = "cmpe352"
 os.environ['MYSQL_USER'] = "root"
-os.environ['MYSQL_PASSWORD'] = "Pmerdca12"
+os.environ['MYSQL_PASSWORD'] = "123123123"
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
