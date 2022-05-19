@@ -1,0 +1,18 @@
+<div class="center">
+    <form id="postform" class="form-group" method="POST" action="{%url 'search_disease' %}">
+            {%csrf_token%}
+            <br>
+            <label>Search Disease:</label>
+            <br>
+            <input type="text" name="keyword" placeholder="keyword" required>
+
+            <input type="submit" name="submit" value="Submit">
+            <br>
+
+            {%for i in response%}
+                {{ i }}
+                <br>
+             {%endfor%}
+        
+    </form>
+</div>
