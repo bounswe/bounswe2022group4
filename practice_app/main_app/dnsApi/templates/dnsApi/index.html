@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DNS Record</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+</head>
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    <a class="nav-item nav-link" href="/dns/">You Can Find the DNS Record of the Domain You Want!</a>
+                </h1>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <form action="/dns/" method="POST">
+                        {% csrf_token %}
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <div class="column is-offset-3 is-2">
+                                    <table>
+                                        {{ form }}
+                                    </table>
+                                    <input type="submit" value="Submit">
+                                </div>                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-3 is-7">
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <span class="title">Domain: {{ dns.domain }}</span>
+                                        <br>
+                                        <span class="title">Country: {{ dns.country }}</span>
+                                        <br>
+                                        <span class="title">City: {{ dns.city }}</span>
+                                        <br>
+                                        <span class="title">A Record: {{ dns.a }}</span>
+                                        <br>
+                                        <span class="title">MX Record: {{ dns.mx }}</span>
+                                        <br>
+                                        <span class="title">NS Record: {{ dns.ns }}</span>
+                                        <br>
+                                        
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    </footer>
+</body>
+</html>
