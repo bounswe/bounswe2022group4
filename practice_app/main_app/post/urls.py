@@ -2,7 +2,9 @@ from django.urls import path, include
 from . import views
 
 from rest_framework import routers
-from .views import CommentCreateView, PostCreateView, PostDeleteView, PostDetailView, PostUpdateView, UserPostListView, PostListView, bmi_calculator, CommentDeleteView
+from .views import CommentCreateView, PostCreateView, PostDeleteView, PostDetailView, PostUpdateView, UserPostListView, PostListView, bmi_calculator, CommentDeleteView, search_disease
+
+
 
 
 router = routers.DefaultRouter()
@@ -21,7 +23,8 @@ urlpatterns = [
     path('post/<int:pk>/comment/', CommentCreateView.as_view(), name='comment-create'),
     path('router-view/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('post/bmi-calculator/', views.bmi_calculator, name="bmi_calculator"),
+    path('post/bmi-calculator/', views.bmi_calculator, name="bmi_calculator"),    
+    path('post/search_disease/', views.search_disease, name="search_disease"),
     path("like/<int:pk>", LikeView, name="like_post"),
     path("dislike/<int:pk>", DislikeView, name="dislike_post"),
     path('post/<int:pk>/comment/', CommentCreateView.as_view(), name='comment-create'),

@@ -1,3 +1,4 @@
+from unittest import result
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Comment, Post
 from django.contrib.auth.mixins import UserPassesTestMixin
@@ -192,5 +193,27 @@ def bmi_calculator(req):
     response = requests.request("GET", url, headers=headers, params=querystring)
 
     bmi = response.json().get('bmi')
+
     return render(req, 'post/bmi_calculator.html', {"bmi": bmi, "height": height, "weight":weight})
+
+
+def search_disease(request):
+    keyword = request.POST.get("keyword", "1")
+    url = "https://disease-drug-matching.p.rapidapi.com/search_disease/"
+    url += keyword
+
+    headers = {
+	"X-RapidAPI-Host": "disease-drug-matching.p.rapidapi.com",
+	"X-RapidAPI-Key": "38d1716712mshaf11e3cd9abca0fp1e8420jsn3bfa267e5136"
+    }
+
+    response = requests.request("GET", url, headers=headers)
+
+
+    
+    response = response.json()
+    resulting_diseases = list(set([x['disease'] for x in response])) 
+  
+
+    return render(request, 'post/search_disease.html', {"response": resulting_diseases, "keyword":keyword})
 

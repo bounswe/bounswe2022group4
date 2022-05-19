@@ -15,7 +15,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import CreateView
 from .models import City
 import os
-# api_key = os.environ['current_wheather_data']
+
+os.environ['current_wheather_data'] = "276027f9c2d690dfc36c80f833f0a709"
+api_key = os.environ['current_wheather_data']
+
 
 # Create your views here.
 class RegistrationForm(UserCreationForm):
