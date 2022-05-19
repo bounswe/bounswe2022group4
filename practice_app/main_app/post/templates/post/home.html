@@ -13,8 +13,13 @@
             <form action="{% url 'like_post' post.pk %}" method="POST">
                 {% csrf_token %}
                 <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary btn-sm">Like</button>
+            </form>
+            <form action="{% url 'dislike_post' post.pk %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary btn-sm">Dislike</button>
             </form>  
-            <small class="text-muted">{{ post.total_likes }} Likes</small>
+            <small class="text-muted">{{ post.total_likes }} Likes</small> 
+            <small class="text-muted">{{ post.total_dislikes }} Dislikes</small>
         </div>
         </article>
 
@@ -47,4 +52,3 @@
     {% endfor %}
 </ul>
 {% endif %}
-

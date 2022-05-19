@@ -8,6 +8,8 @@ from django.urls import reverse_lazy, reverse
 import json
 from rest_framework.decorators import api_view
 from django.contrib import messages
+from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy, reverse
 
 # Create your views here.
 
@@ -44,6 +46,15 @@ def add_likes(request):
         user = get_object_or_404(User, id=user_id)
         post.likes.add(user)
         return HttpResponse("<h1>{} liked the '{}' titled post</h1>".format(user.username, post.title))
+    post = get_object_or_404(Post, id=request.POST.get("post_id"))
+    post.likes.add(request.user)
+    return HttpResponseRedirect(reverse("home-page"))
+
+def DislikeView(request, pk):
+    post = get_object_or_404(Post, id=request.POST.get("post_id"))
+    post.dislikes.add(request.user)
+    return HttpResponseRedirect(reverse("home-page"))
+    
 
 # when the login feature is added, add loginrequiredmixin
 class PostCreateView(CreateView):
@@ -53,6 +64,7 @@ class PostCreateView(CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
 
 # after login is implemented, LoginRequiredMixin will be added.
 class PostDeleteView(UserPassesTestMixin, DeleteView):
