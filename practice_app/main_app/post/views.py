@@ -166,8 +166,8 @@ class CommentViewSet(generics.ListAPIView, viewsets.ModelViewSet):
         return Response(data=response, status=status.HTTP_200_OK)
 
 def bmi_calculator(req):
-    weight = req.POST.get("weight", "Guest (or whatever)")
-    height = req.POST.get("height", "Guest (or whatever)")
+    weight = req.POST.get("weight", "1")
+    height = req.POST.get("height", "1")
     height_int = int(height)/100
 
     url = "https://body-mass-index-bmi-calculator.p.rapidapi.com/metric"
