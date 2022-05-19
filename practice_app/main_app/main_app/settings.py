@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'post.apps.PostConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
+    'dnsApi',
 ]
 
 MIDDLEWARE = [
