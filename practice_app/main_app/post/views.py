@@ -16,7 +16,6 @@ from django.http import HttpResponseRedirect, HttpResponse
 
 
 
-# Create your views here.
 
 
 def home(request):
@@ -112,42 +111,21 @@ class CommentViewSet(generics.ListAPIView, viewsets.ModelViewSet):
         response = [{"title": comment.title, "content": comment.content, "author": comment.author, "post": comment.post} for comment in comments]
         return Response(data=response, status=status.HTTP_200_OK)
 
-'''@api_view(['GET', 'POST'])
-def createComment(request):
-    if request.method == 'POST':
-        new_comment = CommentSerializer(request.POST)
-        if new_comment.is_valid():
-            send_data = {'title': request.POST['title'], 'content': request.POST['content'],'author': request.POST['author'], 'post': request.POST['post']}
-            requests.post('http://127.0.0.1:8000/router-view/comments-api/', data=send_data)
-            messages.success(request, f'Your account has been created! You are now able to log in')
-            return redirect('home')
-    return render(request, 'post/comment_form.html', {'form': new_comment})
+def bmi_calculator(req):
+    weight = req.POST.get("weight", "Guest (or whatever)")
+    height = req.POST.get("height", "Guest (or whatever)")
+    height_int = int(height)/100
 
-@api_view(['GET'])
-def getUsers(request):
-     view = CommentViewSet()
-     comments = view.get(req=request).data
-     api_response = requests.get('http://127.0.0.1:8000/router-view/comments-api/').json()
-     
-     return render(
-         request,
-         "users/ListAllUsers.html",
-         {"users": users}
-     )
-         {"users": api_response}
-     )'''
+    url = "https://body-mass-index-bmi-calculator.p.rapidapi.com/metric"
+    querystring = {"weight":weight,"height":str(height_int)}
 
-'''def CommentView(request, pk):
-    if request.user.is_authenticated:
-         post = get_object_or_404(Post, id=request.POST.get("post_id"))
-         post.comments.add(request.user)
-    else:
-         messages.info(request, 'You have to login to comment on a post!')
-    return HttpResponseRedirect(reverse("home-page"))
+    headers = {
+        "X-RapidAPI-Host": "body-mass-index-bmi-calculator.p.rapidapi.com",
+        "X-RapidAPI-Key": "d74257fd79mshd06d57a0ab588b7p1484dejsn05d858f386ca"
+    }
 
-@api_view(["GET"])
-def get_likes(request, pk):
-     post = get_object_or_404(Post, id=pk)
-     total_likes = post.likes.count()
-     response = json.dumps([{"Post Title": comment.title, "Total Likes": total_likes }])
-     return HttpResponse(response, content_type="text/json") '''
+    response = requests.request("GET", url, headers=headers, params=querystring)
+
+    bmi = response.json().get('bmi')
+    return render(req, 'post/bmi_calculator.html', {"bmi": bmi, "height": height, "weight":weight})
+
