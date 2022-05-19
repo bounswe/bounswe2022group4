@@ -1,5 +1,6 @@
 {% extends "post/base.html" %}
 {% block content %}
+
         {% for post in posts %}
         <article class="media content-section">
           <div class="media-body">
@@ -46,8 +47,10 @@
 
         </article>
 
+
         {% endfor %}        
         
+
         {% if is_paginated %}
             {% if page_obj.has_previous %}
                 <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
