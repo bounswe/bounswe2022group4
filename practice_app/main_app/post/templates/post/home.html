@@ -11,6 +11,18 @@
             </div>
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
             <p class="article-content">{{ post.content }}</p>
+
+            <form action="{% url 'like_post' post.pk %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary btn-sm">Like</button>
+            </form>
+            <form action="{% url 'dislike_post' post.pk %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary btn-sm">Dislike</button>
+            </form>  
+            <small class="text-muted">{{ post.total_likes }} Likes</small> 
+            <small class="text-muted">{{ post.total_dislikes }} Dislikes</small>
+       
             <h5 class="article-content">Comments...</h5>
             <a href = "{% url 'comment-create' post.id  %}">Add Comment</a>
             <h5></h5>
@@ -30,11 +42,15 @@
             <hr>
             {% endfor %}
             {% endif %}
+         
           </div>
+
         </article>
-        {% endfor %}
-            <div class="center">
-    </div>
+
+
+        {% endfor %}        
+        
+
         {% if is_paginated %}
             {% if page_obj.has_previous %}
                 <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
@@ -54,4 +70,13 @@
             {% endif %}
         {% endif %}
 {% endblock content %}
+
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 

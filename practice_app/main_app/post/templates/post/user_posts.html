@@ -18,6 +18,8 @@
       >
     </h2>
     <p class="article-content">{{ post.content }}</p>
+       <small class="text-muted">{{ post.total_likes }} Likes</small>
+       <small class="text-muted">{{ post.total_dislikes }} Dislikes</small>
   </div>
 </article>
 {% endfor %} {% if is_paginated %} {% if page_obj.has_previous %}
