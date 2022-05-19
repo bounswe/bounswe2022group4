@@ -1,0 +1,15 @@
+{% extends "post/base.html" %}
+{% block content %}
+
+
+
+<h2>Here is a joke</h2>
+
+{% if joke %}
+    <p>{{joke.setup}} </p>
+    <p>{{joke.delivery}}</p>
+{% else %}
+    <p>{{status}}</p>
+{% endif %}
+
+{% endblock content %}
