@@ -10,6 +10,7 @@
             </div>
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
             <p class="article-content">{{ post.content }}</p>
+
             <form action="{% url 'like_post' post.pk %}" method="POST">
                 {% csrf_token %}
                 <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary btn-sm">Like</button>
@@ -20,7 +21,29 @@
             </form>  
             <small class="text-muted">{{ post.total_likes }} Likes</small> 
             <small class="text-muted">{{ post.total_dislikes }} Dislikes</small>
-        </div>
+       
+            <h5 class="article-content">Comments...</h5>
+            <a href = "{% url 'comment-create' post.id  %}">Add Comment</a>
+            <h5></h5>
+            {% if not post.comments.all %}
+            <p> No Comments </p>
+            {% else %}
+            {% for comment in post.comments.all %}
+            <div>
+              Title:
+            <strong>
+               {{comment.title}}
+            </strong>
+          </div>
+            <p>Content: {{comment.content}}</p>
+            <p>Author: {{comment.author}}</p>
+            <p>{{comment.date}}</p>
+            <hr>
+            {% endfor %}
+            {% endif %}
+         
+          </div>
+
         </article>
 
         {% endfor %}        
@@ -45,6 +68,7 @@
         {% endif %}
 {% endblock content %}
 
+
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
@@ -52,3 +76,4 @@
     {% endfor %}
 </ul>
 {% endif %}
+

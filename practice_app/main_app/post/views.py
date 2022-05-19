@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post
+from .models import Comment, Post
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
@@ -17,7 +17,8 @@ from django.urls import reverse_lazy, reverse
 def home(request):
     context = {
         'posts': Post.objects.all(),
-    }   
+    }
+
     return render(request, 'post/home.html', context)
 
 def LikeView(request, pk):
@@ -126,3 +127,16 @@ class UserPostListView(ListView):
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
         return Post.objects.filter(author=user).order_by('-date')
+
+class CommentCreateView(CreateView):
+    model = Comment
+    template_name = 'post/comment_form.html'
+    fields = [ 'title', 'content']
+
+    def form_valid(self, form):
+        
+        form.instance.author = self.request.user
+        form.instance.post_id = self.kwargs['pk']
+        return super().form_valid(form)
+
+
