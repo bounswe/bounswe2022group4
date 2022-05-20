@@ -1,12 +1,15 @@
+from cgi import test
+import email
 from urllib import request, response
 from django.test import TestCase
 from django.urls import reverse, resolve
 from django.db import models
+from mysqlx import Auth
 
 from .models import Comment, Post
 from django.contrib.auth.models import User
-
-
+from django.shortcuts import render, get_object_or_404
+from .views import LikeView, DislikeView
 # Create your tests here.
 
 
@@ -32,3 +35,11 @@ class TestCommentView(TestCase):
         self.assertEquals(str(test_object.title), "shoulder pain")
 
     
+class TestDislikeView(TestCase):
+    def test_dislike(self):
+        test_user = User.objects.create(username="test_like_user", id="1", email="bayndrysf@gmail.com", password="testlikepassword")
+        test_post = Post.objects.create(author=test_user)
+        test_post.dislikes.add(test_user)
+        expected_result = True
+        actual_result = ( test_user in test_post.dislikes.all() )
+        self.assertEquals(expected_result, actual_result)

@@ -38,6 +38,7 @@ urlpatterns = [
 
     path('life_expectancy/', LifeExpectancyAtBirth, name='life_expectancy'),
     path("api/like/count/<int:pk>", get_likes, name="get_likes"),
+    path("api/dislike/count/<int:pk>", get_dislikes, name="get_dislikes"),
     path("api/like/post/", add_likes, name="add_likes"),
     path('category/<str:cats>/', views.CategoryPostListView, name='category-posts'),
     path('coronavirus/', get_country_form.as_view(), name='country-form'),
