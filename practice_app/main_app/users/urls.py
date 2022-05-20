@@ -7,4 +7,6 @@ urlpatterns = [
     path('edit-profile/', ProfileEditView.as_view(), name='profile-edit'),
     path('api/edit-profile/', edit_profile, name='profile-edit-api'),
     path('api/all-profiles/', get_all_profiles, name='all-profile-api'),
+path('new-faces/', get_new_face, name='new-faces'),
+
 ]
