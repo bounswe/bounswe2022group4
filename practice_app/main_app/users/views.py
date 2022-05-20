@@ -1,3 +1,4 @@
+import json
 from pickle import FALSE, TRUE
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
@@ -15,6 +16,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import CreateView
 from .models import *
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
+from django.http import HttpResponseRedirect, HttpResponse
 import os
 
 os.environ['current_wheather_data'] = "276027f9c2d690dfc36c80f833f0a709"
@@ -133,6 +135,7 @@ class ProfileEditView(UpdateView):
 
 
     def get_object(self):
+        
         return get_object_or_404(UserProfile, user__username=self.request.user.username)
 
     def test_func(self):
@@ -144,6 +147,55 @@ class ProfileEditView(UpdateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+
+@api_view(["GET"])
+def get_all_profiles(request):
+    profiles = UserProfile.objects.all()
+    profiles_dict = {
+        userProfile.user.username: {
+            "name": userProfile.name,
+            "surname": userProfile.surname, 
+            "city":userProfile.city,
+            "country":userProfile.country,
+            "bio": userProfile.bio,
+            "email": userProfile.user.email}
+      for userProfile in profiles}    
+    response_json = json.dumps(profiles_dict)
+    return HttpResponse(response_json, content_type="text/json")
+
+@api_view(["POST"])
+def edit_profile(request):
+    body_unicode = request.body.decode('utf-8')
+    body:dict = json.loads(body_unicode)
+    username = body.get("username")
+    if username == None:
+        return HttpResponse("<h1>'{}' is not a valid username.</h1>".format(username))
+    profile = get_object_or_404(UserProfile, user__username=username)
+    changed_list = []
+    unvalid_list = []
+    bool_null = False
+    del body["username"]
+    for name, values in body.items():
+        if name in ["name","surname","city","country","bio"]:
+            if values == None:
+                bool_null = True
+                continue
+            setattr(profile,name,values)
+            changed_list.append(name)
+        else:
+            unvalid_list.append(name)
+            
+    profile.save()
+    
+    warning_text = ""
+    if bool_null:
+        warning_text = "<h1>Warning: Fields can not be null!</h1> "
+    if unvalid_list:
+        warning_text += "<h1>Warning: {} are not valid profile fields!</h1> ".format(', '.join(map(str, unvalid_list)))
+    if not changed_list:
+        return HttpResponse(warning_text + "<h1> Any fields didn't change on '{}' profile. </h1>".format(username))
+    return HttpResponse(warning_text + "<h1>{} has changed on '{}' profile. </h1>".format(', '.join(map(str, changed_list)), username))    
 
 
 @api_view(['GET'])
