@@ -86,7 +86,7 @@ class get_category_form_two(LoginRequiredMixin, ListView):
 def add_a_category(request):
     dict = {'name':request.POST['name'], 'description':request.POST['description']}
 
-    api_post = requests.post('http://127.0.0.1:8000/api/categories/',data=dict)
+    api_post = requests.post(request.build_absolute_uri('/api/categories'),data=dict)
     if api_post.status_code == 400:
         messages.info(request, 'Category not added!', fail_silently=True)
     else:
@@ -98,7 +98,7 @@ def add_a_category(request):
 def get_all_categories(request):
 
 
-    api_response = requests.get('http://127.0.0.1:8000/api/categories/').json()
+    api_response = requests.get(request.build_absolute_uri('/api/categories')).json()
 
     return render(request,'post/all_categories.html',{'response':api_response})
 
