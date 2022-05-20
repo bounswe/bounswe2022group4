@@ -166,7 +166,7 @@ class TestCategoryViews(TestCase):
         }
         
         self.getCategories_url = reverse('all-category')
-        self.api_category_url = 'http://127.0.0.1:8000/api/categories/'
+        self.api_category_url = 'http://18.117.222.187/api/categories/'
 
         self.add_url = reverse('add-category')
 
