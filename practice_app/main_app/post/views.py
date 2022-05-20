@@ -23,6 +23,7 @@ from rest_framework.decorators import api_view
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
+from .serializers import CategorySerializer
 
 class get_country_form(LoginRequiredMixin, CreateView):
     model = Country
@@ -54,6 +55,46 @@ def CategoryPostListView(request,cats):
     category_posts = Post.objects.filter(category=cats).order_by('-date')
     return render(request,'post/category_posts.html',{'cats':cats,'category_posts':category_posts})
 #########33
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all().order_by('id')
+    serializer_class = CategorySerializer
+
+
+
+class get_category_form(LoginRequiredMixin, CreateView):
+    model = Category
+    fields = ['name', 'description']
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+#########33
+
+
+class get_category_form_two(LoginRequiredMixin, CreateView):
+    model = Category
+    fields = []
+    def form_valid(self, form2):
+        form2.instance.author = self.request.user
+        return super().form_valid(form2)
+#########33
+
+def add_a_category(request):
+    dict = {'post':"http://127.0.0.1:8000/post/1/",'name':request.POST['name'], 'description':request.POST['description']}
+
+    api_post = requests.post('http://127.0.0.1:8000/api/categories/',data=dict)
+    return render(request,'post/home.html',{'response':api_post})
+
+
+def get_all_categories(request):
+
+
+    api_response = requests.get('http://127.0.0.1:8000/api/categories/').json()
+
+    return render(request,'post/all_categories.html',{'response':api_response})
+
+
+
 
 
 def home(request):
@@ -137,6 +178,12 @@ class PostDeleteView(UserPassesTestMixin, DeleteView):
             return True
         return False
 
+    def get_context_data(self,*args,**kwargs):
+        cat_menu = Category.objects.all()
+        context = super(PostDeleteView,self).get_context_data(*args,**kwargs)
+        context['cat_menu'] = cat_menu
+        return context   
+
 
 class PostListView(ListView):
     model = Post
@@ -186,6 +233,12 @@ class UserPostListView(ListView):
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
         return Post.objects.filter(author=user).order_by('-date')
+    
+    def get_context_data(self,*args,**kwargs):
+        cat_menu = Category.objects.all()
+        context = super(UserPostListView,self).get_context_data(*args,**kwargs)
+        context['cat_menu'] = cat_menu
+        return context   
 
 class CommentCreateView(CreateView):
     model = Comment
@@ -196,6 +249,12 @@ class CommentCreateView(CreateView):
         form.instance.author = self.request.user
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
+
+    def get_context_data(self,*args,**kwargs):
+        cat_menu = Category.objects.all()
+        context = super(CommentCreateView,self).get_context_data(*args,**kwargs)
+        context['cat_menu'] = cat_menu
+        return context   
 
 class CommentDeleteView(UserPassesTestMixin, DeleteView):
     model = Comment
@@ -223,6 +282,12 @@ class CommentViewSet(generics.ListAPIView, viewsets.ModelViewSet):
         comments = Comment.objects.all
         response = [{"title": comment.title, "content": comment.content, "author": comment.author, "post": comment.post} for comment in comments]
         return Response(data=response, status=status.HTTP_200_OK)
+    
+    def get_context_data(self,*args,**kwargs):
+        cat_menu = Category.objects.all()
+        context = super(CommentViewSet,self).get_context_data(*args,**kwargs)
+        context['cat_menu'] = cat_menu
+        return context   
 
 def bmi_calculator(req):
     weight = req.POST.get("weight", "1")
