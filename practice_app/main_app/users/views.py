@@ -217,3 +217,15 @@ def getJoke(request):
         return render({
             'status' : 'non-existent'
         },status = 404) 
+
+@api_view(['GET'])
+def get_new_face(request):
+    try:
+        response=requests.get("https://randomuser.me/api/")
+        json_response = response.json()
+    except requests.exceptions.RequestException as error:
+        messages.warning(request, 'A error occured while creating your new face, please try again later.')
+        return redirect('home-page') 
+    pic_url = json_response["results"][0]["picture"]["large"]
+        
+    return render(request, 'post/new_face.html',{'pic' : pic_url}) 
