@@ -3,8 +3,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Comment, Post
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.models import User
-from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
-from .serializers import CommentSerializer
+from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView, TemplateView
+from .serializers import CommentSerializer, PostSerializer
 from rest_framework import viewsets
 from rest_framework import generics, status
 from rest_framework.response import Response
@@ -217,3 +217,33 @@ def search_disease(request):
 
     return render(request, 'post/search_disease.html', {"response": resulting_diseases, "keyword":keyword})
 
+
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all().order_by('date')
+    serializer_class = PostSerializer
+
+    # def get_permissions(self):
+    #     if self.action == 'create' or self.action == 'update':
+    #         permission_classes = [IsAuthenticated]
+    #     else:
+    #         permission_classes = []
+    #     return [permission() for permission in permission_classes]
+
+
+
+def LifeExpectancyAtBirth(request):
+    url = 'https://ghoapi.azureedge.net/api/WHOSIS_000001'
+    r = requests.get(url)
+    data = r.json()
+    countries = list(set([x['SpatialDim'] for x in data['value']]))
+    countries.sort()
+
+    keyword = request.POST.get("keyword", "1")
+    if keyword != 'ALL':
+        url = 'https://ghoapi.azureedge.net/api/WHOSIS_000001?$filter=SpatialDim%20eq%20%27' + keyword + '%27'
+    # url = 'https://ghoapi.azureedge.net/api/WHOSIS_000001?$filter=SpatialDim%20eq%20%27TUR%27'
+    r = requests.get(url)
+    data = r.json()
+    main_data = {'data': data['value'], 'countries': countries}
+
+    return render(request, 'post/life_expectancy.html', {"response": main_data['data'], "keyword":keyword, "countries":main_data['countries']})

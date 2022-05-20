@@ -9,8 +9,10 @@ from .views import CommentCreateView, PostCreateView, PostDeleteView, PostDetail
 
 router = routers.DefaultRouter()
 router.register(r'comments-api', views.CommentViewSet)
+router.register(r'posts', views.PostViewSet)
+
 from .views import PostCreateView, PostDeleteView, PostDetailView, PostUpdateView, UserPostListView, PostListView, LikeView, DislikeView
-from .views import CommentCreateView, CommentDeleteView, PostCreateView, PostDeleteView, PostDetailView, PostUpdateView, UserPostListView, PostListView
+from .views import CommentCreateView, CommentDeleteView, PostCreateView, PostDeleteView, PostDetailView, PostUpdateView, UserPostListView, PostListView, LifeExpectancyAtBirth
 
 
 urlpatterns = [
@@ -28,6 +30,7 @@ urlpatterns = [
     path("like/<int:pk>", LikeView, name="like_post"),
     path("dislike/<int:pk>", DislikeView, name="dislike_post"),
     path('post/<int:pk>/comment/', CommentCreateView.as_view(), name='comment-create'),
-    path('post/<int:pk>/comment/delete', CommentDeleteView.as_view(), name='comment-delete')
+    path('post/<int:pk>/comment/delete', CommentDeleteView.as_view(), name='comment-delete'),
+    path('life_expectancy/', LifeExpectancyAtBirth, name='life_expectancy'),
 ]
 
