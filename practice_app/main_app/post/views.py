@@ -136,7 +136,7 @@ def DislikeView(request, pk):
 @api_view(["GET"])
 def get_dislikes(request, pk):
     post = get_object_or_404(Post, id=pk)
-    total_likes = post.dislikes.count()
+    total_dislikes = post.dislikes.count()
     response = json.dumps([{ "Post ID": pk, "Post Title": post.title, "Total Dislikes": total_dislikes }])
     return HttpResponse(response, content_type="text/json")
 

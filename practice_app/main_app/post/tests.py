@@ -1,4 +1,7 @@
+from cgi import test
+import email
 from urllib import request, response
+
 from django.test import TestCase, Client
 from rest_framework.test import APITestCase
 from django.urls import reverse, resolve
@@ -8,7 +11,9 @@ from django.contrib.auth.models import User
 from .models import Comment, Post, Category
 from django.contrib.auth.models import User
 from .views import PostCreateView, PostUpdateView, PostDeleteView
-
+from django.shortcuts import render, get_object_or_404
+from .views import LikeView, DislikeView
+from mysqlx import Auth
 
 # Create your tests here.
 
@@ -124,4 +129,56 @@ class PostsAPITest(APITestCase):
 
 
 
+
+
+    
+class TestDislikeView(TestCase):
+    def test_dislike(self):
+        test_user = User.objects.create(username="test_like_user", id="1", email="bayndrysf@gmail.com", password="testlikepassword")
+        test_post = Post.objects.create(author=test_user)
+        test_post.dislikes.add(test_user)
+        expected_result = True
+        actual_result = ( test_user in test_post.dislikes.all() )
+        self.assertEquals(expected_result, actual_result)
+
+
+class TestCategoryModels(TestCase):
+    def setUp(self):
+        self.category = Category.objects.create(name = 'name_try', description= 'description_try')
+
+    def test_str(self):
+        self.assertEquals(self.category.__str__(), 'name_try')
+
+    def test_category_fields(self):
+        self.assertEquals(self.category.name, "name_try")
+        self.assertEquals(self.category.description, "description_try")
+
+
+class TestCategoryViews(TestCase):
+
+    def setUp(self):
+        self.client = Client()
+        self._category = Category.objects.create(name = 'name_try', description= 'description_try')
+
+        self.test_data = {
+            'name': 'example_name',
+            'description': 'example'
+        }
+        
+        self.getCategories_url = reverse('all-category')
+        self.api_category_url = 'http://127.0.0.1:8000/api/categories/'
+
+        self.add_url = reverse('add-category')
+
+    def test_getCategories_GET(self):
+        response = self.client.get(self.getCategories_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'post/all_categories.html')
+
+    def test_create_category_POST(self):
+        response = self.client.post(self.api_category_url, self.test_data)
+
+        self.assertEquals(response.status_code, 201)
+        self.assertEquals(response.data['name'], 'example_name')
+        self.assertEquals(response.data['description'], 'example')
 
