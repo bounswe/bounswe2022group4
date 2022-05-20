@@ -128,9 +128,6 @@ class PostsAPITest(APITestCase):
         self.assertEqual(response.status_code, 301)
 
 
-
-
-
     
 class TestDislikeView(TestCase):
     def test_dislike(self):

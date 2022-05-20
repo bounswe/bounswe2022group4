@@ -1,5 +1,6 @@
 from unittest import result
 from django.shortcuts import render, get_object_or_404, redirect
+from matplotlib.pyplot import title
 from .models import Comment, Post,Category, Country
 from django.contrib.auth.mixins import UserPassesTestMixin,LoginRequiredMixin
 from django.contrib.auth.models import User
@@ -28,7 +29,6 @@ from .serializers import CategorySerializer
 class get_country_form(LoginRequiredMixin, CreateView):
     model = Country
     fields = ['name']
-#########33
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -54,7 +54,7 @@ def CategoryPostListView(request,cats):
 
     category_posts = Post.objects.filter(category__name=cats).order_by('-date')
     return render(request,'post/category_posts.html',{'cats':cats,'category_posts':category_posts})
-#########33
+
 
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all().order_by('id')
@@ -81,7 +81,6 @@ class get_category_form_two(LoginRequiredMixin, ListView):
         return Category.objects.all()
     
     
-#########33
 
 def add_a_category(request):
     dict = {'name':request.POST['name'], 'description':request.POST['description']}
@@ -133,11 +132,11 @@ def DislikeView(request, pk):
         messages.info(request, 'You have to login to dislike a post!')
     return HttpResponseRedirect(reverse("home-page"))
 
+
 @api_view(["GET"])
-def get_dislikes(request, pk):
-    post = get_object_or_404(Post, id=pk)
-    total_dislikes = post.dislikes.count()
-    response = json.dumps([{ "Post ID": pk, "Post Title": post.title, "Total Dislikes": total_dislikes }])
+def get_dislikes(request, title):
+    posts = Post.objects.filter(title=title)
+    response = json.dumps([ { "Post Title": post.title, "Total Dislikes": post.dislikes.count() } for post in posts])
     return HttpResponse(response, content_type="text/json")
 
 @api_view(["GET"])
