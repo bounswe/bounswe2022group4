@@ -134,6 +134,13 @@ def DislikeView(request, pk):
     return HttpResponseRedirect(reverse("home-page"))
 
 @api_view(["GET"])
+def get_dislikes(request, pk):
+    post = get_object_or_404(Post, id=pk)
+    total_likes = post.dislikes.count()
+    response = json.dumps([{ "Post ID": pk, "Post Title": post.title, "Total Dislikes": total_dislikes }])
+    return HttpResponse(response, content_type="text/json")
+
+@api_view(["GET"])
 def get_likes(request, pk):
     post = get_object_or_404(Post, id=pk)
     total_likes = post.likes.count()
