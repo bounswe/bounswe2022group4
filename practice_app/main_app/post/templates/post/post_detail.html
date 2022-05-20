@@ -3,7 +3,7 @@
     <article class="media content-section">
       <div class="media-body">
         <div class="article-metadata">
-          <a class="mr-2" href="#">{{ object.author }}</a>
+          <a class="mr-2" href="{% url 'user-page' post.author.username %}">{{ object.author }}</a>
           <small class="text-muted">{{ post.date }}</small>
             <small class="text-muted">{{ post.location }}</small>
           

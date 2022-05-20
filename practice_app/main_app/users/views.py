@@ -2,7 +2,7 @@ from pickle import FALSE, TRUE
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 import requests
 from django.contrib import messages
 from .serializers import UserSerializer
@@ -13,7 +13,8 @@ from django.http import HttpResponseRedirect
 from rest_framework import viewsets
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import CreateView
-from .models import City
+from .models import *
+from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
 import os
 
 os.environ['current_wheather_data'] = "276027f9c2d690dfc36c80f833f0a709"
@@ -117,6 +118,33 @@ def get_weather_data(request):
 
     }
     return render(request, 'users/city_data.html', {'weather' : weather, 'truef': TRUE})
+
+class ProfileDetailView(DetailView):
+    model = UserProfile
+    template_name = 'users/profile_page.html'
+
+    def get_object(self):
+        return get_object_or_404(UserProfile, user__username=self.kwargs['username'])
+
+class ProfileEditView(UpdateView):
+    model= UserProfile
+    fields = ['name', 'surname', 'city', 'country', 'bio']
+    template_name = 'users/profile_edit.html'
+
+
+    def get_object(self):
+        return get_object_or_404(UserProfile, user__username=self.request.user.username)
+
+    def test_func(self):
+        profile = self.get_object()
+        if self.request.user == profile.user:
+            return True
+        return False
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
 
 @api_view(['GET'])
 def getJoke(request):

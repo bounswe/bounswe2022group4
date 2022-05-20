@@ -19,7 +19,7 @@ urlpatterns = [
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
     path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
     path('post/<int:pk>/update/', PostUpdateView.as_view(), name='post-update'),
-    path('user/<str:username>', UserPostListView.as_view(), name='user-posts'),
+    path('user/<str:username>/posts', UserPostListView.as_view(), name='user-posts'),
     path('post/<int:pk>/comment/', CommentCreateView.as_view(), name='comment-create'),
     path('router-view/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
