@@ -2,7 +2,7 @@ from django.urls import path, include
 from . import views
 
 from rest_framework import routers
-from .views import CommentCreateView, PostCreateView, PostDeleteView, PostDetailView, PostUpdateView, UserPostListView, PostListView, bmi_calculator, CommentDeleteView, search_disease
+from .views import *
 
 
 
@@ -28,6 +28,8 @@ urlpatterns = [
     path("like/<int:pk>", LikeView, name="like_post"),
     path("dislike/<int:pk>", DislikeView, name="dislike_post"),
     path('post/<int:pk>/comment/', CommentCreateView.as_view(), name='comment-create'),
-    path('post/<int:pk>/comment/delete', CommentDeleteView.as_view(), name='comment-delete')
+    path('post/<int:pk>/comment/delete', CommentDeleteView.as_view(), name='comment-delete'),
+    path("like/count/<int:pk>", get_likes, name="get_likes"),
+    path("like/post/", add_likes, name="add_likes"),
 ]
 
