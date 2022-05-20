@@ -165,11 +165,11 @@ def add_likes(request):
 
     
 
-# when the login feature is added, add loginrequiredmixin
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title','category' ,'content', 'location']
     success_url = '/'
+
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
@@ -177,8 +177,7 @@ class PostCreateView(CreateView):
      
 
 
-# after login is implemented, LoginRequiredMixin will be added.
-class PostDeleteView(UserPassesTestMixin, DeleteView):
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     success_url = '/'
 
@@ -204,8 +203,7 @@ class PostDetailView(DetailView):
     model = Post
 
 
-# after login is implemented, LoginRequiredMixin will be added.
-class PostUpdateView(UserPassesTestMixin, UpdateView):
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title','category', 'content', 'location']
 
@@ -335,7 +333,7 @@ def LifeExpectancyAtBirth(request):
     keyword = request.POST.get("keyword", "1")
     if keyword != 'ALL':
         url = 'https://ghoapi.azureedge.net/api/WHOSIS_000001?$filter=SpatialDim%20eq%20%27' + keyword + '%27'
-    # url = 'https://ghoapi.azureedge.net/api/WHOSIS_000001?$filter=SpatialDim%20eq%20%27TUR%27'
+
     r = requests.get(url)
     data = r.json()
     main_data = {'data': data['value'], 'countries': countries}

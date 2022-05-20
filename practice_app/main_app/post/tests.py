@@ -1,15 +1,20 @@
 from cgi import test
 import email
 from urllib import request, response
-from django.test import TestCase,Client
+
+from django.test import TestCase, Client
+from rest_framework.test import APITestCase
 from django.urls import reverse, resolve
 from django.db import models
-from mysqlx import Auth
-
-from .models import Comment, Post,Category
 from django.contrib.auth.models import User
+
+from .models import Comment, Post, Category
+from django.contrib.auth.models import User
+from .views import PostCreateView, PostUpdateView, PostDeleteView
 from django.shortcuts import render, get_object_or_404
 from .views import LikeView, DislikeView
+from mysqlx import Auth
+
 # Create your tests here.
 
 
@@ -33,6 +38,98 @@ class TestCommentView(TestCase):
         self.assertEquals(test_object.author_id, 1)
         self.assertEquals(str(test_object.content), "it hurts")
         self.assertEquals(str(test_object.title), "shoulder pain")
+
+
+class URLTests(TestCase):
+    def setUp(self):
+        self.user = User.objects.create(
+            username='username_try',
+            password='password_try',
+            email='email_try@hotmail.com'
+        )
+        self.user.save()
+        self.category = Category(name='a', description= 'aaa')
+        self.category.save()
+        self.post = Post.objects.create(
+            title='Test Post', content='Content of the test post', category=self.category, author=self.user,
+        )
+
+
+    def test_homepage(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_create_post_not_logged_in(self):
+        response = self.client.get('/post/new/')
+        self.assertEqual(response.status_code, 302) # redirect for login
+        self.assertEqual(response.url, '/login/?next=/post/new/')
+
+
+    def test_create_post_logged_in(self):
+        self.client.login(
+            username='username_try',
+            password='password_try',
+            email='email_try@gmail.com'
+        )
+        response = self.client.post('/post/new/', {'title': 'a'})
+        self.assertTrue(response, 200)
+
+    # def test_delete_post_url_resolves(self):
+    #     url = '/post/delete/1'
+    #     self.assertEquals(resolve(url).func.view_class, PostDeleteView)
+    #
+    # def test_update_post_url_resolves(self):
+    #     url = '/post/update/1'
+    #     self.assertEquals(resolve(url).func.view_class, PostUpdateView)
+
+
+class ModelTest(TestCase):
+    def setUp(self):
+        self.user = User.objects.create(
+            username='username_try',
+            password='password_try',
+            email='email_try@hotmail.com'
+        )
+        self.user.save()
+        self.category = Category(name='a', description= 'aaa')
+        self.category.save()
+        self.post = Post.objects.create(
+            title='Test Post', content='Content of the test post', category=self.category, author=self.user,
+        )
+
+    def test_str(self):
+        self.assertEquals(self.post.__str__(), 'Test Post')
+
+    def test_post_fields(self):
+        self.assertEquals(self.post.title, "Test Post")
+        self.assertEquals(self.post.content, "Content of the test post")
+
+
+class PostsAPITest(APITestCase):
+    def setUp(self):
+        self.user = User.objects.create(
+            username='username_try',
+            password='password_try',
+            email='email_try@hotmail.com'
+        )
+        self.user.save()
+        self.category = Category(name='a', description='aaa')
+        self.category.save()
+        self.post = Post.objects.create(
+            title='Test Post', content='Content of the test post', category=self.category, author=self.user,
+        )
+
+    def test_posts_post(self):
+        data = {
+            'title': 'Test Post', 'content' : 'Content of the test post', 'category': self.category, 'author' : self.user,
+        }
+
+        response = self.client.post('/api/posts', data)
+        self.assertEqual(response.status_code, 301)
+
+
+
+
 
     
 class TestDislikeView(TestCase):
@@ -84,3 +181,4 @@ class TestCategoryViews(TestCase):
         self.assertEquals(response.status_code, 201)
         self.assertEquals(response.data['name'], 'example_name')
         self.assertEquals(response.data['description'], 'example')
+
