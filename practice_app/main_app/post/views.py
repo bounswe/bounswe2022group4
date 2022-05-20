@@ -1,6 +1,6 @@
 from unittest import result
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Comment, Post
+from .models import Comment, Post,Category
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
@@ -24,6 +24,18 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
 
+
+
+def CategoryPostListView(request,cats):
+    
+    model = Post
+    template_name = 'post/category_posts.html' # <app>/<model>_<viewtype>.html
+    context_object_name = 'posts'
+    paginate_by = 7
+
+    category_posts = Post.objects.filter(category=cats).order_by('-date')
+    return render(request,'post/category_posts.html',{'cats':cats,'category_posts':category_posts})
+#########33
 
 
 def home(request):
@@ -83,11 +95,17 @@ def add_likes(request):
 # when the login feature is added, add loginrequiredmixin
 class PostCreateView(CreateView):
     model = Post
-    fields = ['title', 'content', 'location']
+    fields = ['title','category' ,'content', 'location']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+    
+    def get_context_data(self,*args,**kwargs):
+        cat_menu = Category.objects.all()
+        context = super(PostCreateView,self).get_context_data(*args,**kwargs)
+        context['cat_menu'] = cat_menu
+        return context   
 
 
 # after login is implemented, LoginRequiredMixin will be added.
@@ -108,6 +126,11 @@ class PostListView(ListView):
     context_object_name = 'posts'
     ordering = ['-date']
     paginate_by = 7
+    def get_context_data(self,*args,**kwargs):
+        cat_menu = Category.objects.all()
+        context = super(PostListView,self).get_context_data(*args,**kwargs)
+        context['cat_menu'] = cat_menu
+        return context   
 
 
 class PostDetailView(DetailView):
@@ -117,7 +140,7 @@ class PostDetailView(DetailView):
 # after login is implemented, LoginRequiredMixin will be added.
 class PostUpdateView(UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['title', 'content', 'location']
+    fields = ['title','category', 'content', 'location']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -128,6 +151,12 @@ class PostUpdateView(UserPassesTestMixin, UpdateView):
         if self.request.user == post.author:
             return True
         return False
+    
+    def get_context_data(self,*args,**kwargs):
+        cat_menu = Category.objects.all()
+        context = super(PostUpdateView,self).get_context_data(*args,**kwargs)
+        context['cat_menu'] = cat_menu
+        return context 
 
 
 class UserPostListView(ListView):
