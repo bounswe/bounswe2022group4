@@ -1,0 +1,34 @@
+{% extends "post/base.html" %}
+{% block content %}
+
+{% if response.country %}
+<h2>Coronavirus Data of {{response.country}}</h2>
+
+        <article class="media content-section">
+            <img src={{response.countryInfo.flag}} alt="Yeah">
+          <div class="media-body">
+
+            <div class="article-metadata">
+                <ul>
+                    <li><b>Total Cases:</b>                 {{response.cases}}                    </li>
+                    <li><b>Total Deaths</b>                 {{response.deaths}}                    </li>
+                    <li><b>Total Recovered:</b>                 {{response.recovered}}                    </li>
+
+                    <li><b>Today's Cases:</b>                 {{response.todayCases}}                    </li>
+                    <li><b>Today's Deaths:</b>                 {{response.todayDeaths}}                    </li>
+                    <li><b>Today's Recovery:</b>                 {{response.todayRecovered}}                    </li>
+
+                    <li><b>Critical Patients:</b>                 {{response.critical}}                    </li>
+
+                </ul>
+            </div>
+          
+          </div>
+        </article>
+ {%else%} 
+
+ WRONG INPUT PLEASE TRY AGAIN !
+ {%endif%}
+
+{% endblock content %}
+

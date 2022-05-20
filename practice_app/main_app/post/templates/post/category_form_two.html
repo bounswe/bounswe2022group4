@@ -1,0 +1,18 @@
+{% extends "post/base.html" %}
+{% block content %}
+        <div class="content-section">
+                {% for ct in categories %}
+                <article class="media content-section">
+                        <div class="media-body">
+                          <h2>
+                            <a class="article-title" href = "{% url 'category-posts' ct.name%}"
+                              >{{ ct.name }}</a
+                            >
+                          </h2>
+                          <p class="article-content">{{ ct.description }}</p> 
+                        </div>
+                      </article>
+
+                {% endfor %}
+        </div>
+{% endblock content %}
