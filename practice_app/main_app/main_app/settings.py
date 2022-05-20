@@ -14,7 +14,7 @@ from pathlib import Path
 
 os.environ['MYSQL_NAME'] = "db_mysql"
 os.environ['MYSQL_USER'] = "root"
-os.environ['MYSQL_PASSWORD'] = "123456789"
+os.environ['MYSQL_PASSWORD'] = "oyuncu123"
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-=g^*s$3p=o$q+9nmu^3uj-l4w#j8wkvf47@=qi+%3jne()$td^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -89,6 +89,7 @@ DATABASES = {
         'USER': os.environ.get('MYSQL_USER'),
         'PASSWORD': os.environ.get('MYSQL_PASSWORD'),
         'HOST': 'localhost',
+        'PORT': '3306',
         'OPTIONS': {
         'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         'charset': 'utf8mb4',
