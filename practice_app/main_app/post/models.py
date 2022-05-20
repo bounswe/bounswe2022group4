@@ -68,7 +68,6 @@ class Comment(models.Model):
     post = models.ForeignKey(
         Post, related_name="comments", on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
-    content = models.TextField()
     # the date and time when the post is created.
     date = models.DateTimeField(default=timezone.now)
     # if the user is deleted,their post will also be deleted.
