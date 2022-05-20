@@ -5,7 +5,8 @@
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+              <a class="mr-2" href="{% url 'user-page' post.author.username %}">{{ post.author }}</a>
+              <a class="mr-1" href = "{% url 'category-posts' post.category%}">{{ post.category }}</a>
               <small class="text-muted">{{ post.date }}</small>
                 <small class="text-muted">{{ post.location }}</small>
             </div>

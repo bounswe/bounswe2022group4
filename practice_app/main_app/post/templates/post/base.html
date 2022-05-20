@@ -28,17 +28,30 @@
               <div class="collapse navbar-collapse" id="navbarToggle">
                 <div class="navbar-nav mr-auto">
                   <a class="nav-item nav-link" href="{% url 'home-page' %}">Home</a>
-                </div>
-                <div class="navbar-nav mr-auto">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Categories
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      {% for item in cat_menu %}
+                     
+                      <a class="dropdown-item" href="{% url 'category-posts' item%}">{{item}}</a>
+                     {%endfor%}
+                    </div>
+                  </li>
+                  <a class="nav-item nav-link" href="{% url 'country-form' %}">Coronavirus Data</a>
+                  <a class="nav-item nav-link" href="{% url 'category-form' %}">Add Categories</a>
+                  <a class="nav-item nav-link" href="{% url 'category-form-two' %}">All Categories</a>
                   <a class="nav-item nav-link" href="{% url 'bmi_calculator' %}">BMI Calculator</a>
-                </div>  
-                <div class="navbar-nav mr-auto">
+
                   <a class="nav-item nav-link" href="{% url 'search_disease' %}">Search Disease</a>
                 </div>
+              
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav">
                     {% if user.is_authenticated %}
                         <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
+                        <a class="nav-item nav-link" href="{% url 'user-page'  user.username %}">{{user.username}}</a>
                         <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                     {% else %}
                         <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>

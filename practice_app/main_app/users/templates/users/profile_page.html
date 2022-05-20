@@ -1,0 +1,52 @@
+{% extends "post/base.html" %} 
+{% block content %}
+<h1 class="mb-3">
+  Profile of  {{ userprofile.user.username }} 
+</h1>
+
+
+<section class="bg-light">
+  <div class="container">
+              <div class="card card-style1 border-0">
+                  <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+                      <div class="row align-items-center">
+                          
+                          <div class="col-lg-6 px-xl-10">
+                              
+                              <ul class="list-unstyled mb-1-9">
+                                  <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Name:</span> {{ userprofile.name }}</li>
+                                  <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Surname:</span> {{ userprofile.surname }}</li>
+                                  <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">City:</span> {{ userprofile.city }}</li>
+                                  <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Country:</span> {{ userprofile.country }}</li>
+                              </ul>     
+                          </div>
+              </div>
+          </div>
+          <div class="col-lg-12 mb-4 mb-sm-5">
+              <div>
+                  <span class="section-title text-secondary mb-3 mb-sm-4">About Me:</span>
+                  <p>{{ userprofile.bio }}</p>
+              </div>
+              {% if user == userprofile.user%}
+              <div>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'profile-edit'%}">
+                  Edit Profile
+                </a>
+              </div>
+              {% endif %}
+          </div>
+      </div>
+  </div>
+</section>
+</br>
+<section class="bg-light">
+  <div class="container">
+    <div class="card card-style1 border-0">
+      <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+        <a class="btn btn-secondary" href="{% url 'user-posts' userprofile.user.username %}" role="button">Recent posts of {{ userprofile.user.username }}</a>
+  </div>
+  </div>
+  </div>
+</section>
+
+{% endblock content %}
