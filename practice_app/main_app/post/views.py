@@ -52,7 +52,7 @@ def CategoryPostListView(request,cats):
     context_object_name = 'posts'
     paginate_by = 7
 
-    category_posts = Post.objects.filter(category=cats).order_by('-date')
+    category_posts = Post.objects.filter(category__name=cats).order_by('-date')
     return render(request,'post/category_posts.html',{'cats':cats,'category_posts':category_posts})
 #########33
 
@@ -65,26 +65,35 @@ class CategoryViewSet(viewsets.ModelViewSet):
 class get_category_form(LoginRequiredMixin, CreateView):
     model = Category
     fields = ['name', 'description']
+    success_url = '/'
     def form_valid(self, form):
-        form.instance.author = self.request.user
+        #form.instance.author = self.request.user
         return super().form_valid(form)
-#########33
 
 
-class get_category_form_two(LoginRequiredMixin, CreateView):
+
+class get_category_form_two(LoginRequiredMixin, ListView):
     model = Category
-    fields = []
-    def form_valid(self, form2):
-        form2.instance.author = self.request.user
-        return super().form_valid(form2)
+    context_object_name = 'categories'
+    ordering = ['-date']
+    paginate_by = 7
+    def get_queryset(self):
+        return Category.objects.all()
+    
+    
 #########33
 
 def add_a_category(request):
-    dict = {'post':"http://127.0.0.1:8000/post/1/",'name':request.POST['name'], 'description':request.POST['description']}
+    dict = {'name':request.POST['name'], 'description':request.POST['description']}
 
     api_post = requests.post('http://127.0.0.1:8000/api/categories/',data=dict)
-    return render(request,'post/home.html',{'response':api_post})
-
+    if api_post.status_code == 400:
+        messages.info(request, 'Category not added!', fail_silently=True)
+    else:
+        messages.info(request, '{} Category is created!'.format(request.POST['name']))
+    return HttpResponseRedirect(reverse("home-page"))
+    #return render(request,'post/home.html',{'response':api_post})
+    
 
 def get_all_categories(request):
 
@@ -94,15 +103,13 @@ def get_all_categories(request):
     return render(request,'post/all_categories.html',{'response':api_response})
 
 
-
-
-
 def home(request):
     context = {
         'posts': Post.objects.all(),
     }
 
     return render(request, 'post/home.html', context)
+
 
 def LikeView(request, pk):
     if request.user.is_authenticated:
@@ -160,11 +167,7 @@ class PostCreateView(CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
     
-    def get_context_data(self,*args,**kwargs):
-        cat_menu = Category.objects.all()
-        context = super(PostCreateView,self).get_context_data(*args,**kwargs)
-        context['cat_menu'] = cat_menu
-        return context   
+     
 
 
 # after login is implemented, LoginRequiredMixin will be added.
@@ -178,11 +181,7 @@ class PostDeleteView(UserPassesTestMixin, DeleteView):
             return True
         return False
 
-    def get_context_data(self,*args,**kwargs):
-        cat_menu = Category.objects.all()
-        context = super(PostDeleteView,self).get_context_data(*args,**kwargs)
-        context['cat_menu'] = cat_menu
-        return context   
+     
 
 
 class PostListView(ListView):
@@ -191,11 +190,7 @@ class PostListView(ListView):
     context_object_name = 'posts'
     ordering = ['-date']
     paginate_by = 7
-    def get_context_data(self,*args,**kwargs):
-        cat_menu = Category.objects.all()
-        context = super(PostListView,self).get_context_data(*args,**kwargs)
-        context['cat_menu'] = cat_menu
-        return context   
+      
 
 
 class PostDetailView(DetailView):
@@ -216,12 +211,6 @@ class PostUpdateView(UserPassesTestMixin, UpdateView):
         if self.request.user == post.author:
             return True
         return False
-    
-    def get_context_data(self,*args,**kwargs):
-        cat_menu = Category.objects.all()
-        context = super(PostUpdateView,self).get_context_data(*args,**kwargs)
-        context['cat_menu'] = cat_menu
-        return context 
 
 
 class UserPostListView(ListView):
@@ -234,11 +223,7 @@ class UserPostListView(ListView):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
         return Post.objects.filter(author=user).order_by('-date')
     
-    def get_context_data(self,*args,**kwargs):
-        cat_menu = Category.objects.all()
-        context = super(UserPostListView,self).get_context_data(*args,**kwargs)
-        context['cat_menu'] = cat_menu
-        return context   
+       
 
 class CommentCreateView(CreateView):
     model = Comment
@@ -249,12 +234,7 @@ class CommentCreateView(CreateView):
         form.instance.author = self.request.user
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
-
-    def get_context_data(self,*args,**kwargs):
-        cat_menu = Category.objects.all()
-        context = super(CommentCreateView,self).get_context_data(*args,**kwargs)
-        context['cat_menu'] = cat_menu
-        return context   
+  
 
 class CommentDeleteView(UserPassesTestMixin, DeleteView):
     model = Comment
@@ -282,12 +262,7 @@ class CommentViewSet(generics.ListAPIView, viewsets.ModelViewSet):
         comments = Comment.objects.all
         response = [{"title": comment.title, "content": comment.content, "author": comment.author, "post": comment.post} for comment in comments]
         return Response(data=response, status=status.HTTP_200_OK)
-    
-    def get_context_data(self,*args,**kwargs):
-        cat_menu = Category.objects.all()
-        context = super(CommentViewSet,self).get_context_data(*args,**kwargs)
-        context['cat_menu'] = cat_menu
-        return context   
+     
 
 def bmi_calculator(req):
     weight = req.POST.get("weight", "1")
