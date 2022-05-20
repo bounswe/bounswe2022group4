@@ -31,6 +31,7 @@ urlpatterns = [
     path('post/<int:pk>/comment/delete', CommentDeleteView.as_view(), name='comment-delete'),
     path("like/count/<int:pk>", get_likes, name="get_likes"),
     path("like/post/", add_likes, name="add_likes"),
+    
 
 ]
 
