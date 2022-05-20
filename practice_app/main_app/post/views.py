@@ -1,7 +1,7 @@
 from unittest import result
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Comment, Post,Category
-from django.contrib.auth.mixins import UserPassesTestMixin
+from .models import Comment, Post,Category, Country
+from django.contrib.auth.mixins import UserPassesTestMixin,LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
 from .serializers import CommentSerializer
@@ -23,6 +23,24 @@ from rest_framework.decorators import api_view
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
+
+class get_country_form(LoginRequiredMixin, CreateView):
+    model = Country
+    fields = ['name']
+#########33
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+def get_coronavirus_data(request):
+    country_name = request.POST["name"]
+
+    api_response = requests.get('https://corona.lmao.ninja/v2/countries/'+country_name+'?yesterday&strict&query').json()
+    if len(api_response) == 1:
+        return render(request,'post/corona_data.html',{'response':api_response})
+        
+    return render(request,'post/corona_data.html',{'response':api_response})
 
 
 

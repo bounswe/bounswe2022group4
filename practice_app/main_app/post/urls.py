@@ -2,7 +2,7 @@ from django.urls import path, include
 from . import views
 
 from rest_framework import routers
-from .views import CommentCreateView, PostCreateView, PostDeleteView, PostDetailView, PostUpdateView, UserPostListView, PostListView, bmi_calculator, CommentDeleteView, search_disease,CategoryPostListView
+from .views import CommentCreateView, PostCreateView, PostDeleteView, PostDetailView, PostUpdateView, UserPostListView, PostListView, bmi_calculator, CommentDeleteView, search_disease,CategoryPostListView,get_coronavirus_data
 
 
 
@@ -10,7 +10,7 @@ from .views import CommentCreateView, PostCreateView, PostDeleteView, PostDetail
 router = routers.DefaultRouter()
 router.register(r'comments-api', views.CommentViewSet)
 from .views import PostCreateView, PostDeleteView, PostDetailView, PostUpdateView, UserPostListView, PostListView, LikeView, DislikeView
-from .views import CommentCreateView, CommentDeleteView, PostCreateView, PostDeleteView, PostDetailView, PostUpdateView, UserPostListView, PostListView
+from .views import CommentCreateView, CommentDeleteView, PostCreateView, PostDeleteView, PostDetailView, PostUpdateView, UserPostListView, PostListView,get_country_form
 
 
 urlpatterns = [
@@ -29,7 +29,9 @@ urlpatterns = [
     path("dislike/<int:pk>", DislikeView, name="dislike_post"),
     path('post/<int:pk>/comment/', CommentCreateView.as_view(), name='comment-create'),
     path('post/<int:pk>/comment/delete', CommentDeleteView.as_view(), name='comment-delete'),
-    path('category/<str:cats>/', views.CategoryPostListView, name='category-posts')
+    path('category/<str:cats>/', views.CategoryPostListView, name='category-posts'),
+    path('coronavirus/', get_country_form.as_view(), name='country-form'),
+    path('coronavirus_data/', views.get_coronavirus_data, name='corona-data')
 
 ]
 
