@@ -3,8 +3,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Comment, Post,Category, Country
 from django.contrib.auth.mixins import UserPassesTestMixin,LoginRequiredMixin
 from django.contrib.auth.models import User
-from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
-from .serializers import CommentSerializer
+from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView, TemplateView
+from .serializers import CommentSerializer, PostSerializer
 from rest_framework import viewsets
 from rest_framework import generics, status
 from rest_framework.response import Response
@@ -134,6 +134,13 @@ def DislikeView(request, pk):
     return HttpResponseRedirect(reverse("home-page"))
 
 @api_view(["GET"])
+def get_dislikes(request, pk):
+    post = get_object_or_404(Post, id=pk)
+    total_dislikes = post.dislikes.count()
+    response = json.dumps([{ "Post ID": pk, "Post Title": post.title, "Total Dislikes": total_dislikes }])
+    return HttpResponse(response, content_type="text/json")
+
+@api_view(["GET"])
 def get_likes(request, pk):
     post = get_object_or_404(Post, id=pk)
     total_likes = post.likes.count()
@@ -158,10 +165,10 @@ def add_likes(request):
 
     
 
-# when the login feature is added, add loginrequiredmixin
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title','category' ,'content', 'location']
+    success_url = '/'
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -170,8 +177,7 @@ class PostCreateView(CreateView):
      
 
 
-# after login is implemented, LoginRequiredMixin will be added.
-class PostDeleteView(UserPassesTestMixin, DeleteView):
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     success_url = '/'
 
@@ -197,8 +203,7 @@ class PostDetailView(DetailView):
     model = Post
 
 
-# after login is implemented, LoginRequiredMixin will be added.
-class PostUpdateView(UserPassesTestMixin, UpdateView):
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title','category', 'content', 'location']
 
@@ -304,3 +309,33 @@ def search_disease(request):
 
     return render(request, 'post/search_disease.html', {"response": resulting_diseases, "keyword":keyword})
 
+
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all().order_by('date')
+    serializer_class = PostSerializer
+
+    # def get_permissions(self):
+    #     if self.action == 'create' or self.action == 'update':
+    #         permission_classes = [IsAuthenticated]
+    #     else:
+    #         permission_classes = []
+    #     return [permission() for permission in permission_classes]
+
+
+
+def LifeExpectancyAtBirth(request):
+    url = 'https://ghoapi.azureedge.net/api/WHOSIS_000001'
+    r = requests.get(url)
+    data = r.json()
+    countries = list(set([x['SpatialDim'] for x in data['value']]))
+    countries.sort()
+
+    keyword = request.POST.get("keyword", "1")
+    if keyword != 'ALL':
+        url = 'https://ghoapi.azureedge.net/api/WHOSIS_000001?$filter=SpatialDim%20eq%20%27' + keyword + '%27'
+
+    r = requests.get(url)
+    data = r.json()
+    main_data = {'data': data['value'], 'countries': countries}
+
+    return render(request, 'post/life_expectancy.html', {"response": main_data['data'], "keyword":keyword, "countries":main_data['countries']})
