@@ -200,10 +200,12 @@ class PostListView(ListView):
 
 class PostDetailView(DetailView):
     model = Post
+    
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
+    success_url = '/'
     fields = ['title','category', 'content', 'location']
 
     def form_valid(self, form):
