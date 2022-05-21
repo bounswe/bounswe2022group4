@@ -1,6 +1,6 @@
 # Status of Practice Application
 We dockerize and deploy our web-application to AWS EC2 instance.
-This is a link for app: http://18.117.222.187/
+Here is a link for app: http://18.117.222.187/
 # 🏥 Medical Experience Sharing Platform 
 
  This project provides an environment for doctors and those who have medical experience to share or want to gain information about some medical issues.The platform works as follows:
