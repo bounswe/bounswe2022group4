@@ -1,3 +1,11 @@
+# Manual for Dockerization and Deployment of Application
+* Before loading our application make sure git,docker and docker compose are downloaded to your server/computer.
+Their links are here: [Docker Installation Manual](https://docs.docker.com/engine/install/),
+[Git](https://github.com/git-guides/install-git#:~:text=To%20install%20Git%2C%20navigate%20to,installation%20by%20typing%3A%20git%20version%20.)
+* Then download the repository and open the folder which includes Dockerfile,docker-compose and requirements (main_app)
+* Then open the terminal and write 'docker-compose up'.
+* Finally, you can reach your application via your machine's public IP on web.
+
 # 🏥 Medical Experience Sharing Platform
 
  This project provides an environment for doctors and those who have medical experience to share or want to gain information about some medical issues.The platform works as follows:
