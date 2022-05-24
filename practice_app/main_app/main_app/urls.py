@@ -3,9 +3,14 @@ from django.urls import path, include
 from users import views as user_views
 from django.contrib.auth import views as auth_views
 from rest_framework import routers
+from post import views
 
 router = routers.DefaultRouter()
 router.register(r'users', user_views.UserView)
+router.register(r'comments-api', views.CommentViewSet)
+router.register(r'categories', views.CategoryViewSet)
+router.register(r'posts', views.PostViewSet)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', user_views.register_user, name='register'),
