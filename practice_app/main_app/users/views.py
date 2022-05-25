@@ -82,7 +82,9 @@ def register_user(request):
 #To get all users from API.
 @api_view(['GET'])
 def getUsers(request):
-    api_response = requests.get('http://127.0.0.1:8000/api2/users/').json()
+
+    api_response = requests.get('http://127.0.0.1:8000/api/users/').json()
+
     #view = UserView()
     #users = view.get(req=request).data      This is a another way to send GET to API. I prefer to use "requests" with get function.
 

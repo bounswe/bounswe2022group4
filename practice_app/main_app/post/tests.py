@@ -12,7 +12,7 @@ from .models import Comment, Post, Category
 from django.contrib.auth.models import User
 from .views import PostCreateView, PostUpdateView, PostDeleteView
 from django.shortcuts import render, get_object_or_404
-from .views import LikeView, DislikeView
+from .views import LikeView, DislikeView, get_likes, add_likes
 from mysqlx import Auth
 
 
@@ -148,9 +148,6 @@ class PostsAPITest(APITestCase):
         self.assertEqual(response.status_code, 301)
 
 
-
-
-
     
 class TestDislikeView(TestCase):
     def test_dislike(self):
@@ -186,7 +183,7 @@ class TestCategoryViews(TestCase):
         }
         
         self.getCategories_url = reverse('all-category')
-        self.api_category_url = 'http://127.0.0.1:8000/api/categories/'
+        self.api_category_url = 'http://18.117.222.187/api/categories/'
 
         self.add_url = reverse('add-category')
 
@@ -201,6 +198,25 @@ class TestCategoryViews(TestCase):
         self.assertEquals(response.status_code, 201)
         self.assertEquals(response.data['name'], 'example_name')
         self.assertEquals(response.data['description'], 'example')
+         
+class TestLikeView(TestCase):
+    def test_like(self):
+        test_user = User.objects.create(username="test_like_view", id="2", email="tok.oguzhan01@gmail.com", password="Test1234")
+        test_post = Post.objects.create(author=test_user)
+        test_post.likes.add(test_user)
+        expected_result = True
+        actual_result = ( test_user in test_post.likes.all() )
+        self.assertEquals(expected_result, actual_result)
+
+    # Tests the urls whether resolves or not
+    def test_like_post_api(self):
+        url = reverse("add_likes")   
+        self.assertEquals(resolve(url).func, add_likes)
+    
+    def test_like_get_api(self):
+        url = "/api/like/count/5"
+        self.assertEquals(resolve(url).func, get_likes)
+
 
     def test_comment_view_is_open(self):
         response = self.client.get(reverse('comment-create', args="1"))
@@ -238,4 +254,8 @@ class TestCategoryViews(TestCase):
             self.assertLess(bmi, 40)
             self.assertGreater(bmi, 25)
 
+
+    def test_like_func(self):
+        url = "/like/5"
+        self.assertEquals(resolve(url).func, LikeView)
 
