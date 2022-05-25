@@ -10,7 +10,9 @@
               <small class="text-muted">{{ post.date }}</small>
                 <small class="text-muted">{{ post.location }}</small>
             </div>
+
             <h2><a class="article-title" href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
+
             <p class="article-content">{{ post.content }}</p>
 
             <form action="{% url 'like_post' post.pk %}" method="POST">
@@ -32,13 +34,13 @@
             {% else %}
             {% for comment in post.comments.all %}
             <div>
-              Title:
-            <strong>
-               {{comment.title}}
-            </strong>
+                Title:		
+                 <strong>		
+                       {{comment.title}}		
+             </strong>
           </div>
-            <p>Content: {{comment.content}}</p>
-            <p>Author: {{comment.author}}</p>
+            <p> {{comment.content}}</p>
+            <p><b> Author </b> {{comment.author}}</p>
             <p>{{comment.date}}</p>
             <a href = "{% url 'comment-delete' comment.id  %}">Delete {{comment.title}} Comment</a>
             <hr>
