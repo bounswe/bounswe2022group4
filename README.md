@@ -1,4 +1,7 @@
-# 🏥 Medical Experience Sharing Platform
+# Status of Practice Application
+We dockerize and deploy our web-application to AWS EC2 instance.
+Here is a link for app: http://18.117.222.187/
+# 🏥 Medical Experience Sharing Platform 
 
  This project provides an environment for doctors and those who have medical experience to share or want to gain information about some medical issues.The platform works as follows:
  * People post their medical experiences or medical problems specifying its category. Doctors and other users make comments to the post and vote the post.
