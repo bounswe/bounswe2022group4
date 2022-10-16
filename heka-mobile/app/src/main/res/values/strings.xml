@@ -4,4 +4,5 @@
     <!-- Strings used for fragments for navigation -->
     <string name="login_fragment_label">Login</string>
     <string name="home_fragment_label">Home</string>
+    <string name="ping">PING</string>
 </resources>
