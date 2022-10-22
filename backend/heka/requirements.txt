@@ -4,6 +4,7 @@ Django==4.1.2
 djangorestframework==3.14.0
 pip==22.2.2
 psycopg2-binary==2.9.4
+python-decouple==3.6
 pytz==2022.5
 setuptools==63.4.1
 sqlparse==0.4.3
