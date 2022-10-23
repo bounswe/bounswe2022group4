@@ -1,9 +1,9 @@
-package com.bounswe.heka.home
+package com.bounswe.heka.timeline
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(): ViewModel() {
+class TimelineViewModel @Inject constructor(): ViewModel() {
 }

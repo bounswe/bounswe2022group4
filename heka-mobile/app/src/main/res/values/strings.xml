@@ -5,4 +5,5 @@
     <string name="login_fragment_label">Login</string>
     <string name="home_fragment_label">Home</string>
     <string name="ping">PING</string>
+    <string name="suggested_posts">Suggested Posts</string>
 </resources>

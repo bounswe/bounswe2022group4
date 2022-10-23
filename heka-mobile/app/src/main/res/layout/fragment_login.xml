@@ -23,13 +23,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/pingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.ping()}"
+        android:text="@string/ping"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        android:text="@string/ping"
-        android:onClick="@{() -> viewModel.ping()}"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

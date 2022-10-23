@@ -3,8 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.bounswe.heka.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/HomeFragment"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="HOME"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/TimelineFragment"
+        android:orderInCategory="100"
+        android:title="TIMELINE"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/LoginFragment"
+        android:orderInCategory="100"
+        android:title="LOGIN"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/ProfileFragment"
+        android:orderInCategory="100"
+        android:title="PROFILE"
         app:showAsAction="never" />
 </menu>

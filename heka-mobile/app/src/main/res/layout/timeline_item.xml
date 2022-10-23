@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.bounswe.heka.timeline.TimelineViewModel" />
+        <variable
+            name="state"
+            type="com.bounswe.heka.timeline.TimelineListItemState" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="@color/purple_200"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="10dp">
+
+    <ImageView
+        android:id="@+id/timeline_item_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="10dp"
+        android:src="@color/material_dynamic_neutral_variant30"/>
+
+    <TextView
+        android:id="@+id/timeline_item_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:text="@{state.title}"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/timeline_item_image"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Death is everywhere" />
+
+    <TextView
+        android:id="@+id/timeline_item_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:breakStrategy="balanced"
+        android:text="@{state.description}"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/timeline_item_title"
+        app:layout_constraintTop_toBottomOf="@+id/timeline_item_title"
+        tools:text="I see death people. Is it caused by a disease or too much fiction?" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
