@@ -16,7 +16,7 @@ For further information, please see our [Wiki page](https://github.com/bounswe/b
   * [Elif Tokluoğlu](https://github.com/bounswe/bounswe2022group4/wiki/Elif-Tokluo%C4%9Flu)
   * [Yiğit Can Özkaya](https://github.com/bounswe/bounswe2022group4/wiki/Yigit-Can-Ozkaya)
   * [Halil Salih Orhan](https://github.com/bounswe/bounswe2022group4/wiki/Halil-Salih-Orhan)
-  * [İbrahim Melih Aktaş]()
+  * [İbrahim Melih Aktaş](https://github.com/bounswe/bounswe2022group4/wiki/%C4%B0.Melih-Akta%C5%9F)
   * [Fatih Akgöz]()
   
    ### **Old Members**
