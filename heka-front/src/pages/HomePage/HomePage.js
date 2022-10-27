@@ -1,9 +1,10 @@
 import React from 'react';
-
+import PostBox from '../../components/PostBox/PostBox';
+import './HomePage.css';
 const HomePage = () => {
   return (
-    <div>
-      <h1>Home Page</h1>
+    <div className='home-container'>
+      <PostBox />
     </div>
   );
 };
