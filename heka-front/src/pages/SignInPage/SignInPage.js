@@ -29,6 +29,7 @@ const LoginForm = () =>{
 
   
     return(
+      <div class ="general-login-container">
       <div id="LoginForm">
         <h2 id="headerTitle">Login</h2>
         <NotRegistered />
@@ -60,6 +61,7 @@ const LoginForm = () =>{
         
         
         
+      </div>
       </div>
     )
   }
