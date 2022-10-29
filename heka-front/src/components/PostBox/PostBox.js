@@ -6,27 +6,27 @@ const PostBox = () => {
   const [posts, setPosts] = useState([
     //get posts from backend
     {
-      title: 'Post 1',
-      user: 'User 1',
+      title: 'Headache For Two Days',
+      user: 'umutdenizsenerr',
       content:
-        'This is a post This is a post This is a post This is a post This is a post \n This is a post This is a post This is a post This is a post \n This is a post This is a post This is a post This is a post This is a postThis is a post This is a post This is a post This is a post This is a post \n This is a post This is a post This is a post This is a post \n This is a post This is a post This is a post This is a post This is a postThis is a post This is a post This is a post This is a post This is a post \n This is a post This is a post This is a post This is a post \n This is a post This is a post This is a post This is a post This is a post',
-      time: '23:59',
+        'I have ache for two days at left of my head and it is getting worse day by day. \n I dont know what to do. \n I make some research on internet and now i am suspicios about brain tumor please help me.',
+      time: '28.10.2022 14:43',
     },
     {
-      title: 'Post 2',
-      user: 'User 2',
+      title: 'Sprained Ankle',
+      user: 'beratdamar',
       content:
-        'This is a post This is a post This is a post This is a post This is a post \n This is a post This is a post This is a post This is a post \n This is a post This is a post This is a post This is a post This is a postThis is a post This is a post This is a post This is a post This is a post \n This is a post This is a post This is a post This is a post \n This is a post This is a post This is a post This is a post This is a postThis is a post This is a post This is a post This is a post This is a post \n This is a post This is a post This is a post This is a post \n This is a post This is a post This is a post This is a post This is a post',
+        'In the football match I played with my friends 3 days ago, the ball hit my foot very hard and my foot was sprained. It still hurts a lot while walking.',
 
-      time: '23:59',
+      time: '25.10.2022 19:11',
     },
     {
-      title: 'Post 3',
-      user: 'User 3',
+      title: 'Focus Problem',
+      user: 'mbatuhanmalazgirt',
       content:
-        'This is a post This is a post This is a post This is a post This is a post \n This is a post This is a post This is a post This is a post \n This is a post This is a post This is a post This is a post This is a postThis is a post This is a post This is a post This is a post This is a post \n This is a post This is a post This is a post This is a post \n This is a post This is a post This is a post This is a post This is a postThis is a post This is a post This is a post This is a post This is a post \n This is a post This is a post This is a post This is a post \n This is a post This is a post This is a post This is a post This is a post',
+        'Since my exam schedule is very busy these days, I study at the library every day, but I check my phone every five minutes. I am open to any advice.',
 
-      time: '23:59',
+      time: '29.10.2022 09.27',
     },
   ]);
 
