@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:600|Work+Sans:400,500,600,700&display=swap');
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
-body{
-  font-family: "Franklin Gothic Medium";
-  background: linear-gradient(160deg, rgb(196, 76, 7) 0%,     rgb(87, 38, 202) 90%);
-  
+
+
+.general-login-container {
+  font-family: 'Franklin Gothic Medium';
+  background: linear-gradient(160deg, rgb(196, 76, 7) 0%, rgb(87, 38, 202) 90%);
+  font-size: 100%;
+  background-size: cover;
+  display: flex;
+  min-height: 89vh;
 }
 
 html{
