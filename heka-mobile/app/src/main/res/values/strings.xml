@@ -6,4 +6,12 @@
     <string name="home_fragment_label">Home</string>
     <string name="ping">PING</string>
     <string name="suggested_posts">Suggested Posts</string>
+    <string name="already_have_an_account">Already have an account</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="register_fragment_label">Register</string>
+    <string name="login">LOGIN</string>
+    <string name="dont_have_an_account">Don\'t Have An Account</string>
 </resources>

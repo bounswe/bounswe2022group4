@@ -6,10 +6,29 @@
     app:startDestination="@id/LoginFragment">
 
     <fragment
+        android:id="@+id/RegisterFragment"
+        android:name="com.bounswe.heka.register.RegisterFragment"
+        android:label="@string/register_fragment_label"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/LoginFragment" >
+            <argument
+                android:name="email"
+                app:argType="string" />
+        </action>
+    </fragment>
+    <fragment
         android:id="@+id/LoginFragment"
         android:name="com.bounswe.heka.login.LoginFragment"
         android:label="@string/login_fragment_label"
         tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/RegisterFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/HomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/HomeFragment"
@@ -28,5 +47,8 @@
         android:name="com.bounswe.heka.profile.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/LoginFragment" />
     </fragment>
 </navigation>
