@@ -4,15 +4,17 @@ import './SignInPage.css';
 import validator from 'validator';
 import { NavLink as Link, Navigate } from 'react-router-dom';
 import { BackendApi } from '../../api';
+import { FaUserCircle, FaKey, FaUserPlus } from 'react-icons/fa';
+import { AiOutlineLogin } from 'react-icons/ai';
+import { display } from '@mui/system';
 
-const LoginForm = () =>{
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [err_message, setErrMessage]= useState();
+const LoginForm = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [err_message, setErrMessage] = useState();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [wrong_email_password, setWrong]= useState();
+  const [wrong_email_password, setWrong] = useState();
   const isValidEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-  
 
   const handleSubmit = async (e) => {
     console.log('saved to firestore , input: ' + username);
@@ -32,104 +34,105 @@ const LoginForm = () =>{
     }
   };
 
- 
-
-  
-    return(
-      <>
-
-{isAuthenticated ? (
+  return (
+    <>
+      {isAuthenticated ? (
         <Navigate to='/' replace={true} />
       ) : (
-        <div class ="general-login-container">
-        <div id="LoginForm">
-          <h2 id="headerTitle">Login</h2>
-          
-          <div class = "con">
-          <NotRegistered />
-          <div class="field-set">
-       
-          <div class = "input-bar">
-          <span class="input-item">
-            <i class="fa fa-user-circle"></i>
-          </span>
-         
-          <input class="form-input" id="txt-input" type="text" placeholder="@UserName" required  value={username}  onChange={(e) => {setUsername(e.target.value); setErrMessage(false); setWrong(false)}}>
-      
-          </input>
-          </div>
-          { err_message ? <div class="error-msg">
-            <i class="fa fa-times-circle"></i>
-            Please enter a valid email address
-            
-          </div>: null}
+        <div className='general-login-container'>
+          <form className='general-form-component'>
+            <div className='con'>
+              <div className='head-form'>
+                <h2>Log In</h2>
+                <p>
+                  <NotRegistered />
+                </p>
+              </div>
+              <div className='field-set'>
+                <div className='input-component'>
+                  <span className='input-item'>
+                    <FaUserCircle />
+                  </span>
+                  <input
+                    className='form-input'
+                    type='text'
+                    placeholder='Email'
+                    required
+                    value={username}
+                    onChange={(e) => {
+                      setUsername(e.target.value);
+                      setErrMessage(false);
+                      setWrong(false);
+                    }}
+                  />
+                </div>
+                {err_message ? (
+                  <div className='error-msg'>
+                    <i className='fa fa-times-circle'></i>
+                    Please enter a valid email address
+                  </div>
+                ) : null}
 
-          { wrong_email_password && !err_message ? <div class="error-msg">
-            <i class="fa fa-times-circle"></i>
-            Invalid username or password
-            
-          </div>: null}
-      <div class = "input-bar">
-       <span class="input-item">
-         <i class="fa fa-key"></i>
-        </span>
-       
-       <input class="form-input" type="password" placeholder="Password" id="pwd"  name="password" required value={password}  onChange={(e) => {setPassword(e.target.value); setWrong(false)}}>
-       </input>
-       
-  
-      
-      <span>
-         <i class="fa fa-eye" aria-hidden="true"  type="button" id="eye"></i>
-      </span>
-      </div>
-      
-      </div>
-  
-       
-    </div>
-    
-  
-  
-  
-        
-  
-          
-          <div id="button" class="FormRow">
-            <button onClick={handleSubmit  }>Log in</button>
-          </div>
-  
-          
-  
-          
-          
-          
+                {wrong_email_password && !err_message ? (
+                  <div className='error-msg'>
+                    <i className='fa fa-times-circle'></i>
+                    Invalid username or password
+                  </div>
+                ) : null}
+                <div className='input-component'>
+                  <span className='input-item'>
+                    <FaKey />
+                  </span>
+
+                  <input
+                    className='form-input'
+                    type='password'
+                    placeholder='Password'
+                    name='password'
+                    required
+                    value={password}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                      setWrong(false);
+                    }}
+                  ></input>
+                </div>
+                <button className='login-button' onClick={handleSubmit}>
+                  Log in
+                  <AiOutlineLogin aria-hidden='true' />
+                </button>
+                <button
+                  className='login-button'
+                  onClick={handleSubmit}
+                  style={{
+                    margin: '0',
+                  }}
+                >
+                  <Link to='/sign-up' style={{ color: '#252537' }}>
+                    Sign up
+                  </Link>
+                  <FaUserPlus aria-hidden='true' />
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
-        </div>
-      ) }
+      )}
+    </>
+  );
+};
 
-
-       
-      
-      </>
-      
-    );
-  };
-
-
-
-const NotRegistered = props => (
-  <div id="Registered">
+const NotRegistered = () => (
+  <div id='Registered'>
     <label>Not Registered yet?</label>
     <br></br>
     <div>
-    <a class ="Link" href="/sign-up" > Sign Up </a>
+      <a className='Link' href='/sign-up'>
+        {' '}
+        Sign Up{' '}
+      </a>
     </div>
-    
-    
   </div>
 );
-
-
 
 export default LoginForm;
