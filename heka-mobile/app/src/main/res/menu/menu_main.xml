@@ -13,11 +13,6 @@
         android:title="TIMELINE"
         app:showAsAction="never" />
     <item
-        android:id="@+id/LoginFragment"
-        android:orderInCategory="100"
-        android:title="LOGIN"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/ProfileFragment"
         android:orderInCategory="100"
         android:title="PROFILE"

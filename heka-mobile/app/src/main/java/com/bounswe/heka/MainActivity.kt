@@ -9,6 +9,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bounswe.heka.databinding.ActivityMainBinding
@@ -31,9 +32,28 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.TimelineFragment, R.id.HomeFragment, R.id.LoginFragment
+                R.id.TimelineFragment, R.id.HomeFragment, R.id.ProfileFragment
             )
         )
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.TimelineFragment -> {
+                    navView.visibility = View.VISIBLE
+                }
+                R.id.HomeFragment -> {
+                    navView.visibility = View.VISIBLE
+                }
+                R.id.LoginFragment -> {
+                    navView.visibility = View.GONE
+                }
+                R.id.ProfileFragment -> {
+                    navView.visibility = View.VISIBLE
+                }
+                else -> {
+                    navView.visibility = View.GONE
+                }
+            }
+        }
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }

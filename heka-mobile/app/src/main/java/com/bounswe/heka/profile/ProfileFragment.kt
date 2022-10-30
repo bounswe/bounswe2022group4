@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.bounswe.heka.R
 import com.bounswe.heka.databinding.FragmentHomeBinding
 import com.bounswe.heka.databinding.FragmentProfileBinding
 import com.bounswe.heka.home.HomeViewModel
@@ -28,5 +30,11 @@ class ProfileFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.logout.observe(viewLifecycleOwner) {
+            if (it) {
+                activity?.getSharedPreferences("com.bounswe.heka", 0)?.edit()?.clear()?.apply()
+                findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
+            }
+        }
     }
 }
