@@ -23,4 +23,4 @@ sqlparse==0.4.1
 typing_extensions==4.1.1
 wheel==0.37.1
 uritemplate
-django-rest-swagger
+drf-yasg
