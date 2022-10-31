@@ -21,7 +21,7 @@ class RegisterView(APIView):
         serializer = UserSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save() 
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class LoginView(APIView):
     login_schema = openapi.Schema(
@@ -73,7 +73,7 @@ class HomeView(APIView):
         try:
             decoded_jwt = jwt.decode(token, "secret", algorithms=["HS256"])
         except jwt.ExpiredSignatureError:
-            raise AuthenticationFailed("jwt-error!")
+            raise AuthenticationFailed("JWT signature error!")
 
         user = User.objects.filter(id=decoded_jwt["id"]).first()
         serializer = UserSerializer(user)
@@ -85,13 +85,10 @@ class LogoutView(APIView):
     parameters.append(openapi.Parameter('jwt', in_ = 'cookie', type=openapi.TYPE_STRING))
     @swagger_auto_schema(manual_parameters=parameters) 
     def get(self, request):
-        response = Response()         
-        token = request.COOKIES.get("jwt")
-        if not token:
-            raise AuthenticationFailed("unauthenticated user!")
+        response = Response()
         response.delete_cookie("jwt")
         response.data = {
-            "message": "logout success"
+            "message": "Logout success."
         }
         return response
 
