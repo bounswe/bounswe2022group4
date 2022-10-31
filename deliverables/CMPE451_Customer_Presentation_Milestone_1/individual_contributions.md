@@ -134,14 +134,16 @@ In the demo, I have shown the following features:
 
 <details>
   <summary>
-
+    
 ###  **Umut Deniz Şener - Group 4**
     
 </summary>
-- Name: Umut Deniz Şener
-- Student ID: 2018400225
-- Personal Wiki: [Umut Deniz Şener](https://github.com/bounswe/bounswe2022group4/wiki/Umut-Deniz-%C5%9Eener)
-- Team: Frontend Team
+  
+* Name: Umut Deniz Şener
+* Student ID: 2018400225
+* Personal Wiki: [Umut Deniz Şener](https://github.com/bounswe/bounswe2022group4/wiki/Umut-Deniz-%C5%9Eener)
+* Team: Frontend Team
+  
 ### **Responsibilities**
   * Creating a code base for frontend team in order to start building our web application HEKA.
   * Implementing a navigation bar that allows users navigating to another components.
@@ -176,7 +178,7 @@ Since i have some experience in React before, I have created the code base for t
 
 #### **Management Related Significant Issues**
 * [Revision on Recommendation Requirements](https://github.com/bounswe/bounswe2022group4/issues/228)
-
+* [Update Personal Wiki Page](https://github.com/bounswe/bounswe2022group4/issues/304)
 
 ### **Pull Requests**
 *  [Creating A Base For Backend Connection](https://github.com/bounswe/bounswe2022group4/pull/271)
