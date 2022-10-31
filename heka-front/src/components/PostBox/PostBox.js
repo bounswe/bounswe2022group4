@@ -41,8 +41,10 @@ const PostBox = () => {
   return (
     <div style={{ padding: 14 }}>
       {/* <h1>Posts</h1> */}
-      {posts.map((post) => (
+      {posts.map((post, index) => (
         <Post
+          index={index}
+          key={index}
           title={post.title}
           user={post.user}
           content={post.content}
