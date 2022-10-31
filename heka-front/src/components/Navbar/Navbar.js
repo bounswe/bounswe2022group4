@@ -29,7 +29,7 @@ const Navbar = ({ isLogged }) => {
           </div>
         ) : (
           <div className='nav-button'>
-            <a href='/' className='nav-button-link'>
+            <a href='/sign-in' className='nav-button-link'>
               Sign Out
             </a>
           </div>
