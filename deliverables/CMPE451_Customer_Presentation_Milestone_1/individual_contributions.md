@@ -91,6 +91,109 @@ In the demo, I have shown the following features:
 
 
 </details>
+<details>
+  <summary>
+
+###  **Yusuf Bayındır - Group 4**
+    
+</summary>
+
+- Student ID: 2017400042
+- Email: yusuf.bayindir@boun.edu.tr
+- Personal Wiki: [Yusuf Bayındır](https://github.com/bounswe/bounswe2022group4/wiki/Yusuf-Bay%C4%B1nd%C4%B1r)
+- Team: Backend Development Team
+  
+  ### **Responsibilities**
+- I was responsible for integrating Swagger UI and implementing unit tests for registration and login functionalitites. 
+- My other partial responsibilities were revisiting [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements) & [Class Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram), organizing Wiki, and notetaking for some meetings. 
+
+
+### **Main contributions**
+- Note taker. [CMPE451-General Meeting #1](https://github.com/bounswe/bounswe2022group4/wiki/Meeting-%231,-10.10.2022), [Backend Meeting #1](https://github.com/bounswe/bounswe2022group4/wiki/Backend-Team-Meeting-%231,-20.10.2022)
+- Organizing Wiki. [Branch Management](https://github.com/bounswe/bounswe2022group4/wiki/Branch-Management)
+- Backend development: [Swagger Integration](https://github.com/bounswe/bounswe2022group4/issues/254), [Unit Tests](https://github.com/bounswe/bounswe2022group4/issues/291)
+- Revision on Requirements and Class Diagram. [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements), [Class Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram)
+
+
+#### **Code Related Significant Issues**
+* [Swagger integration](https://github.com/bounswe/bounswe2022group4/issues/254)
+* [Unit tests for register and login functionalities](https://github.com/bounswe/bounswe2022group4/issues/291)
+
+
+#### **Management Related Significant Issues**
+* [Revision on requirements](https://github.com/bounswe/bounswe2022group4/issues/226)
+* [Organizing Git workspace](https://github.com/bounswe/bounswe2022group4/issues/253)
+* [Revision on Class Design](https://github.com/bounswe/bounswe2022group4/issues/302)
+
+
+### **Pull Requests**
+*  [Swagger Integration](https://github.com/bounswe/bounswe2022group4/pull/261)
+*  [Enhancement to Swagger Integration](https://github.com/bounswe/bounswe2022group4/pull/283)
+*  [Unit Tests for Register and Login Functionalities](https://github.com/bounswe/bounswe2022group4/pull/298)
+
+</details>
+<details>
+
+</summary>
+  ###  **Member**
+
+Name: Umut Deniz Şener
+Student ID: 2018400255
+Group4 - Frontend Team
+### **Responsibilities**
+  * Creating a code base for frontend team in order to start building our web application HEKA.
+  * Implementing a navigation bar that allows users navigating to another components.
+  * Implementing Post component.
+  * Implementing PostBox component which renders multiple posts.
+  * Implementing Home Page.
+  * Implementing unit test cases for Home Page.
+  * Implementing the backend connection base for the web application.
+  * Implementing functions that make requests to the backend easily.
+  * Improving UI of the sign in and sign up pages.
+  * Reviewing the pull requests and issues in frontend team.
+  * Providing support to other frontend team members while they encountered a problem.
+  * Making research on React Hooks, Saas, Css Text Animations, Responsive Css Design, React Libraries.
+  * Implementing a structure for Lifting State Up.
+
+### **Main contributions**
+
+Since i have some experience in React before, I have created the code base for the frontend team (Arranging folder and file formats, Implementing router mechanism, Installing libraries). Then i have implemented the navigation bar by using best practises of React and css. I also responsible for the home page. In the home page we need to render the posts written by the users. In order to do that i first created Post component that renders a single post. Then i have implemented PostBox component that renders multiple post with the data i have created. Then i implemented HomePage component with the PostBox component and implemented unit test cases for these components. I also create a backend connection base by using appropriate React libraries and implement postLogin and postRegister functions that enable easily making http request to the relevant rest apis. I also added css animations to the navigation bar and home page and helped to improve ui of the login and sign up pages. Lastly, I implemented a structure for lifting state up that allow us to store global states in React after i implement it I hide private components from unauthorized users.
+
+
+#### **Code Related Significant Issues**
+* [Frontend: Create a Code Base for Frontend Team](https://github.com/bounswe/bounswe2022group4/issues/231)
+* [Frontend: Create a Navigation Bar for Web Application](https://github.com/bounswe/bounswe2022group4/issues/236)
+* [Frontend: Implement Post and PostBox Component Structure for Home Page](https://github.com/bounswe/bounswe2022group4/issues/257)
+* [Frontend: Frontend: Render the Posts in the HomePage](https://github.com/bounswe/bounswe2022group4/issues/260)
+* [Frontend: Creating A Base For Backend Connection](https://github.com/bounswe/bounswe2022group4/issues/270)
+* [Frontend: UI Improvement For Login Page](https://github.com/bounswe/bounswe2022group4/issues/275)
+* [Frontend: UI Improvement For Navigation Bar](https://github.com/bounswe/bounswe2022group4/issues/277)
+* [Frontend: UI Improvement For Home Page](https://github.com/bounswe/bounswe2022group4/issues/287)
+* [Frontend: Unit Test Cases For Home Page](https://github.com/bounswe/bounswe2022group4/issues/285)
+* [Frontend: Lifting State Up Login Information](https://github.com/bounswe/bounswe2022group4/issues/300)
+
+#### **Management Related Significant Issues**
+* [Revision on Recommendation Requirements](https://github.com/bounswe/bounswe2022group4/issues/228)
+
+
+### **Pull Requests**
+*  [Creating A Base For Backend Connection](https://github.com/bounswe/bounswe2022group4/pull/271)
+*  [UI Improvement For Login Page](https://github.com/bounswe/bounswe2022group4/pull/276)
+*  [UI Improvement For Navigation Bar](https://github.com/bounswe/bounswe2022group4/pull/278)
+*  [UI Improvement For Home Page](https://github.com/bounswe/bounswe2022group4/pull/289)
+*  [Unit Test Cases For Home Page](https://github.com/bounswe/bounswe2022group4/pull/290)
+*  [Store Login Info in Global State and Using In Navigation Bar](https://github.com/bounswe/bounswe2022group4/pull/301)
+
+### **Additional Information**
+Since i created the code base for the frontend team. I make my first commits directly to main frontend branch. So the issues that i first implemented could not seen in the pull request i put the relevant commit links below:
+* [Commit: Create a Code Base for Frontend Team](https://github.com/bounswe/bounswe2022group4/commit/8942126cbe9f4a7ae4ae0f2a73a85660c6409abd)
+* [Commit: Create a Navigation Bar for Web Application](https://github.com/bounswe/bounswe2022group4/commit/a3274bd38ceb60468a96f5c375d00289a07a60e1)
+* [Commit 1: Implement Post and PostBox Component Structure for Home Page](https://github.com/bounswe/bounswe2022group4/commit/2cf41b10ba35f1cfcab88874c9deef135645ae98)
+* [Commit 2: Implement Post and PostBox Component Structure for Home Page](https://github.com/bounswe/bounswe2022group4/commit/e980a415b8751fa4302df286923310d3c1a0420e)
+* [Commit: Render the Posts in the HomePage](https://github.com/bounswe/bounswe2022group4/commit/dc4439ea02b40eceab1b492e84c0e4673dd237ce)
+
+.
+</details>
 
 <details>
   <summary>
@@ -142,44 +245,4 @@ In the demo, I have shown the following features:
 
 
 
-<details>
-  <summary>
 
-###  **Yusuf Bayındır - Group 4**
-    
-</summary>
-
-- Student ID: 2017400042
-- Email: yusuf.bayindir@boun.edu.tr
-- Personal Wiki: [Yusuf Bayındır](https://github.com/bounswe/bounswe2022group4/wiki/Yusuf-Bay%C4%B1nd%C4%B1r)
-- Team: Backend Development Team
-  
-  ### **Responsibilities**
-- I was responsible for integrating Swagger UI and implementing unit tests for registration and login functionalitites. 
-- My other partial responsibilities were revisiting [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements) & [Class Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram), organizing Wiki, and notetaking for some meetings. 
-
-
-### **Main contributions**
-- Note taker. [CMPE451-General Meeting #1](https://github.com/bounswe/bounswe2022group4/wiki/Meeting-%231,-10.10.2022), [Backend Meeting #1](https://github.com/bounswe/bounswe2022group4/wiki/Backend-Team-Meeting-%231,-20.10.2022)
-- Organizing Wiki. [Branch Management](https://github.com/bounswe/bounswe2022group4/wiki/Branch-Management)
-- Backend development: [Swagger Integration](https://github.com/bounswe/bounswe2022group4/issues/254), [Unit Tests](https://github.com/bounswe/bounswe2022group4/issues/291)
-- Revision on Requirements and Class Diagram. [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements), [Class Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram)
-
-
-#### **Code Related Significant Issues**
-* [Swagger integration](https://github.com/bounswe/bounswe2022group4/issues/254)
-* [Unit tests for register and login functionalities](https://github.com/bounswe/bounswe2022group4/issues/291)
-
-
-#### **Management Related Significant Issues**
-* [Revision on requirements](https://github.com/bounswe/bounswe2022group4/issues/226)
-* [Organizing Git workspace](https://github.com/bounswe/bounswe2022group4/issues/253)
-* [Revision on Class Design](https://github.com/bounswe/bounswe2022group4/issues/302)
-
-
-### **Pull Requests**
-*  [Swagger Integration](https://github.com/bounswe/bounswe2022group4/pull/261)
-*  [Enhancement to Swagger Integration](https://github.com/bounswe/bounswe2022group4/pull/283)
-*  [Unit Tests for Register and Login Functionalities](https://github.com/bounswe/bounswe2022group4/pull/298)
-
-</details>
