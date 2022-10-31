@@ -13,7 +13,7 @@ import './Post.css';
 const imgLink =
   'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
 
-const Post = ({ title, user, content, time }) => {
+const Post = ({ title, user, content, time, index }) => {
   const [showCommentBox, setShowCommentBox] = useState(false);
   const [showComments, setShowComments] = useState(false);
 
@@ -23,7 +23,7 @@ const Post = ({ title, user, content, time }) => {
         <Grid item>
           <Avatar alt='Unknown Profile Picture' src={imgLink} />
         </Grid>
-        <Grid justifyContent='left' item xs zeroMinWidth>
+        <Grid item xs zeroMinWidth style={{ justifyContent: 'left' }}>
           <h2 style={{ margin: 0, textAlign: 'left' }}>{title}</h2>
 
           <h4 style={{ marginTop: '5vh', textAlign: 'left', color: 'grey' }}>
@@ -47,6 +47,7 @@ const Post = ({ title, user, content, time }) => {
             onClick={() => {
               setShowCommentBox(!showCommentBox);
             }}
+            data-testid={'comment-button-' + index}
           >
             {showCommentBox ? 'Comment' : 'Close'}
           </Button>
@@ -56,6 +57,7 @@ const Post = ({ title, user, content, time }) => {
             onClick={() => {
               setShowComments(!showComments);
             }}
+            data-testid={'show-comments-button-' + index}
           >
             {showComments ? 'Show Comments' : 'Close Comments'}
           </Button>
@@ -75,6 +77,7 @@ const Post = ({ title, user, content, time }) => {
                 'Delete functionality not implemented yet and will be available only for admins and the user who created the post'
               );
             }}
+            data-testid={'delete-button-' + index}
           >
             Delete
           </Button>
@@ -86,6 +89,7 @@ const Post = ({ title, user, content, time }) => {
                 'Edit functionality not implemented yet and will be available only for admins and the user who created the post'
               );
             }}
+            data-testid={'edit-button-' + index}
           >
             Edit
           </Button>
