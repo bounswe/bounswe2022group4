@@ -3,8 +3,7 @@ import { NavLink as Link } from 'react-router-dom';
 import './Navbar.css';
 import { FaBars } from 'react-icons/fa';
 
-const Navbar = () => {
-  const isLogin = false; //get login info from backend
+const Navbar = ({ isLogged }) => {
   return (
     <>
       <nav className='nav'>
@@ -17,7 +16,7 @@ const Navbar = () => {
             Profile
           </Link>
         </div>
-        {!isLogin && (
+        {!isLogged && (
           <div className='nav-button'>
             <Link to='/sign-in' className='nav-button-link'>
               Sign In
