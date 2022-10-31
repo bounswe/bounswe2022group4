@@ -4,6 +4,7 @@ import './HomePage.css';
 const HomePage = () => {
   return (
     <div className='home-container'>
+      <div className='welcome-text'>Welcome to HEKA</div>
       <PostBox />
     </div>
   );
