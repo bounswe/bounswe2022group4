@@ -20,10 +20,10 @@ import { useState } from "react";
 const userData = [
   {
     id: "0",
-    name: "Batuhan Malazgirt",
+    name: "Haley Howard",
     userName: "mrcmlzgrt",
     followers: [2, 3],
-    following: [3, 4],
+    following: [1,4],
     posts: [1, 2, 3],
     comments: [1, 2, 3, 4, 5],
     postLikes: [4, 7, 8],
@@ -231,7 +231,7 @@ const ProfilePage = (ids) => {
   const [postModelOpen, setPostModelOpen] = useState(false);
   const [followersModelOpen, setFollowersModelOpen] = useState(false);
   const [followingModelOpen, setFollowingModelOpen] = useState(false);
-  const [id, setID] = useState("1");
+  const [id, setID] = useState("0");
 
   return (
     <div>
@@ -339,12 +339,7 @@ const ProfilePage = (ids) => {
                   style={{ padding: "10px", marginTop: "5px", color: "gray" }}
                 >
                   <p>
-                    Lorem ipsum odor amet, consectetuer adipiscing elit. Ac
-                    purus in massa egestas mollis varius; dignissim elementum.
-                    Mollis tincidunt mattis hendrerit dolor eros enim, nisi
-                    ligula ornare. Hendrerit parturient habitant pharetra rutrum
-                    gravida porttitor eros feugiat. Mollis elit sodales taciti
-                    duis praesent id. Consequat urna vitae morbi nunc congue.
+                   A meadow of hay which eager to learn...
                   </p>
                 </div>
               </Col>
@@ -374,13 +369,12 @@ const ProfilePage = (ids) => {
                 >
                   {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
                   <CardBody>
-                    <CardTitle tag="h5">Card title</CardTitle>
+                    <CardTitle tag="h5">My blood pressure is too high</CardTitle>
                     <CardSubtitle className="mb-2 text-muted" tag="h6">
-                      Card subtitle
+                      Cardiology
                     </CardSubtitle>
                     <CardText>
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card‘s content.
+                      I have a very high blood pressure. What could be the reason of that? Should I see a doctor?
                     </CardText>
                     <Button>See Post</Button>
                   </CardBody>
@@ -395,13 +389,12 @@ const ProfilePage = (ids) => {
                 >
                   {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
                   <CardBody>
-                    <CardTitle tag="h5">Card title</CardTitle>
+                    <CardTitle tag="h5">My friend thinks that she is a bird!</CardTitle>
                     <CardSubtitle className="mb-2 text-muted" tag="h6">
-                      Card subtitle
+                        Psychology
                     </CardSubtitle>
                     <CardText>
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card‘s content.
+                      She is completely out of her mind! How can I convince her about she is not a bird?
                     </CardText>
                     <Button>See Post</Button>
                   </CardBody>
@@ -416,13 +409,12 @@ const ProfilePage = (ids) => {
                 >
                   {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
                   <CardBody>
-                    <CardTitle tag="h5">Card title</CardTitle>
+                    <CardTitle tag="h5">Which covid vaccine should I choose?</CardTitle>
                     <CardSubtitle className="mb-2 text-muted" tag="h6">
-                      Card subtitle
+                      Immunology
                     </CardSubtitle>
                     <CardText>
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card‘s content.
+                      Which vaccine is the best in terms of short and long term side effects? What do you suggest?
                     </CardText>
                     <Button>See Post</Button>
                   </CardBody>
@@ -437,13 +429,12 @@ const ProfilePage = (ids) => {
                 >
                   {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
                   <CardBody>
-                    <CardTitle tag="h5">Card title</CardTitle>
+                    <CardTitle tag="h5">I feel powerless</CardTitle>
                     <CardSubtitle className="mb-2 text-muted" tag="h6">
-                      Card subtitle
+                      Psychiatry
                     </CardSubtitle>
                     <CardText>
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card‘s content.
+                      I feel powerless. I feel meaningless. I feel hopelessness. I have deep depression followed by suicidal thoughts.
                     </CardText>
                     <Button>See Post</Button>
                   </CardBody>
