@@ -19,7 +19,7 @@ class RegisterTestCase(APITestCase):
         }
         request = self.factory.post(self.url, data)
         response = self.view(request)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
 class LoginTestCase(APITestCase):
     def setUp(self):
