@@ -1,1 +1,5 @@
 .env
+heka/__pycache__/
+users/migrations/__pycache__/
+users/__pycache__/
+.idea
