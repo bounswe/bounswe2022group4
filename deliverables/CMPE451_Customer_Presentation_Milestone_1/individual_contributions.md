@@ -206,11 +206,12 @@ I attended all general and frontend meetings. I also reviewed a lot of issues an
 ###  **Umut Deniz Şener - Group 4**
     
 </summary>
+  
   ###  **Member**
 
-Name: Umut Deniz Şener
-Student ID: 2018400255
-Group4 - Frontend Team
+* Name: Umut Deniz Şener
+* Student ID: 2018400255
+* Group: Group4 - Frontend Team
 ### **Responsibilities**
   * Creating a code base for frontend team in order to start building our web application HEKA.
   * Implementing a navigation bar that allows users navigating to another components.
@@ -245,7 +246,9 @@ Since i have some experience in React before, I have created the code base for t
 
 #### **Management Related Significant Issues**
 * [Revision on Recommendation Requirements](https://github.com/bounswe/bounswe2022group4/issues/228)
-
+* [Change Dummy Data to Real Case Scenarios](https://github.com/bounswe/bounswe2022group4/issues/264)
+* [Learning Saas](https://github.com/bounswe/bounswe2022group4/issues/256)
+* [Making Research on React Function Based Components](https://github.com/bounswe/bounswe2022group4/issues/247)
 
 ### **Pull Requests**
 *  [Creating A Base For Backend Connection](https://github.com/bounswe/bounswe2022group4/pull/271)
