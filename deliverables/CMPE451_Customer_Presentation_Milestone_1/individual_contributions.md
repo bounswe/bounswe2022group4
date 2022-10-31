@@ -133,7 +133,10 @@ In the demo, I have shown the following features:
 
 </details>
 <details>
+  <summary>
 
+###  **Umut Deniz Şener - Group 4**
+    
 </summary>
   ###  **Member**
 
@@ -192,7 +195,6 @@ Since i created the code base for the frontend team. I make my first commits dir
 * [Commit 2: Implement Post and PostBox Component Structure for Home Page](https://github.com/bounswe/bounswe2022group4/commit/e980a415b8751fa4302df286923310d3c1a0420e)
 * [Commit: Render the Posts in the HomePage](https://github.com/bounswe/bounswe2022group4/commit/dc4439ea02b40eceab1b492e84c0e4673dd237ce)
 
-.
 </details>
 
 <details>
