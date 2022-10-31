@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
-.nav {
+.navv {
   background-image: linear-gradient(-225deg, #e3fdf5 0%, #ffe6fa 100%);
   background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
   background-attachment: fixed;
@@ -10,7 +10,7 @@
   padding: 0.2rem calc((100vw - 1000px) / 2);
   font-family: 'Abel', sans-serif;
 }
-.nav-link {
+.navv-link {
   color: #3e403f;
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@
   height: 100%;
   cursor: pointer;
 }
-.nav-link:active {
+.navv-link:active {
   color: #000;
 }
 .bars {
@@ -27,17 +27,17 @@
   color: #808080;
 }
 
-.nav-menu {
+.navv-menu {
   display: flex;
   align-items: center;
   margin-right: -24px;
 }
-.nav-button {
+.navv-button {
   display: flex;
   align-items: center;
   margin-right: 24px;
 }
-.nav-button-link {
+.navv-button-link {
   border-radius: 4px;
   background: #808080;
   padding: 10px 22px;
@@ -56,10 +56,10 @@
   letter-spacing: 0.05em;
 }
 
-.nav-button-link:hover {
+.navv-button-link:hover {
   animation: ani9 0.4s ease-in-out infinite alternate;
 }
-.nav-link:hover {
+.navv-link:hover {
   animation: ani9 0.4s ease-in-out infinite alternate;
 }
 @keyframes ani9 {
@@ -80,10 +80,10 @@
     font-size: 1.8rem;
     cursor: pointer;
   }
-  .nav-menu {
+  .navv-menu {
     display: none;
   }
-  .nav-button {
+  .navv-button {
     display: none;
   }
 }

@@ -108,7 +108,10 @@ const LoginForm = ({ setIsLogged }) => {
                     margin: '0',
                   }}
                 >
-                  <Link to='/sign-up' style={{ color: '#252537' }}>
+                  <Link
+                    to='/sign-up'
+                    style={{ color: '#252537', textDecoration: 'none' }}
+                  >
                     Sign up
                   </Link>
                   <FaUserPlus aria-hidden='true' />
