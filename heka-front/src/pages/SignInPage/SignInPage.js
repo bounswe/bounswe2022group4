@@ -103,7 +103,6 @@ const LoginForm = () => {
                 </button>
                 <button
                   className='login-button'
-                  onClick={handleSubmit}
                   style={{
                     margin: '0',
                   }}
