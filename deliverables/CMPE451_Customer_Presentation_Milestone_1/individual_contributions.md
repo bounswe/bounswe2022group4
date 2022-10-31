@@ -301,6 +301,8 @@ Since i created the code base for the frontend team. I make my first commits dir
 - I took responsibility for the development of the Authentication API.
 - I also took responsibility for the creation of the Postman Collection of the developed API.
 - I played an active role in the planning and the distribution of the tasks within the team.
+- Revision of Project Plan.  
+ 
 
 ## 3. Contributions
 - I have developed the following endpoints:
