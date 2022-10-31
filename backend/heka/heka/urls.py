@@ -14,19 +14,33 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.conf.urls import url
 from rest_framework.schemas import get_schema_view
 from django.views.generic import TemplateView
 
-schema_view = get_schema_view(title='API Schema', description='HEKA API Documentation')
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+
+#schema_view = get_schema_view(title='API Schema', description='HEKA API Documentation')
+
+
+schema_swagger = get_schema_view(openapi.Info(
+      title="HEKA API Documentation",
+      description="REST API documentation of HEKA application.",
+      default_version="v0.1.0",
+      terms_of_service="https://www.google.com/policies/terms/",
+      contact=openapi.Contact(email="bounheka1@gmail.com"),
+    license=openapi.License(name="HEKA License"),
+   ),
+   public=True,
+   permission_classes=[permissions.AllowAny],
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/user/', include("users.urls") ),
-    path('api_documentation', schema_view, name='api_documentation'),
-    path('swagger-ui/', TemplateView.as_view(
-        template_name='swagger-ui.html',
-        extra_context={'schema_url':'api_documentation'}
-    ), name='swagger-ui'),
+    path('swagger/', schema_swagger.with_ui('swagger', cache_timeout=0), name='swagger-ui'),
+    path('redoc/', schema_swagger.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]

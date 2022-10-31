@@ -1,5 +1,6 @@
 from importlib import import_module
 from django.shortcuts import render
+from requests import request
 #from httplib2 import Response
 from yaml import serialize
 from rest_framework.views import APIView
@@ -8,21 +9,33 @@ from rest_framework.exceptions import AuthenticationFailed
 from .serializers import UserSerializer
 from .models import User
 import jwt, datetime
+from drf_yasg.utils import swagger_auto_schema 
+from drf_yasg import openapi
+from rest_framework.decorators import api_view
 
-
+#@swagger_auto_schema(methods=['post',],request_body=UserSerializer )
 class RegisterView(APIView):
+    @swagger_auto_schema(request_body = UserSerializer, response=UserSerializer) #manual_parameters=parameters)
     def post(self, request):
         serializer = UserSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        serializer.save() 
         return Response(serializer.data)
 
 class LoginView(APIView):
+    login_schema = openapi.Schema(
+    type=openapi.TYPE_OBJECT,
+    properties={
+        'email': openapi.Schema(type=openapi.TYPE_STRING, description='string'),
+        'password': openapi.Schema(type=openapi.TYPE_STRING, description='string'),
+    },
+    required=['email', 'password']
+    )
+    @swagger_auto_schema(request_body = login_schema)
     def post(self, request):
         email = request.data["email"]
         password = request.data["password"]
 
-### TODOs: input validation 
         
         user = User.objects.filter(email=email).first()
 
@@ -47,6 +60,9 @@ class LoginView(APIView):
         return response
 
 class HomeView(APIView):
+    parameters=[]
+    parameters.append(openapi.Parameter('jwt', in_ = 'cookie', type=openapi.TYPE_STRING))
+    @swagger_auto_schema(manual_parameters=parameters) 
     def get(self, request):
         token = request.COOKIES.get("jwt")
         
@@ -64,7 +80,9 @@ class HomeView(APIView):
         return Response(serializer.data)
 
 class LogoutView(APIView):
-    ## videoda post ile yapmıştı, fark eder mi?
+    parameters=[]
+    parameters.append(openapi.Parameter('jwt', in_ = 'cookie', type=openapi.TYPE_STRING))
+    @swagger_auto_schema(manual_parameters=parameters) 
     def get(self, request):
         response = Response()
         response.delete_cookie("jwt")
