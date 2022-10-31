@@ -45,47 +45,7 @@ My main responsilibity was the deployment. Dockerizing backend and deploying it 
 ### **Additional Information**
 .
 </details>
-<details>
-  <summary>
 
-###  **Yusuf Bayındır - Group 4**
-    
-</summary>
-
-- Student ID: 2017400042
-- Email: yusuf.bayindir@boun.edu.tr
-- Personal Wiki: [Yusuf Bayındır](https://github.com/bounswe/bounswe2022group4/wiki/Yusuf-Bay%C4%B1nd%C4%B1r)
-- Team: Backend Development Team
-  
-  ### **Responsibilities**
-- I was responsible for integrating Swagger UI and implementing unit tests for registration and login functionalitites. 
-- My other partial responsibilities were revisiting [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements) & [Class Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram), organizing Wiki, and notetaking for some meetings. 
-
-
-### **Main contributions**
-- Note taker. [CMPE451-General Meeting #1](https://github.com/bounswe/bounswe2022group4/wiki/Meeting-%231,-10.10.2022), [Backend Meeting #1](https://github.com/bounswe/bounswe2022group4/wiki/Backend-Team-Meeting-%231,-20.10.2022)
-- Organizing Wiki. [Branch Management](https://github.com/bounswe/bounswe2022group4/wiki/Branch-Management)
-- Backend development: [Swagger Integration](https://github.com/bounswe/bounswe2022group4/issues/254), [Unit Tests](https://github.com/bounswe/bounswe2022group4/issues/291)
-- Revision on Requirements and Class Diagram. [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements), [Class Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram)
-
-
-#### **Code Related Significant Issues**
-* [Swagger integration](https://github.com/bounswe/bounswe2022group4/issues/254)
-* [Unit tests for register and login functionalities](https://github.com/bounswe/bounswe2022group4/issues/291)
-
-
-#### **Management Related Significant Issues**
-* [Revision on requirements](https://github.com/bounswe/bounswe2022group4/issues/226)
-* [Organizing Git workspace](https://github.com/bounswe/bounswe2022group4/issues/253)
-* [Revision on Class Design](https://github.com/bounswe/bounswe2022group4/issues/302)
-
-
-### **Pull Requests**
-*  [Swagger Integration](https://github.com/bounswe/bounswe2022group4/pull/261)
-*  [Enhancement to Swagger Integration](https://github.com/bounswe/bounswe2022group4/pull/283)
-*  [Unit Tests for Register and Login Functionalities](https://github.com/bounswe/bounswe2022group4/pull/298)
-
-</details>
 <details>
   <summary>
 
@@ -132,18 +92,125 @@ In the demo, I have shown the following features:
 
 </details>
 
+
 <details>
   <summary>
-    
-###  **Umut Deniz Şener - Group 4**
+
+###  **Berat Damar - Group 4**
     
 </summary>
   
-* Name: Umut Deniz Şener
-* Student ID: 2018400225
-* Personal Wiki: [Umut Deniz Şener](https://github.com/bounswe/bounswe2022group4/wiki/Umut-Deniz-%C5%9Eener)
-* Team: Frontend Team
+###  **Member**
+
+* Name: Berat Damar
+* Student ID: 2018400039
+* Group4 - Frontend Team
+### **Responsibilities**
+  * Designing the login screen
+  * Implementing the login screen and making its back-end connection
+  * Writing tests for login screen
+  * Creating test base for frontend
+  * Documenting a general meeting note and a front-end team note
+  * Doing research on technologies needed to use on front-end development and documenting it
+  * Reviewing all works done by frontend teammates
+  * Reviewing all requirements
+  * Revising Use Case Diagram.
+  * Attending Weekly Meetings
+  * As a member of the front-end team, contributing to the development of the front-end and the main decisions about the project.
+
+### **Main contributions**
+
+At the beginning of semester, I redesigned my personal wiki page.Since I am a member of the front-end team, I especially contributed to the front side with React.Firstly, I researched technologies on front-end development and I documented it as a summary.We dediced to use React for development. I had no prior knowledge about the frontend development, so I spent a lot of time for learning and practicing React after we decided to use this library.Secondly, we discussed which pages we implement for Milestone 1. We decided 4 pages: login, sign up, profile page and homepage. I implemented login page.Finally, I did a research on testing with React and I wrote the tests of login page. On the other hand, I also contributed to management of project. I revised our requirements and made suggestions for improvements. I am responsible of revision of use case diagram. 
+
+
+
+#### **Code Related Significant Issues**
+* [Frontend: Implementation of Login Page](https://github.com/bounswe/bounswe2022group4/issues/259)
+* [Frontend Bug: Login Page Affects All Other Pages](https://github.com/bounswe/bounswe2022group4/issues/268)
+* [Frontend: Backend Connection of Login Page](https://github.com/bounswe/bounswe2022group4/issues/259)
+* [Frontend: Unit Tests for Log in Page](https://github.com/bounswe/bounswe2022group4/issues/284)
   
+#### **Management Related Significant Issues**
+* [Researching Frontend Development with React ](https://github.com/bounswe/bounswe2022group4/issues/237)
+* [Learning HTML and CSS before starting to learn React](https://github.com/bounswe/bounswe2022group4/issues/238)
+* [Learning Frontend Development with React ](https://github.com/bounswe/bounswe2022group4/issues/243)
+* [Update Personal Wiki Page](https://github.com/bounswe/bounswe2022group4/issues/227) 
+* [Revising the requirements](https://github.com/bounswe/bounswe2022group4/issues/226)
+* [Documenting Meeting Notes for the Meeting 2 of Frontend Team](https://github.com/bounswe/bounswe2022group4/issues/262)
+* [Documenting General Meeting Notes for the Meeting 2](https://github.com/bounswe/bounswe2022group4/issues/269)
+* [Revising the Use Case Diagram](https://github.com/bounswe/bounswe2022group4/issues/235)
+
+
+### **Pull Requests**
+* [Implementing login page using e-mail and password without backend connection](https://github.com/bounswe/bounswe2022group4/pull/265)
+* [Bug: Login page affects all other pages in terms of color,style etc](https://github.com/bounswe/bounswe2022group4/pull/267)
+* [Login page is connected to backend](https://github.com/bounswe/bounswe2022group4/pull/267)
+* [Login page test are implemented](https://github.com/bounswe/bounswe2022group4/pull/288)
+
+### **Additional Information**
+I attended all general and frontend meetings. I also reviewed a lot of issues and pull requests. 
+  
+</details>
+
+
+
+
+
+
+
+
+<details>
+  <summary>
+
+###  **Yusuf Bayındır - Group 4**
+    
+</summary>
+
+- Student ID: 2017400042
+- Email: yusuf.bayindir@boun.edu.tr
+- Personal Wiki: [Yusuf Bayındır](https://github.com/bounswe/bounswe2022group4/wiki/Yusuf-Bay%C4%B1nd%C4%B1r)
+- Team: Backend Development Team
+  
+  ### **Responsibilities**
+- I was responsible for integrating Swagger UI and implementing unit tests for registration and login functionalitites. 
+- My other partial responsibilities were revisiting [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements) & [Class Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram), organizing Wiki, and notetaking for some meetings. 
+
+
+### **Main contributions**
+- Note taker. [CMPE451-General Meeting #1](https://github.com/bounswe/bounswe2022group4/wiki/Meeting-%231,-10.10.2022), [Backend Meeting #1](https://github.com/bounswe/bounswe2022group4/wiki/Backend-Team-Meeting-%231,-20.10.2022)
+- Organizing Wiki. [Branch Management](https://github.com/bounswe/bounswe2022group4/wiki/Branch-Management)
+- Backend development: [Swagger Integration](https://github.com/bounswe/bounswe2022group4/issues/254), [Unit Tests](https://github.com/bounswe/bounswe2022group4/issues/291)
+- Revision on Requirements and Class Diagram. [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements), [Class Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram)
+
+
+#### **Code Related Significant Issues**
+* [Swagger integration](https://github.com/bounswe/bounswe2022group4/issues/254)
+* [Unit tests for register and login functionalities](https://github.com/bounswe/bounswe2022group4/issues/291)
+
+
+#### **Management Related Significant Issues**
+* [Revision on requirements](https://github.com/bounswe/bounswe2022group4/issues/226)
+* [Organizing Git workspace](https://github.com/bounswe/bounswe2022group4/issues/253)
+* [Revision on Class Design](https://github.com/bounswe/bounswe2022group4/issues/302)
+
+
+### **Pull Requests**
+*  [Swagger Integration](https://github.com/bounswe/bounswe2022group4/pull/261)
+*  [Enhancement to Swagger Integration](https://github.com/bounswe/bounswe2022group4/pull/283)
+*  [Unit Tests for Register and Login Functionalities](https://github.com/bounswe/bounswe2022group4/pull/298)
+
+</details>
+<details>
+  <summary>
+
+###  **Umut Deniz Şener - Group 4**
+    
+</summary>
+  ###  **Member**
+
+Name: Umut Deniz Şener
+Student ID: 2018400255
+Group4 - Frontend Team
 ### **Responsibilities**
   * Creating a code base for frontend team in order to start building our web application HEKA.
   * Implementing a navigation bar that allows users navigating to another components.
@@ -178,7 +245,7 @@ Since i have some experience in React before, I have created the code base for t
 
 #### **Management Related Significant Issues**
 * [Revision on Recommendation Requirements](https://github.com/bounswe/bounswe2022group4/issues/228)
-* [Update Personal Wiki Page](https://github.com/bounswe/bounswe2022group4/issues/304)
+
 
 ### **Pull Requests**
 *  [Creating A Base For Backend Connection](https://github.com/bounswe/bounswe2022group4/pull/271)
@@ -197,6 +264,22 @@ Since i created the code base for the frontend team. I make my first commits dir
 * [Commit: Render the Posts in the HomePage](https://github.com/bounswe/bounswe2022group4/commit/dc4439ea02b40eceab1b492e84c0e4673dd237ce)
 
 </details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <details>
   <summary>
