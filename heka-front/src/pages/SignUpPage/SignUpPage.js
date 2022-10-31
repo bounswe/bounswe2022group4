@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import validator from "validator";
-import { NavLink as Navigate } from "react-router-dom";
+import { NavLink as Navigate, Link } from "react-router-dom";
 import { BackendApi } from "../../api";
 import { FaUserCircle, FaKey, FaAddressBook } from "react-icons/fa";
 import { AiFillDownCircle, AiOutlineLogin } from "react-icons/ai";
@@ -14,31 +13,33 @@ const SignUpPage = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [wrong_email_password, setWrong] = useState();
   const isValidEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+  const validEmail = (e) => {
+    var filter =
+      /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
+    return String(e).search(filter) !== -1;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (username && password && email) {
+    if (username && password && email && validEmail(email)) {
       const response = await BackendApi.postRegister(email, username, password);
       console.log(response);
       if (response.status === 200) {
         setIsAuthenticated(true);
-      } else if (response.status === 403) {
+      } else if (response.status === 400) {
         setWrong(true);
-        /* alert('Invalid username or password'); */
+        alert("This e-mail had already been registered!");
       }
-
-      if (validator.isEmail(email)) {
-        //alert(username);
-      } else {
-        setErrMessage(true);
-      }
+    } else {
+      alert("Please enter a valid e-mail!");
+      setErrMessage(true);
     }
   };
 
   return (
     <>
       {isAuthenticated ? (
-        <Navigate to="/" replace={true} />
+        <Navigate to="/sign-in" replace={true} />
       ) : (
         <div className="general-login-container">
           <form className="general-form-component">
@@ -116,7 +117,6 @@ const SignUpPage = () => {
                   ></input>
                 </div>
                 <button className="login-button" onClick={handleSubmit}>
-                  Sign Up
                   <AiOutlineLogin aria-hidden="true" />
                 </button>
               </div>
