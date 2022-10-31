@@ -92,3 +92,50 @@ In the demo, I have shown the following features:
 
 </details>
 
+<details>
+  <summary>
+
+### *Oğuzhan TOK - Group 4*
+
+  </summary>
+
+## 1. Who am I?
+
+- Name: Oğuzhan Tok
+- Student ID: 2019400267
+- Email: oguzhan.tok@boun.edu.tr
+- Personal wiki: [Oğuzhan Tok](https://github.com/bounswe/bounswe2022group4/wiki/O%C4%9Fuzhan-Tok)
+- I am working as a backend developer on the project.
+
+## 2. Responsibilities
+- I have been working on the backend API of the project.
+- I took responsibility for the development of the Authentication API.
+- I also took responsibility for the creation of the Postman Collection of the developed API.
+- I played an active role in the planning and the distribution of the tasks within the team.
+
+## 3. Contributions
+- I have developed the following endpoints:
+- /api/user/register
+- /api/user/login
+- /api/user/logout
+- /api/user/home
+- I have created the Postman Collection for the Authentication API in order Frontend and Android teams to make request easily. 
+
+## 4. My Issues
+### Code related significant issues:
+-  Backend: Implement authentication API using JWT Tokens([issue 255](https://github.com/bounswe/bounswe2022group4/issues/255) /
+[commit](https://github.com/bounswe/bounswe2022group4/commit/7ed4480d70f3bc10207c228af015be23ea42e4ed) )
+
+### Management Related Issues 
+- Backend: Create Postman collection for backend authentication API([issue 266](https://github.com/bounswe/bounswe2022group4/issues/266) 
+
+### Issues and Pull Requests I Reviewed
+- [heka-backend-token-time -> heka-backend](https://github.com/bounswe/bounswe2022group4/pull/294)
+- [heka-backend-test -> heka-backend](https://github.com/bounswe/bounswe2022group4/pull/298)
+- [heka-backend-swagger-ui -> heka-backend](https://github.com/bounswe/bounswe2022group4/pull/261)
+
+## 5. Pull Requests
+- [heka-backend -> master](https://github.com/bounswe/bounswe2022group4/pull/299)
+
+</details>
+
