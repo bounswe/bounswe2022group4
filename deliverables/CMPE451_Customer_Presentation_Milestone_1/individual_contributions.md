@@ -45,7 +45,47 @@ My main responsilibity was the deployment. Dockerizing backend and deploying it 
 ### **Additional Information**
 .
 </details>
+<details>
+  <summary>
 
+###  **Yusuf Bayındır - Group 4**
+    
+</summary>
+
+- Student ID: 2017400042
+- Email: yusuf.bayindir@boun.edu.tr
+- Personal Wiki: [Yusuf Bayındır](https://github.com/bounswe/bounswe2022group4/wiki/Yusuf-Bay%C4%B1nd%C4%B1r)
+- Team: Backend Development Team
+  
+  ### **Responsibilities**
+- I was responsible for integrating Swagger UI and implementing unit tests for registration and login functionalitites. 
+- My other partial responsibilities were revisiting [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements) & [Class Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram), organizing Wiki, and notetaking for some meetings. 
+
+
+### **Main contributions**
+- Note taker. [CMPE451-General Meeting #1](https://github.com/bounswe/bounswe2022group4/wiki/Meeting-%231,-10.10.2022), [Backend Meeting #1](https://github.com/bounswe/bounswe2022group4/wiki/Backend-Team-Meeting-%231,-20.10.2022)
+- Organizing Wiki. [Branch Management](https://github.com/bounswe/bounswe2022group4/wiki/Branch-Management)
+- Backend development: [Swagger Integration](https://github.com/bounswe/bounswe2022group4/issues/254), [Unit Tests](https://github.com/bounswe/bounswe2022group4/issues/291)
+- Revision on Requirements and Class Diagram. [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements), [Class Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram)
+
+
+#### **Code Related Significant Issues**
+* [Swagger integration](https://github.com/bounswe/bounswe2022group4/issues/254)
+* [Unit tests for register and login functionalities](https://github.com/bounswe/bounswe2022group4/issues/291)
+
+
+#### **Management Related Significant Issues**
+* [Revision on requirements](https://github.com/bounswe/bounswe2022group4/issues/226)
+* [Organizing Git workspace](https://github.com/bounswe/bounswe2022group4/issues/253)
+* [Revision on Class Design](https://github.com/bounswe/bounswe2022group4/issues/302)
+
+
+### **Pull Requests**
+*  [Swagger Integration](https://github.com/bounswe/bounswe2022group4/pull/261)
+*  [Enhancement to Swagger Integration](https://github.com/bounswe/bounswe2022group4/pull/283)
+*  [Unit Tests for Register and Login Functionalities](https://github.com/bounswe/bounswe2022group4/pull/298)
+
+</details>
 <details>
   <summary>
 
@@ -91,58 +131,17 @@ In the demo, I have shown the following features:
 
 
 </details>
-<details>
-  <summary>
 
-###  **Yusuf Bayındır - Group 4**
-    
-</summary>
-
-- Student ID: 2017400042
-- Email: yusuf.bayindir@boun.edu.tr
-- Personal Wiki: [Yusuf Bayındır](https://github.com/bounswe/bounswe2022group4/wiki/Yusuf-Bay%C4%B1nd%C4%B1r)
-- Team: Backend Development Team
-  
-  ### **Responsibilities**
-- I was responsible for integrating Swagger UI and implementing unit tests for registration and login functionalitites. 
-- My other partial responsibilities were revisiting [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements) & [Class Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram), organizing Wiki, and notetaking for some meetings. 
-
-
-### **Main contributions**
-- Note taker. [CMPE451-General Meeting #1](https://github.com/bounswe/bounswe2022group4/wiki/Meeting-%231,-10.10.2022), [Backend Meeting #1](https://github.com/bounswe/bounswe2022group4/wiki/Backend-Team-Meeting-%231,-20.10.2022)
-- Organizing Wiki. [Branch Management](https://github.com/bounswe/bounswe2022group4/wiki/Branch-Management)
-- Backend development: [Swagger Integration](https://github.com/bounswe/bounswe2022group4/issues/254), [Unit Tests](https://github.com/bounswe/bounswe2022group4/issues/291)
-- Revision on Requirements and Class Diagram. [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements), [Class Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram)
-
-
-#### **Code Related Significant Issues**
-* [Swagger integration](https://github.com/bounswe/bounswe2022group4/issues/254)
-* [Unit tests for register and login functionalities](https://github.com/bounswe/bounswe2022group4/issues/291)
-
-
-#### **Management Related Significant Issues**
-* [Revision on requirements](https://github.com/bounswe/bounswe2022group4/issues/226)
-* [Organizing Git workspace](https://github.com/bounswe/bounswe2022group4/issues/253)
-* [Revision on Class Design](https://github.com/bounswe/bounswe2022group4/issues/302)
-
-
-### **Pull Requests**
-*  [Swagger Integration](https://github.com/bounswe/bounswe2022group4/pull/261)
-*  [Enhancement to Swagger Integration](https://github.com/bounswe/bounswe2022group4/pull/283)
-*  [Unit Tests for Register and Login Functionalities](https://github.com/bounswe/bounswe2022group4/pull/298)
-
-</details>
 <details>
   <summary>
 
 ###  **Umut Deniz Şener - Group 4**
     
 </summary>
-  ###  **Member**
-
-Name: Umut Deniz Şener
-Student ID: 2018400255
-Group4 - Frontend Team
+- Name: Umut Deniz Şener
+- Student ID: 2018400225
+- Personal Wiki: [Umut Deniz Şener](https://github.com/bounswe/bounswe2022group4/wiki/Umut-Deniz-%C5%9Eener)
+- Team: Frontend Team
 ### **Responsibilities**
   * Creating a code base for frontend team in order to start building our web application HEKA.
   * Implementing a navigation bar that allows users navigating to another components.
