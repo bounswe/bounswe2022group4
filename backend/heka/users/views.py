@@ -12,6 +12,7 @@ import jwt, datetime
 from drf_yasg.utils import swagger_auto_schema 
 from drf_yasg import openapi
 from rest_framework.decorators import api_view
+from rest_framework import status
 
 #@swagger_auto_schema(methods=['post',],request_body=UserSerializer )
 class RegisterView(APIView):
@@ -20,7 +21,7 @@ class RegisterView(APIView):
         serializer = UserSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save() 
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class LoginView(APIView):
     login_schema = openapi.Schema(
@@ -52,7 +53,7 @@ class LoginView(APIView):
 
         encoded_jwt = jwt.encode(payload, "secret", algorithm="HS256")
         
-        response = Response()
+        response = Response(status=status.HTTP_200_OK)
         response.set_cookie(key="jwt", value=encoded_jwt, httponly=True)
         response.data = {
             "jwt": encoded_jwt
@@ -72,7 +73,7 @@ class HomeView(APIView):
         try:
             decoded_jwt = jwt.decode(token, "secret", algorithms=["HS256"])
         except jwt.ExpiredSignatureError:
-            raise AuthenticationFailed("jwt signature error!")
+            raise AuthenticationFailed("JWT signature error!")
 
         user = User.objects.filter(id=decoded_jwt["id"]).first()
         serializer = UserSerializer(user)
@@ -87,7 +88,7 @@ class LogoutView(APIView):
         response = Response()
         response.delete_cookie("jwt")
         response.data = {
-            "message": "logout success"
+            "message": "Logout success."
         }
         return response
 
