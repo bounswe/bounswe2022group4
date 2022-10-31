@@ -8,7 +8,7 @@ import { FaUserCircle, FaKey, FaUserPlus } from 'react-icons/fa';
 import { AiOutlineLogin } from 'react-icons/ai';
 import { display } from '@mui/system';
 
-const LoginForm = () => {
+const LoginForm = ({ setIsLogged }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [err_message, setErrMessage] = useState();
@@ -22,6 +22,7 @@ const LoginForm = () => {
     const response = await BackendApi.postLogin(username, password);
     if (response.status === 200) {
       setIsAuthenticated(true);
+      setIsLogged(true);
     } else if (response.status === 403) {
       setWrong(true);
       /* alert('Invalid username or password'); */
