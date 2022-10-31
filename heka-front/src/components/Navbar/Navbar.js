@@ -12,11 +12,13 @@ const Navbar = ({ isLogged }) => {
           <Link to='/' activeStyle className='nav-link'>
             Home
           </Link>
-          <Link to='/profile' activeStyle className='nav-link'>
-            Profile
-          </Link>
+          {isLogged && (
+            <Link to='/profile' activeStyle className='nav-link'>
+              Profile
+            </Link>
+          )}
         </div>
-        {!isLogged && (
+        {!isLogged ? (
           <div className='nav-button'>
             <Link to='/sign-in' className='nav-button-link'>
               Sign In
@@ -24,6 +26,12 @@ const Navbar = ({ isLogged }) => {
             <Link to='/sign-up' className='nav-button-link'>
               Sign Up
             </Link>
+          </div>
+        ) : (
+          <div className='nav-button'>
+            <a href='/' className='nav-button-link'>
+              Sign Out
+            </a>
           </div>
         )}
       </nav>
