@@ -8,9 +8,13 @@
 
 # **INDIVIDUAL REPORTS**
 
-### **Member**
-İbrahim Melih Aktaş - Group 4
+<details>
+<summary>
 
+### **İbrahim Melih Aktaş - Group 4**
+
+</summary>
+  
 ### **Responsibilities**
 My main responsilibity was the deployment. Dockerizing backend and deploying it on the AWS EC2 machine. Creating a CI/CD pipeline with Github Actions. 
 
@@ -40,5 +44,5 @@ My main responsilibity was the deployment. Dockerizing backend and deploying it 
 
 ### **Additional Information**
 .
-
+</details>
 
