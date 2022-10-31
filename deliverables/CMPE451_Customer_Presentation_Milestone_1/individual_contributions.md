@@ -206,12 +206,11 @@ I attended all general and frontend meetings. I also reviewed a lot of issues an
 ###  **Umut Deniz Şener - Group 4**
     
 </summary>
-  
   ###  **Member**
 
-* Name: Umut Deniz Şener
-* Student ID: 2018400255
-* Group: Group4 - Frontend Team
+Name: Umut Deniz Şener
+Student ID: 2018400255
+Group4 - Frontend Team
 ### **Responsibilities**
   * Creating a code base for frontend team in order to start building our web application HEKA.
   * Implementing a navigation bar that allows users navigating to another components.
@@ -246,9 +245,7 @@ Since i have some experience in React before, I have created the code base for t
 
 #### **Management Related Significant Issues**
 * [Revision on Recommendation Requirements](https://github.com/bounswe/bounswe2022group4/issues/228)
-* [Change Dummy Data to Real Case Scenarios](https://github.com/bounswe/bounswe2022group4/issues/264)
-* [Learning Saas](https://github.com/bounswe/bounswe2022group4/issues/256)
-* [Making Research on React Function Based Components](https://github.com/bounswe/bounswe2022group4/issues/247)
+
 
 ### **Pull Requests**
 *  [Creating A Base For Backend Connection](https://github.com/bounswe/bounswe2022group4/pull/271)
@@ -330,6 +327,54 @@ Since i created the code base for the frontend team. I make my first commits dir
 - [heka-backend -> master](https://github.com/bounswe/bounswe2022group4/pull/299)
 
 </details>
+
+<details>
+  <summary>
+
+###  **Yiğit Can Özkaya - Group 4**
+    
+</summary>
+## 1. Who am I?
+
+- Name: Yiğit Can Özkaya
+- Student ID: 2017400036
+- Email: yigit.ozkaya@boun.edu.tr
+- I am working as a front-end developer on the project.
+
+## 2. Responsibilities
+- I have been working on the front-end development for this project.
+- I took responsibility for the development of the sign-up page.
+- I played an active role in the planning and the distribution of the tasks within the team.
+
+## 3. Contributions
+- I created a sign-up component for the project
+- I connected sign-up datas to the backend
+- I changed the styles for more user friendliiness
+- I took an active role into decisions and to-dos for the project
+- I check the registration datas for proper registration
+
+## 4. My Issues
+### Code related significant issues:
+-  All codes related to sign-up and backend connection([issue 296](https://github.com/bounswe/bounswe2022group4/issues/296) /
+  [issue 280](https://github.com/bounswe/bounswe2022group4/issues/280))
+
+
+### Management Related Issues 
+- ([issue 303](https://github.com/bounswe/bounswe2022group4/issues/303))
+
+### Issues and Pull Requests I Reviewed
+- [My reviews](https://github.com/bounswe/bounswe2022group4/issues/304)
+- [My reviews](https://github.com/bounswe/bounswe2022group4/issues/264)
+- [My reviews](https://github.com/bounswe/bounswe2022group4/pull/260)
+
+## 5. Pull Requests
+- [Sign-up](https://github.com/bounswe/bounswe2022group4/pull/295)
+- [Sign-up](https://github.com/bounswe/bounswe2022group4/pull/281)
+
+</details>
+
+  
+
 
 
 
