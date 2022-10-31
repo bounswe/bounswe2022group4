@@ -318,7 +318,8 @@ Since i created the code base for the frontend team. I make my first commits dir
 [commit](https://github.com/bounswe/bounswe2022group4/commit/7ed4480d70f3bc10207c228af015be23ea42e4ed) )
 
 ### Management Related Issues 
-- Backend: Create Postman collection for backend authentication API([issue 266](https://github.com/bounswe/bounswe2022group4/issues/266) 
+- Backend: Create Postman collection for backend authentication API([issue 266](https://github.com/bounswe/bounswe2022group4/issues/266)
+- Revision of the Project Plan([issue 307](https://github.com/bounswe/bounswe2022group4/issues/307)
 
 ### Issues and Pull Requests I Reviewed
 - [heka-backend-token-time -> heka-backend](https://github.com/bounswe/bounswe2022group4/pull/294)
