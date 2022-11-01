@@ -11,6 +11,42 @@
 <details>
 <summary>
 
+### **Fatih Akgöz - Group 4**
+
+</summary>
+  
+### **Responsibilities**
+My main responsilibity was the Signup and Login pages on Android. 
+
+
+### **Main contributions**
+* We planned the development of the Android Application.
+* Presenting the Android Demo.
+* Reviewed code created by the other members of mobile task force.
+
+
+
+#### **Management Related Significant Issues**
+* Since I am a new member of the project I have read all of the wiki pages. 
+* I have created my personal wiki page.
+* I gave feedback on wiki pages to other team members.
+* I researched Android development fundamentals including kotlin, gradle and retrofit. 
+* I have encountered a significant problem while building the project and tried to solve gradle dependancy issue.
+
+
+
+### **Pull Requests**
+- [heka-mobile-auth -> heka-mobile](https://github.com/bounswe/bounswe2022group4/pull/273)
+- [heka-mobile -> master]
+
+
+### **Additional Information**
+.
+</details>
+
+<details>
+<summary>
+
 ### **İbrahim Melih Aktaş - Group 4**
 
 </summary>
