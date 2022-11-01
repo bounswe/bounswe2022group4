@@ -2,7 +2,7 @@
 * [Software Requirements Specification](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)
 * [Software Design (UML)](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram)
 * [Scenarios](https://github.com/bounswe/bounswe2022group4/wiki/User-Scenarios) and [Mockups](https://github.com/bounswe/bounswe2022group4/wiki/Mockups)
-* Project Plan
+* [Project Plan](https://github.com/bounswe/bounswe2022group4/wiki/Project-Plan)
 * Individual Contribution Reports
 * Customer Milestone 1 Group Review
 
