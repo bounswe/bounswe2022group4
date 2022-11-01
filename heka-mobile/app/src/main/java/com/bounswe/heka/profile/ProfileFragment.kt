@@ -1,5 +1,7 @@
 package com.bounswe.heka.profile
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -36,5 +38,8 @@ class ProfileFragment: Fragment() {
                 findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
             }
         }
+
+
+
     }
 }
