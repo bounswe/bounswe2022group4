@@ -250,11 +250,13 @@ I attended all general and frontend meetings. I also reviewed a lot of issues an
 ###  **Umut Deniz Şener - Group 4**
     
 </summary>
+  
   ###  **Member**
 
-Name: Umut Deniz Şener
-Student ID: 2018400255
-Group4 - Frontend Team
+* Name: Umut Deniz Şener
+* Student ID: 2018400255
+* Group4 - Frontend Team
+  
 ### **Responsibilities**
   * Creating a code base for frontend team in order to start building our web application HEKA.
   * Implementing a navigation bar that allows users navigating to another components.
