@@ -26,7 +26,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginHorizontal="10dp"
-        android:src="@color/material_dynamic_neutral_variant30"/>
+        android:src="@color/material_dynamic_neutral30"/>
 
     <TextView
         android:id="@+id/timeline_item_title"
