@@ -13,15 +13,6 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="center"
-            android:text="Register"
-            android:textColor="?attr/colorPrimary"
-
-            android:textSize="20sp"
-            android:textStyle="bold" />
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailTextInputLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
