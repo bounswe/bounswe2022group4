@@ -192,7 +192,7 @@ At the beginning of semester, I redesigned my personal wiki page.Since I am a me
 * [Login page test are implemented](https://github.com/bounswe/bounswe2022group4/pull/288)
 
 ### **Additional Information**
-I attended all general and frontend meetings. I also reviewed a lot of issues and pull requests. You can look at my personal wiki page for [weekly effort tables](https://github.com/bounswe/bounswe2022group4/wiki/Berat-Damar).
+I attended all general and frontend meetings. I also reviewed a lot of issues and pull requests. 
   
 </details>
 
@@ -503,6 +503,58 @@ https://github.com/bounswe/bounswe2022group4/pull/305/files
 ### **Pull Requests**
 * [Pull Request](https://github.com/bounswe/bounswe2022group4/pull/321)
 
+</details>
+
+<details>
+  <summary>
+
+###  **Erdinç Günaydın - Group 4**
+    
+</summary>
+  
+###  **Communicator**
+
+* Name: Erdinç Günaydın
+* Student ID: 2017400027
+* Group4 - Mobile Team
+### **Responsibilities**
+  * Designing profile page
+  *Creation of new communication channel
+  * Implementing the profile page and making its back-end connection
+  * Creating test for the mobile app
+  * Documentation of the mobile teams meeting
+  * Research and getting acknowledgment about mobile architecture and Kotlin language
+  * Review of all kind of issues
+  * Review and edit the requirements
+  * Revising Use Case Diagram.
+  * Attending Weekly Meetings
+  * Contributing the vision and architecture techniques of the mobile side.
+  * Communicate with back-end team about mobile-backend communication.
+
+### **Main contributions**
+
+I made some info updateson my personal wiki page. I also revisioned the sidebar accordin to current semesters needs. And I created a new communication channel on Discord according group needs. I joined the all meetings and contributed to how should things happen and why. I reviewed the requerments and also added change suggestion as a issue. I researched the android architecture and made practice about both kotlin and android apps as we decided to use kotlin at beginning. Before I used Flutter to develop some mobile apps but android is complete different and I spent too many time to learn somethings about it. Finally I implemented the profile page of the mobile.As because profile page has no functionality yet there is no test for it.
+
+
+
+#### **Code Related Significant Issues**
+* [Mobile: Implementation of Profile Page](https://github.com/bounswe/bounswe2022group4/issues/259)
+
+  
+#### **Management Related Significant Issues**
+* [Learning Mobile Development with Kotlin ](https://github.com/bounswe/bounswe2022group4/issues/246)
+* [Communication Channel Update](https://github.com/bounswe/bounswe2022group4/issues/229)
+* [Revision on Recommendation Requirements](https://github.com/bounswe/bounswe2022group4/issues/228)
+* [Revision of Sidebar](https://github.com/bounswe/bounswe2022group4/issues/244) 
+
+
+
+### **Pull Requests**
+* [Implementing the Profile Page](https://github.com/bounswe/bounswe2022group4/pull/319)
+ 
+### **Reviewed PRs**  
+  * [Update tests.py](https://github.com/bounswe/bounswe2022group4/pull/321)
+  * [Heka mobile](https://github.com/bounswe/bounswe2022group4/pull/323)
 </details>
 
 
