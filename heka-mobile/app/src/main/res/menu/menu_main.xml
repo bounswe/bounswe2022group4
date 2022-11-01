@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.bounswe.heka.MainActivity">
+    <item
+        android:id="@+id/HomeFragment"
+        android:orderInCategory="100"
+        android:title="HOME"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/TimelineFragment"
+        android:orderInCategory="100"
+        android:title="TIMELINE"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/ProfileFragment"
+        android:orderInCategory="100"
+        android:title="PROFILE"
+        app:showAsAction="never" />
+</menu>
