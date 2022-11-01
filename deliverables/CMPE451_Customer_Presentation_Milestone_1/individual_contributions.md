@@ -386,11 +386,9 @@ Since i created the code base for the frontend team. I make my first commits dir
 </summary>
 ###  **Member**
 
-Name: Miraç Batuhan Malazgirt
-  
-Student ID: 2018400156
-  
-GROUP 4 - Frontend Team
+* Name: Miraç Batuhan Malazgirt
+* Student ID: 2018400156
+* Group4 - Frontend Team
   
 ### **Responsibilities**
   * Making research on React and learning it from scratch.
