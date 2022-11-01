@@ -384,13 +384,17 @@ Since i created the code base for the frontend team. I make my first commits dir
 ###  **Miraç Batuhan Malazgirt - Group 4**
     
 </summary>
-###  **Member**
-
+  
+  ## 1. Who am I?
+  
 * Name: Miraç Batuhan Malazgirt
+  
 * Student ID: 2018400156
+  
 * Group4 - Frontend Team
   
-### **Responsibilities**
+## 2. Responsibilities
+  
   * Making research on React and learning it from scratch.
   * Attending weekly meetings.
   * Implementing Card component.
@@ -402,10 +406,11 @@ Since i created the code base for the frontend team. I make my first commits dir
   * Preparing docker files for deployment.
   * Reviewing the pull requests and issues.
   
-### **Main contributions**
+## 3. Contributions
+  
+  Since I did not have any experience with React before this project I had to start from the scratch. First I have finished an 10 hour React bootcamp video. After that using the best practices I have started to code the section of the project that is assigned to me. The assigned part was Profile Page. First I have designed the structure of the page. After that I have started researching to find best React library to use. I have decided to Reactstrap. 
 
-Since I did not have any experience with React before this project I had to start from the scratch. First I have finished an 10 hour React bootcamp video. After that using the best practices I have started to code the section of the project that is assigned to me. The assigned part was Profile Page. First I have designed the structure of the page. After that I have started researching to find best React library to use. I have decided to Reactstrap. I have begin to implement the components of the project. I have implemented Card, Modal components and also using row and col's from the library I have implemented the general structure design of the page. Lastly I have prepared realistic data for presentation that will be done in the lecture hours. After all of that I have created my pull request and closed the issues, I also made contributions to the deployment side of the project.
-
+  I have begun to implement the components of the project. I have implemented Card, Modal components and also using row and col's from the library I have implemented the general structure design of the page. Lastly I have prepared realistic data for presentation that will be done in the lecture hours. After all of that I have created my pull request and closed the issues, I also made contributions to the deployment side of the project.
 
 #### **Code Related Significant Issues**
 * [Frontend: Create the Profile Page Section of the Project ( 1/4th of the frontend side )](https://github.com/bounswe/bounswe2022group4/issues/263)
@@ -413,10 +418,12 @@ Since I did not have any experience with React before this project I had to star
 #### **Management Related Significant Issues**
 * [Docker file creation](https://github.com/bounswe/bounswe2022group4/issues/306)
 
-### **Pull Requests**
+## 4. Pull Requests
+  
 *  [Profile Page is implemented](https://github.com/bounswe/bounswe2022group4/pull/305)
 
-### **Additional Information**
+## 5. Additional Information
+  
 You can also see the total of code contribution that I made from the 'files changed' section of the pull request. I have made approximately 500 lines of code contribution to our frontend code base. 
 https://github.com/bounswe/bounswe2022group4/pull/305/files
 </details>
