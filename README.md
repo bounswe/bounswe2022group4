@@ -10,13 +10,13 @@ For further information, please see our [Wiki page](https://github.com/bounswe/b
   * [Berat Damar](https://github.com/bounswe/bounswe2022group4/wiki/Berat-Damar)
   * [Umut Deniz Şener](https://github.com/bounswe/bounswe2022group4/wiki/Umut-Deniz-%C5%9Eener)
   * [Miraç Batuhan Malazgirt](https://github.com/bounswe/bounswe2022group4/wiki/Mira%C3%A7-Batuhan-Malazgirt)
-  * [Yusuf Bayındır(*Communicator*)](https://github.com/bounswe/bounswe2022group4/wiki/Yusuf-Bay%C4%B1nd%C4%B1r)
+  * [Yusuf Bayındır(*Retired Communicator*)](https://github.com/bounswe/bounswe2022group4/wiki/Yusuf-Bay%C4%B1nd%C4%B1r)
   * [Oğuzhan Tok](https://github.com/bounswe/bounswe2022group4/wiki/O%C4%9Fuzhan-Tok)
-  * [Erdinç Günaydın](https://github.com/bounswe/bounswe2022group4/wiki/Erdinç-Günaydın)
+  * [Erdinç Günaydın(*Communicator*)](https://github.com/bounswe/bounswe2022group4/wiki/Erdinç-Günaydın)
   * [Elif Tokluoğlu](https://github.com/bounswe/bounswe2022group4/wiki/Elif-Tokluo%C4%9Flu)
   * [Yiğit Can Özkaya](https://github.com/bounswe/bounswe2022group4/wiki/Yigit-Can-Ozkaya)
-  * [Halil Salih Orhan]()
-  * [İbrahim Melih Aktaş]()
+  * [Halil Salih Orhan](https://github.com/bounswe/bounswe2022group4/wiki/Halil-Salih-Orhan)
+  * [İbrahim Melih Aktaş](https://github.com/bounswe/bounswe2022group4/wiki/%C4%B0.Melih-Akta%C5%9F)
   * [Fatih Akgöz]()
   
    ### **Old Members**

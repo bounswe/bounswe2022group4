@@ -1,0 +1,30 @@
+version: "3.9"
+   
+services:
+  db:
+    image: postgres:15
+    volumes:
+      - db-volume:/var/lib/postgresql/data
+    restart: always
+    environment:
+      - POSTGRES_DB=heka_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+  django:
+    depends_on:
+      - db
+    build: .
+    volumes:
+      - .:/code
+    command: sh -c "python manage.py makemigrations && python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8080"
+    ports:
+      - "8080:8080"
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_NAME=heka_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - DEBUG=False
+
+volumes:
+  db-volume:
