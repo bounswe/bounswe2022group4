@@ -1,0 +1,33 @@
+:root {
+  --primary-sunglow: #fdca3d;
+  --primary-platinium: #e7e5df;
+  --primary-timberwolf: #d3d0cb;
+  --primary-stpatricsblue: #0c4aad;
+  --primary-green: #237317;
+  --black: #000000;
+  --font-purple: #da36ff;
+  --font-green: #008f10;
+  --blue: #3098bd;
+  --dark-blue: #3d3b8e;
+  --overlay: rgba(0, 0, 0, 0.7);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Muli', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.2rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
