@@ -192,7 +192,7 @@ At the beginning of semester, I redesigned my personal wiki page.Since I am a me
 * [Login page test are implemented](https://github.com/bounswe/bounswe2022group4/pull/288)
 
 ### **Additional Information**
-I attended all general and frontend meetings. I also reviewed a lot of issues and pull requests. 
+I attended all general and frontend meetings. I also reviewed a lot of issues and pull requests. You can look at my personal wiki page for [weekly effort tables](https://github.com/bounswe/bounswe2022group4/wiki/Berat-Damar).
   
 </details>
 
