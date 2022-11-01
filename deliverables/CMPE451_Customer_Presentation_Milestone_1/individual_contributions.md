@@ -391,7 +391,7 @@ Since i created the code base for the frontend team. I make my first commits dir
   
 * Student ID: 2018400156
   
-* GROUP 4 - Frontend Team
+* Group 4 - Frontend Team
   
 ## 2. Responsibilities
   
