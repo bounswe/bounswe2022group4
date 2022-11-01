@@ -431,6 +431,34 @@ https://github.com/bounswe/bounswe2022group4/pull/305/files
 
 
 
+<details>
+  <summary>
+
+###  **Elif Tokluoğlu - Group 4**
+    
+</summary>
+
+- Student ID: 2018400042
+- Email: elif.tokluoglu@boun.edu.tr
+- Personal Wiki: [Elif Tokluoğlu](https://github.com/bounswe/bounswe2022group4/wiki/Elif-Tokluo%C4%9Flu)
+- Team: Backend Development Team
+  
+  ### **Responsibilities**
+- I was responsible for implementing unit test for logout functionality. 
+  
+### **Main contributions**
+- Backend development: [Unit Tests](https://github.com/bounswe/bounswe2022group4/issues/291)
+- Creating project plan: [Project Plan](https://github.com/bounswe/bounswe2022group4/issues/309)
+
+#### **Code Related Significant Issues**
+* [Unit tests for register and login functionalities](https://github.com/bounswe/bounswe2022group4/issues/291)
+
+#### **Management Related Significant Issues**
+* [Project Plan](https://github.com/bounswe/bounswe2022group4/issues/309)
+
+### **Pull Requests**
+
+</details>
 
 
 
