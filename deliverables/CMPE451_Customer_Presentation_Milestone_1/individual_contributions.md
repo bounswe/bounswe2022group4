@@ -15,6 +15,14 @@
 
 </summary>
   
+  ## 1. Who am I?
+
+- Name: Fatih Akgoz
+- Student ID: 2016400129
+- Email: fthakg42@gmail.com
+- Personal wiki: [Fatih Akgoz](https://github.com/bounswe/bounswe2022group4/wiki/Fatih-Akg%C3%B6z)
+- Partaking in the project as an Android Developer.
+  
 ### **Responsibilities**
 My main responsilibity was the Signup and Login pages on Android. 
 
