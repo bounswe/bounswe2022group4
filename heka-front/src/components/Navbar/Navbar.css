@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+.navv {
+  background-image: linear-gradient(-225deg, #e3fdf5 0%, #ffe6fa 100%);
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 85px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem calc((100vw - 1000px) / 2);
+  font-family: 'Abel', sans-serif;
+}
+.navv-link {
+  color: #3e403f;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  cursor: pointer;
+}
+.navv-link:active {
+  color: #000;
+}
+.bars {
+  display: none;
+  color: #808080;
+}
+
+.navv-menu {
+  display: flex;
+  align-items: center;
+  margin-right: -24px;
+}
+.navv-button {
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+}
+.navv-button-link {
+  border-radius: 4px;
+  background: #808080;
+  padding: 10px 22px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  margin-left: 24px;
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s linear;
+  color: #3e403f;
+  letter-spacing: 0.05em;
+}
+
+.navv-button-link:hover {
+  animation: ani9 0.4s ease-in-out infinite alternate;
+}
+.navv-link:hover {
+  animation: ani9 0.4s ease-in-out infinite alternate;
+}
+@keyframes ani9 {
+  0% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(5px);
+  }
+}
+@media screen and (max-width: 768px) {
+  .bars {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 75%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+  .navv-menu {
+    display: none;
+  }
+  .navv-button {
+    display: none;
+  }
+}
