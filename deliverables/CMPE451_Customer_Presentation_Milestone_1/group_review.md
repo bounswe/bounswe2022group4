@@ -274,3 +274,17 @@ Work done | I created the boilerplate of the backend with the Django. I created 
 work  | desc
 ------------- | -------------
 Work Done | Since i have some experience in React before, I have created the code base for the frontend team (Arranging folder and file formats, Implementing router mechanism, Installing libraries). Then i have implemented the navigation bar by using best practises of React and css. I also responsible for the home page. In the home page we need to render the posts written by the users. In order to do that i first created Post component that renders a single post. Then i have implemented PostBox component that renders multiple post with the data i have created. Then i implemented HomePage component with the PostBox component and implemented unit test cases for these components. I also create a backend connection base by using appropriate React libraries and implement postLogin and postRegister functions that enable easily making http request to the relevant rest apis. I also added css animations to the navigation bar and home page and helped to improve ui of the login and sign up pages. Lastly, I implemented a structure for lifting state up that allow us to store global states in React after i implement it I hide private components from unauthorized users.
+
+* Erdinç Günaydın
+
+|Issue or Pull Request |Related Link|
+|-----|:--------:|    
+|Learning Mobile Development with Kotlin |[issue](https://github.com/bounswe/bounswe2022group4/issues/246)|
+|Communication Channel Update|[issue](https://github.com/bounswe/bounswe2022group4/issues/229)|
+|Revision on Recommendation Requirements|[issue](https://github.com/bounswe/bounswe2022group4/issues/228)|
+|Revision of Sidebar|[issue](https://github.com/bounswe/bounswe2022group4/issues/244) |
+|Mobile: Implementation of Profile Page|[issue](https://github.com/bounswe/bounswe2022group4/issues/259)|
+|Filling of forgotten mobile team meeting notes I-II-III|[issue](https://github.com/bounswe/bounswe2022group4/issues/326)|
+|Taking and documenting General Meeting Notes 5 | [issue](https://github.com/bounswe/bounswe2022group4/issues/327)|
+|Arrange and filling of General Meeting Notes 2 and 3 | [issue](https://github.com/bounswe/bounswe2022group4/issues/245)|
+|Mobile: Profile page implemented | [pull-request](https://github.com/bounswe/bounswe2022group4/pull/319)|
