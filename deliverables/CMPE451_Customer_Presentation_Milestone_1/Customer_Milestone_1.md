@@ -563,9 +563,8 @@ I made some info updateson my personal wiki page. I also revisioned the sidebar 
 
 # **Group Review**
 
-
-
 ## Executive Summary
+
 ### *Description*
 HEKA is a medical experience sharing platform where users share their ideas and experiences related to medical issues in a restricted social environment. 
 It serves as native web and Android application.
@@ -578,7 +577,7 @@ Team members went over the requirements and design diagrams of the application a
 - /api/user/logout
 - /swagger/
 
-### *Current Functionality of HEKA**
+### *Current Functionality of HEKA*
 - Users could register, login to the application, and logout from the application via native Android application.
 
 
