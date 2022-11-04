@@ -319,3 +319,11 @@ Work Done | Since i have some experience in React before, I have created the cod
 |Taking and documenting General Meeting Notes 5 | [issue](https://github.com/bounswe/bounswe2022group4/issues/327)|
 |Arrange and filling of General Meeting Notes 2 and 3 | [issue](https://github.com/bounswe/bounswe2022group4/issues/245)|
 |Mobile: Profile page implemented | [pull-request](https://github.com/bounswe/bounswe2022group4/pull/319)|
+
+* Oğuzhan Tok
+
+work  | desc
+------------- | -------------
+Work Done | Since i do not have any experience in Django Framework before, I studied the Django Framework for a while. After learning process, I started to implement authentication mechanism of the application. I have developed 4 endpoints which are /api/user/login, /api/user/logout, /api/user/register and /api/user/home. With the help of these endpoints, application can authenticate users. After the development of the authentication mechanism, I have created the Postman Collection for the Authentication API in order Frontend and Android teams to make request easily. I think this collection is really helpfull for the rest of the group. I also played an active role in the planning and the distribution of the tasks within the backend team. Finally I have revisioned the project plan and some changes have done according to new improvements.   
+
+
