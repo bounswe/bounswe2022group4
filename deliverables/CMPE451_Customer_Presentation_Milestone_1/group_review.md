@@ -110,8 +110,7 @@ It is popular and there are a lot of sources about its integration with Github. 
 #### **- Postman**
 We used Postman while using the API which developed by our backend team.  Postman Collection which created by the backend team is really helpfull while using the API. Our Frontend and Android teams made HTTP request from Postman and understand the API.
 
-#### **- Discord**
-We used Discord as main communication tool. We hold all team meetings on Discord. We created different voice channel and text channel. Since we were divided into sub-teams ,as Front-end, Mobile and Backend, we created different voice and text channel. Therefore, we prevented possible confusion between sub-teams. We also created generel voice and text channel to provide a common communication between all sub-teams. We found to be practical since it is easy to use and free. The fact that all members were already familiar with it is why we choose Discord as our main communication tool. 
+
 
 
 
