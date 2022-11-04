@@ -68,10 +68,17 @@ Team members went over the requirements and design diagrams of the application a
 - PostgreSQL: It is popular and easy to use. There are a lot of sources about its integration with Github.
 - Postman
 - ProjectLibre
-- Android Studio
-- Class Diagram çizdiğimiz tool
 
+- Lucidchart
 
+#### **- Android Studio**
+
+At the begginning our mobile team consisted of 3 people. And two of them know the android development with kotlin. So we decded to use kotlin and Android Studio to develop a Android app. Only one of us need to learn something about these stuffs.
+* Android development with Kotlin has bunch of resource to learn. It is the most popular way of developing some android project. We prefeted to use official Google codelabs to learn how to develop with Kotlin.
+* It have a huge community which google back,and people could find solution or way to implement what to do fast.
+* In android, UI part of the project has divided from the logic part with an XML file. Which provide simplicity of project development project and easyfy the finding he code part which intended to change.
+* Android development with Kotlin provide best performance compared to cross-platform frameworks.
+* The down side of the Kotlin and Android studio is learning curve is slow. It is too effective but doing what you want could be real stress-ball sometimes.
 
 ---------
 
