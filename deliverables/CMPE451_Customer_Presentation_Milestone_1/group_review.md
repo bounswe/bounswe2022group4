@@ -54,6 +54,8 @@ Team members went over the requirements and design diagrams of the application a
 
 ## Evaluation of Deliverables
 
+We remade the project plan according to the changes in the requirements and added new group members to the plan. Project plan includes main tasks of our project. Each task is assigned to one or more group member with an estimated completion time. The details of the future tasks are subject to change according to customer meetings. As we progress through the project, when new tasks show up we added them to the plan. Final form of our project plan is delivered.
+
 
 
 
