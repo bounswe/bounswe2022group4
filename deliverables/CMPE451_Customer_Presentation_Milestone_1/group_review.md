@@ -331,22 +331,10 @@ Member | Work Done So Far
 |Mobile: Profile page implemented | [pull-request](https://github.com/bounswe/bounswe2022group4/pull/319)|
 
 
+Member | Work Done So Far
+------------- | -------------
+Berat Damar | Firstly, I conduct a research to determine which technologies we use for frontend development. We decided to use React considerings requirements of our project. Since I do not have any experience in frontend development, I conducted a research  for HTML, CSS and Reach. I watched tutorials about them and practiced them. After learning process, I started to design Sign In page of the application. After completing design proccess, I started to implement Sign In page and then I proived backend connection of Sign In page using API's proivded by backend team. After implementation of Sign In page, I conducted a research about testing methodologies in React. According to the research, I created a testing base for frontend and then I wrote tests for Sign In page. I also reviewed a lot of pull requests. I took meeting notes for general and frontend meetings. Addition to implementation, I contributed to project design and management processes, I revised requiremnts, use case diagram, evaluation of tools and processes for Milestone 1. I also created a table about works done  by me. You can loo at [here](https://github.com/bounswe/bounswe2022group4/wiki/Milestone-1:-Summary-of-Work--(Berat-Damar))   
 
-* Berat Damar
-
-|Issue or Pull Request |Related Link|
-|-----|:--------:|    
-|Revising the Requirements Specification |[issue](https://github.com/bounswe/bounswe2022group4/issues/226)|
-|Researching and reporting for Frontend development with React |[issue](https://github.com/bounswe/bounswe2022group4/issues/237)|
-|Documenting General Meeting Note for the Meeting 2 |[issue](https://github.com/bounswe/bounswe2022group4/issues/269)|
-|Documenting Frontend Meeting Note for the Meeting 2|[issue](https://github.com/bounswe/bounswe2022group4/issues/262) |
-|Implementation of Sign In Page|[issue](https://github.com/bounswe/bounswe2022group4/issues/259) and [PR](https://github.com/bounswe/bounswe2022group4/pull/265)|
-|Backend Connection for the Sign In Page|[issue](https://github.com/bounswe/bounswe2022group4/pull/274) and [PR](https://github.com/bounswe/bounswe2022group4/pull/267)|
-|Providing a base structure for testing and writing tests for Sign In Page| [issue](https://github.com/bounswe/bounswe2022group4/issues/284) and [PR](https://github.com/bounswe/bounswe2022group4/pull/288)|
-|Redesigning personal wiki page | [issue](https://github.com/bounswe/bounswe2022group4/issues/227)|
-|Attending all general and frontend team meeting. | [Link](https://github.com/bounswe/bounswe2022group4/wiki/Berat-Damar)|
-|Solving bugs in frontend |[issue](https://github.com/bounswe/bounswe2022group4/issues/268) and [PR](https://github.com/bounswe/bounswe2022group4/pull/267)|
-|All other works were mentioned in personal wiki page.| [Link](https://github.com/bounswe/bounswe2022group4/wiki/Berat-Damar)|
 
  
  Member | Work Done So Far
