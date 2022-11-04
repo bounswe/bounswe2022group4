@@ -62,14 +62,6 @@ Team members went over the requirements and design diagrams of the application a
 
 
 ## Evaluation of Tools and Processes
-- AWS ECR: We used this to store docker images of the backend and the database. It is easy to use.
-- AWS EC2: It is one of the most popular cloud platforms. EC2 machines are easy to create and manage. Since it is very popular, it is easy to find sources about them.
-- Github Actions: We used it to create a CI/CD pipeline for the backend. Since it is integrated to the github, CI/CD pipeline status looks great when a contributer commits to the predefined branches. 
-- PostgreSQL: It is popular and easy to use. There are a lot of sources about its integration with Github.
-- Postman
-- ProjectLibre
-
-- Lucidchart
 
 #### **- Android Studio**
 
@@ -79,6 +71,37 @@ At the begginning our mobile team consisted of 3 people. And two of them know th
 * In android, UI part of the project has divided from the logic part with an XML file. Which provide simplicity of project development project and easyfy the finding he code part which intended to change.
 * Android development with Kotlin provide best performance compared to cross-platform frameworks.
 * The down side of the Kotlin and Android studio is learning curve is slow. It is too effective but doing what you want could be real stress-ball sometimes.
+
+
+#### **- ProjectLibre**
+//To do add some stuffs !!!
+
+
+#### **- AWS**
+* AWS ECR: We used this to store docker images of the backend and the database. It is easy to use.
+* AWS EC2: It is one of the most popular cloud platforms. EC2 machines are easy to create and manage. Since it is very popular, it is easy to find sources about them.
+//Add more !!!!!!!!
+
+
+#### **- Lucidchart**
+//To do add some stuffs !!!
+
+
+
+#### **- Github Actions**
+* We used it to create a CI/CD pipeline for the backend. Since it is integrated to the github, CI/CD pipeline status looks great when a contributer commits to the predefined branches. 
+//Add more !!!!!!!!
+
+
+#### **- PostgreSQL**
+* It is popular and easy to use. There are a lot of sources about its integration with Github.
+//To do: add some stuffs !!!
+
+
+#### **- Postman**
+//To do add some stuffs !!!
+
+
 
 ---------
 
