@@ -66,16 +66,29 @@ Team members went over the requirements and design diagrams of the application a
 
 #### **- Android Studio**
 
-At the begginning our mobile team consisted of 3 people. And two of them know the android development with kotlin. So we decded to use kotlin and Android Studio to develop a Android app. Only one of us need to learn something about these stuffs.
-* Android development with Kotlin has bunch of resource to learn. It is the most popular way of developing some android project. We prefeted to use official Google codelabs to learn how to develop with Kotlin.
-* It have a huge community which google back,and people could find solution or way to implement what to do fast.
-* In android, UI part of the project has divided from the logic part with an XML file. Which provide simplicity of project development project and easyfy the finding he code part which intended to change.
-* Android development with Kotlin provide best performance compared to cross-platform frameworks.
-* The down side of the Kotlin and Android studio is learning curve is slow. It is too effective but doing what you want could be real stress-ball sometimes.
+At the begginning our mobile team consisted of 3 people. And two of them know the android development with kotlin. So we decded to use kotlin and Android Studio to develop a Android app. Only one of us need to learn something about these stuffs. Android development with Kotlin has bunch of resource to learn. It is the most popular way of developing some android project. We prefeted to use official Google codelabs to learn how to develop with Kotlin. It have a huge community which google back,and people could find solution or way to implement what to do fast. In android, UI part of the project has divided from the logic part with an XML file. Which provide simplicity of project development project and easyfy the finding he code part which intended to change. Android development with Kotlin provide best performance compared to cross-platform frameworks. The down side of the Kotlin and Android studio is learning curve is slow. It is too effective but doing what you want could be real stress-ball sometimes.
+
+#### **- Discord**
+We used Discord as main communication tool. We hold all team meetings on Discord. We created different voice channel and text channel. Since we were divided into sub-teams ,as Front-end, Mobile and Backend, we created different voice and text channel. Therefore, we prevented possible confusion between sub-teams. We also created generel voice and text channel to provide a common communication between all sub-teams. We found to be practical since it is easy to use and free. The fact that all members were already familiar with it is why we choose Discord as our main communication tool. 
+
+#### **- Github**
+Github is a platform where all the work that we have done gets together. We keep ourselves up to date by following the wiki page. It gives the opportunity to trace project and individuals by using Github commit history. Github has been the most important tool during development process for us since it provide commen place for everthing we have done so far. We used branch feature of Github for seperating subteams from each other. Therefore, they had opportinit to work not affecting each other. This branch feature also help to track which functionalities were implemented. Thanks to Github, all team members have worked simultaneously. As a result, we found Github to be practical thanks to feature it proive about tracking and project management.
+
+#### **- React**
+Using React.js for web development came in extremely convenient because React is one of those cases where you get the hang of a single technology to easily reuse it across a range of platforms. React is not a framework. It is a library of Javascript.Its library approach allow React to evolve into such a remarkable tool. Since React's popularity is grown extremly, we found a lot of resources that are helpful for our project. The other advantage of React is simple to learn. It has very few concepts to learn. Thanks to virtual DOM, React improve its performance compared to JavaScript. We found React to be useful in terms of testing. It provides different test methodologies so it was a advantege for the testing phase of our project.
+
+#### **- Python Django Rest Framework**
+We used Django  framework to implement the backend of our project. We found Django to be useful since it provides many built-in function that make easy to implement the a lot of feature such as password hashing, customized module for database design  etc. It was very easy to connect our application to database using Django without any extra effort. The other advantage of using Django Framework was very easy to learn. There are wide range of resources such as tutorial videos, solutions of possible errors that regular programmer can encounter. Therefore, using Django for the backend development made faster to implement the backend of our project.
 
 
-#### **- ProjectLibre**
-//To do add some stuffs !!!
+#### **- Docker**
+We used to dockerize the frontend and backend to automate deployment since developming the project on everyone's local environments was not feasible. Dockerization files work well, but in the process of deployment an error occured about extensive amount cache. We are trying to solve that problem as soon as possible.
+
+#### **- Visual Studio Code**
+We used Visual Studio Code as our IDE for the development. Thanks to its extensions for wide range of programming languages, VSCode gave a oppotunity to implement our tasks easily. It give some error messages and possible corrections about in the case of wrong syntax. Therefore, we can focues on logic of implementation not syntax.
+
+
+
 
 
 #### **- AWS**
@@ -85,26 +98,22 @@ At the begginning our mobile team consisted of 3 people. And two of them know th
 
 
 #### **- Lucidchart**
-//To do add some stuffs !!!
+Lucidchart is quite useful proprşetary platform that is used to allow users to collaborate on drawing and sharing charts and diagrams. One of the most significant advantages of Lucidchart is being easy to use. It is well fit tool if you are working a team to draw some diagrams aor charts simultaneously. It gives enough properties when you use your boun email address to log in.  
 
-
-
-#### **- Github Actions**
-* We used it to create a CI/CD pipeline for the backend. Since it is integrated to the github, CI/CD pipeline status looks great when a contributer commits to the predefined branches. 
-//Add more !!!!!!!!
 
 
 #### **- PostgreSQL**
-* It is popular and there are a lot of sources about its integration with Github.
-* It is very easy to use with the official docker image downloaded from Docker Hub.
-* PostgreSQL's community support and ease of use received positive feedback from the team.
+It is popular and there are a lot of sources about its integration with Github. It is very easy to use with the official docker image downloaded from Docker Hub. PostgreSQL's community support and ease of use received positive feedback from the team.
 //To do: add some stuffs !!!
 
 
 #### **- Postman**
-* We used Postman while using the API which developed by our backend team. 
-* Postman Collection which created by the backend team is really helpfull while using the API. 
-* Our Frontend and Android teams made HTTP request from Postman and understand the API.
+We used Postman while using the API which developed by our backend team.  Postman Collection which created by the backend team is really helpfull while using the API. Our Frontend and Android teams made HTTP request from Postman and understand the API.
+
+#### **- Discord**
+We used Discord as main communication tool. We hold all team meetings on Discord. We created different voice channel and text channel. Since we were divided into sub-teams ,as Front-end, Mobile and Backend, we created different voice and text channel. Therefore, we prevented possible confusion between sub-teams. We also created generel voice and text channel to provide a common communication between all sub-teams. We found to be practical since it is easy to use and free. The fact that all members were already familiar with it is why we choose Discord as our main communication tool. 
+
+
 
 ---------
 
@@ -290,7 +299,6 @@ Yusuf Bayındır | Integrating Swagger UI into the application. Implementing uni
 Umut Deniz Şener | Creating a code base for frontend team in order to start building our web application HEKA. Implementing a navigation bar that allows users navigating to another components. Implementing Post component. Implementing PostBox component which renders multiple posts. Implementing Home Page. Implementing unit test cases for Home Page. Implementing the backend connection base for the web application. Implementing functions that make requests to the backend easily. Improving UI of the sign in and sign up pages. Reviewing the pull requests and issues in frontend team. Providing support to other frontend team members while they encountered a problem. Making research on React Hooks, Saas, Css Text Animations, Responsive Css Design, React Libraries. Implementing a structure for Lifting State Up.
 [Erdinç Günaydın](https://github.com/bounswe/bounswe2022group4/wiki/Erdinç-Günaydın) | i. Making research on Android development, libraries and development conventions on Android </br> ii. Getting knowledge on Kotlin.  </br> iii. Reviewing of the works which have done by other team members. </br> iv. Implementation of the profile pages both doctor and normal user. </br> v. Costumizing the theme of mobile app and providing the compatibility with front-end product. </br> vi. Set and costumize of communication channel. </br> vii. Documenting the meeting notes when needed.
 Oğuzhan Tok |  Implementation of the Authentication API for the application. Creation of the Postman Collection for the Authentication API. Revision on the project plan. Some other responsibilites such as reviewing the pull requests.  
-[Halil Salih Orhan](https://github.com/bounswe/bounswe2022group4/wiki/Halil-Salih-Orhan) | i. Investigating general structure of the project as a new member. </br> ii. Reviewing others' work. </br> iii. implementing base structure of Android project using MVVM pradigm. </br> iv. Implementing Login/Signup functionalities. </br> v. Implementing networking of app. </br> vi. implementing bottom navigation. </br> vii. Providing help to others, while they encounterd problems. 
 
 
 
@@ -329,11 +337,5 @@ Work Done | Since i have some experience in React before, I have created the cod
 work  | desc
 ------------- | -------------
 Work Done | Since i do not have any experience in Django Framework before, I studied the Django Framework for a while. After learning process, I started to implement authentication mechanism of the application. I have developed 4 endpoints which are /api/user/login, /api/user/logout, /api/user/register and /api/user/home. With the help of these endpoints, application can authenticate users. After the development of the authentication mechanism, I have created the Postman Collection for the Authentication API in order Frontend and Android teams to make request easily. I think this collection is really helpfull for the rest of the group. I also played an active role in the planning and the distribution of the tasks within the backend team. Finally I have revisioned the project plan and some changes have done according to new improvements.   
-
-* Halil Salih Orhan
-
-work  | desc
-------------- | -------------
-Work Done | As a new member, I looked up and learn details of the project at first. After splitted into teams, I was assigned to Android team for my prior knowhow. I started implementinh basics of an Android project, as navigation, MVVM, one-activity-multi-fragment pattern, networking via retrofit2, dependency injection with HILT, Coroutines etc. Because of a problem @Fatih Akgoz encountered, I took them task on me (Login/Signup functionality of Android App). Then, I implemented that functionality. Also, helped frontend team for deploying their react project. 
 
 
