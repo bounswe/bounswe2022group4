@@ -4,10 +4,9 @@
 2. [List and status of deliverables](#list-and-status-of-deliverables)
 3. [Evaluation of the status of deliverables and its impact on your project plan](#evaluation-of-deliverables)
 4. [Evaluation of tools and processes you have used to manage your team project](#evaluation-of-tools-and-processes)
-5. [Review the Milestone](#review-the-milestone)
-6. [The requirements addressed in this milestone](#requirements)
-7. [Overall description of responsibilities that are assigned to each member](#responsibilities)
-8. [A Summary of work performed by each team member (in tabular format)](#summary-of-work)
+5. [The requirements addressed in this milestone](#requirements)
+6. [Overall description of responsibilities that are assigned to each member](#responsibilities)
+7. [A Summary of work performed by each team member (in tabular format)](#summary-of-work)
 
 ---------
 
@@ -46,7 +45,7 @@ Team members went over the requirements and design diagrams of the application a
 |[Project Plan](https://github.com/bounswe/bounswe2022group4/wiki/Project-Plan)|Delivered|01/11/2022|
 |[Individual Contribution Reports](https://github.com/bounswe/bounswe2022group4/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_1/Customer_Milestone_1.md)|Delivered|01/11/2022|
 |[Software Release](https://github.com/bounswe/bounswe2022group4/releases/tag/customer-presentation-1) | Delivered | 01/11/2022| 
-|Mobile Deliverables [APK](https://github.com/bounswe/bounswe2022group4/releases/download/customer-presentation-1/heka-mobile.apk))|Delivered |01/11/2022|
+|Mobile Deliverables [APK](https://github.com/bounswe/bounswe2022group4/releases/download/customer-presentation-1/heka-mobile.apk)|Delivered |01/11/2022|
 |Group Review  | Not Delivered | 04/11/2022|
 
 
