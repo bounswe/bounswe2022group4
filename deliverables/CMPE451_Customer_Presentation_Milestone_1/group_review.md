@@ -102,7 +102,9 @@ At the begginning our mobile team consisted of 3 people. And two of them know th
 
 
 #### **- Postman**
-* We used Postman while using the API which developed by our backend team. Postman Collection which created by the backend team is really helpfull while using the API. Our Frontend and Android teams made HTTP request from Postman easily.
+* We used Postman while using the API which developed by our backend team. 
+* Postman Collection which created by the backend team is really helpfull while using the API. 
+* Our Frontend and Android teams made HTTP request from Postman and understand the API.
 
 ---------
 
