@@ -253,7 +253,8 @@ Team members went over the requirements and design diagrams of the application a
 Team Member  | Responsbilities
 ------------- | -------------
 İbrahim Melih Aktaş  | My main responsibilites was the deployment. Creating Dockerfile and docker-compose.yml for the Django backend and the PostgreSQL database. Creating a CI/CD pipeline with Github Actions. Management of the AWS account and the products like ECR and EC2. 
-Yusuf Bayındır | Integrating Swagger UI into the application. Implementing unit tests for registration and login functionalities. Revision on the requirements and the class diagram. Some other management related responsibilites.(notetaking, Wiki management, etc.) | Content Cell
+Yusuf Bayındır | Integrating Swagger UI into the application. Implementing unit tests for registration and login functionalities. Revision on the requirements and the class diagram. Some other management related responsibilites.(notetaking, Wiki management, etc.) 
+Umut Deniz Şener | Creating a code base for frontend team in order to start building our web application HEKA. Implementing a navigation bar that allows users navigating to another components. Implementing Post component. Implementing PostBox component which renders multiple posts. Implementing Home Page. Implementing unit test cases for Home Page. Implementing the backend connection base for the web application. Implementing functions that make requests to the backend easily. Improving UI of the sign in and sign up pages. Reviewing the pull requests and issues in frontend team. Providing support to other frontend team members while they encountered a problem. Making research on React Hooks, Saas, Css Text Animations, Responsive Css Design, React Libraries. Implementing a structure for Lifting State Up.
 
 
 
