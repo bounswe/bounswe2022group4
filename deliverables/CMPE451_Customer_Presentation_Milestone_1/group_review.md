@@ -327,4 +327,11 @@ work  | desc
 ------------- | -------------
 Work Done | Since i do not have any experience in Django Framework before, I studied the Django Framework for a while. After learning process, I started to implement authentication mechanism of the application. I have developed 4 endpoints which are /api/user/login, /api/user/logout, /api/user/register and /api/user/home. With the help of these endpoints, application can authenticate users. After the development of the authentication mechanism, I have created the Postman Collection for the Authentication API in order Frontend and Android teams to make request easily. I think this collection is really helpfull for the rest of the group. I also played an active role in the planning and the distribution of the tasks within the backend team. Finally I have revisioned the project plan and some changes have done according to new improvements.   
 
+* Yiğit can Özkaya
+
+work  | desc
+------------- | -------------
+Work Done | Since i do not have any experience on React js before, i studied react libraries and functional class js for a while. I have been working on Angular for a while but i could not guess the difference between them is that much so the process took a long time for me. After convincing myself that i'm good enought to be code react, i started coding with my friends who helped me a lot. They already started doing the application beforehand so at first i mostly looked their implementation and by inspiring theirs, i created my implementation. So after the implementation of sign-up page and their functionalities, i started doing teamworks that are assigned all of us.  
+
+
 
