@@ -316,24 +316,11 @@ Member | Work Done So Far
 ------------- | -------------
  Umut Deniz Şener | Since i have some experience in React before, I have created the code base for the frontend team (Arranging folder and file formats, Implementing router mechanism, Installing libraries). Then i have implemented the navigation bar by using best practises of React and css. I also responsible for the home page. In the home page we need to render the posts written by the users. In order to do that i first created Post component that renders a single post. Then i have implemented PostBox component that renders multiple post with the data i have created. Then i implemented HomePage component with the PostBox component and implemented unit test cases for these components. I also create a backend connection base by using appropriate React libraries and implement postLogin and postRegister functions that enable easily making http request to the relevant rest apis. I also added css animations to the navigation bar and home page and helped to improve ui of the login and sign up pages. Lastly, I implemented a structure for lifting state up that allow us to store global states in React after i implement it I hide private components from unauthorized users.
 
-* Erdinç Günaydın
-
-|Issue or Pull Request |Related Link|
-|-----|:--------:|    
-|Learning Mobile Development with Kotlin |[issue](https://github.com/bounswe/bounswe2022group4/issues/246)|
-|Communication Channel Update|[issue](https://github.com/bounswe/bounswe2022group4/issues/229)|
-|Revision on Recommendation Requirements|[issue](https://github.com/bounswe/bounswe2022group4/issues/228)|
-|Revision of Sidebar|[issue](https://github.com/bounswe/bounswe2022group4/issues/244) |
-|Mobile: Implementation of Profile Page|[issue](https://github.com/bounswe/bounswe2022group4/issues/259)|
-|Filling of forgotten mobile team meeting notes I-II-III|[issue](https://github.com/bounswe/bounswe2022group4/issues/326)|
-|Taking and documenting General Meeting Notes 5 | [issue](https://github.com/bounswe/bounswe2022group4/issues/327)|
-|Arrange and filling of General Meeting Notes 2 and 3 | [issue](https://github.com/bounswe/bounswe2022group4/issues/245)|
-|Mobile: Profile page implemented | [pull-request](https://github.com/bounswe/bounswe2022group4/pull/319)|
 
 
 Member | Work Done So Far
 ------------- | -------------
-Berat Damar | Firstly, I conduct a research to determine which technologies we use for frontend development. We decided to use React considerings requirements of our project. Since I do not have any experience in frontend development, I conducted a research  for HTML, CSS and Reach. I watched tutorials about them and practiced them. After learning process, I started to design Sign In page of the application. After completing design proccess, I started to implement Sign In page and then I proived backend connection of Sign In page using API's proivded by backend team. After implementation of Sign In page, I conducted a research about testing methodologies in React. According to the research, I created a testing base for frontend and then I wrote tests for Sign In page. I also reviewed a lot of pull requests. I took meeting notes for general and frontend meetings. Addition to implementation, I contributed to project design and management processes, I revised requiremnts, use case diagram, evaluation of tools and processes for Milestone 1. I also created a table about works done  by me. You can loo at [here](https://github.com/bounswe/bounswe2022group4/wiki/Milestone-1:-Summary-of-Work--(Berat-Damar))   
+Berat Damar | Firstly, I conduct a research to determine which technologies we use for frontend development. We decided to use React considering requirements of our project. Since I do not have any experience in frontend development, I conducted a research  for HTML, CSS and Reach. I watched tutorials about them and practiced them. After learning process, I started to design Sign In page of the application. After completing design proccess, I started to implement Sign In page and then I provided backend connection of Sign In page using API's provided by backend team. After implementation of Sign In page, I conducted a research about testing methodologies in React. According to the research, I created a testing base for frontend and then I wrote tests for Sign In page. I also reviewed a lot of pull requests. I took meeting notes for general and frontend meetings. Addition to implementation, I contributed to project design and management processes, I revised requiremnts, use case diagram, evaluation of tools and processes for Milestone 1. I also created a table about works done  by me. You can look at [here](https://github.com/bounswe/bounswe2022group4/wiki/Milestone-1:-Summary-of-Work--(Berat-Damar)) for table.
 
 
  
@@ -361,6 +348,19 @@ Yusuf Bayındır | First, I went through a learning phase to acquire the minimum
 Elif Tokluoğlu | I didn't have any experience with building a backend application using Django REST Framework. I did some research on Django REST Framework and learned how to build a backend application with it. I wrote unit test for logout functionality. I prepared project plan. Finally I filled Status of Deliverables and Impact on Project Plan part of group review.
 
 
+* Erdinç Günaydın
+
+|Issue or Pull Request |Related Link|
+|-----|:--------:|    
+|Learning Mobile Development with Kotlin |[issue](https://github.com/bounswe/bounswe2022group4/issues/246)|
+|Communication Channel Update|[issue](https://github.com/bounswe/bounswe2022group4/issues/229)|
+|Revision on Recommendation Requirements|[issue](https://github.com/bounswe/bounswe2022group4/issues/228)|
+|Revision of Sidebar|[issue](https://github.com/bounswe/bounswe2022group4/issues/244) |
+|Mobile: Implementation of Profile Page|[issue](https://github.com/bounswe/bounswe2022group4/issues/259)|
+|Filling of forgotten mobile team meeting notes I-II-III|[issue](https://github.com/bounswe/bounswe2022group4/issues/326)|
+|Taking and documenting General Meeting Notes 5 | [issue](https://github.com/bounswe/bounswe2022group4/issues/327)|
+|Arrange and filling of General Meeting Notes 2 and 3 | [issue](https://github.com/bounswe/bounswe2022group4/issues/245)|
+|Mobile: Profile page implemented | [pull-request](https://github.com/bounswe/bounswe2022group4/pull/319)|
 
 
 
