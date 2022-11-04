@@ -299,7 +299,7 @@ Umut Deniz Şener | Creating a code base for frontend team in order to start bui
 [Erdinç Günaydın](https://github.com/bounswe/bounswe2022group4/wiki/Erdinç-Günaydın) | i. Making research on Android development, libraries and development conventions on Android </br> ii. Getting knowledge on Kotlin.  </br> iii. Reviewing of the works which have done by other team members. </br> iv. Implementation of the profile pages both doctor and normal user. </br> v. Costumizing the theme of mobile app and providing the compatibility with front-end product. </br> vi. Set and costumize of communication channel. </br> vii. Documenting the meeting notes when needed.
 Oğuzhan Tok |  Implementation of the Authentication API for the application. Creation of the Postman Collection for the Authentication API. Revision on the project plan. Some other responsibilites such as reviewing the pull requests.  
 [Berat Damar](https://github.com/bounswe/bounswe2022group4/wiki/Berat-Damar)| i. Revision of requirements and making necessary changes.  </br> ii. Making research on Frontend development technologies. </br> iii. Learning HTML and CSS before starting to learn React.  </br> iv. Learning frontend development using React. </br> v. Designing and implementation of login page.  </br> vi. Implementing the backend connection between the sign up page and our REST API. </br> vii. Conducting a research about testing methodlogies in React and providing base structure for unit tests. </br> viii. Writing meeting notes for general team and fronend team. </br> iv. Reviewing the works done by the frontend team.  </br> v. Revision on Use Case Diagram
-
+Elif Tokluoğlu |  Learning Django REST Framework. Implementing unit test for logout functionality. Creation of the Project Plan.
 
 ----------------
 
@@ -366,6 +366,9 @@ Miraç Batuhan Malazgirt| Since I did not have any experience with React before 
 Yusuf Bayındır | First, I went through a learning phase to acquire the minimum foundation to build a backend application using Django REST framework. I implemented parts that integrate Swagger UI into the applications and unit tests for registration and login functionalities. I was also responsible for some design related and management tasks such as notetaking, Wiki management, revision on Requirements & Class Diagram. All the related issues and pull requests are listed in **Individual Reports**. Lastly, I filled out *Executive Summary* section to reflect the current status of the application.
 
 
+  Member | Work Done So Far
+---- | ---
+Elif Tokluoğlu | I didn't have any experience with building a backend application using Django REST Framework. I did some research on Django REST Framework and learned how to build a backend application with it. I wrote unit test for logout functionality. I prepared project plan. Finally I filled Status of Deliverables and Impact on Project Plan part of group review.
 
 
 
