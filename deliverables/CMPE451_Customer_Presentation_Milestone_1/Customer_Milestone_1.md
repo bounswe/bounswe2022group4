@@ -595,6 +595,177 @@ Team members went over the requirements and design diagrams of the application a
 - Class Diagram çizdiğimiz tool
 - 
 ## The requirements addressed in this milestone.
+
+## Glossary
+
+* **User:** *A person who uses or interacts with the application.*
+* **Admin:** *A  user type that has special privileges to manage the system.*
+* **Follow:** *Feature that user can use for tracking the discussion thread.*
+* **Unfollow:** *Feature that user can use for untracking the discussion thread.*
+* **Username:** *Identification used by the users to access application.*
+* **Password:** *Secret word or phrase that must be used to access application.*
+* **Homepage:** *The introductory page of the application.*
+* **Post:** *Piece of writings with attachments under categories that are intended to share a medical experience or domain-specific knowledge.*
+* **Comment:** *Tool of communication and discussion under a post.*
+* **Patient:** *An individual under certain medical care.*
+* **Disease:** *A pathological process, deviation from a biological norm.*
+* **Illness:** *A feeling or an experience of unhealth which is entirely personal, interior to the person of the patient (No disease can be found.).*
+* **Symptom:** *Any indication of disease perceived by the patient.*
+* **Drug:** *Any substance, other than food, used in the prevention, diagnosis, alleviation, treatment, or cure of disease.*
+* **Forum:** *A medium for sharing a medical experience or domain-specific knowledge via posts.*
+
+
+
+## 1.Functional Requirements
+<ul>
+
+### 1.1 User Requirements
+
+
+
+
+<ul>
+<details>
+
+<summary><strong>1.1.1 Authentication</strong></summary>
+
+
+
+* **1.1.1.1 Sign Up** 
+  * **1.1.1.1.1** *Users shall provide their first name and last name.*
+
+  * **1.1.1.1.2** *Users shall provide a username and e-mail address that are unique in the system.*
+
+  * **1.1.1.1.3** *Users shall be notified by a message "This username/e-mail address is already in use. Please enter a new username/e-mail address." if they enter a username or email address that is already in use .*
+
+  * **1.1.1.1.4** *Users shall set a password that is longer than 8 characters and contains at least one upper case letter, one lower-case letter, and one number.* 
+
+
+* **1.1.1.2. Sign In**
+
+  * **1.1.1.2.1** *Users shall provide their e-mails and passwords for signing in.*
+
+  * **1.1.1.2.2** *Users shall get a warning message which is " Your e-mail or password is wrong." if the provided e-mail or password is wrong.*
+  * **1.1.1.2.3** *Users shall see the home page after signing in successfully.*
+
+</details>
+
+<details>
+<summary><strong>1.1.2. User Interactions</strong></summary>
+
+* **1.1.2.1 Forum**
+
+  * **1.1.2.1.1** *Users shall be able to create posts.*
+  * **1.1.2.1.2** *Users shall be able to comment under other users' post and comments.*
+  * **1.1.2.1.3** *Users shall add a title while creating posts.*
+  * **1.1.2.1.4** *Users shall add  a body text to their posts and comments.*
+  * **1.1.2.1.5** *Users shall be able to read a post shared by another user.*
+  * **1.1.2.1.6** *Users shall be able to edit their posts and comments.*
+  * **1.1.2.1.7** *Users shall be able to delete their posts and comments.*
+  * **1.1.2.1.8** *Admins shall be able to delete any post or comment if required.*
+  * **1.1.2.1.9** *Users shall be able to see all posts.*
+  * **1.1.2.1.10** *Users shall be able to follow users.*
+  * **1.1.2.1.11** *Users shall be able to unfollow users.*
+
+
+* **1.1.2.2 Profile Pages**
+
+  * **1.1.2.2.1** *Users shall have a profile page.*
+  * **1.1.2.2.2** *Users shall be able to log out from their profile pages.*
+  * **1.1.2.2.3** *Users shall see other users' user type from their profile pages.*
+  * **1.1.2.2.4** *Users shall see other users' avatars from their profile pages.*
+  * **1.1.2.2.5** *Users shall see other users' past comments and post from their profile pages.*
+  * **1.1.2.2.6** *Users shall have their usernames visible on their profile pages.*
+
+</details>
+
+</ul>
+</ul>
+
+<ul>
+
+### 1.2 System Requirements
+
+<ul>
+
+<details>
+<summary><strong>1.2.1. Forum</strong></summary>
+
+* **1.2.5.10.** *The system shall display the top posts of the current category.*
+
+</details>
+
+<details>
+<summary><strong>1.2.2. Admin Features</strong></summary>
+
+
+</details>
+
+</ul>
+
+</ul>
+
+
+## 2.Non-Functional Requirements
+
+<ul>
+
+<details>
+<summary><strong>2.1 Reliability Requirements </strong></summary>
+
+* **2.1.1.** *The system shall always run up to 2000 users.*
+* **2.1.2.** *The system shall be portable for website and application.*
+* **2.1.3.** *The system shall respond to any user no later than 4 seconds.*
+
+
+</details>
+<details>
+<summary><strong>2.2 Availability Requirements </strong></summary>
+
+* **2.2.1.** *The system language shall be English.*
+* **2.2.2.** *The system shall be available as a native web application in browsers.*
+* **2.2.3.** *The system shall be available as a native mobile application on Android platforms.*
+
+
+</details>
+
+<details>
+<summary><strong>2.3 Security </strong></summary>
+
+* **2.3.1.** *The system shall prevent various cyber-attacks by providing SSL certificates to its users (HTTPS).*
+* **2.3.2.** *The system shall properly implement security configurations and perform any necessary hardening.*
+* **2.3.3.** *The system shall ensure an ongoing plan for monitoring, triaging, and applying updates or configuration changes for the lifetime of the application.
+* **2.3.4.** *The system shall use the HTTPS protocol to transfer encrypted data over the web.*
+
+</details>
+
+
+<details>
+<summary><strong>2.4 Standards</strong></summary>
+
+* **2.4.1.** *The annotations shall be compliant with the [W3C Web Annotation Data Model.](https://www.w3.org/TR/annotation-model/)*
+
+
+
+
+</details>
+
+<details>
+<summary><strong>2.5. Legal Requirements </strong></summary>
+
+* **2.5.1** *The system shall contain a comprehensive, clear, and accessible privacy policy.*
+* **2.5.2.** *The system shall comply with the Law on the Protection of Personal Data No. 6698 (KVKK).*
+* **2.5.3.** *The system shall comply with [GDPR](https://gdpr-info.eu/).*
+* **2.5.4.** *Users shall accept the privacy policy suggested when registering.*
+
+
+
+
+</details>
+
+</ul>
+
+
 ## Overall description of responsibilities that are assigned to each member.
 Team Member  | Responsbilities
 ------------- | -------------
