@@ -1,4 +1,19 @@
-# **Group Review**
+# **Group4 Review of Milestone 1**
+
+1. [Executive Summary](#executive-summary)
+2. [List and status of deliverables](#list-and-status-of-deliverables)
+3. [Evaluation of the status of deliverables and its impact on your project plan](#evaluation-of-deliverables)
+4. [Evaluation of tools and processes you have used to manage your team project](#evaluation-of-tools-and-processes)
+5. [Review the Milestone](#review-the-milestone)
+6. [The requirements addressed in this milestone](#requirements)
+7. [Overall description of responsibilities that are assigned to each member](#responsibilities)
+8. [A Summary of work performed by each team member (in tabular format)](#summary-of-work)
+
+---------
+
+
+
+
 
 ## Executive Summary
 
@@ -17,7 +32,7 @@ Team members went over the requirements and design diagrams of the application a
 ### *Current Functionality of HEKA*
 - Users could register, login to the application, and logout from the application via native Android application.
 
-
+---------
 
 ## List and status of deliverables.
 
@@ -35,9 +50,19 @@ Team members went over the requirements and design diagrams of the application a
 |Group Review  | Not Delivered | 04/11/2022|
 
 
+---------
 
-## Evaluation of the status of deliverables and its impact on your project plan.
-## Evaluation of tools and processes you have used to manage your team project.
+## Evaluation of Deliverables
+
+
+
+
+
+
+---------
+
+
+## Evaluation of Tools and Processes
 - AWS ECR: We used this to store docker images of the backend and the database. It is easy to use.
 - AWS EC2: It is one of the most popular cloud platforms. EC2 machines are easy to create and manage. Since it is very popular, it is easy to find sources about them.
 - Github Actions: We used it to create a CI/CD pipeline for the backend. Since it is integrated to the github, CI/CD pipeline status looks great when a contributer commits to the predefined branches. 
@@ -46,10 +71,15 @@ Team members went over the requirements and design diagrams of the application a
 - ProjectLibre
 - Android Studio
 - Class Diagram çizdiğimiz tool
-- 
-## The requirements addressed in this milestone.
 
-## Glossary
+
+
+---------
+
+
+## Requirements
+
+### Glossary
 
 * **User:** *A person who uses or interacts with the application.*
 * **Admin:** *A  user type that has special privileges to manage the system.*
@@ -69,7 +99,7 @@ Team members went over the requirements and design diagrams of the application a
 
 
 
-## 1.Functional Requirements
+### 1.Functional Requirements
 <ul>
 
 ### 1.1 User Requirements
@@ -159,7 +189,7 @@ Team members went over the requirements and design diagrams of the application a
 </ul>
 
 
-## 2.Non-Functional Requirements
+### 2.Non-Functional Requirements
 
 <ul>
 
@@ -218,15 +248,19 @@ Team members went over the requirements and design diagrams of the application a
 
 </ul>
 
+------------------
 
-## Overall description of responsibilities that are assigned to each member.
+## Responsibilities
 Team Member  | Responsbilities
 ------------- | -------------
 İbrahim Melih Aktaş  | My main responsibilites was the deployment. Creating Dockerfile and docker-compose.yml for the Django backend and the PostgreSQL database. Creating a CI/CD pipeline with Github Actions. Management of the AWS account and the products like ECR and EC2. 
 Yusuf Bayındır | Integrating Swagger UI into the application. Implementing unit tests for registration and login functionalities. Revision on the requirements and the class diagram. Some other management related responsibilites.(notetaking, Wiki management, etc.) | Content Cell
 
 
-## Summary of work performed by each team member (in tabular format)
+
+----------------
+
+## Summary of Work
 Team Member  | Work Performed
 ------------- | -------------
 İbrahim Melih Aktaş  | I created the boilerplate of the backend with the Django. I created Dockerfile and docker-compose.yml for the Django backend and the postgreSQL database. I created an AWS account and create an appropriate user with the necessary permissions. I created an EC2 machine. I created a CI/CD  pipeline with the Github Actions which detects the commits on the heka-backend branch and builds the Docker image. Then that pipeline pushes that Docker image to a public repository on the AWS ECR and then it connects to the EC2 machine on the AWS by using SSH connection. Then it pulls the image from the AWS ECR and runs a container on that EC2 instance. I increased the token expiration time in order to make testing easier. I reviewed the pull requests created by the other team members from the backend. 
