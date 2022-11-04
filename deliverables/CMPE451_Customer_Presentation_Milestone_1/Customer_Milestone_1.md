@@ -602,7 +602,7 @@ Team Member  | Responsbilities
 Yusuf Bayındır | Integrating Swagger UI into the application. Implementing unit tests for registration and login functionalities. Revision on the requirements and the class diagram. Some other management related responsibilites.(notetaking, Wiki management, etc.) | Content Cell
 
 
-## A Summary of work performed by each team member (in tabular format)
+## Summary of work performed by each team member (in tabular format)
 Team Member  | Work Performed
 ------------- | -------------
 İbrahim Melih Aktaş  | I created the boilerplate of the backend with the Django. I created Dockerfile and docker-compose.yml for the Django backend and the postgreSQL database. I created an AWS account and create an appropriate user with the necessary permissions. I created an EC2 machine. I created a CI/CD  pipeline with the Github Actions which detects the commits on the heka-backend branch and builds the Docker image. Then that pipeline pushes that Docker image to a public repository on the AWS ECR and then it connects to the EC2 machine on the AWS by using SSH connection. Then it pulls the image from the AWS ECR and runs a container on that EC2 instance. I increased the token expiration time in order to make testing easier. I reviewed the pull requests created by the other team members from the backend. 
