@@ -94,7 +94,7 @@ We used Visual Studio Code as our IDE for the development. Thanks to its extensi
 #### **- AWS**
 * AWS ECR: We used this to store docker images of the backend and the database. It is easy to use.
 * AWS EC2: It is one of the most popular cloud platforms. EC2 machines are easy to create and manage. Since it is very popular, it is easy to find sources about them.
-//Add more !!!!!!!!
+
 
 
 #### **- Lucidchart**
@@ -104,7 +104,7 @@ Lucidchart is quite useful proprşetary platform that is used to allow users to 
 
 #### **- PostgreSQL**
 It is popular and there are a lot of sources about its integration with Github. It is very easy to use with the official docker image downloaded from Docker Hub. PostgreSQL's community support and ease of use received positive feedback from the team.
-//To do: add some stuffs !!!
+
 
 
 #### **- Postman**
