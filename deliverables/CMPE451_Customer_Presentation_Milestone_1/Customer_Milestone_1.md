@@ -596,8 +596,13 @@ Team members went over the requirements and design diagrams of the application a
 - 
 ## The requirements addressed in this milestone.
 ## Overall description of responsibilities that are assigned to each member.
+Team Member  | Responsbilities
+------------- | -------------
+İbrahim Melih Aktaş  | My main responsibilites was the deployment. Creating Dockerfile and docker-compose.yml for the Django backend and the PostgreSQL database. Creating a CI/CD pipeline with Github Actions. Management of the AWS account and the products like ECR and EC2. 
+Content Cell  | Content Cell
+
 ## A Summary of work performed by each team member (in tabular format)
 Team Member  | Work Performed
 ------------- | -------------
-İbrahim Melih Aktaş  | I created the most basic form of the backend with the Django. I created Dockerfile and docker-compose.yml for the Django backend and the postgreSQL database. I created an AWS account and create an appropriate user with the necessary permissions. I created an EC2 machine. I created a CI/CD  pipeline with the Github Actions which detects the commits on the heka-backend branch and builds the Docker image. Then that pipeline pushes that Docker image to a public repository on the AWS ECR and then it connects to the EC2 machine on the AWS by using SSH connection. Then it pulls the image from the AWS ECR and runs a container on that EC2 instance. 
+İbrahim Melih Aktaş  | I created the boilerplate of the backend with the Django. I created Dockerfile and docker-compose.yml for the Django backend and the postgreSQL database. I created an AWS account and create an appropriate user with the necessary permissions. I created an EC2 machine. I created a CI/CD  pipeline with the Github Actions which detects the commits on the heka-backend branch and builds the Docker image. Then that pipeline pushes that Docker image to a public repository on the AWS ECR and then it connects to the EC2 machine on the AWS by using SSH connection. Then it pulls the image from the AWS ECR and runs a container on that EC2 instance. I increased the token expiration time in order to make testing easier. I reviewed the pull requests created by the other team members from the backend. 
 Content Cell  | Content Cell
