@@ -3,8 +3,8 @@
 * [Software Design (UML)](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram)
 * [Scenarios](https://github.com/bounswe/bounswe2022group4/wiki/451-Milestone-1-Scenarios) and [Mockups](https://github.com/bounswe/bounswe2022group4/wiki/Mockups)
 * [Project Plan](https://github.com/bounswe/bounswe2022group4/wiki/Project-Plan)
-* Individual Contribution Reports
-* Customer Milestone 1 Group Review
+* [Individual Contribution Reports]()
+* [Customer Milestone 1 Group Review](https://github.com/bounswe/bounswe2022group4/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_1/Customer_Milestone_1.md#customer-milestone-1-group-review)
 
 # **INDIVIDUAL REPORTS**
 
@@ -562,3 +562,24 @@ I made some info updateson my personal wiki page. I also revisioned the sidebar 
 
 
 # **Customer Milestone 1 Group Review**
+
+## Executive Summary 
+## List and status of deliverables.
+## Evaluation of the status of deliverables and its impact on your project plan.
+## Evaluation of tools and processes you have used to manage your team project.
+- AWS ECR: We used this to store docker images of the backend and the database. It is easy to use.
+- AWS EC2: It is one of the most popular cloud platforms. EC2 machines are easy to create and manage. Since it is very popular, it is easy to find sources about them.
+- Github Actions: We used it to create a CI/CD pipeline for the backend. Since it is integrated to the github, CI/CD pipeline status looks great when a contributer commits to the predefined branches. 
+- PostgreSQL: It is popular and easy to use. There are a lot of sources about its integration with Github.
+- Postman
+- ProjectLibre
+- Android Studio
+- Class Diagram çizdiğimiz tool
+- 
+## The requirements addressed in this milestone.
+## Overall description of responsibilities that are assigned to each member.
+## A Summary of work performed by each team member (in tabular format)
+Team Member  | Work Performed
+------------- | -------------
+İbrahim Melih Aktaş  | I created the most basic form of the backend with the Django. I created Dockerfile and docker-compose.yml for the Django backend and the postgreSQL database. I created an AWS account and create an appropriate user with the necessary permissions. I created an EC2 machine. I created a CI/CD  pipeline with the Github Actions which detects the commits on the heka-backend branch and builds the Docker image. Then that pipeline pushes that Docker image to a public repository on the AWS ECR and then it connects to the EC2 machine on the AWS by using SSH connection. Then it pulls the image from the AWS ECR and runs a container on that EC2 instance. 
+Content Cell  | Content Cell
