@@ -26,7 +26,8 @@ Team members went over the requirements and design diagrams of the application a
 - /api/user/register
 - /api/user/login
 - /api/user/logout
-- /swagger/
+- /api/user/home
+- /swagger
 
 ### *Current Functionality of HEKA*
 - Users could register, login to the application, and logout from the application via native Android application.
@@ -94,14 +95,14 @@ At the begginning our mobile team consisted of 3 people. And two of them know th
 
 
 #### **- PostgreSQL**
-* It is popular and easy to use. There are a lot of sources about its integration with Github.
+* It is popular and there are a lot of sources about its integration with Github.
+* It is very easy to use with the official docker image downloaded from Docker Hub.
+* PostgreSQL's community support and ease of use received positive feedback from the team.
 //To do: add some stuffs !!!
 
 
 #### **- Postman**
-//To do add some stuffs !!!
-
-
+* We used Postman while using the API which developed by our backend team. Postman Collection which created by the backend team is really helpfull while using the API. Our Frontend and Android teams made HTTP request from Postman easily.
 
 ---------
 
@@ -287,7 +288,6 @@ Yusuf Bayındır | Integrating Swagger UI into the application. Implementing uni
 Umut Deniz Şener | Creating a code base for frontend team in order to start building our web application HEKA. Implementing a navigation bar that allows users navigating to another components. Implementing Post component. Implementing PostBox component which renders multiple posts. Implementing Home Page. Implementing unit test cases for Home Page. Implementing the backend connection base for the web application. Implementing functions that make requests to the backend easily. Improving UI of the sign in and sign up pages. Reviewing the pull requests and issues in frontend team. Providing support to other frontend team members while they encountered a problem. Making research on React Hooks, Saas, Css Text Animations, Responsive Css Design, React Libraries. Implementing a structure for Lifting State Up.
 [Erdinç Günaydın](https://github.com/bounswe/bounswe2022group4/wiki/Erdinç-Günaydın) | i. Making research on Android development, libraries and development conventions on Android </br> ii. Getting knowledge on Kotlin.  </br> iii. Reviewing of the works which have done by other team members. </br> iv. Implementation of the profile pages both doctor and normal user. </br> v. Costumizing the theme of mobile app and providing the compatibility with front-end product. </br> vi. Set and costumize of communication channel. </br> vii. Documenting the meeting notes when needed.
 Oğuzhan Tok |  Implementation of the Authentication API for the application. Creation of the Postman Collection for the Authentication API. Revision on the project plan. Some other responsibilites such as reviewing the pull requests.  
-Yiğit Can Özkaya |  Implementation of sign-up page with related functionalities, creating updated requirements, updated user scenarios.  
 
 
 
@@ -326,12 +326,5 @@ Work Done | Since i have some experience in React before, I have created the cod
 work  | desc
 ------------- | -------------
 Work Done | Since i do not have any experience in Django Framework before, I studied the Django Framework for a while. After learning process, I started to implement authentication mechanism of the application. I have developed 4 endpoints which are /api/user/login, /api/user/logout, /api/user/register and /api/user/home. With the help of these endpoints, application can authenticate users. After the development of the authentication mechanism, I have created the Postman Collection for the Authentication API in order Frontend and Android teams to make request easily. I think this collection is really helpfull for the rest of the group. I also played an active role in the planning and the distribution of the tasks within the backend team. Finally I have revisioned the project plan and some changes have done according to new improvements.   
-
-* Yiğit can Özkaya
-
-work  | desc
-------------- | -------------
-Work Done | Since i do not have any experience on React js before, i studied react libraries and functional class js for a while. I have been working on Angular for a while but i could not guess the difference between them is that much so the process took a long time for me. After convincing myself that i'm good enought to be code react, i started coding with my friends who helped me a lot. They already started doing the application beforehand so at first i mostly looked their implementation and by inspiring theirs, i created my implementation. So after the implementation of sign-up page and their functionalities, i started doing teamworks that are assigned all of us.  
-
 
 
