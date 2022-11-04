@@ -345,3 +345,12 @@ Work Done | Since i do not have any experience in Django Framework before, I stu
 Work Done So Far  | Description
 ------------- | -------------
 Work Done | Since I did not have any experience with React before this project I had to start from the scratch. First I have finished an 10 hour React bootcamp video. After that using the best practices I have started to code the section of the project that is assigned to me. The assigned part was Profile Page. First I have designed the structure of the page. After that I have started researching to find best React library to use. I have decided to Reactstrap. I have begun to implement the components of the project. I have implemented Card, Modal components and also using row and col's from the library I have implemented the general structure design of the page. Lastly I have prepared realistic data for presentation that will be done in the lecture hours. After all of that I have created my pull request and closed the issues, I also made contributions to the deployment side of the project. * [Frontend: Create the Profile Page Section of the Project ( 1/4th of the frontend side )](https://github.com/bounswe/bounswe2022group4/issues/263)
+
+
+* Yusuf Bayındır
+
+Work Done So Far  | Description
+------------- | -------------
+Work Done So Far| First, I went through a learning phase to acquire the minimum foundation to build a backend application using Django REST framework.
+I implemented parts that integrate Swagger UI into the applications and unit tests for registration and login functionalities. I was also responsible for some design related and management tasks such as notetaking, Wiki management, revision on Requirements & Class Diagram. All the related issues and pull requests are listed in **Individual Reports**. Lastly, I filled out *Executive Summary* section to reflect the current status of the application.
+
