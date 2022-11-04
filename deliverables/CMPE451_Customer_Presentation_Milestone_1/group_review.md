@@ -1,4 +1,4 @@
-# **Group 4, Review of Milestone 1**
+# **Group4 Review of Milestone 1**
 
 1. [Executive Summary](#executive-summary)
 2. [List and status of deliverables](#list-and-status-of-deliverables)
@@ -299,7 +299,7 @@ Yusuf Bayındır | Integrating Swagger UI into the application. Implementing uni
 Umut Deniz Şener | Creating a code base for frontend team in order to start building our web application HEKA. Implementing a navigation bar that allows users navigating to another components. Implementing Post component. Implementing PostBox component which renders multiple posts. Implementing Home Page. Implementing unit test cases for Home Page. Implementing the backend connection base for the web application. Implementing functions that make requests to the backend easily. Improving UI of the sign in and sign up pages. Reviewing the pull requests and issues in frontend team. Providing support to other frontend team members while they encountered a problem. Making research on React Hooks, Saas, Css Text Animations, Responsive Css Design, React Libraries. Implementing a structure for Lifting State Up.
 [Erdinç Günaydın](https://github.com/bounswe/bounswe2022group4/wiki/Erdinç-Günaydın) | i. Making research on Android development, libraries and development conventions on Android </br> ii. Getting knowledge on Kotlin.  </br> iii. Reviewing of the works which have done by other team members. </br> iv. Implementation of the profile pages both doctor and normal user. </br> v. Costumizing the theme of mobile app and providing the compatibility with front-end product. </br> vi. Set and costumize of communication channel. </br> vii. Documenting the meeting notes when needed.
 Oğuzhan Tok |  Implementation of the Authentication API for the application. Creation of the Postman Collection for the Authentication API. Revision on the project plan. Some other responsibilites such as reviewing the pull requests.  
-Miraç Batuhan Malazgirt |    i. Making research on React and learning it from scratch. </br> ii. Attending weekly meetings. </br> iii. Implementing Card component. </br> iv. Implementing  Modal component which renders multiple cards. </br> v. Designing the Profil Page section of the project. </br> vi. Implementing design of the Profil Page. </br> vii. Implementing design of the Profil Page. </br> vii. Implementing unit test cases for Profile Pages. </br> ix. Preparing realistic data for presentation.</br> x. Preparing docker files for deployment. </br> xi. Reviewing the pull requests and issues. </br> xii. Preparing requirements done section of the group milestone report.
+[Berat Damar](https://github.com/bounswe/bounswe2022group4/wiki/Berat-Damar)| i. Revision of requirements and making necessary changes.  </br> ii. Making research on Frontend development technologies. </br> iii. Learning HTML and CSS before starting to learn React.  </br> iv. Learning frontend development using React. </br> v. Designing and implementation of login page.  </br> vi. Implementing the backend connection between the sign up page and our REST API. </br> vii. Conducting a research about testing methodlogies in React and providing base structure for unit tests. </br> viii. Writing meeting notes for general team and fronend team. </br> iv. Reviewing the works done by the frontend team.  </br> v. Revision on Use Case Diagram
 
 
 ----------------
@@ -308,13 +308,13 @@ Miraç Batuhan Malazgirt |    i. Making research on React and learning it from s
 
 * İbrahim Melih Aktaş
 
-Work Done So Far  | Description
+work  | desc
 ------------- | -------------
 Work done | I created the boilerplate of the backend with the Django. I created Dockerfile and docker-compose.yml for the Django backend and the postgreSQL database. I created an AWS account and create an appropriate user with the necessary permissions. I created an EC2 machine. I created a CI/CD  pipeline with the Github Actions which detects the commits on the heka-backend branch and builds the Docker image. Then that pipeline pushes that Docker image to a public repository on the AWS ECR and then it connects to the EC2 machine on the AWS by using SSH connection. Then it pulls the image from the AWS ECR and runs a container on that EC2 instance. I increased the token expiration time in order to make testing easier. I reviewed the pull requests created by the other team members from the backend. 
 
 * Umut Deniz Şener
 
-Work Done So Far  | Description
+work  | desc
 ------------- | -------------
 Work Done | Since i have some experience in React before, I have created the code base for the frontend team (Arranging folder and file formats, Implementing router mechanism, Installing libraries). Then i have implemented the navigation bar by using best practises of React and css. I also responsible for the home page. In the home page we need to render the posts written by the users. In order to do that i first created Post component that renders a single post. Then i have implemented PostBox component that renders multiple post with the data i have created. Then i implemented HomePage component with the PostBox component and implemented unit test cases for these components. I also create a backend connection base by using appropriate React libraries and implement postLogin and postRegister functions that enable easily making http request to the relevant rest apis. I also added css animations to the navigation bar and home page and helped to improve ui of the login and sign up pages. Lastly, I implemented a structure for lifting state up that allow us to store global states in React after i implement it I hide private components from unauthorized users.
 
@@ -332,25 +332,30 @@ Work Done | Since i have some experience in React before, I have created the cod
 |Arrange and filling of General Meeting Notes 2 and 3 | [issue](https://github.com/bounswe/bounswe2022group4/issues/245)|
 |Mobile: Profile page implemented | [pull-request](https://github.com/bounswe/bounswe2022group4/pull/319)|
 
+
+* Berat Damar
+
+|Issue or Pull Request |Related Link|
+|-----|:--------:|    
+|Revising the Requirements Specification |[issue](https://github.com/bounswe/bounswe2022group4/issues/226)|
+|Researching and reporting for Frontend development with React |[issue](https://github.com/bounswe/bounswe2022group4/issues/237)|
+|Documenting General Meeting Note for the Meeting 2 |[issue](https://github.com/bounswe/bounswe2022group4/issues/269)|
+|Documenting Frontend Meeting Note for the Meeting 2|[issue](https://github.com/bounswe/bounswe2022group4/issues/262) |
+|Implementation of Sign In Page|[issue](https://github.com/bounswe/bounswe2022group4/issues/259) and [PR](https://github.com/bounswe/bounswe2022group4/pull/265)|
+|Backend Connection for the Sign In Page|[issue](https://github.com/bounswe/bounswe2022group4/pull/274) and [PR](https://github.com/bounswe/bounswe2022group4/pull/267)|
+|Providing a base structure for testing and writing tests for Sign In Page| [issue](https://github.com/bounswe/bounswe2022group4/issues/284) and [PR](https://github.com/bounswe/bounswe2022group4/pull/288)|
+|Redesigning personal wiki page | [issue](https://github.com/bounswe/bounswe2022group4/issues/227)|
+|Attending all general and frontend team meeting. | [Link](https://github.com/bounswe/bounswe2022group4/wiki/Berat-Damar)|
+|Solving bugs in frontend |[issue](https://github.com/bounswe/bounswe2022group4/issues/268) and [PR](https://github.com/bounswe/bounswe2022group4/pull/267)|
+|All other works were mentioned in personal wiki page.| [Link](https://github.com/bounswe/bounswe2022group4/wiki/Berat-Damar)|
+
+
+
+
 * Oğuzhan Tok
 
-Work Done So Far  | Description
+work  | desc
 ------------- | -------------
 Work Done | Since i do not have any experience in Django Framework before, I studied the Django Framework for a while. After learning process, I started to implement authentication mechanism of the application. I have developed 4 endpoints which are /api/user/login, /api/user/logout, /api/user/register and /api/user/home. With the help of these endpoints, application can authenticate users. After the development of the authentication mechanism, I have created the Postman Collection for the Authentication API in order Frontend and Android teams to make request easily. I think this collection is really helpfull for the rest of the group. I also played an active role in the planning and the distribution of the tasks within the backend team. Finally I have revisioned the project plan and some changes have done according to new improvements.   
 
-
-
-* Miraç Batuhan Malazgirt
-
-Work Done So Far  | Description
-------------- | -------------
-Work Done | Since I did not have any experience with React before this project I had to start from the scratch. First I have finished an 10 hour React bootcamp video. After that using the best practices I have started to code the section of the project that is assigned to me. The assigned part was Profile Page. First I have designed the structure of the page. After that I have started researching to find best React library to use. I have decided to Reactstrap. I have begun to implement the components of the project. I have implemented Card, Modal components and also using row and col's from the library I have implemented the general structure design of the page. Lastly I have prepared realistic data for presentation that will be done in the lecture hours. After all of that I have created my pull request and closed the issues, I also made contributions to the deployment side of the project. * [Frontend: Create the Profile Page Section of the Project ( 1/4th of the frontend side )](https://github.com/bounswe/bounswe2022group4/issues/263)
-
-
-* Yusuf Bayındır
-
-Work Done So Far  | Description
-------------- | -------------
-Work Done So Far| First, I went through a learning phase to acquire the minimum foundation to build a backend application using Django REST framework.
-I implemented parts that integrate Swagger UI into the applications and unit tests for registration and login functionalities. I was also responsible for some design related and management tasks such as notetaking, Wiki management, revision on Requirements & Class Diagram. All the related issues and pull requests are listed in **Individual Reports**. Lastly, I filled out *Executive Summary* section to reflect the current status of the application.
 
