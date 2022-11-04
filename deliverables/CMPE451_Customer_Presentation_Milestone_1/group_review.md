@@ -290,6 +290,7 @@ Yusuf Bayındır | Integrating Swagger UI into the application. Implementing uni
 Umut Deniz Şener | Creating a code base for frontend team in order to start building our web application HEKA. Implementing a navigation bar that allows users navigating to another components. Implementing Post component. Implementing PostBox component which renders multiple posts. Implementing Home Page. Implementing unit test cases for Home Page. Implementing the backend connection base for the web application. Implementing functions that make requests to the backend easily. Improving UI of the sign in and sign up pages. Reviewing the pull requests and issues in frontend team. Providing support to other frontend team members while they encountered a problem. Making research on React Hooks, Saas, Css Text Animations, Responsive Css Design, React Libraries. Implementing a structure for Lifting State Up.
 [Erdinç Günaydın](https://github.com/bounswe/bounswe2022group4/wiki/Erdinç-Günaydın) | i. Making research on Android development, libraries and development conventions on Android </br> ii. Getting knowledge on Kotlin.  </br> iii. Reviewing of the works which have done by other team members. </br> iv. Implementation of the profile pages both doctor and normal user. </br> v. Costumizing the theme of mobile app and providing the compatibility with front-end product. </br> vi. Set and costumize of communication channel. </br> vii. Documenting the meeting notes when needed.
 Oğuzhan Tok |  Implementation of the Authentication API for the application. Creation of the Postman Collection for the Authentication API. Revision on the project plan. Some other responsibilites such as reviewing the pull requests.  
+[Halil Salih Orhan](https://github.com/bounswe/bounswe2022group4/wiki/Halil-Salih-Orhan) | i. Investigating general structure of the project as a new member. </br> ii. Reviewing others' work. </br> iii. implementing base structure of Android project using MVVM pradigm. </br> iv. Implementing Login/Signup functionalities. </br> v. Implementing networking of app. </br> vi. implementing bottom navigation. </br> vii. Providing help to others, while they encounterd problems. 
 
 
 
@@ -328,5 +329,11 @@ Work Done | Since i have some experience in React before, I have created the cod
 work  | desc
 ------------- | -------------
 Work Done | Since i do not have any experience in Django Framework before, I studied the Django Framework for a while. After learning process, I started to implement authentication mechanism of the application. I have developed 4 endpoints which are /api/user/login, /api/user/logout, /api/user/register and /api/user/home. With the help of these endpoints, application can authenticate users. After the development of the authentication mechanism, I have created the Postman Collection for the Authentication API in order Frontend and Android teams to make request easily. I think this collection is really helpfull for the rest of the group. I also played an active role in the planning and the distribution of the tasks within the backend team. Finally I have revisioned the project plan and some changes have done according to new improvements.   
+
+* Halil Salih Orhan
+
+work  | desc
+------------- | -------------
+Work Done | As a new member, I looked up and learn details of the project at first. After splitted into teams, I was assigned to Android team for my prior knowhow. I started implementinh basics of an Android project, as navigation, MVVM, one-activity-multi-fragment pattern, networking via retrofit2, dependency injection with HILT, Coroutines etc. Because of a problem @Fatih Akgoz encountered, I took them task on me (Login/Signup functionality of Android App). Then, I implemented that functionality. Also, helped frontend team for deploying their react project. 
 
 
