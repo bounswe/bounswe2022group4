@@ -1,4 +1,4 @@
-# **Group4 Review of Milestone 1**
+# **Group 4, Review of Milestone 1**
 
 1. [Executive Summary](#executive-summary)
 2. [List and status of deliverables](#list-and-status-of-deliverables)
@@ -308,13 +308,13 @@ Miraç Batuhan Malazgirt |    i. Making research on React and learning it from s
 
 * İbrahim Melih Aktaş
 
-work  | desc
+Work Done So Far  | Description
 ------------- | -------------
 Work done | I created the boilerplate of the backend with the Django. I created Dockerfile and docker-compose.yml for the Django backend and the postgreSQL database. I created an AWS account and create an appropriate user with the necessary permissions. I created an EC2 machine. I created a CI/CD  pipeline with the Github Actions which detects the commits on the heka-backend branch and builds the Docker image. Then that pipeline pushes that Docker image to a public repository on the AWS ECR and then it connects to the EC2 machine on the AWS by using SSH connection. Then it pulls the image from the AWS ECR and runs a container on that EC2 instance. I increased the token expiration time in order to make testing easier. I reviewed the pull requests created by the other team members from the backend. 
 
 * Umut Deniz Şener
 
-work  | desc
+Work Done So Far  | Description
 ------------- | -------------
 Work Done | Since i have some experience in React before, I have created the code base for the frontend team (Arranging folder and file formats, Implementing router mechanism, Installing libraries). Then i have implemented the navigation bar by using best practises of React and css. I also responsible for the home page. In the home page we need to render the posts written by the users. In order to do that i first created Post component that renders a single post. Then i have implemented PostBox component that renders multiple post with the data i have created. Then i implemented HomePage component with the PostBox component and implemented unit test cases for these components. I also create a backend connection base by using appropriate React libraries and implement postLogin and postRegister functions that enable easily making http request to the relevant rest apis. I also added css animations to the navigation bar and home page and helped to improve ui of the login and sign up pages. Lastly, I implemented a structure for lifting state up that allow us to store global states in React after i implement it I hide private components from unauthorized users.
 
@@ -334,7 +334,7 @@ Work Done | Since i have some experience in React before, I have created the cod
 
 * Oğuzhan Tok
 
-work  | desc
+Work Done So Far  | Description
 ------------- | -------------
 Work Done | Since i do not have any experience in Django Framework before, I studied the Django Framework for a while. After learning process, I started to implement authentication mechanism of the application. I have developed 4 endpoints which are /api/user/login, /api/user/logout, /api/user/register and /api/user/home. With the help of these endpoints, application can authenticate users. After the development of the authentication mechanism, I have created the Postman Collection for the Authentication API in order Frontend and Android teams to make request easily. I think this collection is really helpfull for the rest of the group. I also played an active role in the planning and the distribution of the tasks within the backend team. Finally I have revisioned the project plan and some changes have done according to new improvements.   
 
@@ -342,6 +342,6 @@ Work Done | Since i do not have any experience in Django Framework before, I stu
 
 * Miraç Batuhan Malazgirt
 
-work  | desc
+Work Done So Far  | Description
 ------------- | -------------
 Work Done | Since I did not have any experience with React before this project I had to start from the scratch. First I have finished an 10 hour React bootcamp video. After that using the best practices I have started to code the section of the project that is assigned to me. The assigned part was Profile Page. First I have designed the structure of the page. After that I have started researching to find best React library to use. I have decided to Reactstrap. I have begun to implement the components of the project. I have implemented Card, Modal components and also using row and col's from the library I have implemented the general structure design of the page. Lastly I have prepared realistic data for presentation that will be done in the lecture hours. After all of that I have created my pull request and closed the issues, I also made contributions to the deployment side of the project. * [Frontend: Create the Profile Page Section of the Project ( 1/4th of the frontend side )](https://github.com/bounswe/bounswe2022group4/issues/263)
