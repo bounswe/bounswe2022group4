@@ -43,7 +43,7 @@ Team members went over the requirements and design diagrams of the application a
 |[Software Design (UML):Class Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram)|Delivered|01/11/2022|
 |[Software Design (UML):Sequence Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Sequence-Diagrams)|Delivered|01/11/2022|
 |[Scenarios](https://github.com/bounswe/bounswe2022group4/wiki/User-Scenarios) and [Mockups](https://github.com/bounswe/bounswe2022group4/wiki/Mockups) | Delivered | 01/11/2022|
-|[Project Plan](https://github.com/bounswe/bounswe2022group4/wiki/Project-Plan)|Delivered|01/11/2022|
+|[Project Plan](https://github.com/bounswe/bounswe2022group4/wiki/Project-Plan)|Delivered|04/11/2022|
 |[Individual Contribution Reports](https://github.com/bounswe/bounswe2022group4/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_1/Customer_Milestone_1.md)|Delivered|01/11/2022|
 |[Software Release](https://github.com/bounswe/bounswe2022group4/releases/tag/customer-presentation-1) | Delivered | 01/11/2022| 
 |Mobile Deliverables [APK](https://github.com/bounswe/bounswe2022group4/releases/download/customer-presentation-1/heka-mobile.apk)|Delivered |01/11/2022|
