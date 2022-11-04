@@ -561,9 +561,28 @@ I made some info updateson my personal wiki page. I also revisioned the sidebar 
 
 
 
-# **Customer Milestone 1 Group Review**
+# **Group Review**
 
-## Executive Summary 
+
+
+## Executive Summary
+### *Description*
+HEKA is a medical experience sharing platform where users share their ideas and experiences related to medical issues in a restricted social environment. 
+It serves as native web and Android application.
+### *Overall Status*
+Team members went over the requirements and design diagrams of the application and planned the implementation phase. The team were divided into three groups forming backend, frontend, and mobile teams. The implementation phase was initiated no sooner than the formation of teams. The main objective was to get a fully-deployed application with registration, login, and logout functionalities up until Milestone 1. In addition, frontend and mobile team asked backend team to integrate Swagger IO to the application to get self-generated API documentation, which is believed to help not only frontend and mobile team members pursue their own development easily but also customers to visualize and test the existing APIs during the development phase. Due to some inconsistencies in the deployment pipeline of frontend application, the objective was partially fulfilled. After the demo, team members planned to to fix the deployment pipeline of frontend application as soon as possible and integrate it with the fully-deployed backend application.
+
+### *API URL(s)*
+- /api/user/register
+- /api/user/login
+- /api/user/logout
+- /swagger/
+
+### *Current Functionality of HEKA**
+- Users could register, login to the application, and logout from the application via native Android application.
+
+
+
 ## List and status of deliverables.
 ## Evaluation of the status of deliverables and its impact on your project plan.
 ## Evaluation of tools and processes you have used to manage your team project.
