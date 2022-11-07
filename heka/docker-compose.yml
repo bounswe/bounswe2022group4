@@ -1,5 +1,4 @@
-version: "3.9"
-   
+version: '3.9'
 services:
   db:
     image: postgres:15
@@ -10,21 +9,30 @@ services:
       - POSTGRES_DB=heka_db
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=1234
-  django:
+  server:
+    hostname: backend
     depends_on:
       - db
-    build: .
+    build:
+      context: ./backend
     volumes:
       - .:/code
-    command: sh -c "python manage.py makemigrations && python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8080"
+    command: sh -c "python backend/manage.py makemigrations && python backend/manage.py migrate --noinput && python backend/manage.py runserver 0.0.0.0:8080"
     ports:
-      - "8080:8080"
+      - '8080:8080'
     environment:
       - POSTGRES_HOST=db
       - POSTGRES_NAME=heka_db
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=1234
       - DEBUG=False
-
+  frontend:
+    hostname: front
+    build:
+      context: ./front
+    ports:
+      - '9000:3000'
+    depends_on:
+      - server
 volumes:
   db-volume:
