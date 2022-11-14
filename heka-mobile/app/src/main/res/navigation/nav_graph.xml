@@ -35,6 +35,12 @@
         android:name="com.bounswe.heka.home.HomeFragment"
         android:label="@string/home_fragment_label"
         tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_createPostFragment"
+            app:destination="@id/CreatePostFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_editPostFragment"
+            app:destination="@id/EditPostFragment" />
     </fragment>
     <fragment
         android:id="@+id/TimelineFragment"
@@ -50,5 +56,23 @@
         <action
             android:id="@+id/action_profileFragment_to_loginFragment"
             app:destination="@id/LoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/CreatePostFragment"
+        android:name="com.bounswe.heka.post.CreatePostFragment"
+        android:label="Create Post"
+        tools:layout="@layout/fragment_create_post">
+        <action
+            android:id="@+id/action_createPostFragment_to_homeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/EditPostFragment"
+        android:name="com.bounswe.heka.post.EditPostFragment"
+        android:label="Post"
+        tools:layout="@layout/fragment_edit_post">
+        <action
+            android:id="@+id/action_editPostFragment_to_homeFragment"
+            app:destination="@id/HomeFragment" />
     </fragment>
 </navigation>

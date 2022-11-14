@@ -54,6 +54,14 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-scalars:2.9.0"
     implementation 'com.squareup.moshi:moshi-kotlin:1.13.0'
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
+    implementation ("com.github.bumptech.glide:glide:4.14.2@aar") {
+        transitive = true
+    }
+    implementation ("com.github.bumptech.glide:recyclerview-integration:4.14.2") {
+        // Excludes the support library because it's already included by Glide.
+        transitive = false
+    }
 }
 
 kapt {
