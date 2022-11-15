@@ -18,8 +18,7 @@
 }
 .general-form-component {
   width: 450px;
-  min-height: 500px;
-  height: auto;
+  height: 70vh;
   border-radius: 5px;
   margin: 2% auto;
   box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
