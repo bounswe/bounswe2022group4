@@ -14,17 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include, re_path
+from django.urls import path, include
 from django.conf.urls import url
 from rest_framework.schemas import get_schema_view
-from django.views.generic import TemplateView
-
+#from django.views.generic import TemplateView
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-
-#schema_view = get_schema_view(title='API Schema', description='HEKA API Documentation')
-
+from rest_framework.authentication import TokenAuthentication
 
 schema_swagger = get_schema_view(openapi.Info(
       title="HEKA API Documentation",
@@ -36,11 +33,12 @@ schema_swagger = get_schema_view(openapi.Info(
    ),
    public=True,
    permission_classes=[permissions.AllowAny],
+   authentication_classes=[TokenAuthentication],
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/user/', include("users.urls") ),
+    path('api/user/', include("users.urls")),
+    path('api/post/', include("posts.urls")),
     path('swagger/', schema_swagger.with_ui('swagger', cache_timeout=0), name='swagger-ui'),
-    path('redoc/', schema_swagger.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
