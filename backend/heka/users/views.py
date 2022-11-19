@@ -47,8 +47,6 @@ class LoginView(APIView):
         if not user.check_password(password):
             raise AuthenticationFailed("Incorrect password!")
        
-        if not isinstance(request.user,AnonymousUser):
-            return Response(data={'message':'Already logged in', 'token':Token.objects.get_or_create(user=user)[0].key}, status=status.HTTP_400_BAD_REQUEST)
         try:
             token = Token.objects.get(user=user)
         except Token.DoesNotExist:
