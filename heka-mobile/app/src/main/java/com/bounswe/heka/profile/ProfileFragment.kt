@@ -13,6 +13,7 @@ import com.bounswe.heka.R
 import com.bounswe.heka.databinding.FragmentHomeBinding
 import com.bounswe.heka.databinding.FragmentProfileBinding
 import com.bounswe.heka.home.HomeViewModel
+import com.bounswe.heka.network.SessionManager
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,10 +21,15 @@ class ProfileFragment: Fragment() {
     private lateinit var binding: FragmentProfileBinding
     private val viewModel: ProfileViewModel by viewModels()
 
+    private lateinit var sessionManager: SessionManager
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
+        sessionManager = SessionManager(requireContext())
+
         binding = FragmentProfileBinding.inflate(layoutInflater)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
@@ -34,7 +40,7 @@ class ProfileFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.logout.observe(viewLifecycleOwner) {
             if (it) {
-                activity?.getSharedPreferences("com.bounswe.heka", 0)?.edit()?.clear()?.apply()
+                sessionManager.clearAuthToken()
                 findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
             }
         }

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.bounswe.heka.post.FullPostViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="POST DETAILS"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/close_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="close" />
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            android:minHeight="200dp"
+            app:cardBackgroundColor="#AAAAFF"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/timeline_item_image"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="25dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:elevation="12dp"
+                        android:innerRadius="0dp"
+                        android:shape="ring"
+                        app:cardCornerRadius="40dp">
+
+                        <ImageView
+                            android:id="@+id/timeline_Profile_Image"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            tools:src="@drawable/nowzaradan" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/timeline_item_author"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginVertical="25dp"
+                        android:layout_weight="1"
+                        android:text="@{viewModel.state.author}"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        tools:text="Younan Nowzaradan M.D." />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:text="u" />
+
+                        <Button
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:text="d" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="25dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/timeline_item_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:text="@{viewModel.state.date}"
+                        android:textSize="16sp"
+                        tools:text="11.01.2022 15:11:22" />
+
+                    <TextView
+                        android:id="@+id/timeline_item_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:text="@{viewModel.state.title}"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:text="You should lose weight !!!" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="#FFFFFF"
+                        android:src="@drawable/nowzaradan2" />
+
+                    <TextView
+                        android:id="@+id/timeline_item_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:breakStrategy="balanced"
+                        android:maxLines="6"
+                        android:text="@{viewModel.state.description}"
+                        android:textSize="15sp"
+
+                        tools:text="Laparoscopic evaluation was performed in 43 consecutive patients with right lower abdominal pain and preoperative diagnosis of possible appendicitis. Patients with generalized peritonitis and evidence of perforation of the appendix were not considered for laparoscopy. Visualization was sufficient for making a diagnosis in 97.7% of the cases. In 95%, laparoscopic findings were compatible with the pathology report. Thirty-five patients underwent successful laparoscopic appendectomy with neither intraoperative nor postoperative complications. No further surgery was required; slightly elevated temperatures in 6 patients responded to treatment with antibiotics, and there were no wound infections. Laparoscopic appendectomy is minimally invasive and results in less postoperative pain and morbidity and fewer adhesions and other long-term sequelae than conventional laparotomy. It is associated with superior cosmetic results, a shorter hospital stay, and faster return to normal activities. This experience suggests that if there is no evidence that the appendix is perforated or that generalized peritonitis exists and if qualified physicians and adequate facilities are available, patients presenting with right lower quadrant abdominal pain and possible appendicitis are best evaluated and treated with laparoscopic technique.
+
+
+" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <Button
+                            android:id="@+id/timeline_edit_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:text="edit" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

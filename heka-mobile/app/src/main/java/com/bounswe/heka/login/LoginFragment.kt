@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bounswe.heka.R
 import com.bounswe.heka.databinding.FragmentLoginBinding
+import com.bounswe.heka.network.SessionManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.log
 
@@ -17,6 +18,7 @@ import kotlin.math.log
 class LoginFragment: Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private val viewModel: LoginViewModel by viewModels()
+    lateinit var sessionManager: SessionManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +32,8 @@ class LoginFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val jwt = activity?.getSharedPreferences("com.bounswe.heka", 0)?.getString("jwt", null)
+        sessionManager = SessionManager(requireContext())
+        val jwt = sessionManager.fetchAuthToken()
         if (jwt != null) {
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         }
@@ -47,14 +50,11 @@ class LoginFragment: Fragment() {
             viewModel.email.value = it
         }
         viewModel.loginSuccessful.observe(viewLifecycleOwner) {
-            if (it != null) {
-                activity?.getSharedPreferences("com.bounswe.heka", 0 )?.edit()?.apply{
-                    putString("jwt", it.jwt)
-                }?.apply()
-
+           it.token?.let { token ->
+                sessionManager.saveAuthToken(token)
                 findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-                viewModel.loginSuccessful.value = null
             }
+            viewModel.loginSuccessful.value = null
         }
 
     }
