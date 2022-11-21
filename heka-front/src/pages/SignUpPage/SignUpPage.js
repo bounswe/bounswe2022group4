@@ -12,6 +12,7 @@ import {
   AiFillDownCircle,
   AiOutlineLogin,
   AiOutlineUpload,
+  AiOutlineBranches,
 } from 'react-icons/ai';
 import { GiDoctorFace, GiDiploma } from 'react-icons/gi';
 import { GrUserExpert } from 'react-icons/gr';
@@ -21,6 +22,7 @@ const SignUpPage = () => {
   const [active, setActive] = useState(0);
   const [diploma, setDiploma] = useState(null);
   const [yearsofexp, setYearsofexp] = useState(0);
+  const [branch, setBranch] = useState('');
   const [fullName, setFullName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -49,6 +51,11 @@ const SignUpPage = () => {
       placeholder: 'Years of Experience',
       onChange: (e) => setYearsofexp(e.target.value),
       icon: <GrUserExpert aria-hidden='true' />,
+    },
+    {
+      placeholder: 'Branch',
+      onChange: (e) => setBranch(e.target.value),
+      icon: <AiOutlineBranches aria-hidden='true' />,
     },
     {
       placeholder: 'Diploma',
@@ -213,7 +220,7 @@ const SignUpPage = () => {
               <form
                 className='general-form-component'
                 style={{
-                  height: '655px',
+                  height: '720px',
                 }}
               >
                 <div className='con'>
