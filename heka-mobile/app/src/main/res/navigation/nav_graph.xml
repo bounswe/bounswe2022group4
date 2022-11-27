@@ -46,11 +46,22 @@
             app:destination="@id/FullPostFragment" />
     </fragment>
     <fragment
-        android:id="@+id/TimelineFragment"
-        android:name="com.bounswe.heka.timeline.TimelineFragment"
-        android:label="@string/suggested_posts"
-        tools:layout="@layout/fragment_timeline">
+        android:id="@+id/ChatListFragment"
+        android:name="com.bounswe.heka.chat.ChatListFragment"
+        tools:layout="@layout/fragment_chat_list">
+        <action
+            android:id="@+id/action_chatListFragment_to_chatFragment"
+            app:destination="@id/ChatFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/ChatFragment"
+        android:name="com.bounswe.heka.chat.ChatFragment"
+        tools:layout="@layout/fragment_chat">
+        <action
+            android:id="@+id/action_chatFragment_to_chatListFragment"
+            app:destination="@id/ChatListFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/ProfileFragment"
         android:name="com.bounswe.heka.profile.ProfileFragment"

@@ -25,7 +25,7 @@ class TimeLineAdapter(private val data: List<TimelineListItemState>): RecyclerVi
             binding.timelineEditButton.setOnClickListener {
                 binding.root.findNavController().navigate(R.id.action_homeFragment_to_editPostFragment)
             }
-            binding.timelineReadMoreButton.setOnClickListener {
+            binding.card.setOnClickListener {
                 binding.root.findNavController().navigate(R.id.action_homeFragment_to_fullPostFragment)
             }
         }

@@ -11,6 +11,7 @@
             type="com.bounswe.heka.timeline.TimelineListItemState" />>
     </data>
     <androidx.cardview.widget.CardView
+        android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="200dp"
@@ -111,14 +112,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <Button
-                        android:id="@+id/timeline_read_more_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginRight="5dp"
-                        android:text="read"
-                        />
+
                     <Button
                         android:id="@+id/timeline_edit_button"
                         android:layout_width="wrap_content"

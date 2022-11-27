@@ -13,4 +13,6 @@ interface ApiService {
     suspend fun home() : HomeResponse
     @GET("user/logout")
     suspend fun logout(): LogoutResponse
+    @POST("post/create-post")
+    suspend fun createPost(@Body request: CreatePostRequest): CreatePostResponse
 }

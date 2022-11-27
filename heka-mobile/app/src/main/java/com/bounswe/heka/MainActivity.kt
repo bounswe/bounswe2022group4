@@ -34,12 +34,12 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.TimelineFragment, R.id.HomeFragment, R.id.ProfileFragment
+                R.id.ChatListFragment, R.id.HomeFragment, R.id.ProfileFragment
             )
         )
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.TimelineFragment -> {
+                R.id.ChatListFragment -> {
                     navView.visibility = View.VISIBLE
                 }
                 R.id.HomeFragment -> {
