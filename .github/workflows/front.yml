@@ -41,7 +41,23 @@ jobs:
         REGISTRY: ${{ steps.login-ecr-public.outputs.registry }}
         REGISTRY_ALIAS: s8k2s0o4
         REPOSITORY: front-test
-        IMAGE_TAG: front
+        IMAGE_TAG: latest
       run: |
         docker build -t $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG ./heka-front/.
         docker push $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG
+  EC2-Deployment:
+      runs-on: ubuntu-latest
+      needs: [Front-Build]
+      permissions:
+        contents: read
+        packages: write
+        id-token: write
+      steps:
+        - name: Deploy to EC2
+          uses: appleboy/ssh-action@master
+          with:
+            host: ec2-3-72-25-175.eu-central-1.compute.amazonaws.com
+            username: ${{ secrets.EC2_USERNAME_TEST }}
+            key: ${{ secrets.EC2_PEM_TEST }}
+            port: ${{ secrets.EC2_PORT_TEST }}
+            script: sh front_deploy.sh
