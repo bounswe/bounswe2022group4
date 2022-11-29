@@ -8,8 +8,6 @@ name: Backend Test Deployment
 on:
   push:
     branches: [ heka-backend ]
-  pull_request:
-    branches: [ heka-backend ]
 
 jobs:
   
