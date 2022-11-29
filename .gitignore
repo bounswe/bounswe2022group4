@@ -5,7 +5,7 @@ backend/heka/heka/settings.py
 backend/heka/posts/migrations/
 !**migrations/
 users/migrations
-posts/migrations
+posts/
 !**/__pycache__/
 .idea
 backend/heka/venv/
