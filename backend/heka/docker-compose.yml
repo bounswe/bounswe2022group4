@@ -25,5 +25,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=1234
       - DEBUG=True
+      - SECRET_KEY='django-insecure-1n0h(fb6u*u=hz6@7@9e(7e+@+g6v^xso*vn(w3gu4xt&)!hzx'
+
 volumes:
   db-volume:

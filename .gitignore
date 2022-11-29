@@ -1,7 +1,13 @@
 .env
-heka/__pycache__/
-users/migrations/__pycache__/
-users/__pycache__/
+backend/heka/__pycache__/
+backend/heka/users/migrations/
+backend/heka/posts/migrations/
+users/migrations
+posts/migrations
+!**/__pycache__/
 .idea
-venv/
+backend/heka/venv/
 __pycache__/
+practice_app/
+docker-compose
+Dockerfile

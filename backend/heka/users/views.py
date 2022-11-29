@@ -73,6 +73,7 @@ class HomeView(APIView):
         return Response(data = {'status':'Registered User', 'email':user.email, 'token': Token.objects.get_or_create(user=user)[0].key},
                 status = status.HTTP_200_OK)
 
+
 class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
     authentication_classes = [TokenAuthentication] 
