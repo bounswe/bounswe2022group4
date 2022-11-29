@@ -1,6 +1,7 @@
 .env
 backend/heka/__pycache__/
 backend/heka/users/migrations/
+backend/heka/heka/settings.py
 backend/heka/posts/migrations/
 users/migrations
 posts/migrations
