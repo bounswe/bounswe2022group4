@@ -8,9 +8,7 @@ name: Front Test Deployment
 on:
   push:
     branches: [ heka-front ]
-  pull_request:
-    branches: [ heka-front ]
-
+    
 jobs:
   
   Front-Build:
