@@ -6,9 +6,8 @@ import PostAddIcon from '@mui/icons-material/PostAdd';
 import CreatePost from '../../components/CreatePost/CreatePost';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import { style } from '@mui/system';
-const PostBox = () => {
-  const [openModal, setOpenModal] = useState(false);
+const PostBox = ({ isLogged }) => {
+  const [openPostModal, setOpenPostModal] = useState(false);
   const style = {
     position: 'absolute',
     top: '50%',
@@ -56,11 +55,11 @@ const PostBox = () => {
       time: '30.10.2022 23.27',
     },
   ]);
-  const handleOpenModal = () => {
-    setOpenModal(true);
+  const handleOpenPostModal = () => {
+    setOpenPostModal(true);
   };
-  const handleCloseModal = () => {
-    setOpenModal(false);
+  const handleClosePostModal = () => {
+    setOpenPostModal(false);
   };
   return (
     <div style={{ padding: 14 }}>
@@ -68,13 +67,13 @@ const PostBox = () => {
         variant='outlined'
         startIcon={<PostAddIcon />}
         style={{ marginTop: 20 }}
-        onClick={handleOpenModal}
+        onClick={handleOpenPostModal}
       >
         Create Post
       </Button>
       <Modal
-        open={openModal}
-        onClose={handleCloseModal}
+        open={openPostModal}
+        onClose={handleClosePostModal}
         aria-labelledby='parent-modal-title'
         aria-describedby='parent-modal-description'
       >
@@ -90,6 +89,7 @@ const PostBox = () => {
           user={isLogged ? post.user : null}
           content={post.content}
           time={post.time}
+          isLogged={isLogged}
         />
       ))}
     </div>

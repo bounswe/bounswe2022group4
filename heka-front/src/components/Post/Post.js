@@ -3,20 +3,57 @@ import { Divider, Avatar, Grid, Paper, Button } from '@material-ui/core';
 import {
   Delete,
   Edit,
-  Comment,
-  Close,
+  Comment as CommentIcon,
   Visibility,
-  VisibilityOff,
 } from '@mui/icons-material';
-
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
 import './Post.css';
+import CreateComment from '../CreateComment/CreateComment';
+import CommentBox from '../CommentBox/CommentBox';
 const imgLink =
   'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
 
-const Post = ({ title, user, content, time, index }) => {
-  const [showCommentBox, setShowCommentBox] = useState(false);
-  const [showComments, setShowComments] = useState(false);
-
+const Post = ({ title, user, content, time, index, isLogged }) => {
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 800,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    pt: 2,
+    px: 4,
+    pb: 3,
+  };
+  const styleComment = {
+    position: 'absolute',
+    width: 800,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    pt: 2,
+    px: 4,
+    pb: 3,
+  };
+  const [openCommentModal, setOpenCommentModal] = useState(false);
+  const [openCreateCommentModal, setOpenCreateCommentModal] = useState(false);
+  const handleOpenCommentModal = () => {
+    setOpenCommentModal(true);
+  };
+  const handleCloseCommentModal = () => {
+    setOpenCommentModal(false);
+  };
+  const handleOpenCreateCommentModal = () => {
+    setOpenCreateCommentModal(true);
+  };
+  const handleCloseCreateCommentModal = () => {
+    setOpenCreateCommentModal(false);
+  };
   return (
     <Paper style={{ padding: '40px 20px', marginTop: 40 }}>
       <Grid container wrap='nowrap' spacing={2}>
@@ -43,23 +80,62 @@ const Post = ({ title, user, content, time, index }) => {
         >
           <Button
             variant='outlined'
-            startIcon={showCommentBox ? <Comment /> : <Close />}
-            onClick={() => {
-              setShowCommentBox(!showCommentBox);
-            }}
+            startIcon={<CommentIcon />}
+            onClick={handleOpenCreateCommentModal}
             data-testid={'comment-button-' + index}
           >
-            {showCommentBox ? 'Comment' : 'Close'}
+            Add Comment
           </Button>
+          <Modal
+            open={openCreateCommentModal}
+            onClose={handleCloseCreateCommentModal}
+            aria-labelledby='parent-modal-title'
+            aria-describedby='parent-modal-description'
+          >
+            <Box sx={{ ...style, width: 800 }}>
+              <CreateComment />
+            </Box>
+          </Modal>
           <Button
             variant='outlined'
-            startIcon={showComments ? <Visibility /> : <VisibilityOff />}
-            onClick={() => {
-              setShowComments(!showComments);
-            }}
+            startIcon={<Visibility />}
+            onClick={handleOpenCommentModal}
             data-testid={'show-comments-button-' + index}
           >
-            {showComments ? 'Show Comments' : 'Close Comments'}
+            Show Comments
+          </Button>
+          <Modal
+            open={openCommentModal}
+            onClose={handleCloseCommentModal}
+            aria-labelledby='parent-modal-title'
+            aria-describedby='parent-modal-description'
+            style={{
+              position: 'absolute',
+              top: '10%',
+              left: '25%',
+              overflow: 'scroll',
+              height: '80%',
+              display: 'block',
+            }}
+          >
+            <Box sx={{ ...styleComment, width: 800 }}>
+              <CommentBox isLogged={isLogged} />
+            </Box>
+          </Modal>
+          <Button
+            variant='outlined'
+            startIcon={<ThumbUpIcon />}
+            onClick={() => {}}
+          >
+            5
+          </Button>
+
+          <Button
+            variant='outlined'
+            startIcon={<ThumbDownIcon />}
+            onClick={() => {}}
+          >
+            5
           </Button>
         </div>
 
