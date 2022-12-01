@@ -18,7 +18,7 @@ const Post = ({ title, user, content, time, index }) => {
   const [showComments, setShowComments] = useState(false);
 
   return (
-    <Paper style={{ padding: '40px 20px', marginTop: 100 }}>
+    <Paper style={{ padding: '40px 20px', marginTop: 40 }}>
       <Grid container wrap='nowrap' spacing={2}>
         <Grid item>
           <Avatar alt='Unknown Profile Picture' src={imgLink} />
