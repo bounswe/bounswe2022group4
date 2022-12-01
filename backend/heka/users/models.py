@@ -43,4 +43,4 @@ class User(AbstractBaseUser):
         return self.email
     
     def has_permission(self, permission, obj=None):
-        return self.
+        return self.is_expert 
