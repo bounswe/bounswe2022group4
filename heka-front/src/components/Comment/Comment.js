@@ -41,18 +41,6 @@ const Comment = ({ user, content, time, index }) => {
           >
             Delete
           </Button>
-          <Button
-            variant='outlined'
-            startIcon={<Edit />}
-            onClick={() => {
-              alert(
-                'Edit functionality not implemented yet and will be available only for admins and the user who created the post'
-              );
-            }}
-            data-testid={'edit-button-' + index}
-          >
-            Edit
-          </Button>
         </div>
       </div>
     </Paper>

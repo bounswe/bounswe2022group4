@@ -29,6 +29,7 @@ const PostBox = ({ isLogged }) => {
       content:
         'I have ache for two days at left of my head and it is getting worse day by day. \n I dont know what to do. \n I make some research on internet and now i am suspicios about brain tumor please help me.',
       time: '28.10.2022 14:43',
+      image: 'https://picsum.photos/200/300',
     },
     {
       title: 'Sprained Ankle',
@@ -86,9 +87,10 @@ const PostBox = ({ isLogged }) => {
           index={index}
           key={index}
           title={post.title}
-          user={isLogged ? post.user : null}
+          user={isLogged ? post.user : 'Anonymous'}
           content={post.content}
           time={post.time}
+          image={post.image}
           isLogged={isLogged}
         />
       ))}
