@@ -19,7 +19,6 @@ const branches = [
 ];
 const CreatePost = () => {
   const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-  console.log(GOOGLE_MAPS_API_KEY);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [imageFile, setImageFile] = useState(null);
