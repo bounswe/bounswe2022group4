@@ -18,6 +18,8 @@ const branches = [
   'Gastroenterology',
 ];
 const CreatePost = () => {
+  const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+  console.log(GOOGLE_MAPS_API_KEY);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [imageFile, setImageFile] = useState(null);
@@ -50,7 +52,8 @@ const CreatePost = () => {
       ',' +
       longitude +
       '&sensor=true' +
-      '&key=AIzaSyAdE1vezoFkCG_xkxENjDX5DVQj3Z0woUw';
+      '&key=' +
+      GOOGLE_MAPS_API_KEY;
     var async = true;
 
     request.open(method, url, async);
