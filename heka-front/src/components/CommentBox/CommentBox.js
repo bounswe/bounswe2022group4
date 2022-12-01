@@ -42,7 +42,7 @@ const CommentBox = ({ isLogged, postId }) => {
         <Comment
           index={index}
           key={index}
-          user={isLogged ? comment.user : null}
+          user={isLogged ? comment.user : 'Anonymous'}
           content={comment.content}
           time={comment.time}
           isLogged={isLogged}

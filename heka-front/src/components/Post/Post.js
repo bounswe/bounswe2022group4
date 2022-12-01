@@ -123,7 +123,12 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
     }),
   }));
   return (
-    <Card sx={{ maxWidth: 1000, padding: '40px 20px', marginTop: 5 }}>
+    <Card
+      sx={{ maxWidth: 1000, padding: '40px 20px', marginTop: 5 }}
+      style={{
+        backgroundImage: 'linear-gradient(-225deg, #e3fdf5 50%, #ffe6fa 50%)',
+      }}
+    >
       <div>
         <CardHeader
           avatar={<Avatar alt='Unknown Profile Picture' src={imgLink} />}
