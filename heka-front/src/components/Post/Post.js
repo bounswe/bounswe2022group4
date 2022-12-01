@@ -1,32 +1,36 @@
 import React, { useState } from 'react';
-import { Divider, Avatar, Grid, Paper, Button } from '@material-ui/core';
 import {
-  Delete,
-  Edit,
+  Divider,
+  Avatar,
+  makeStyles,
+  Button,
+  MenuItem,
+  Menu,
+} from '@material-ui/core';
+import {
+  ThumbUp as ThumbUpIcon,
+  ThumbDown as ThumbDownIcon,
   Comment as CommentIcon,
-  Visibility,
+  ExpandMore as ExpandMoreIcon,
+  MoreVert as MoreVertIcon,
 } from '@mui/icons-material';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
+
 import './Post.css';
 import CreateComment from '../CreateComment/CreateComment';
 import CommentBox from '../CommentBox/CommentBox';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Typography from '@mui/material/Typography';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Collapse from '@mui/material/Collapse';
+import {
+  IconButton,
+  Collapse,
+  Card,
+  Box,
+  Modal,
+  CardHeader,
+  CardContent,
+  CardActions,
+  Typography,
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
-
+import Annotation from 'react-image-annotation';
 const imgLink =
   'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
 
@@ -44,16 +48,23 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
     px: 4,
     pb: 3,
   };
-  const styleComment = {
-    position: 'absolute',
-    width: 800,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    pt: 2,
-    px: 4,
-    pb: 3,
-  };
+  const useStyles = makeStyles((theme) => ({
+    gridList: {
+      flexWrap: 'nowrap',
+      transform: 'translateZ(0)',
+    },
+    modal: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      '&:hover': {
+        backgroundcolor: 'red',
+      },
+    },
+    img: {
+      outline: 'none',
+    },
+  }));
   const [openCreateCommentModal, setOpenCreateCommentModal] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -74,9 +85,22 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  // interface ExpandMoreProps extends IconButtonProps {
-  //   expand: boolean;
-  // }
+
+  const [annotations, setAnnotations] = useState([]);
+  const [currentAnnotation, setCurrentAnnotation] = useState({});
+  const onAnnotationChange = (annotation) => {
+    setCurrentAnnotation(annotation);
+  };
+  const onAnnotationSubmit = (annotation) => {
+    const { geometry, data } = annotation;
+    setAnnotations(
+      annotations.concat({
+        geometry,
+        data: { ...data, id: Math.random() },
+      })
+    );
+    console.log(annotations);
+  };
   const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
@@ -109,7 +133,6 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
             </div>
           }
         />
-
         <Menu
           id='simple-menu'
           anchorEl={anchorEl}
@@ -142,11 +165,20 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
         </CardContent>
       </div>
       {image && (
-        <CardMedia
-          component='img'
-          height='350'
-          image={image}
-          alt='Paella dish'
+        // <CardMedia
+        //   component='img'
+        //   height='350'
+        //   image={image}
+        //   alt='Paella dish'
+        // />
+        <Annotation
+          src={imgLink}
+          alt='Two pebbles anthropomorphized holding hands'
+          annotations={annotations}
+          value={currentAnnotation}
+          onChange={onAnnotationChange}
+          onSubmit={onAnnotationSubmit}
+          style={{ height: '350px' }}
         />
       )}
       <CardContent>
@@ -157,7 +189,6 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
       <Divider style={{ height: '4px' }} />
       <CardActions>
         <Button
-          // variant='outlined'
           startIcon={<CommentIcon />}
           onClick={handleOpenCreateCommentModal}
           data-testid={'comment-button-' + index}
