@@ -1,8 +1,27 @@
 import React, { useState } from 'react';
 import Post from '../Post/Post';
 import './PostBox.css';
-
-const PostBox = ({ isLogged }) => {
+import { Button } from '@material-ui/core';
+import PostAddIcon from '@mui/icons-material/PostAdd';
+import CreatePost from '../../components/CreatePost/CreatePost';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import { style } from '@mui/system';
+const PostBox = () => {
+  const [openModal, setOpenModal] = useState(false);
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 800,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    pt: 2,
+    px: 4,
+    pb: 3,
+  };
   const [posts, setPosts] = useState([
     //get posts from backend
     {
@@ -37,10 +56,32 @@ const PostBox = ({ isLogged }) => {
       time: '30.10.2022 23.27',
     },
   ]);
-
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
   return (
     <div style={{ padding: 14 }}>
-      {/* <h1>Posts</h1> */}
+      <Button
+        variant='outlined'
+        startIcon={<PostAddIcon />}
+        style={{ marginTop: 20 }}
+        onClick={handleOpenModal}
+      >
+        Create Post
+      </Button>
+      <Modal
+        open={openModal}
+        onClose={handleCloseModal}
+        aria-labelledby='parent-modal-title'
+        aria-describedby='parent-modal-description'
+      >
+        <Box sx={{ ...style, width: 800 }}>
+          <CreatePost />
+        </Box>
+      </Modal>
       {posts.map((post, index) => (
         <Post
           index={index}
