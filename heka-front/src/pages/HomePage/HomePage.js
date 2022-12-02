@@ -2,11 +2,11 @@ import React from 'react';
 import PostBox from '../../components/PostBox/PostBox';
 
 import './HomePage.css';
-const HomePage = () => {
+const HomePage = ({ isLogged }) => {
   return (
     <div className='home-container'>
       <div className='welcome-text'>Welcome to HEKA</div>
-      <PostBox />
+      <PostBox isLogged={isLogged} />
     </div>
   );
 };

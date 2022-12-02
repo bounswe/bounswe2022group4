@@ -7,7 +7,7 @@ import CreatePost from '../../components/CreatePost/CreatePost';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { style } from '@mui/system';
-const PostBox = () => {
+const PostBox = ({ isLogged }) => {
   const [openModal, setOpenModal] = useState(false);
   const style = {
     position: 'absolute',
@@ -87,7 +87,7 @@ const PostBox = () => {
           index={index}
           key={index}
           title={post.title}
-          user={post.user}
+          user={isLogged ? post.user : null}
           content={post.content}
           time={post.time}
         />
