@@ -9,17 +9,16 @@ class PostSerializer(serializers.ModelSerializer):
 		model	= Post
 		fields	= ['title', 'body','slug']
 		lookup_field = 'slug'
-		# extra_kwargs = {
-		# 	'url' : {'lookup_field':'slug'}
-		# }
+
 	def fetch_email(self, post):
 		return post.creator.email
 
 	def fetch_slug(self, post):
 		return post.slug
-
+		
 
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ["body", "slug"]
+        fields = ["body"]
+	
