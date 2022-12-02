@@ -13,9 +13,7 @@ class Post(models.Model):
     slug = AutoSlugField(populate_from='title', unique=True)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
-    #number_of_comments = models.IntegerField(default=0) 
-    #number_of_upvotes = models.IntegerField(default=0)
-    
+
     def __str__(self):
         return self.title
     
@@ -29,13 +27,13 @@ class Post(models.Model):
     def get_comments(self):
         comments = Comment.objects.filter(parent=self)
         return comments
+ 
 
 def pre_save_blog_post_reciever(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = slugify(instance.title)
 
 pre_save.connect(pre_save_blog_post_reciever, sender=Post)
-
 
 
 class Comment(models.Model):
