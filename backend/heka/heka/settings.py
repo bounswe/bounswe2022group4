@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'users',
     'drf_yasg',
-    'chat'
+    'chat',
     'posts',
 ]
 
