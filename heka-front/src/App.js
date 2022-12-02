@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App = () => {
   const [isLogged, setIsLogged] = React.useState(false);
+  const [authenticationToken, setAuthenticationToken] = React.useState('');
   return (
     <div>
       <Router>
@@ -24,7 +25,12 @@ const App = () => {
         <Routes>
           <Route
             path='/sign-in'
-            element={<SignInPage setIsLogged={setIsLogged} />}
+            element={
+              <SignInPage
+                setIsLogged={setIsLogged}
+                setAuthenticationToken={setAuthenticationToken}
+              />
+            }
           />
         </Routes>
         <Routes>
