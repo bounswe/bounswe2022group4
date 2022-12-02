@@ -1,23 +1,10 @@
-
-
-
-
-
-
-.links{
-
-
-    text-decoration: none;
-    color: black;
+.links {
+  text-decoration: none;
+  color: black;
 }
 
-.links:hover{
-
-
-    text-decoration: underline;
-    color: black;
-    cursor: pointer;
-
+.links:hover {
+  text-decoration: underline;
+  color: black;
+  cursor: pointer;
 }
-
-

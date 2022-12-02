@@ -14,7 +14,7 @@ const App = () => {
       <Router>
         <Header isLogged={isLogged} />
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/' element={<HomePage isLogged={isLogged} />} />
         </Routes>
         <Routes>
           <Route

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Post from '../Post/Post';
 import './PostBox.css';
 
-const PostBox = () => {
+const PostBox = ({ isLogged }) => {
   const [posts, setPosts] = useState([
     //get posts from backend
     {
@@ -46,7 +46,7 @@ const PostBox = () => {
           index={index}
           key={index}
           title={post.title}
-          user={post.user}
+          user={isLogged ? post.user : null}
           content={post.content}
           time={post.time}
         />
