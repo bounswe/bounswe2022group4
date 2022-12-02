@@ -6,8 +6,11 @@ import PostAddIcon from '@mui/icons-material/PostAdd';
 import CreatePost from '../../components/CreatePost/CreatePost';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
+import { style } from '@mui/system';
+
 const PostBox = ({ isLogged }) => {
   const [openPostModal, setOpenPostModal] = useState(false);
+
   const style = {
     position: 'absolute',
     top: '50%',
@@ -61,6 +64,7 @@ const PostBox = ({ isLogged }) => {
   };
   const handleClosePostModal = () => {
     setOpenPostModal(false);
+
   };
   return (
     <div style={{ padding: 14 }}>
@@ -69,12 +73,14 @@ const PostBox = ({ isLogged }) => {
         startIcon={<PostAddIcon />}
         style={{ marginTop: 20 }}
         onClick={handleOpenPostModal}
+
       >
         Create Post
       </Button>
       <Modal
         open={openPostModal}
         onClose={handleClosePostModal}
+
         aria-labelledby='parent-modal-title'
         aria-describedby='parent-modal-description'
       >
