@@ -12,7 +12,7 @@ import {
   ModalHeader,
   ModalBody,
 } from 'reactstrap';
-import './ProfilePage.css';
+import './profilePage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useState } from 'react';
