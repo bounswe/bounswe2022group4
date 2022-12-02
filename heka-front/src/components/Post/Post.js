@@ -31,6 +31,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Annotation from 'react-image-annotation';
+
 const imgLink =
   'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
 
@@ -149,6 +150,7 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
             </div>
           }
         />
+
         <Menu
           id='simple-menu'
           anchorEl={anchorEl}
@@ -195,6 +197,7 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
           onChange={onAnnotationChange}
           onSubmit={onAnnotationSubmit}
           style={{ height: '350px' }}
+
         />
       )}
       <CardContent>
@@ -205,6 +208,7 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
       <Divider style={{ height: '4px' }} />
       <CardActions>
         <Button
+
           startIcon={<CommentIcon />}
           onClick={handleOpenCreateCommentModal}
           data-testid={'comment-button-' + index}
