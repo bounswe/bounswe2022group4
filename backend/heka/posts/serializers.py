@@ -7,9 +7,11 @@ from .models import  Post, Comment
 class PostSerializer(serializers.ModelSerializer):
 	class Meta:
 		model	= Post
-		fields	= ['title', 'body']
-		#read_only_fields = ['creator']
-
+		fields	= ['title', 'body','slug']
+		lookup_field = 'slug'
+		# extra_kwargs = {
+		# 	'url' : {'lookup_field':'slug'}
+		# }
 	def fetch_email(self, post):
 		return post.creator.email
 
@@ -20,4 +22,4 @@ class PostSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ["body"]
+        fields = ["body", "slug"]

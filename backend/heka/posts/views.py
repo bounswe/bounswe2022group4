@@ -38,6 +38,86 @@ class CreatePostAPIView(APIView):
         else:
             return Response({"Errors": serializer.errors}, status=400)
 
+
+class UpdatePostAPIView(APIView):
+    """
+    post:
+        Updates the post instance. Returns updated post data.
+        parameters: [title, body]
+    """
+
+    queryset = Post.objects.all()
+    permission_classes = [IsAuthenticated]
+    lookup_field = 'slug' 
+    @swagger_auto_schema(request_body = PostSerializer)
+    def post(self, request, *args, **kwargs):
+        filter = {}
+        #for field in self.lookup_fields:
+        filter['slug'] = self.kwargs['slug']
+          
+        queryset = Post.objects.all()
+        post = get_object_or_404(queryset, **filter)
+
+        serializer = PostSerializer(post, data=request.data)     
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(slug = filter['slug'])
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response({"Errors": serializer.errors}, status=400)
+
+
+
+class DeletePostAPIView(APIView):
+    """
+    post:
+        Updates the post instance. Returns updated post data.
+        parameters: [title, body]
+    """
+    permission_classes = [IsAuthenticated]
+    lookup_field = 'slug' 
+    @swagger_auto_schema(request_body = PostSerializer)
+    def post(self, request, *args, **kwargs):
+        queryset = Post.objects.all()
+        filter = {}
+        filter['slug'] =  self.kwargs['slug']
+        post = get_object_or_404(queryset, **filter)
+        data = {}
+        data['title'] = post.title
+        data['body']  = post.body
+        serializer = PostSerializer(post, data=data)
+        # serializer = PostSerializer(post, data=request.data)     
+        if serializer.is_valid(raise_exception=True):
+            instance = serializer.save(slug=filter['slug'])
+            instance.delete()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response({"Errors": serializer.errors}, status=400)
+
+class FetchPostAPIView(APIView):
+    """
+    post:
+        Updates the post instance. Returns updated post data.
+        parameters: [title, body]
+    """
+    permission_classes = [IsAuthenticated]
+    lookup_field = 'slug' 
+    @swagger_auto_schema(request_body = PostSerializer)
+    def post(self, request, *args, **kwargs):
+        queryset = Post.objects.all()
+        filter = {}
+        filter['slug'] =  self.kwargs['slug']
+        post = get_object_or_404(queryset, **filter)
+        serializer = PostSerializer(post, {"title": post.title, "body": post.body} )    
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(slug=filter['slug'])
+          
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response({"Errors": serializer.errors}, status=400)
+
+
+
+
    
 class CreateCommentAPIView(APIView):
     """
