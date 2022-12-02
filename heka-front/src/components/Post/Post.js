@@ -13,10 +13,24 @@ import Modal from '@mui/material/Modal';
 import './Post.css';
 import CreateComment from '../CreateComment/CreateComment';
 import CommentBox from '../CommentBox/CommentBox';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Typography from '@mui/material/Typography';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Collapse from '@mui/material/Collapse';
+import { styled } from '@mui/material/styles';
+
 const imgLink =
   'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
 
-const Post = ({ title, user, content, time, index, isLogged }) => {
+const Post = ({ title, user, content, time, index, isLogged, image }) => {
   const style = {
     position: 'absolute',
     top: '50%',
@@ -40,138 +54,145 @@ const Post = ({ title, user, content, time, index, isLogged }) => {
     px: 4,
     pb: 3,
   };
-  const [openCommentModal, setOpenCommentModal] = useState(false);
   const [openCreateCommentModal, setOpenCreateCommentModal] = useState(false);
-  const handleOpenCommentModal = () => {
-    setOpenCommentModal(true);
-  };
-  const handleCloseCommentModal = () => {
-    setOpenCommentModal(false);
-  };
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
   const handleOpenCreateCommentModal = () => {
     setOpenCreateCommentModal(true);
   };
   const handleCloseCreateCommentModal = () => {
     setOpenCreateCommentModal(false);
   };
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
+  // interface ExpandMoreProps extends IconButtonProps {
+  //   expand: boolean;
+  // }
+  const ExpandMore = styled((props) => {
+    const { expand, ...other } = props;
+    return <IconButton {...other} />;
+  })(({ theme, expand }) => ({
+    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  }));
   return (
-    <Paper style={{ padding: '40px 20px', marginTop: 40 }}>
-      <Grid container wrap='nowrap' spacing={2}>
-        <Grid item>
-          <Avatar alt='Unknown Profile Picture' src={imgLink} />
-        </Grid>
-        <Grid item xs zeroMinWidth style={{ justifyContent: 'left' }}>
-          <h2 style={{ margin: 0, textAlign: 'left' }}>{title}</h2>
+    <Card sx={{ maxWidth: 1000, padding: '40px 20px', marginTop: 5 }}>
+      <div>
+        <CardHeader
+          avatar={<Avatar alt='Unknown Profile Picture' src={imgLink} />}
+          title={user}
+          subheader={time}
+          action={
+            <div>
+              <Button startIcon={<ThumbUpIcon />} onClick={() => {}}>
+                5
+              </Button>
 
-          <h4 style={{ marginTop: '5vh', textAlign: 'left', color: 'grey' }}>
-            {user}
-          </h4>
-          <p style={{ textAlign: 'left' }}>{content}</p>
-          <p style={{ textAlign: 'left', color: 'gray' }}>posted at {time}</p>
-        </Grid>
-      </Grid>
-      <Divider variant='fullWidth' style={{ margin: '30px 0' }} />
-      <div className='post-footer-container'>
-        <div
-          style={{
-            display: 'flex',
-            gap: '2vh',
-          }}
+              <Button startIcon={<ThumbDownIcon />} onClick={() => {}}>
+                5
+              </Button>
+              <IconButton aria-label='settings' onClick={handleClick}>
+                <MoreVertIcon />
+              </IconButton>
+            </div>
+          }
+        />
+
+        <Menu
+          id='simple-menu'
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
         >
-          <Button
-            variant='outlined'
-            startIcon={<CommentIcon />}
-            onClick={handleOpenCreateCommentModal}
-            data-testid={'comment-button-' + index}
-          >
-            Add Comment
-          </Button>
-          <Modal
-            open={openCreateCommentModal}
-            onClose={handleCloseCreateCommentModal}
-            aria-labelledby='parent-modal-title'
-            aria-describedby='parent-modal-description'
-          >
-            <Box sx={{ ...style, width: 800 }}>
-              <CreateComment />
-            </Box>
-          </Modal>
-          <Button
-            variant='outlined'
-            startIcon={<Visibility />}
-            onClick={handleOpenCommentModal}
-            data-testid={'show-comments-button-' + index}
-          >
-            Show Comments
-          </Button>
-          <Modal
-            open={openCommentModal}
-            onClose={handleCloseCommentModal}
-            aria-labelledby='parent-modal-title'
-            aria-describedby='parent-modal-description'
-            style={{
-              position: 'absolute',
-              top: '10%',
-              left: '25%',
-              overflow: 'scroll',
-              height: '80%',
-              display: 'block',
-            }}
-          >
-            <Box sx={{ ...styleComment, width: 800 }}>
-              <CommentBox isLogged={isLogged} />
-            </Box>
-          </Modal>
-          <Button
-            variant='outlined'
-            startIcon={<ThumbUpIcon />}
-            onClick={() => {}}
-          >
-            5
-          </Button>
-
-          <Button
-            variant='outlined'
-            startIcon={<ThumbDownIcon />}
-            onClick={() => {}}
-          >
-            5
-          </Button>
-        </div>
-
-        <div
-          style={{
-            display: 'flex',
-            gap: '2vh',
-          }}
-        >
-          <Button
-            variant='outlined'
-            startIcon={<Delete />}
-            onClick={() => {
-              alert(
-                'Delete functionality not implemented yet and will be available only for admins and the user who created the post'
-              );
-            }}
-            data-testid={'delete-button-' + index}
-          >
-            Delete
-          </Button>
-          <Button
-            variant='outlined'
-            startIcon={<Edit />}
+          <MenuItem
             onClick={() => {
               alert(
                 'Edit functionality not implemented yet and will be available only for admins and the user who created the post'
               );
             }}
-            data-testid={'edit-button-' + index}
           >
             Edit
-          </Button>
-        </div>
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              alert(
+                'Delete functionality not implemented yet and will be available only for admins and the user who created the post'
+              );
+            }}
+          >
+            Delete
+          </MenuItem>
+        </Menu>
+        <CardContent>
+          <Typography style={{ margin: 0, textAlign: 'left' }}>
+            {title}
+          </Typography>
+        </CardContent>
       </div>
-    </Paper>
+      {image && (
+        <CardMedia
+          component='img'
+          height='350'
+          image={image}
+          alt='Paella dish'
+        />
+      )}
+      <CardContent>
+        <Typography variant='body2' color='text.secondary'>
+          {content}
+        </Typography>
+      </CardContent>
+      <Divider style={{ height: '4px' }} />
+      <CardActions>
+        <Button
+          // variant='outlined'
+          startIcon={<CommentIcon />}
+          onClick={handleOpenCreateCommentModal}
+          data-testid={'comment-button-' + index}
+          style={{ fontFamily: 'inherit' }}
+        >
+          Add Comment
+        </Button>
+        <Modal
+          open={openCreateCommentModal}
+          onClose={handleCloseCreateCommentModal}
+          aria-labelledby='parent-modal-title'
+          aria-describedby='parent-modal-description'
+        >
+          <Box sx={{ ...style, width: 800 }}>
+            <CreateComment />
+          </Box>
+        </Modal>
+
+        <ExpandMore
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label='show more'
+          style={{ fontSize: '0.875rem', fontWeight: 500 }}
+        >
+          SHOW COMMENTS
+          <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <Collapse in={expanded} timeout='auto' unmountOnExit>
+        <CardContent>
+          <CommentBox isLogged={isLogged} />
+        </CardContent>
+      </Collapse>
+    </Card>
   );
 };
 export default Post;
