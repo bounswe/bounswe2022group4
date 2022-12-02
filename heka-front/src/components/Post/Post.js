@@ -1,31 +1,36 @@
 import React, { useState } from 'react';
-import { Divider, Avatar, Grid, Paper, Button } from '@material-ui/core';
 import {
-  Delete,
-  Edit,
+  Divider,
+  Avatar,
+  makeStyles,
+  Button,
+  MenuItem,
+  Menu,
+} from '@material-ui/core';
+import {
+  ThumbUp as ThumbUpIcon,
+  ThumbDown as ThumbDownIcon,
   Comment as CommentIcon,
-  Visibility,
+  ExpandMore as ExpandMoreIcon,
+  MoreVert as MoreVertIcon,
 } from '@mui/icons-material';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
+
 import './Post.css';
 import CreateComment from '../CreateComment/CreateComment';
 import CommentBox from '../CommentBox/CommentBox';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Typography from '@mui/material/Typography';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Collapse from '@mui/material/Collapse';
+import {
+  IconButton,
+  Collapse,
+  Card,
+  Box,
+  Modal,
+  CardHeader,
+  CardContent,
+  CardActions,
+  Typography,
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
+import Annotation from 'react-image-annotation';
 
 const imgLink =
   'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
@@ -44,16 +49,7 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
     px: 4,
     pb: 3,
   };
-  const styleComment = {
-    position: 'absolute',
-    width: 800,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    pt: 2,
-    px: 4,
-    pb: 3,
-  };
+
   const [openCreateCommentModal, setOpenCreateCommentModal] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -74,9 +70,49 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  // interface ExpandMoreProps extends IconButtonProps {
-  //   expand: boolean;
-  // }
+
+  const [annotations, setAnnotations] = useState([
+    {
+      geometry: {
+        type: 'RECTANGLE',
+        x: 76.45089285714286,
+        y: 27.060267857142854,
+        width: 14.732142857142847,
+        height: 32.85714285714286,
+      },
+      data: {
+        text: 'jjj',
+        id: 0.48996757053793494,
+      },
+    },
+    {
+      geometry: {
+        type: 'RECTANGLE',
+        x: 19.642857142857142,
+        y: 34.348214285714285,
+        width: 17.187500000000004,
+        height: 26.857142857142854,
+      },
+      data: {
+        text: 'nnn',
+        id: 0.777,
+      },
+    },
+  ]);
+  const [currentAnnotation, setCurrentAnnotation] = useState({});
+  const onAnnotationChange = (annotation) => {
+    setCurrentAnnotation(annotation);
+  };
+  const onAnnotationSubmit = (annotation) => {
+    const { geometry, data } = annotation;
+    setAnnotations(
+      annotations.concat({
+        geometry,
+        data: { ...data, id: Math.random() },
+      })
+    );
+    console.log(annotations);
+  };
   const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
@@ -88,7 +124,12 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
     }),
   }));
   return (
-    <Card sx={{ maxWidth: 1000, padding: '40px 20px', marginTop: 5 }}>
+    <Card
+      sx={{ maxWidth: 1000, padding: '40px 20px', marginTop: 5 }}
+      style={{
+        backgroundImage: 'linear-gradient(-225deg, #e3fdf5 50%, #ffe6fa 50%)',
+      }}
+    >
       <div>
         <CardHeader
           avatar={<Avatar alt='Unknown Profile Picture' src={imgLink} />}
@@ -142,11 +183,21 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
         </CardContent>
       </div>
       {image && (
-        <CardMedia
-          component='img'
-          height='350'
-          image={image}
-          alt='Paella dish'
+        // <CardMedia
+        //   component='img'
+        //   height='350'
+        //   image={image}
+        //   alt='Paella dish'
+        // />
+        <Annotation
+          src={imgLink}
+          alt='Two pebbles anthropomorphized holding hands'
+          annotations={annotations}
+          value={currentAnnotation}
+          onChange={onAnnotationChange}
+          onSubmit={onAnnotationSubmit}
+          style={{ height: '350px' }}
+
         />
       )}
       <CardContent>
@@ -157,7 +208,7 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
       <Divider style={{ height: '4px' }} />
       <CardActions>
         <Button
-          // variant='outlined'
+
           startIcon={<CommentIcon />}
           onClick={handleOpenCreateCommentModal}
           data-testid={'comment-button-' + index}
