@@ -8,7 +8,7 @@ import { FaUserCircle, FaKey, FaUserPlus } from 'react-icons/fa';
 import { AiOutlineLogin } from 'react-icons/ai';
 import { display } from '@mui/system';
 
-const LoginForm = ({ setIsLogged }) => {
+const LoginForm = ({ setIsLogged, setAuthenticationToken }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [err_message, setErrMessage] = useState();
@@ -17,10 +17,10 @@ const LoginForm = ({ setIsLogged }) => {
   const isValidEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
   const handleSubmit = async (e) => {
-    console.log('saved to firestore , input: ' + username);
     e.preventDefault();
     const response = await BackendApi.postLogin(username, password);
-    if (response.status === 200) {
+    setAuthenticationToken(response.data.token);
+    if (response.status >= 200 && response.status < 300) {
       setIsAuthenticated(true);
       setIsLogged(true);
     } else if (response.status === 403) {
