@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'users',
     'drf_yasg',
     'chat'
+    'posts',
 ]
 
 MIDDLEWARE = [
