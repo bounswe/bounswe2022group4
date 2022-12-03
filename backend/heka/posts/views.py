@@ -168,7 +168,7 @@ class ListPostsAPIView(APIView):
         Lists all posts.
     """
     permission_classes = [IsAuthenticated]
-    @swagger_auto_schema()
+    @swagger_auto_schema(responses = {200: PostSerializer(many=True)})
     def get(self, request):
         all_posts = Post.objects.all()
         serializer = PostSerializer(all_posts, many=True)
