@@ -14,7 +14,7 @@ import {
   ExpandMore as ExpandMoreIcon,
   MoreVert as MoreVertIcon,
 } from '@mui/icons-material';
-
+import { BackendApi } from '../../api';
 import './Post.css';
 import CreateComment from '../CreateComment/CreateComment';
 import CommentBox from '../CommentBox/CommentBox';
@@ -70,7 +70,9 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
+  const handleDelete = (index) => {
+    BackendApi.postDeletePost(index);
+  };
   const [annotations, setAnnotations] = useState([
     {
       geometry: {
@@ -168,9 +170,7 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
           </MenuItem>
           <MenuItem
             onClick={() => {
-              alert(
-                'Delete functionality not implemented yet and will be available only for admins and the user who created the post'
-              );
+              handleDelete(1);
             }}
           >
             Delete
@@ -197,7 +197,6 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
           onChange={onAnnotationChange}
           onSubmit={onAnnotationSubmit}
           style={{ height: '350px' }}
-
         />
       )}
       <CardContent>
@@ -208,7 +207,6 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
       <Divider style={{ height: '4px' }} />
       <CardActions>
         <Button
-
           startIcon={<CommentIcon />}
           onClick={handleOpenCreateCommentModal}
           data-testid={'comment-button-' + index}
