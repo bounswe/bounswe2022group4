@@ -19,3 +19,21 @@ class UserSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+
+class ProfilePageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = [
+            'email',
+            'username',
+            'is_expert',
+            'date_joined',
+            'is_expert',
+            'is_admin',
+            'age',
+            'name',
+            'last_login',
+            'profile_image',
+        ]
+
