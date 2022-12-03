@@ -59,6 +59,8 @@ const PostBox = ({ isLogged, authenticationToken }) => {
       time: '30.10.2022 23.27',
     },
   ]);
+  const [changeInPost, setChangeInPost] = useState(false);
+
   useEffect(() => {
     const getPosts = async () => {
       const response = await BackendApi.getPosts(authenticationToken);
@@ -68,7 +70,8 @@ const PostBox = ({ isLogged, authenticationToken }) => {
       }
     };
     getPosts(authenticationToken);
-  }, []);
+  }, [changeInPost]);
+
   const handleOpenPostModal = () => {
     setOpenPostModal(true);
   };
@@ -98,6 +101,8 @@ const PostBox = ({ isLogged, authenticationToken }) => {
           <CreatePost
             authenticationToken={authenticationToken}
             setOpenPostModal={setOpenPostModal}
+            changeInPost={changeInPost}
+            setChangeInPost={setChangeInPost}
           />
         </Box>
       </Modal>
@@ -112,6 +117,10 @@ const PostBox = ({ isLogged, authenticationToken }) => {
             time={post.time}
             image={post.image}
             isLogged={isLogged}
+            slug={post.slug}
+            authenticationToken={authenticationToken}
+            changeInPost={changeInPost}
+            setChangeInPost={setChangeInPost}
           />
         ))}
     </div>

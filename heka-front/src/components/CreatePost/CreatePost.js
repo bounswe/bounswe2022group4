@@ -20,7 +20,12 @@ const branches = [
   'Ear Nose And Throat',
   'Gastroenterology',
 ];
-const CreatePost = ({ authenticationToken, setOpenPostModal }) => {
+const CreatePost = ({
+  authenticationToken,
+  setOpenPostModal,
+  changeInPost,
+  setChangeInPost,
+}) => {
   const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
   // const [title, setTitle] = useState('');
   // const [body, setBody] = useState('');
@@ -33,20 +38,21 @@ const CreatePost = ({ authenticationToken, setOpenPostModal }) => {
     },
     userDecisionTimeout: 5000,
   });
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = {
       title: event.target.title.value,
       body: event.target.body.value,
     };
     // console.log(ApiInstance, authenticationToken);
-    const response = BackendApi.postCreatePost(
+    const response = await BackendApi.postCreatePost(
       data.title,
       data.body,
       authenticationToken
     );
 
     console.log(data.title, data.body, response);
+    setChangeInPost(!changeInPost);
     setOpenPostModal(false);
   };
   function displayLocation(latitude, longitude) {

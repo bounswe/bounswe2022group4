@@ -21,6 +21,5 @@ export const postDeletePost = (slug, authenticationToken) => {
 };
 export const getPosts = (authenticationToken) => {
   ApiInstance.setHeader('Authorization', authenticationToken);
-
   return ApiInstance.get('api/post/list-posts');
 };

@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Divider,
-  Avatar,
-  makeStyles,
-  Button,
-  MenuItem,
-  Menu,
-} from '@material-ui/core';
+import { Divider, Avatar, Button, MenuItem, Menu } from '@material-ui/core';
 import {
   ThumbUp as ThumbUpIcon,
   ThumbDown as ThumbDownIcon,
@@ -35,7 +28,19 @@ import Annotation from 'react-image-annotation';
 const imgLink =
   'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
 
-const Post = ({ title, user, content, time, index, isLogged, image }) => {
+const Post = ({
+  title,
+  user,
+  content,
+  time,
+  index,
+  isLogged,
+  image,
+  slug,
+  authenticationToken,
+  changeInPost,
+  setChangeInPost,
+}) => {
   const style = {
     position: 'absolute',
     top: '50%',
@@ -52,7 +57,6 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
 
   const [openCreateCommentModal, setOpenCreateCommentModal] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
-
   const handleOpenCreateCommentModal = () => {
     setOpenCreateCommentModal(true);
   };
@@ -70,8 +74,9 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  const handleDelete = (index) => {
-    BackendApi.postDeletePost(index);
+  const handleDelete = async (slug) => {
+    await BackendApi.postDeletePost(slug + '/', authenticationToken);
+    setChangeInPost(!changeInPost);
   };
   const [annotations, setAnnotations] = useState([
     {
@@ -170,7 +175,7 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
           </MenuItem>
           <MenuItem
             onClick={() => {
-              handleDelete(1);
+              handleDelete(slug);
             }}
           >
             Delete
