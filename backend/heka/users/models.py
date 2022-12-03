@@ -4,16 +4,13 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 # Create your models here.
 class UserManager(BaseUserManager):
-    def create_user(self, email, username, is_expert, password=None):
+    def create_user(self,email, is_expert, password=None):
         if not email:
             raise ValueError("Email required!")
-        if not username:
-            raise ValueError("Username required!")
-
+        
         user = self.model(
             email = self.normalize_email(email),
-            username = username,
-            is_expert = is_expert,
+            is_expert = is_expert
         )
         user.set_password(password)
         user.save(using=self._db)
@@ -30,7 +27,7 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser):
     email = models.EmailField(verbose_name="email", max_length = 60, unique = True)
-    username = models.CharField(max_length=30, unique=True)
+    username = models.CharField(max_length=30, null=True, unique=True) 
     date_joined = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length = 255)
     age = models.IntegerField(null=True)
