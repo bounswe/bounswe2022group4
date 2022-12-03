@@ -23,7 +23,8 @@ class RegisterView(APIView):
             user = serializer.save()
             user.save()
             token = Token.objects.get_or_create(user=user)[0].key
-            return Response(data = {'message':'Registration succesful!', 'email':user.email, 'token':token}, status=status.HTTP_201_CREATED)
+            return Response(data = {'message':'Registration succesful!', 'email':user.email,
+                                    'username':user.username, 'token':token}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
 class LoginView(APIView):
@@ -53,9 +54,11 @@ class LoginView(APIView):
             user = authenticate(username=email, password=password)
             token = Token.objects.get_or_create(user=user)[0].key
             login(request, user)
-            return  Response( {'message':'Login succesful!', 'email':email, 'token':token}, status=status.HTTP_200_OK)
+            return  Response( {'message':'Login succesful!', 'email':email,
+                               'username':user.username, 'token':token}, status=status.HTTP_200_OK)
         else:
-            return Response(data = {'message':'Already logged in!', 'email':email, 'token': Token.objects.get_or_create(user=user)[0].key })
+            return Response(data = {'message':'Already logged in!', 'email':email, 'username':user.username,
+                                    'token': Token.objects.get_or_create(user=user)[0].key })
         
       
 
@@ -70,7 +73,7 @@ class HomeView(APIView):
         except:
             return Response( data = {'status':'Guest User'}, status=status.HTTP_200_OK)
         
-        return Response(data = {'status':'Registered User', 'email':user.email, 'token': Token.objects.get_or_create(user=user)[0].key},
+        return Response(data = {'status':'Registered User', 'email':user.email, 'username':user.username,'token': Token.objects.get_or_create(user=user)[0].key},
                 status = status.HTTP_200_OK)
 
 class LogoutView(APIView):
