@@ -1,7 +1,5 @@
 import React from 'react';
 import PostBox from '../../components/PostBox/PostBox';
-import Comment from '../../components/Comment/Comment';
-import CommentBox from '../../components/CommentBox/CommentBox';
 
 import './HomePage.css';
 const HomePage = ({ isLogged, authenticationToken }) => {
