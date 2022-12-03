@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import TextField from '@material-ui/core/TextField';
-import { Button } from '@material-ui/core';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import {
+  Button,
+  InputLabel,
+  MenuItem,
+  TextField,
+  FormControl,
+  Select,
+} from '@material-ui/core';
 import { DropzoneArea } from 'material-ui-dropzone';
 import { useGeolocated } from 'react-geolocated';
+import { BackendApi } from '../../api';
 
 const branches = [
   'Eye Health and Diseases',
@@ -17,10 +20,10 @@ const branches = [
   'Ear Nose And Throat',
   'Gastroenterology',
 ];
-const CreatePost = () => {
+const CreatePost = ({ authenticationToken }) => {
   const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
+  // const [title, setTitle] = useState('');
+  // const [body, setBody] = useState('');
   const [imageFile, setImageFile] = useState(null);
   const [branch, setBranch] = useState('');
   const [address, setAddress] = useState('');
@@ -32,14 +35,18 @@ const CreatePost = () => {
   });
   const handleSubmit = (event) => {
     event.preventDefault();
-    // const user_id = context.dbProfileState[0].uid;
-    // const username = context.dbProfileState[0].username;
     const data = {
       title: event.target.title.value,
       body: event.target.body.value,
-      //   username: username,
-      //   uid: user_id,
     };
+    // console.log(ApiInstance, authenticationToken);
+    const response = BackendApi.postCreatePost(
+      data.title,
+      data.body,
+      authenticationToken
+    );
+
+    console.log(data.title, data.body, response);
   };
   function displayLocation(latitude, longitude) {
     var request = new XMLHttpRequest();
@@ -79,18 +86,18 @@ const CreatePost = () => {
           label='Title'
           margin='normal'
           style={{ width: '100%' }}
-          onChange={(e) => setTitle(e.target.value)}
+          // onChange={(e) => setTitle(e.target.value)}
         />
         <br />
         <TextField
-          id='outlined-multiline-static'
+          id='body'
           label='Body'
           multiline
           rows={4}
           rowsMax='4'
           margin='normal'
           style={{ width: '100%' }}
-          onChange={(e) => setBody(e.target.value)}
+          // onChange={(e) => setBody(e.target.value)}
         />
 
         <br />
@@ -108,6 +115,7 @@ const CreatePost = () => {
             ))}
           </Select>
         </FormControl>
+
         <br />
         <br />
         <DropzoneArea
