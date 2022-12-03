@@ -4,6 +4,8 @@ import HomePage from './pages/HomePage/HomePage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import SignInPage from './pages/SignInPage/SignInPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
+import ForgotPasswordPage from './pages/ForgotPassword/ForgotPassword';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App = () => {
@@ -24,6 +26,10 @@ const App = () => {
         <Routes>
           <Route path='/sign-up' element={<SignUpPage />} />
         </Routes>
+        <Routes>
+          <Route path='/forgot-password' element={<ForgotPasswordPage />} />
+        </Routes>
+        
       </Router>
     </div>
   );
