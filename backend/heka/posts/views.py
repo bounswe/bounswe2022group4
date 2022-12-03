@@ -161,3 +161,17 @@ class UpdateCommentAPIView(APIView):
         else:
             return Response({"errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
+
+class ListPostsAPIView(APIView):
+    """
+    post:
+        Lists all posts.
+    """
+    permission_classes = [IsAuthenticated]
+    @swagger_auto_schema()
+    def get(self, request):
+        all_posts = Post.objects.all()
+        serializer = PostSerializer(all_posts, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
