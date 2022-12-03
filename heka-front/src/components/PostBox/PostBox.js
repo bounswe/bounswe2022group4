@@ -95,7 +95,10 @@ const PostBox = ({ isLogged, authenticationToken }) => {
         aria-describedby='parent-modal-description'
       >
         <Box sx={{ ...style, width: 800 }}>
-          <CreatePost authenticationToken={authenticationToken} />
+          <CreatePost
+            authenticationToken={authenticationToken}
+            setOpenPostModal={setOpenPostModal}
+          />
         </Box>
       </Modal>
       {posts &&

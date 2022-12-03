@@ -20,7 +20,7 @@ const branches = [
   'Ear Nose And Throat',
   'Gastroenterology',
 ];
-const CreatePost = ({ authenticationToken }) => {
+const CreatePost = ({ authenticationToken, setOpenPostModal }) => {
   const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
   // const [title, setTitle] = useState('');
   // const [body, setBody] = useState('');
@@ -47,6 +47,7 @@ const CreatePost = ({ authenticationToken }) => {
     );
 
     console.log(data.title, data.body, response);
+    setOpenPostModal(false);
   };
   function displayLocation(latitude, longitude) {
     var request = new XMLHttpRequest();
@@ -86,6 +87,7 @@ const CreatePost = ({ authenticationToken }) => {
           label='Title'
           margin='normal'
           style={{ width: '100%' }}
+          required
           // onChange={(e) => setTitle(e.target.value)}
         />
         <br />
@@ -97,6 +99,7 @@ const CreatePost = ({ authenticationToken }) => {
           rowsMax='4'
           margin='normal'
           style={{ width: '100%' }}
+          required
           // onChange={(e) => setBody(e.target.value)}
         />
 
@@ -109,6 +112,7 @@ const CreatePost = ({ authenticationToken }) => {
             id='demo-simple-select'
             label='Category'
             onChange={(e) => setBranch(e.target.value)}
+            required
           >
             {branches.map((branch) => (
               <MenuItem value={branch}>{branch}</MenuItem>
