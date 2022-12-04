@@ -5,6 +5,8 @@ import com.bounswe.heka.data.Event
 import com.bounswe.heka.data.chat.*
 import com.bounswe.heka.network.ApiClient
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -17,12 +19,21 @@ class ChatListViewModel @Inject constructor(): ViewModel() {
     private val _selectedChat = MutableLiveData<Event<ChatWithUserInfo>>()
     var selectedChat: LiveData<Event<ChatWithUserInfo>> = _selectedChat
     val chatsList = MutableLiveData<MutableList<ChatWithUserInfo>>()
+    var job: Job? = null
 
     init {
 //        setupMockChat()
-        fetchChats()
+        initJob()
     }
 
+    fun initJob() {
+        job = viewModelScope.launch {
+            while (true) {
+                fetchChats()
+                delay(10000)
+            }
+        }
+    }
     fun selectChatWithUserInfoPressed(chat: ChatWithUserInfo) {
         _selectedChat.value = Event(chat)
     }
@@ -80,6 +91,11 @@ class ChatListViewModel @Inject constructor(): ViewModel() {
                 println(e.message)
             }
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        job?.cancel()
     }
 
 }
