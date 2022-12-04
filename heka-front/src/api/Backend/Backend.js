@@ -52,6 +52,11 @@ export const postDownvoteComment = (slug, comment_id, authenticationToken) => {
     'api/post/downvote-comment/' + slug + '/' + comment_id
   );
 };
+export const postDeleteComment = (slug, comment_id, authenticationToken) => {
+  ApiInstance.setHeader('Authorization', authenticationToken);
+  return ApiInstance.post('api/post/delete-comment/' + slug + '/' + comment_id);
+};
+
 export const postUpvotePost = (slug, authenticationToken) => {
   ApiInstance.setHeader('Authorization', authenticationToken);
   return ApiInstance.post('api/post/upvote-post/' + slug + '/');
