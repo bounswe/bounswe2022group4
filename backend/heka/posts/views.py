@@ -61,6 +61,7 @@ class UpdatePostAPIView(APIView):
             return Response({"Error" : "Not allowed!"}, status=status.HTTP_400_BAD_REQUEST)
 
         serializer = PostSerializer(post, data=request.data)
+        post.set_last_update()
         response = {}
         if serializer.is_valid(raise_exception=True):
             serializer.save(slug = slugify(request.data['title']))
@@ -201,6 +202,7 @@ class UpdateCommentAPIView(APIView):
             serializer.save(creator=request.user, parent=post)
             response.update(serializer.data)
             response.update(serializer.fetch_creator_username(comment))
+            comment.set_last_update()
             response['updated_at'] = serializer.fetch_last_update(comment)
             response.update(serializer.fetch_upvotes_downvotes(comment))
             response["is_upvoted"] = (request.user in post.upvotes.all())
@@ -254,8 +256,8 @@ class ListCommentsOfPostsAPIView(APIView):
                 response.update(serializer.fetch_creator_username(comment))
                 response['updated_at'] = serializer.fetch_last_update(comment) 
                 response.update(serializer.fetch_upvotes_downvotes(comment))
-                response["is_upvoted"] = (request.user in post.upvotes.all())
-                response["is_downvoted"] = (request.user in post.downvotes.all() )
+                response["is_upvoted"] = (request.user in comment.upvotes.all())
+                response["is_downvoted"] = (request.user in comment.downvotes.all() )
                 comments.append(response)
         return Response(comments, status=status.HTTP_200_OK)
 
@@ -302,7 +304,7 @@ class PostDownvoteAPIView(APIView):
         elif request.user in post.upvotes.all():
             post.upvotes.remove(request.user)
             post.downvotes.add(request.user)
-        serializer = PostSerializer(post, data={"title":post.title, "body":post.body} )
+        serializer = PostSerializer(post, data={"category": post.category, "title":post.title, "body":  post.body} )
         if serializer.is_valid(raise_exception=True):
             serializer.save(creator=request.user, slug = kwargs['slug'])
         return Response({"slug": post.slug, "upvote":post.total_upvotes, "downvote": post.total_downvotes }, status=status.HTTP_200_OK)
