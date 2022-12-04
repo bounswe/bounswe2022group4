@@ -44,7 +44,7 @@ class MessagedUsersView(APIView):
 
         receiver_list = Message.objects.filter(sender_id = user).values("receiver")  
         sender_list = Message.objects.filter(receiver_id = user).values("sender")
-
+        last_message = Message.objects.filter(sender_id=request.user.id, receiver=user.id).latest("timestamp") | Message.objects.filter(sender=user.id, receiver_id=request.user.id).latest("timestamp")
         response_list = []
 
         for i in range (len(receiver_list)):
@@ -56,4 +56,5 @@ class MessagedUsersView(APIView):
             response_list.append(username[0]["username"])
         response = list(set(response_list))
         response.sort()
+        
         return JsonResponse({"user_list": response}, safe=False)
