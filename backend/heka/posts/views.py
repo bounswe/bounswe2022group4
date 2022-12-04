@@ -65,7 +65,7 @@ class UpdatePostAPIView(APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save(slug = slugify(request.data['title']))
             response.update(serializer.data)
-            response['creator_username'] = serializer.fetch_creator_username(post)
+            response.update(serializer.fetch_creator_username(post))
             response['updated_at'] = serializer.fetch_last_update(post) 
             response.update(serializer.fetch_upvotes_downvotes(post))
             return Response(response, status=status.HTTP_200_OK)
@@ -115,7 +115,7 @@ class FetchPostAPIView(APIView):
         response = {}
         if serializer.is_valid(raise_exception=True):
             response.update(serializer.data)
-            response['creator_username'] = serializer.fetch_creator_username(post)
+            response.update(serializer.fetch_creator_username(post))
             response['updated_at'] = serializer.fetch_last_update(post) 
             response.update(serializer.fetch_upvotes_downvotes(post))
             return Response(response, status=status.HTTP_200_OK)
@@ -196,7 +196,7 @@ class UpdateCommentAPIView(APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save(creator=request.user, parent=post)
             response.update(serializer.data)
-            response["creator_username"] = serializer.fetch_creator_username(comment)
+            response.update(serializer.fetch_creator_username(comment))
             response['updated_at'] = serializer.fetch_last_update(comment)
             response.update(serializer.fetch_upvotes_downvotes(comment))
             return Response(response, status=status.HTTP_200_OK)
@@ -219,7 +219,7 @@ class ListPostsAPIView(APIView):
             serializer = PostSerializer(post, data={"category": post.category, "title": post.title, "body": post.body})
             if serializer.is_valid(raise_exception=True):
                 response.update(serializer.data)
-                response['creator_username'] = serializer.fetch_creator_username(post)
+                response.update(serializer.fetch_creator_username(post))
                 response['updated_at'] = serializer.fetch_last_update(post) 
                 response.update(serializer.fetch_upvotes_downvotes(post))
                 posts.append(response)
@@ -243,7 +243,7 @@ class ListCommentsOfPostsAPIView(APIView):
             serializer = CommentSerializer(comment, data={"body": comment.body})
             if serializer.is_valid(raise_exception=True):
                 response.update(serializer.data)
-                response['creator_username'] = serializer.fetch_creator_username(comment)
+                response.update(serializer.fetch_creator_username(comment))
                 response['updated_at'] = serializer.fetch_last_update(comment) 
                 response.update(serializer.fetch_upvotes_downvotes(comment))
                 comments.append(response)
