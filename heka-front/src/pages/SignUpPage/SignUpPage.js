@@ -22,6 +22,7 @@ const SignUpPage = () => {
   const [active, setActive] = useState(0);
   const [diploma, setDiploma] = useState(null);
   const [yearsofexp, setYearsofexp] = useState(0);
+  const [isExpert, setIsExpert] = useState(false);
   const [branch, setBranch] = useState('');
   const [fullName, setFullName] = useState('');
   const [username, setUsername] = useState('');
@@ -40,22 +41,26 @@ const SignUpPage = () => {
       onChange: (e) => setFullName(e.target.value),
       icon: <GiDoctorFace aria-hidden='true' />,
       value: fullName,
+      type: 'text',
     },
     {
       placeholder: 'Institution Name',
       onChange: (e) => setInstitution(e.target.value),
       icon: <FaRegHospital aria-hidden='true' />,
       value: institution,
+      type: 'text',
     },
     {
       placeholder: 'Years of Experience',
       onChange: (e) => setYearsofexp(e.target.value),
       icon: <GrUserExpert aria-hidden='true' />,
+      type: 'text',
     },
     {
       placeholder: 'Branch',
       onChange: (e) => setBranch(e.target.value),
       icon: <AiOutlineBranches aria-hidden='true' />,
+      type: 'text',
     },
     {
       placeholder: 'Diploma',
@@ -67,18 +72,21 @@ const SignUpPage = () => {
       onChange: (e) => setEmail(e.target.value),
       icon: <FaAddressBook aria-hidden='true' />,
       value: email,
+      type: 'text',
     },
     {
       placeholder: 'Username',
       onChange: (e) => setUsername(e.target.value),
       icon: <FaUserCircle aria-hidden='true' />,
       value: username,
+      type: 'text',
     },
     {
       placeholder: 'Password',
       onChange: (e) => setPassword(e.target.value),
       icon: <FaKey aria-hidden='true' />,
       value: password,
+      type: 'password',
     },
   ];
   const handleClick = (e) => {
@@ -87,15 +95,62 @@ const SignUpPage = () => {
       setActive(index);
     }
   };
-  const handleSubmit = async (e) => {
+  const handleDoctorSubmit = async (e) => {
     e.preventDefault();
+
+    console.log('isExpert', isExpert);
+    console.log('username', username);
+    console.log('password', password);
+    console.log('email', email);
     if (
       username.length !== 0 &&
       password.length !== 0 &&
       email &&
       validEmail(email)
     ) {
-      const response = await BackendApi.postRegister(email, username, password);
+      setIsExpert(false);
+      const response = await BackendApi.postRegister(
+        email,
+        username,
+        password,
+        isExpert
+      );
+      console.log(response);
+      if ((response.status >= 200) & (response.status < 300)) {
+        setIsAuthenticated(true);
+      } else if (response.status === 400) {
+        alert('This e-mail had already been registered!');
+        setUsername('');
+        setEmail('');
+        setPassword('');
+      }
+    } else {
+      alert('Please enter valid registration information!');
+      setUsername('');
+      setEmail('');
+      setPassword('');
+    }
+  };
+  const handleRegularSubmit = async (e) => {
+    e.preventDefault();
+
+    console.log('isExpert', isExpert);
+    console.log('username', username);
+    console.log('password', password);
+    console.log('email', email);
+    if (
+      username.length !== 0 &&
+      password.length !== 0 &&
+      email &&
+      validEmail(email)
+    ) {
+      setIsExpert(false);
+      const response = await BackendApi.postRegister(
+        email,
+        username,
+        password,
+        isExpert
+      );
       console.log(response);
       if ((response.status >= 200) & (response.status < 300)) {
         setIsAuthenticated(true);
@@ -207,7 +262,10 @@ const SignUpPage = () => {
                         }}
                       ></input>
                     </div>
-                    <button className='login-button' onClick={handleSubmit}>
+                    <button
+                      className='login-button'
+                      onClick={handleRegularSubmit}
+                    >
                       Sign Up
                       <AiOutlineLogin aria-hidden='true' />
                     </button>
@@ -277,7 +335,7 @@ const SignUpPage = () => {
                             </span>
                             <input
                               className='form-input'
-                              type='text'
+                              type={inputField.type}
                               placeholder={inputField.placeholder}
                               required
                               value={inputField.value}
@@ -290,7 +348,10 @@ const SignUpPage = () => {
                       </>
                     ))}
 
-                    <button className='login-button' onClick={handleSubmit}>
+                    <button
+                      className='login-button'
+                      onClick={handleDoctorSubmit}
+                    >
                       Sign Up
                       <AiOutlineLogin aria-hidden='true' />
                     </button>

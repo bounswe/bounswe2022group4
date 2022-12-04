@@ -19,7 +19,7 @@ const LoginForm = ({ setIsLogged, setAuthenticationToken }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await BackendApi.postLogin(username, password);
-    setAuthenticationToken(response.data.token);
+    setAuthenticationToken('Token ' + response.data.token);
     if (response.status >= 200 && response.status < 300) {
       setIsAuthenticated(true);
       setIsLogged(true);

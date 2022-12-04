@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Divider,
-  Avatar,
-  makeStyles,
-  Button,
-  MenuItem,
-  Menu,
-} from '@material-ui/core';
+import { Divider, Avatar, Button, MenuItem, Menu } from '@material-ui/core';
 import {
   ThumbUp as ThumbUpIcon,
   ThumbDown as ThumbDownIcon,
@@ -14,7 +7,7 @@ import {
   ExpandMore as ExpandMoreIcon,
   MoreVert as MoreVertIcon,
 } from '@mui/icons-material';
-
+import { BackendApi } from '../../api';
 import './Post.css';
 import CreateComment from '../CreateComment/CreateComment';
 import CommentBox from '../CommentBox/CommentBox';
@@ -35,7 +28,19 @@ import Annotation from 'react-image-annotation';
 const imgLink =
   'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
 
-const Post = ({ title, user, content, time, index, isLogged, image }) => {
+const Post = ({
+  title,
+  user,
+  content,
+  time,
+  index,
+  isLogged,
+  image,
+  slug,
+  authenticationToken,
+  changeInPost,
+  setChangeInPost,
+}) => {
   const style = {
     position: 'absolute',
     top: '50%',
@@ -52,7 +57,6 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
 
   const [openCreateCommentModal, setOpenCreateCommentModal] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
-
   const handleOpenCreateCommentModal = () => {
     setOpenCreateCommentModal(true);
   };
@@ -70,7 +74,10 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
+  const handleDelete = async (slug) => {
+    await BackendApi.postDeletePost(slug + '/', authenticationToken);
+    setChangeInPost(!changeInPost);
+  };
   const [annotations, setAnnotations] = useState([
     {
       geometry: {
@@ -168,9 +175,7 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
           </MenuItem>
           <MenuItem
             onClick={() => {
-              alert(
-                'Delete functionality not implemented yet and will be available only for admins and the user who created the post'
-              );
+              handleDelete(slug);
             }}
           >
             Delete
@@ -197,7 +202,6 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
           onChange={onAnnotationChange}
           onSubmit={onAnnotationSubmit}
           style={{ height: '350px' }}
-
         />
       )}
       <CardContent>
@@ -208,7 +212,6 @@ const Post = ({ title, user, content, time, index, isLogged, image }) => {
       <Divider style={{ height: '4px' }} />
       <CardActions>
         <Button
-
           startIcon={<CommentIcon />}
           onClick={handleOpenCreateCommentModal}
           data-testid={'comment-button-' + index}
