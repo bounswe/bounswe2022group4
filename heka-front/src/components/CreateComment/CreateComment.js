@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
 
-const CreatePost = () => {
+const CreateComment = () => {
   const [body, setBody] = useState('');
 
   const handleSubmit = (event) => {
@@ -23,6 +23,7 @@ const CreatePost = () => {
         />
 
         <br />
+        <br />
 
         <Button type='submit' variant='outlined'>
           Comment
@@ -33,4 +34,4 @@ const CreatePost = () => {
   );
 };
 
-export default CreatePost;
+export default CreateComment;
