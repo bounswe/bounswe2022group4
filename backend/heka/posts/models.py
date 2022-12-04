@@ -7,6 +7,7 @@ from django.shortcuts import reverse
 
 
 class Post(models.Model):
+    category = models.CharField(null=False, blank=False, max_length=100)
     title = models.CharField(max_length=100, blank=False,null=False)
     body = models.TextField(max_length=5000, null=False, blank=False)
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -16,6 +17,7 @@ class Post(models.Model):
     upvotes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="post_upvotes")
     downvotes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="post_downvotes")
     image = models.CharField(max_length=9000000, null=True, blank=True)
+    location = models.CharField(max_length = 300, null=True, blank=True)
 
     @property
     def total_upvotes(self):
@@ -55,9 +57,7 @@ class Comment(models.Model):
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
     upvotes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="comment_upvotes")
     downvotes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="comment_downvotes")
-    image = models.CharField(max_length=9000000, null=True, blank=True)
-
-
+    
     class Meta:
         ordering = ["-created_at", "-updated_at"]
     
