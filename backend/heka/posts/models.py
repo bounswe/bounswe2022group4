@@ -7,15 +7,19 @@ from django.shortcuts import reverse
 
 
 class Post(models.Model):
+    category = models.CharField(null=False, blank=False, max_length=100)
     title = models.CharField(max_length=100, blank=False,null=False)
     body = models.TextField(max_length=5000, null=False, blank=False)
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     slug = AutoSlugField(populate_from='title', unique=True)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
+    last_update = models.DateTimeField(auto_now=False, auto_now_add=True)
     upvotes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="post_upvotes")
     downvotes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="post_downvotes")
+    
     image = models.CharField(max_length=9000000, null=True, blank=True)
+    location = models.CharField(max_length = 300, null=True, blank=True)
 
     @property
     def total_upvotes(self):
@@ -27,6 +31,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def set_last_update(self):
+        self.last_update = self.updated_at
     
     def get_api_url(self):
         return reverse('api/post/post', kwargs={"slug": self.slug})
@@ -53,11 +60,10 @@ class Comment(models.Model):
     body = models.TextField(max_length=2500, null=False, blank=False)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
+    last_update = models.DateTimeField(auto_now=False, auto_now_add=True)
     upvotes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="comment_upvotes")
     downvotes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="comment_downvotes")
-    image = models.CharField(max_length=9000000, null=True, blank=True)
-
-
+    
     class Meta:
         ordering = ["-created_at", "-updated_at"]
     
@@ -68,3 +74,7 @@ class Comment(models.Model):
     @property
     def total_downvotes(self):
         return self.downvotes.count()
+    
+    def set_last_update(self):
+        self.last_update = self.updated_at
+    
