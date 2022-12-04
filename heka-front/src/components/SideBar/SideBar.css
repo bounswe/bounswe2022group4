@@ -1,0 +1,42 @@
+.general-homepage-container {
+    background-image: linear-gradient(-225deg, #e3fdf5 0%, #ffe6fa 100%);
+    background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: 'Vibur', cursive;
+    font-family: 'Abel', sans-serif;
+    opacity: 0.95;
+    font-size: 100%;
+    background-size: cover;
+    display: flex;
+    width: 18%;
+    margin-left: 80%;
+    min-height: 89vh;
+    margin-top: 12rem;
+    overflow: auto;
+  }
+  .home-page-con {
+    display: -webkit-flex;
+    display: flex;
+  
+    -webkit-justify-content: space-around;
+    justify-content:flex-start;
+  
+    -webkit-flex-wrap: wrap;
+    
+  
+    margin: 0 auto;
+    flex-direction: column;
+    
+  }
+  .head-form {
+    text-align: center;
+  }
+  #Registered1 {
+    text-align: center;
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+    padding-bottom: 2rem;
+    margin-bottom: 0;
+  }
+  
