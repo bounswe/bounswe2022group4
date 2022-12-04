@@ -211,14 +211,17 @@ const Post = ({
       </CardContent>
       <Divider style={{ height: '4px' }} />
       <CardActions>
-        <Button
-          startIcon={<CommentIcon />}
-          onClick={handleOpenCreateCommentModal}
-          data-testid={'comment-button-' + index}
-          style={{ fontFamily: 'inherit' }}
-        >
-          Add Comment
-        </Button>
+        {isLogged && (
+          <Button
+            startIcon={<CommentIcon />}
+            onClick={handleOpenCreateCommentModal}
+            data-testid={'comment-button-' + index}
+            style={{ fontFamily: 'inherit' }}
+          >
+            Add Comment
+          </Button>
+        )}
+
         <Modal
           open={openCreateCommentModal}
           onClose={handleCloseCreateCommentModal}

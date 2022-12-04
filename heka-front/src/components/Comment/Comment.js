@@ -1,49 +1,69 @@
-import React, { useState } from 'react';
-import { Divider, Grid, Paper, Button } from '@material-ui/core';
-import { Delete, Edit } from '@mui/icons-material';
-
-const Comment = ({ user, content, time, index }) => {
+import React from 'react';
+import { Avatar, Button } from '@material-ui/core';
+import {
+  ThumbUp as ThumbUpIcon,
+  ThumbDown as ThumbDownIcon,
+  Delete,
+} from '@mui/icons-material';
+import {
+  CardHeader,
+  CardContent,
+  CardActions,
+  Typography,
+} from '@mui/material';
+const Comment = ({ user, content, time, index, isLogged }) => {
+  const regularUserPhoto =
+    'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
+  const doctorPhoto = 'https://cdn-icons-png.flaticon.com/512/3774/3774299.png';
   return (
-    <Paper style={{ padding: '40px 20px', marginTop: 40 }}>
-      <Grid container wrap='nowrap' spacing={2}>
-        <Grid item xs zeroMinWidth style={{ justifyContent: 'left' }}>
-          <h4 style={{ marginTop: '5vh', textAlign: 'left', color: 'grey' }}>
-            {user}
-          </h4>
-          <p style={{ textAlign: 'left' }}>{content}</p>
-          <p style={{ textAlign: 'left', color: 'gray' }}>posted at {time}</p>
-        </Grid>
-      </Grid>
-      <Divider variant='fullWidth' style={{ margin: '30px 0' }} />
-      <div className='post-footer-container'>
-        <div
-          style={{
-            display: 'flex',
-            gap: '2vh',
-          }}
-        ></div>
+    <div
+      style={{
+        backgroundColor: 'white',
+        marginBottom: '2vh',
+        borderRadius: '2vh',
+      }}
+    >
+      <CardHeader
+        avatar={<Avatar alt='Unknown Profile Picture' src={regularUserPhoto} />}
+        title={user}
+        subheader={time}
+        action={
+          <div>
+            <Button startIcon={<ThumbUpIcon />} onClick={() => {}}>
+              5
+            </Button>
 
-        <div
-          style={{
-            display: 'flex',
-            gap: '2vh',
-          }}
-        >
+            <Button startIcon={<ThumbDownIcon />} onClick={() => {}}>
+              5
+            </Button>
+          </div>
+        }
+      />
+
+      <CardContent>
+        <Typography variant='body2' color='text.secondary'>
+          {content}
+        </Typography>
+      </CardContent>
+      <CardActions
+        style={{
+          display: 'flex',
+          alignItems: 'flex-end',
+          justifyContent: 'flex-end',
+        }}
+      >
+        {isLogged && (
           <Button
-            variant='outlined'
             startIcon={<Delete />}
-            onClick={() => {
-              alert(
-                'Delete functionality not implemented yet and will be available only for admins and the user who created the post'
-              );
-            }}
-            data-testid={'delete-button-' + index}
+            // onClick={handleOpenCreateCommentModal}
+            data-testid={'comment-button-' + index}
+            // style={{ fontFamily: 'inherit' }}
           >
             Delete
           </Button>
-        </div>
-      </div>
-    </Paper>
+        )}
+      </CardActions>
+    </div>
   );
 };
 export default Comment;
