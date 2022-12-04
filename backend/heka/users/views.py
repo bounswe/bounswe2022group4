@@ -110,6 +110,7 @@ class ProfilePageView(APIView):
         return Response(data=serializer.data , status=status.HTTP_200_OK)
 
 class ForgetPasswordView(APIView):
+    @swagger_auto_schema() 
     def post(self, request):
         email = request.data["email"]
         try:
@@ -125,6 +126,7 @@ class ForgetPasswordView(APIView):
         return Response(data={'status': 'Email sent to your mail address'}, status=status.HTTP_200_OK)
 
 class ResetPasswordView(APIView):
+    @swagger_auto_schema() 
     def post(self, request):
         code = request.data["code"]
         new_password = request.data["new_password"]
