@@ -66,8 +66,10 @@ class UpdatePostAPIView(APIView):
             serializer.save(slug = slugify(request.data['title']))
             response.update(serializer.data)
             response.update(serializer.fetch_creator_username(post))
-            response['updated_at'] = serializer.fetch_last_update(post) 
+            response['updated_at'] = serializer.fetch_last_update(post)
             response.update(serializer.fetch_upvotes_downvotes(post))
+            response["is_upvoted"] = (request.user in post.upvotes.all())
+            response["is_downvoted"] = (request.user in post.downvotes.all() )
             return Response(response, status=status.HTTP_200_OK)
         else:
             return Response({"Errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
@@ -116,7 +118,9 @@ class FetchPostAPIView(APIView):
         if serializer.is_valid(raise_exception=True):
             response.update(serializer.data)
             response.update(serializer.fetch_creator_username(post))
-            response['updated_at'] = serializer.fetch_last_update(post) 
+            response['updated_at'] = serializer.fetch_last_update(post)
+            response["is_upvoted"] = (request.user in post.upvotes.all())
+            response["is_downvoted"] = (request.user in post.downvotes.all() )
             response.update(serializer.fetch_upvotes_downvotes(post))
             return Response(response, status=status.HTTP_200_OK)
         else:
@@ -199,6 +203,8 @@ class UpdateCommentAPIView(APIView):
             response.update(serializer.fetch_creator_username(comment))
             response['updated_at'] = serializer.fetch_last_update(comment)
             response.update(serializer.fetch_upvotes_downvotes(comment))
+            response["is_upvoted"] = (request.user in post.upvotes.all())
+            response["is_downvoted"] = (request.user in post.downvotes.all() )
             return Response(response, status=status.HTTP_200_OK)
         else:
             return Response({"errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
@@ -212,7 +218,7 @@ class ListPostsAPIView(APIView):
     permission_classes = [AllowAny]
     @swagger_auto_schema(responses = {200: PostSerializer(many=True)})
     def get(self, request):
-        all_posts = Post.objects.all()
+        all_posts = Post.objects.all().order_by("created_at")
         posts = []
         for post in all_posts:
             response = {}
@@ -220,8 +226,10 @@ class ListPostsAPIView(APIView):
             if serializer.is_valid(raise_exception=True):
                 response.update(serializer.data)
                 response.update(serializer.fetch_creator_username(post))
-                response['updated_at'] = serializer.fetch_last_update(post) 
+                response['updated_at'] = serializer.fetch_last_update(post)
                 response.update(serializer.fetch_upvotes_downvotes(post))
+                response["is_upvoted"] = (request.user in post.upvotes.all())
+                response["is_downvoted"] = (request.user in post.downvotes.all() )
                 posts.append(response)
         return Response(posts, status=status.HTTP_200_OK)
 
@@ -246,6 +254,8 @@ class ListCommentsOfPostsAPIView(APIView):
                 response.update(serializer.fetch_creator_username(comment))
                 response['updated_at'] = serializer.fetch_last_update(comment) 
                 response.update(serializer.fetch_upvotes_downvotes(comment))
+                response["is_upvoted"] = (request.user in post.upvotes.all())
+                response["is_downvoted"] = (request.user in post.downvotes.all() )
                 comments.append(response)
         return Response(comments, status=status.HTTP_200_OK)
 
