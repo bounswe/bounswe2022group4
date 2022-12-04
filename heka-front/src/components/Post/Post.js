@@ -78,34 +78,7 @@ const Post = ({
     await BackendApi.postDeletePost(slug + '/', authenticationToken);
     setChangeInPost(!changeInPost);
   };
-  const [annotations, setAnnotations] = useState([
-    {
-      geometry: {
-        type: 'RECTANGLE',
-        x: 76.45089285714286,
-        y: 27.060267857142854,
-        width: 14.732142857142847,
-        height: 32.85714285714286,
-      },
-      data: {
-        text: 'jjj',
-        id: 0.48996757053793494,
-      },
-    },
-    {
-      geometry: {
-        type: 'RECTANGLE',
-        x: 19.642857142857142,
-        y: 34.348214285714285,
-        width: 17.187500000000004,
-        height: 26.857142857142854,
-      },
-      data: {
-        text: 'nnn',
-        id: 0.777,
-      },
-    },
-  ]);
+  const [annotations, setAnnotations] = useState([]);
   const [currentAnnotation, setCurrentAnnotation] = useState({});
   const onAnnotationChange = (annotation) => {
     setCurrentAnnotation(annotation);
@@ -197,8 +170,8 @@ const Post = ({
         //   alt='Paella dish'
         // />
         <Annotation
-          src={imgLink}
-          alt='Two pebbles anthropomorphized holding hands'
+          src={image}
+          // alt='Two pebbles anthropomorphized holding hands'
           annotations={annotations}
           value={currentAnnotation}
           onChange={onAnnotationChange}

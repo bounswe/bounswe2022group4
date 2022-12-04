@@ -19,26 +19,27 @@ const CommentBox = ({
         console.log(response.data);
       }
     };
-    console.log('xdd');
     getComments(slug, authenticationToken);
   }, [changeInComments]);
   return (
     <div style={{ padding: 14 }}>
       {comments.map((comment, index) => (
         <Comment
-          index={index}
+          index={index + 1}
           key={index}
           user={isLogged ? comment.username : 'Anonymous'}
           content={comment.body}
           time={comment.updated_at}
           isLogged={isLogged}
-          changeInComments={changeInComments}
           upvote={comment.upvote}
           downvote={comment.downvote}
-          isExpert={comment.isExpert}
+          isExpert={comment.is_expert}
+          changeInComments={changeInComments}
           setChangeInComments={setChangeInComments}
           isUpvoted={comment.is_upvoted}
           isDownvoted={comment.is_downvoted}
+          authenticationToken={authenticationToken}
+          slug={slug}
         />
       ))}
     </div>

@@ -3,17 +3,28 @@ import ApiInstance from '../ApiInstance';
 export const postLogin = (email, password) => {
   return ApiInstance.post('/api/user/login', { email, password });
 };
-export const postRegister = (email, username, password, isExpert) => {
+export const postRegister = (email, username, password, is_expert) => {
   return ApiInstance.post('api/user/register', {
     email,
     username,
     password,
-    isExpert,
+    is_expert,
   });
 };
-export const postCreatePost = (title, body, authenticationToken) => {
+export const postCreatePost = (
+  title,
+  body,
+  category,
+  image,
+  authenticationToken
+) => {
   ApiInstance.setHeader('Authorization', authenticationToken);
-  return ApiInstance.post('api/post/create-post', { title, body });
+  return ApiInstance.post('api/post/create-post', {
+    title,
+    body,
+    category,
+    image,
+  });
 };
 export const postDeletePost = (slug, authenticationToken) => {
   ApiInstance.setHeader('Authorization', authenticationToken);
@@ -30,4 +41,14 @@ export const postCreateComment = (body, slug, authenticationToken) => {
 export const getComments = (slug, authenticationToken) => {
   ApiInstance.setHeader('Authorization', authenticationToken);
   return ApiInstance.get('api/post/fetch-comments/' + slug + '/');
+};
+export const postUpvoteComment = (slug, comment_id, authenticationToken) => {
+  ApiInstance.setHeader('Authorization', authenticationToken);
+  return ApiInstance.post('api/post/upvote-comment/' + slug + '/' + comment_id);
+};
+export const postDownvoteComment = (slug, comment_id, authenticationToken) => {
+  ApiInstance.setHeader('Authorization', authenticationToken);
+  return ApiInstance.post(
+    'api/post/downvote-comment/' + slug + '/' + comment_id
+  );
 };

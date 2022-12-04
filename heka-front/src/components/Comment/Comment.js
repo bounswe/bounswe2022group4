@@ -11,6 +11,7 @@ import {
   CardActions,
   Typography,
 } from '@mui/material';
+import { BackendApi } from '../../api';
 const Comment = ({
   user,
   content,
@@ -24,10 +25,31 @@ const Comment = ({
   isExpert,
   isUpvoted,
   isDownvoted,
+  authenticationToken,
+  slug,
 }) => {
   const regularUserPhoto =
     'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
   const doctorPhoto = 'https://cdn-icons-png.flaticon.com/512/3774/3774299.png';
+  const handleUpvote = async () => {
+    const response = await BackendApi.postUpvoteComment(
+      slug,
+      index,
+      authenticationToken
+    );
+    setChangeInComments(!changeInComments);
+    console.log(response);
+    console.log(upvote);
+  };
+  const handleDownvote = async () => {
+    const response = await BackendApi.postDownvoteComment(
+      slug,
+      index,
+      authenticationToken
+    );
+    setChangeInComments(!changeInComments);
+    console.log(response);
+  };
   return (
     <div
       style={{
@@ -47,11 +69,11 @@ const Comment = ({
         subheader={time}
         action={
           <div>
-            <Button startIcon={<ThumbUpIcon />} onClick={() => {}}>
+            <Button startIcon={<ThumbUpIcon />} onClick={handleUpvote}>
               {upvote}
             </Button>
 
-            <Button startIcon={<ThumbDownIcon />} onClick={() => {}}>
+            <Button startIcon={<ThumbDownIcon />} onClick={handleDownvote}>
               {downvote}
             </Button>
           </div>
