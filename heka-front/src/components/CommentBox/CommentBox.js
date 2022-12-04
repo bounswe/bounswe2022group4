@@ -25,7 +25,7 @@ const CommentBox = ({
     <div style={{ padding: 14 }}>
       {comments.map((comment, index) => (
         <Comment
-          index={index + 1}
+          index={comment.id}
           key={index}
           user={isLogged ? comment.username : 'Anonymous'}
           content={comment.body}
