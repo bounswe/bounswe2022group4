@@ -19,6 +19,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.authtoken.models import Token
 from django.utils.text import slugify
 import datetime
+from .permissions import IsOwnerOrReadOnly
 
     
 class CreatePostAPIView(APIView):
@@ -42,13 +43,18 @@ class UpdatePostAPIView(APIView):
     post:
         Updates the post instance. Returns updated post data parameters: [title, body, slug]
     """
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
     @swagger_auto_schema(request_body = PostSerializer)
     def post(self, request, *args, **kwargs):
         filter = {}
         filter['slug'] = self.kwargs['slug']
         queryset = Post.objects.all()
         post = get_object_or_404(queryset, **filter)
+        try:
+            self.check_object_permissions(request, post)
+        except:
+            return Response({"Error" : "Not allowed!"}, status=status.HTTP_400_BAD_REQUEST)
+
         serializer = PostSerializer(post, data=request.data)     
         if serializer.is_valid(raise_exception=True):
             serializer.save(slug = slugify(request.data['title']))
@@ -61,13 +67,18 @@ class DeletePostAPIView(APIView):
     get:
         Deletes the post instance. Returns the deleted post data parameters: [title, body, slug]
     """
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
     @swagger_auto_schema()
     def post(self, request, *args, **kwargs):
         queryset = Post.objects.all()
         filter = {}
         filter['slug'] =  self.kwargs['slug']
         post = get_object_or_404(queryset, **filter)
+        try:
+            self.check_object_permissions(request, post)
+        except:
+            return Response({"Error" : "Not allowed!"}, status=status.HTTP_400_BAD_REQUEST)
+        
         serializer = PostSerializer(post, data={"title": post.title, "body": post.body}) 
         if serializer.is_valid(raise_exception=True):
             serializer.save(slug=self.kwargs['slug']).delete()
@@ -118,7 +129,7 @@ class DeleteCommentAPIView(APIView):
     post:
         Deletes the comment instance. Returns deleted comment data: [body]
     """
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
     def post(self, request, *args, **kwargs):
         queryset_Post = Post.objects.all()
         queryset_Comment = Comment.objects.all()
@@ -126,6 +137,11 @@ class DeleteCommentAPIView(APIView):
         filter = {}
         filter['id'] =  self.kwargs['id']
         comment = get_object_or_404(queryset_Comment, **filter)
+        
+        try:
+            self.check_object_permissions(request, comment)
+        except:
+            return Response({"Error" : "Not allowed!"}, status=status.HTTP_400_BAD_REQUEST)
         
         filter = {}
         filter['slug'] =  self.kwargs['slug']
@@ -143,14 +159,17 @@ class UpdateCommentAPIView(APIView):
     post:
         Updates the comment instance. Returns updated comment data: [body]
     """
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
     def post(self, request, *args, **kwargs):
         queryset_Post = Post.objects.all()
         queryset_Comment = Comment.objects.all()
         filter = {}
         filter['id'] =  self.kwargs['id']
         comment = get_object_or_404(queryset_Comment, **filter)
-
+        try:
+            self.check_object_permissions(request, comment)
+        except:
+            return Response({"Error" : "Not allowed!"}, status=status.HTTP_400_BAD_REQUEST)
         filter = {}
         filter['slug'] =  self.kwargs['slug']
         post = get_object_or_404(queryset_Post, **filter)
