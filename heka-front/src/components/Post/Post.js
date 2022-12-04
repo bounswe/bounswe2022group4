@@ -27,6 +27,7 @@ import Annotation from 'react-image-annotation';
 
 const imgLink =
   'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
+const doctorPhoto = 'https://cdn-icons-png.flaticon.com/512/3774/3774299.png';
 
 const Post = ({
   title,
@@ -40,6 +41,11 @@ const Post = ({
   authenticationToken,
   changeInPost,
   setChangeInPost,
+  upvote,
+  downvote,
+  isExpert,
+  isUpvoted,
+  isDownvoted,
 }) => {
   const style = {
     position: 'absolute',
@@ -114,17 +120,22 @@ const Post = ({
     >
       <div>
         <CardHeader
-          avatar={<Avatar alt='Unknown Profile Picture' src={imgLink} />}
+          avatar={
+            <Avatar
+              alt='Unknown Profile Picture'
+              src={isExpert ? doctorPhoto : imgLink}
+            />
+          }
           title={user}
           subheader={time}
           action={
             <div>
               <Button startIcon={<ThumbUpIcon />} onClick={() => {}}>
-                5
+                {upvote}
               </Button>
 
               <Button startIcon={<ThumbDownIcon />} onClick={() => {}}>
-                5
+                {downvote}
               </Button>
               <IconButton aria-label='settings' onClick={handleClick}>
                 <MoreVertIcon />

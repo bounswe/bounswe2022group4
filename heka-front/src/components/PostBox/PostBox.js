@@ -114,7 +114,14 @@ const PostBox = ({ isLogged, authenticationToken }) => {
             title={post.title}
             user={isLogged ? post.user : 'Anonymous'}
             content={post.body}
-            time={post.time}
+            time={post.updated_at}
+            category={post.category}
+            upvote={post.upvote}
+            downvote={post.downvote}
+            isExpert={post.is_expert}
+            isUpvoted={post.is_upvoted}
+            isDownvoted={post.is_downvoted}
+            location={post.location}
             image={post.image}
             isLogged={isLogged}
             slug={post.slug}
