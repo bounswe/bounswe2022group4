@@ -37,32 +37,14 @@ const ForgotPasswordForm = () => {
     if (validator.isEmail(username)) {
       //alert(username);
       setIsForgotPassword(false);
-      setIsEmailValidation(true);
+      setIsNewPassword(true);
       //navigate('/', {replace: true});       // sonradan ekledim
     } else {
       setErrMessage(true);
     }
   };
 
-  const handleEmailValidationSubmit = async (e) => {
-    console.log('saved to firestore , input: ' + username);
-    e.preventDefault();
-    //const response = await BackendApi.postLogin(username, password);
-   /* if (response.status === 200) {
-      setIsAuthenticated(true);
-    } else if (response.status === 403) {
-      setWrong(true);
-      /* alert('Invalid username or password'); */
-   // }
-
-   
-      //alert(username);
-      setIsForgotPassword(false);
-      setIsEmailValidation(false);
-      setIsNewPassword(true);
-      //navigate('/', {replace: true});       // sonradan ekledim
-    
-  };
+  
 
   const handleNewPasswordSubmit = async (e) => {
     console.log('saved to firestore , input: ' + username);
@@ -78,7 +60,6 @@ const ForgotPasswordForm = () => {
     if (password1 == password2) {
       //alert(username);
       setIsForgotPassword(false);
-      setIsEmailValidation(false);
       setIsNewPassword(false);
       setDone(true);
     } else {
@@ -158,18 +139,21 @@ const ForgotPasswordForm = () => {
       </div>
       ) : null}
 
-      { isEmailValidation ? (
-         <div className='general-password-container'>
-         <form className='general-form-component'>
-           <div className='con'>
-             <div className='head-form'>
-               <h2>Email Verification</h2>
-               <p>
-                 <ValidationMsg />
-               </p>
-             </div>
-             <div className='field-set'>
-               <div className='input-component'>
+     
+      {isNewPassword ? (
+        <div className='general-password-container'>
+        <form className='general-form-component'>
+          <div className='con'>
+            <div className='head-form'>
+              <h2>New Password</h2>
+              <p>
+                
+                <ValidationMsg />
+              </p>
+            </div>
+            <div className='field-set'>
+
+            <div className='input-component'>
                <span className='input-item-forgot'>
                    <FaKey />
                  </span>
@@ -186,42 +170,10 @@ const ForgotPasswordForm = () => {
                    }}
                  />
                </div>
-               {err_message ? (
-                 <div className='error-msg'>
-                   <i className='fa fa-times-circle'></i>
-                   Please enter a correct code
-                 </div>
-               ) : null}
 
-               {wrong_email_password && !err_message ? (
-                 <div className='error-msg'>
-                   <i className='fa fa-times-circle'></i>
-                   Invalid username or password
-                 </div>
-               ) : null}
-               
-               <button className='login-button' onClick={handleEmailValidationSubmit}>
-                 Verify
-                 <AiOutlineLogin aria-hidden='true' />
-               </button>
-               
-             </div>
-           </div>
-         </form>
-       </div>
-      ) : null}
 
-      {isNewPassword ? (
-        <div className='general-password-container'>
-        <form className='general-form-component'>
-          <div className='con'>
-            <div className='head-form'>
-              <h2>New Password</h2>
-              <p>
-                <NewPasswordMsg />
-              </p>
-            </div>
-            <div className='field-set'>
+
+
               <div className='input-component'>
               <span className='input-item-forgot'>
                   <FaKey />
@@ -313,16 +265,10 @@ const ForgotPassoword = () => (
     
   </div>
 );
-const NewPasswordMsg = () => (
-  <div id='Registered'>
-    <label>Now,You can determine new password. </label>
-    <br></br>
-    
-  </div>
-);
+
 const ValidationMsg = () => (
   <div id='Registered'>
-    <label>We sent you an email with a verification code to reset your password. Enter verification code.</label>
+    <label>We sent you an email with a verification code to cahnge your password. You can change your password with the verification code.</label>
     <br></br>
     
   </div>
