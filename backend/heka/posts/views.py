@@ -25,12 +25,14 @@ from .permissions import IsOwnerOrReadOnly
 class CreatePostAPIView(APIView):
     """
     post:
-        Creates a new post instance. Returns created post data parameters: [title, body, slug]
+        Creates a new post instance. 
+        Request: [category, title, body, image, location]
     """
     permission_classes = [IsAuthenticated]
     @swagger_auto_schema(request_body = PostSerializer)
     def post(self, request, *args, **kwargs):
         serializer = PostSerializer(data=request.data)
+        response = {}
         if serializer.is_valid(raise_exception=True):
             serializer.save(creator=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -42,6 +44,9 @@ class UpdatePostAPIView(APIView):
     """
     post:
         Updates the post instance. Returns updated post data parameters: [title, body, slug]
+        request: category, location, image, title, body
+        Response: category, title, body, slug, image, location, creator.username, update-at, upvote, downvote
+
     """
     permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
     @swagger_auto_schema(request_body = PostSerializer)
@@ -55,17 +60,24 @@ class UpdatePostAPIView(APIView):
         except:
             return Response({"Error" : "Not allowed!"}, status=status.HTTP_400_BAD_REQUEST)
 
-        serializer = PostSerializer(post, data=request.data)     
+        serializer = PostSerializer(post, data=request.data)
+        response = {}
         if serializer.is_valid(raise_exception=True):
             serializer.save(slug = slugify(request.data['title']))
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            response.update(serializer.data)
+            response.update(serializer.fetch_creator_username(post))
+            response['updated_at'] = serializer.fetch_last_update(post)
+            response.update(serializer.fetch_upvotes_downvotes(post))
+            response["is_upvoted"] = (request.user in post.upvotes.all())
+            response["is_downvoted"] = (request.user in post.downvotes.all() )
+            return Response(response, status=status.HTTP_200_OK)
         else:
             return Response({"Errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
 class DeletePostAPIView(APIView):
     """
-    get:
-        Deletes the post instance. Returns the deleted post data parameters: [title, body, slug]
+    post:
+        Deletes the post instance.
     """
     permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
     @swagger_auto_schema()
@@ -79,37 +91,47 @@ class DeletePostAPIView(APIView):
         except:
             return Response({"Error" : "Not allowed!"}, status=status.HTTP_400_BAD_REQUEST)
         
-        serializer = PostSerializer(post, data={"title": post.title, "body": post.body}) 
+        serializer = PostSerializer(post, data={"category": post.category, "title": post.title, "body": post.body}) 
         if serializer.is_valid(raise_exception=True):
             serializer.save(slug=self.kwargs['slug']).delete()
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            return Response({"slug" : post.slug, "status" : "deleted"}, status=status.HTTP_200_OK)
         else:
             return Response({"Errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
 class FetchPostAPIView(APIView):
     """
-    post:
+    get:
         Fetches the post instance. Returns post data parameters: [title, body]
+        Response: title, body, creator.username, image, location, update-at, upvote, downvote
+        convert it into get
     """
     permission_classes = [IsAuthenticated]
     lookup_field = 'slug' 
-    @swagger_auto_schema(request_body = PostSerializer)
-    def post(self, request, *args, **kwargs):
+    @swagger_auto_schema()
+    def get(self, request, *args, **kwargs):
         queryset = Post.objects.all()
         filter = {}
         filter['slug'] =  self.kwargs['slug']
         post = get_object_or_404(queryset, **filter)
-        serializer = PostSerializer(post, {"title": post.title, "body": post.body} )    
+        serializer = PostSerializer(post, {"category": post.category, "title": post.title, "body": post.body} )
+        response = {}
         if serializer.is_valid(raise_exception=True):
-            serializer.save(slug=self.kwargs['slug'])
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            response.update(serializer.data)
+            response.update(serializer.fetch_creator_username(post))
+            response['updated_at'] = serializer.fetch_last_update(post)
+            response["is_upvoted"] = (request.user in post.upvotes.all())
+            response["is_downvoted"] = (request.user in post.downvotes.all() )
+            response.update(serializer.fetch_upvotes_downvotes(post))
+            return Response(response, status=status.HTTP_200_OK)
         else:
             return Response({"Errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
 class CreateCommentAPIView(APIView):
     """
     post::
-        Creates a comment instance. Returns created comment data: [body] 
+        Creates a comment instance. Returns created comment data: 
+        request: body
+        response: creator.username, body, update-at, upvote, downvote
     """
     permission_classes = [IsAuthenticated]
     def post(self, request, *args, **kwargs):
@@ -127,13 +149,13 @@ class CreateCommentAPIView(APIView):
 class DeleteCommentAPIView(APIView):
     """
     post:
-        Deletes the comment instance. Returns deleted comment data: [body]
+        Deletes the comment instance. 
     """
     permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
+    @swagger_auto_schema()
     def post(self, request, *args, **kwargs):
         queryset_Post = Post.objects.all()
         queryset_Comment = Comment.objects.all()
-        
         filter = {}
         filter['id'] =  self.kwargs['id']
         comment = get_object_or_404(queryset_Comment, **filter)
@@ -150,14 +172,14 @@ class DeleteCommentAPIView(APIView):
         serializer = CommentSerializer(comment, data={'body':comment.body, 'parent': post})
         if serializer.is_valid(raise_exception=True):
             serializer.save(creator=request.user, parent=post).delete()
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            return Response( {"slug" : post.slug, "id" : comment.id, "status" : "deleted"}  ,status=status.HTTP_200_OK)
         else:
             return Response({"errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
 class UpdateCommentAPIView(APIView):
     """
     post:
-        Updates the comment instance. Returns updated comment data: [body]
+        Updates the comment instance. Returns updated comment data.
     """
     permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
     def post(self, request, *args, **kwargs):
@@ -173,30 +195,47 @@ class UpdateCommentAPIView(APIView):
         filter = {}
         filter['slug'] =  self.kwargs['slug']
         post = get_object_or_404(queryset_Post, **filter)
-
+        response = {}
         serializer = CommentSerializer(comment, data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save(creator=request.user, parent=post)
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            response.update(serializer.data)
+            response.update(serializer.fetch_creator_username(comment))
+            response['updated_at'] = serializer.fetch_last_update(comment)
+            response.update(serializer.fetch_upvotes_downvotes(comment))
+            response["is_upvoted"] = (request.user in post.upvotes.all())
+            response["is_downvoted"] = (request.user in post.downvotes.all() )
+            return Response(response, status=status.HTTP_200_OK)
         else:
             return Response({"errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class ListPostsAPIView(APIView):
     """
-    post:
+    get:
         Lists all posts.
     """
     permission_classes = [AllowAny]
     @swagger_auto_schema(responses = {200: PostSerializer(many=True)})
     def get(self, request):
-        all_posts = Post.objects.all()
-        serializer = PostSerializer(all_posts, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        all_posts = Post.objects.all().order_by("created_at")
+        posts = []
+        for post in all_posts:
+            response = {}
+            serializer = PostSerializer(post, data={"category": post.category, "title": post.title, "body": post.body})
+            if serializer.is_valid(raise_exception=True):
+                response.update(serializer.data)
+                response.update(serializer.fetch_creator_username(post))
+                response['updated_at'] = serializer.fetch_last_update(post)
+                response.update(serializer.fetch_upvotes_downvotes(post))
+                response["is_upvoted"] = (request.user in post.upvotes.all())
+                response["is_downvoted"] = (request.user in post.downvotes.all() )
+                posts.append(response)
+        return Response(posts, status=status.HTTP_200_OK)
 
 class ListCommentsOfPostsAPIView(APIView):
     """
-    post:
+    get:
         Lists all comments of a post.
     """
     permission_classes = [AllowAny]
@@ -206,15 +245,19 @@ class ListCommentsOfPostsAPIView(APIView):
         filter = {}
         filter['slug'] =  self.kwargs['slug']
         post = get_object_or_404(queryset, **filter)
-        response = []
+        comments = []
         for comment in post.get_comments:
-            temp = {}
-            temp["creator"] = comment.creator.username
-            temp["body"] = comment.body
-            format = '%d-%m-%Y %H:%M:%S'
-            temp["created-at"] = comment.created_at.strftime(format)
-            response.append(temp)
-        return Response({"comments" : response}, status=status.HTTP_200_OK)
+            response = {}
+            serializer = CommentSerializer(comment, data={"body": comment.body})
+            if serializer.is_valid(raise_exception=True):
+                response.update(serializer.data)
+                response.update(serializer.fetch_creator_username(comment))
+                response['updated_at'] = serializer.fetch_last_update(comment) 
+                response.update(serializer.fetch_upvotes_downvotes(comment))
+                response["is_upvoted"] = (request.user in post.upvotes.all())
+                response["is_downvoted"] = (request.user in post.downvotes.all() )
+                comments.append(response)
+        return Response(comments, status=status.HTTP_200_OK)
 
 class PostUpvoteAPIView(APIView):
     """
@@ -235,7 +278,7 @@ class PostUpvoteAPIView(APIView):
         elif request.user in post.downvotes.all():
             post.downvotes.remove(request.user)
             post.upvotes.add(request.user)
-        serializer = PostSerializer(post, data={"title":post.title, "body":post.body} )
+        serializer = PostSerializer(post, data={"category": post.category, "title":post.title, "body":post.body} )
         if serializer.is_valid(raise_exception=True):
             serializer.save(creator=request.user, slug = kwargs['slug'])
         return Response({"slug": post.slug, "upvote":post.total_upvotes, "downvote": post.total_downvotes }, status=status.HTTP_200_OK)
