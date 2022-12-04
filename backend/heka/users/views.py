@@ -106,6 +106,7 @@ class ProfilePageView(APIView):
         serializer = ProfilePageSerializer(profilepage_user)
         return Response(data=serializer.data , status=status.HTTP_200_OK)
 
+    @swagger_auto_schema(request_body=ProfilePageSerializer, response=ProfilePageSerializer)
     def put(self, request, username=None):
         try:
             user = Token.objects.get(key=request.auth.key).user
