@@ -112,7 +112,7 @@ const PostBox = ({ isLogged, authenticationToken }) => {
             index={index}
             key={index}
             title={post.title}
-            user={isLogged ? post.user : 'Anonymous'}
+            user={isLogged ? post.username : 'Anonymous'}
             content={post.body}
             time={post.updated_at}
             category={post.category}
