@@ -23,3 +23,11 @@ export const getPosts = (authenticationToken) => {
   ApiInstance.setHeader('Authorization', authenticationToken);
   return ApiInstance.get('api/post/list-posts');
 };
+export const postCreateComment = (body, slug, authenticationToken) => {
+  ApiInstance.setHeader('Authorization', authenticationToken);
+  return ApiInstance.post('api/post/create-comment/' + slug + '/', { body });
+};
+export const getComments = (slug, authenticationToken) => {
+  ApiInstance.setHeader('Authorization', authenticationToken);
+  return ApiInstance.get('api/post/fetch-comments/' + slug + '/');
+};

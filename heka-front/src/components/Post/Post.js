@@ -130,6 +130,8 @@ const Post = ({
       duration: theme.transitions.duration.shortest,
     }),
   }));
+  const [changeInComments, setChangeInComments] = useState(false);
+
   return (
     <Card
       sx={{ maxWidth: 1000, padding: '40px 20px', marginTop: 5 }}
@@ -229,7 +231,13 @@ const Post = ({
           aria-describedby='parent-modal-description'
         >
           <Box sx={{ ...style, width: 800 }}>
-            <CreateComment />
+            <CreateComment
+              authenticationToken={authenticationToken}
+              slug={slug}
+              setOpenCreateCommentModal={setOpenCreateCommentModal}
+              changeInComments={changeInComments}
+              setChangeInComments={setChangeInComments}
+            />
           </Box>
         </Modal>
 
@@ -246,7 +254,13 @@ const Post = ({
       </CardActions>
       <Collapse in={expanded} timeout='auto' unmountOnExit>
         <CardContent>
-          <CommentBox isLogged={isLogged} />
+          <CommentBox
+            isLogged={isLogged}
+            authenticationToken={authenticationToken}
+            slug={slug}
+            changeInComments={changeInComments}
+            setChangeInComments={setChangeInComments}
+          />
         </CardContent>
       </Collapse>
     </Card>

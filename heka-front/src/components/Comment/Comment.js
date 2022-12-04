@@ -11,7 +11,20 @@ import {
   CardActions,
   Typography,
 } from '@mui/material';
-const Comment = ({ user, content, time, index, isLogged }) => {
+const Comment = ({
+  user,
+  content,
+  time,
+  index,
+  isLogged,
+  changeInComments,
+  setChangeInComments,
+  upvote,
+  downvote,
+  isExpert,
+  isUpvoted,
+  isDownvoted,
+}) => {
   const regularUserPhoto =
     'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
   const doctorPhoto = 'https://cdn-icons-png.flaticon.com/512/3774/3774299.png';
@@ -24,17 +37,22 @@ const Comment = ({ user, content, time, index, isLogged }) => {
       }}
     >
       <CardHeader
-        avatar={<Avatar alt='Unknown Profile Picture' src={regularUserPhoto} />}
+        avatar={
+          <Avatar
+            alt='Unknown Profile Picture'
+            src={isExpert ? doctorPhoto : regularUserPhoto}
+          />
+        }
         title={user}
         subheader={time}
         action={
           <div>
             <Button startIcon={<ThumbUpIcon />} onClick={() => {}}>
-              5
+              {upvote}
             </Button>
 
             <Button startIcon={<ThumbDownIcon />} onClick={() => {}}>
-              5
+              {downvote}
             </Button>
           </div>
         }
