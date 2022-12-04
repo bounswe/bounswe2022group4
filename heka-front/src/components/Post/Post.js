@@ -21,9 +21,9 @@ import {
   CardContent,
   CardActions,
   Typography,
+  CardMedia,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import Annotation from 'react-image-annotation';
 
 const imgLink =
   'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
@@ -174,20 +174,11 @@ const Post = ({
         </CardContent>
       </div>
       {image && (
-        // <CardMedia
-        //   component='img'
-        //   height='350'
-        //   image={image}
-        //   alt='Paella dish'
-        // />
-        <Annotation
-          src={image}
-          // alt='Two pebbles anthropomorphized holding hands'
-          annotations={annotations}
-          value={currentAnnotation}
-          onChange={onAnnotationChange}
-          onSubmit={onAnnotationSubmit}
-          style={{ height: '350px' }}
+        <CardMedia
+          component='img'
+          height='350'
+          image={image}
+          alt='Paella dish'
         />
       )}
       <CardContent>
