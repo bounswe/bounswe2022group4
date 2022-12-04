@@ -20,9 +20,21 @@ class SessionManager (context: Context) {
         editor.apply()
     }
 
+    fun saveUsername(username: String) {
+        val editor = prefs.edit()
+        editor.putString("username", username)
+        editor.apply()
+    }
+
     fun clearAuthToken() {
         val editor = prefs.edit()
         editor.remove(USER_TOKEN)
+        editor.apply()
+    }
+
+    fun clearUsername() {
+        val editor = prefs.edit()
+        editor.remove("username")
         editor.apply()
     }
 
@@ -31,5 +43,9 @@ class SessionManager (context: Context) {
      */
     fun fetchAuthToken(): String? {
         return prefs.getString(USER_TOKEN, null)
+    }
+
+    fun fetchUsername(): String? {
+        return prefs.getString("username", null)
     }
 }

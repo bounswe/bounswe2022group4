@@ -57,7 +57,7 @@ class RegisterViewModel @Inject constructor(): ViewModel() {
         viewModelScope.launch {
             try {
                 loading.value = true
-                val response = ApiClient.get().register(RegisterRequest(name = username.value!!, email = email.value!!, password = password.value!!))
+                val response = ApiClient.get().register(RegisterRequest(username = username.value!!, email = email.value!!, password = password.value!!))
                 if(response.email is Array<*>) {
                     emailError.value = "Email already exists"
                     toastMessage.value = "Email already exists"

@@ -44,6 +44,9 @@
         <action
             android:id="@+id/action_homeFragment_to_fullPostFragment"
             app:destination="@id/FullPostFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/ProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/ChatListFragment"
@@ -68,8 +71,14 @@
         android:label="Profile"
         tools:layout="@layout/fragment_profile">
         <action
+            android:id="@+id/action_profileFragment_to_homeFragment"
+            app:destination="@id/HomeFragment" />
+        <action
             android:id="@+id/action_profileFragment_to_loginFragment"
             app:destination="@id/LoginFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_chatFragment"
+            app:destination="@id/ChatFragment" />
     </fragment>
     <fragment
         android:id="@+id/CreatePostFragment"
@@ -78,6 +87,15 @@
         tools:layout="@layout/fragment_create_post">
         <action
             android:id="@+id/action_createPostFragment_to_homeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/CreateCommentFragment"
+        android:name="com.bounswe.heka.post.CreateCommentFragment"
+        android:label="Create Comment"
+        tools:layout="@layout/fragment_create_comment">
+        <action
+            android:id="@+id/action_createCommentFragment_to_homeFragment"
             app:destination="@id/HomeFragment" />
     </fragment>
     <fragment
@@ -97,5 +115,11 @@
         <action
             android:id="@+id/action_fullPostFragment_to_homeFragment"
             app:destination="@id/HomeFragment" />
+        <action
+            android:id="@+id/action_fullPostFragment_to_createCommentFragment"
+            app:destination="@id/CreateCommentFragment" />
+        <action
+            android:id="@+id/action_fullPostFragment_to_editPostFragment"
+            app:destination="@id/EditPostFragment" />
     </fragment>
 </navigation>

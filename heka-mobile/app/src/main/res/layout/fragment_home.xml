@@ -12,36 +12,38 @@
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#AADDE2">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/home_text_view"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:background="#FFBBF5"
+        android:background="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        android:padding="5dp"
         app:layout_constraintTop_toTopOf="parent" >
-        <EditText
-            android:id="@+id/home_search_bar"
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="10"
-            android:hint="Search"
-            android:inputType="text"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="HOME"
+            android:layout_marginLeft="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/home_search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
             />
-        <View
-            android:layout_height="0dp"
-            android:layout_width="0dp"
-            android:layout_weight="6"></View>
         <Button
             android:id="@+id/home_create_button"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_weight="4"
+
             android:text="Create"
             />
     </LinearLayout>
@@ -52,7 +54,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toBottomOf="@+id/home_text_view"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"

@@ -41,11 +41,16 @@ class ProfileFragment: Fragment() {
         viewModel.logout.observe(viewLifecycleOwner) {
             if (it) {
                 sessionManager.clearAuthToken()
+                sessionManager.clearUsername()
                 findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
             }
         }
-
-
-
+        arguments?.getString("username")?.let {  username ->
+            binding.chatButton.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString("username", username)
+                findNavController().navigate(R.id.action_profileFragment_to_chatFragment, bundle)
+            }
+        }
     }
 }

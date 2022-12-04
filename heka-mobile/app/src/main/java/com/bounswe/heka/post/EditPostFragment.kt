@@ -29,7 +29,14 @@ class EditPostFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.closeButton.setOnClickListener {
-            findNavController().navigate(R.id.action_editPostFragment_to_homeFragment)
+            findNavController().popBackStack()
         }
+        viewModel.activityResult.observe(viewLifecycleOwner) {
+            if (it) {
+                findNavController().popBackStack()
+            }
+        }
+        viewModel.fetchPost(arguments?.getString("slug","")!!)
+
     }
 }

@@ -14,14 +14,13 @@
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="200dp"
-        app:cardBackgroundColor="#AAAAFF"
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="10dp"
-        app:cardCornerRadius="20dp">
+        app:cardCornerRadius="10dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/gradient"
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -49,7 +48,7 @@
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginVertical="25dp"
-                    android:text="@{state.author}"
+                    android:text="@{state.username}"
                     android:layout_weight="1"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -60,13 +59,18 @@
                     android:layout_margin="10dp"
                     android:orientation="vertical">
                     <Button
+                        android:id="@+id/timeline_item_upvote"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:text="u"/>
+
+                        android:enabled="@{!state._upvoted}"/>
                     <Button
+                        android:id="@+id/timeline_item_downvote"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:text="d"/>
+
+                        android:enabled="@{!state._downvoted}"
+                        />
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -79,7 +83,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="@{state.date}"
+                    android:text="@{state.updated_at}"
+                    android:textSize="16sp"
+                    tools:text="11.01.2022 15:11:22" />
+                <TextView
+                    android:id="@+id/timeline_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+
+                    android:text="@{state.location}"
                     android:textSize="16sp"
                     tools:text="11.01.2022 15:11:22" />
                 <TextView
@@ -91,24 +104,25 @@
                     android:textSize="20sp"
                     android:textStyle="bold"
                     tools:text="You should lose weight !!!" />
-<ImageView
-    android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:src="@drawable/nowzaradan2"
-    android:background="#FFFFFF"/>
+
                 <TextView
                     android:id="@+id/timeline_item_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:breakStrategy="balanced"
-                    android:text="@{state.description}"
+                    android:text="@{state.body}"
                     android:textSize="15sp"
                     android:maxLines="6"
 
                     tools:text="Laparoscopic evaluation was performed in 43 consecutive patients with right lower abdominal pain and preoperative diagnosis of possible appendicitis. Patients with generalized peritonitis and evidence of perforation of the appendix were not considered for laparoscopy. Visualization was sufficient for making a diagnosis in 97.7% of the cases. In 95%, laparoscopic findings were compatible with the pathology report. Thirty-five patients underwent successful laparoscopic appendectomy with neither intraoperative nor postoperative complications. No further surgery was required; slightly elevated temperatures in 6 patients responded to treatment with antibiotics, and there were no wound infections. Laparoscopic appendectomy is minimally invasive and results in less postoperative pain and morbidity and fewer adhesions and other long-term sequelae than conventional laparotomy. It is associated with superior cosmetic results, a shorter hospital stay, and faster return to normal activities. This experience suggests that if there is no evidence that the appendix is perforated or that generalized peritonitis exists and if qualified physicians and adequate facilities are available, patients presenting with right lower quadrant abdominal pain and possible appendicitis are best evaluated and treated with laparoscopic technique.
 
 
-" />
+" /><ImageView
+                android:id="@+id/timeline_image"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/nowzaradan2"
+                />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -118,6 +132,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+
                         android:layout_marginLeft="5dp"
                         android:text="edit"
                         />

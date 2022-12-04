@@ -50,13 +50,18 @@ class LoginFragment: Fragment() {
             viewModel.email.value = it
         }
         viewModel.loginSuccessful.observe(viewLifecycleOwner) {
-           it.token?.let { token ->
-                sessionManager.saveAuthToken(token)
-                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-            }
-            viewModel.loginSuccessful.value = null
-        }
+            it?.let {
+                it.username?.let { username ->
+                    sessionManager.saveUsername(username)
+                }
+                it.token?.let { token ->
+                    sessionManager.saveAuthToken(token)
+                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                }
 
+                viewModel.loginSuccessful.value = null
+            }
+        }
     }
 
 

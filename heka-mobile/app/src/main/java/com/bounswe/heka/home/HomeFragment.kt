@@ -35,6 +35,7 @@ class HomeFragment: Fragment() {
         binding.homeCreateButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_createPostFragment)
         }
+        viewModel.fetchTimeline()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

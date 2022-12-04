@@ -6,6 +6,9 @@
         <variable
             name="viewModel"
             type="com.bounswe.heka.post.FullPostViewModel" />
+        <variable
+            name="adapter"
+            type="com.bounswe.heka.post.CommentAdapter" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -38,6 +41,12 @@
                     android:textStyle="bold" />
 
                 <Button
+                    android:id="@+id/comment_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Comment" />
+
+                <Button
                     android:id="@+id/close_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -48,26 +57,27 @@
         </androidx.appcompat.widget.Toolbar>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginHorizontal="10dp"
-            android:layout_marginVertical="10dp"
+
             android:minHeight="200dp"
-            app:cardBackgroundColor="#AAAAFF"
+
             app:cardCornerRadius="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
@@ -94,7 +104,7 @@
                         android:layout_height="50dp"
                         android:layout_marginVertical="25dp"
                         android:layout_weight="1"
-                        android:text="@{viewModel.state.author}"
+                        android:text="@{viewModel.state.username}"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         tools:text="Younan Nowzaradan M.D." />
@@ -106,11 +116,13 @@
                         android:orientation="vertical">
 
                         <Button
+                            android:id="@+id/timeline_item_upvote"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:text="u" />
 
                         <Button
+                            android:id="@+id/timeline_item_downvote"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:text="d" />
@@ -119,16 +131,25 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginHorizontal="25dp"
                     android:orientation="vertical">
 
+                    <TextView
+                        android:id="@+id/timeline_location"
+                        android:maxLines="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:text="@{viewModel.state.location}"
+                        android:textSize="16sp"
+                        tools:text="11.01.2022 15:11:22" />
                     <TextView
                         android:id="@+id/timeline_item_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
-                        android:text="@{viewModel.state.date}"
+                        android:text="@{viewModel.state.updated_at}"
                         android:textSize="16sp"
                         tools:text="11.01.2022 15:11:22" />
 
@@ -143,10 +164,11 @@
                         tools:text="You should lose weight !!!" />
 
                     <ImageView
+                        android:id="@+id/image"
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_height="wrap_content"
                         android:background="#FFFFFF"
-                        android:src="@drawable/nowzaradan2" />
+                       />
 
                     <TextView
                         android:id="@+id/timeline_item_description"
@@ -154,7 +176,7 @@
                         android:layout_height="wrap_content"
                         android:breakStrategy="balanced"
                         android:maxLines="6"
-                        android:text="@{viewModel.state.description}"
+                        android:text="@{viewModel.state.body}"
                         android:textSize="15sp"
 
                         tools:text="Laparoscopic evaluation was performed in 43 consecutive patients with right lower abdominal pain and preoperative diagnosis of possible appendicitis. Patients with generalized peritonitis and evidence of perforation of the appendix were not considered for laparoscopy. Visualization was sufficient for making a diagnosis in 97.7% of the cases. In 95%, laparoscopic findings were compatible with the pathology report. Thirty-five patients underwent successful laparoscopic appendectomy with neither intraoperative nor postoperative complications. No further surgery was required; slightly elevated temperatures in 6 patients responded to treatment with antibiotics, and there were no wound infections. Laparoscopic appendectomy is minimally invasive and results in less postoperative pain and morbidity and fewer adhesions and other long-term sequelae than conventional laparotomy. It is associated with superior cosmetic results, a shorter hospital stay, and faster return to normal activities. This experience suggests that if there is no evidence that the appendix is perforated or that generalized peritonitis exists and if qualified physicians and adequate facilities are available, patients presenting with right lower quadrant abdominal pain and possible appendicitis are best evaluated and treated with laparoscopic technique.
@@ -172,8 +194,17 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
+
                             android:layout_weight="1"
                             android:text="edit" />
+                        <Button
+                            android:id="@+id/timeline_collapse_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+
+                            android:layout_weight="1"
+                            android:text="show less" />
 
                     </LinearLayout>
 
@@ -183,5 +214,15 @@
 
 
         </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+            tools:listitem="@layout/list_item_comment"
+            tools:itemCount="10"
+            android:adapter="@{adapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

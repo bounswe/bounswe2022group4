@@ -3,7 +3,11 @@ package com.bounswe.heka.chat
 import androidx.lifecycle.*
 import com.bounswe.heka.data.Event
 import com.bounswe.heka.data.chat.*
+import com.bounswe.heka.network.ApiClient
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -15,11 +19,21 @@ class ChatListViewModel @Inject constructor(): ViewModel() {
     private val _selectedChat = MutableLiveData<Event<ChatWithUserInfo>>()
     var selectedChat: LiveData<Event<ChatWithUserInfo>> = _selectedChat
     val chatsList = MutableLiveData<MutableList<ChatWithUserInfo>>()
+    var job: Job? = null
 
     init {
-        setupMockChat()
+//        setupMockChat()
+        initJob()
     }
 
+    fun initJob() {
+        job = viewModelScope.launch {
+            while (true) {
+                fetchChats()
+                delay(10000)
+            }
+        }
+    }
     fun selectChatWithUserInfoPressed(chat: ChatWithUserInfo) {
         _selectedChat.value = Event(chat)
     }
@@ -46,6 +60,42 @@ class ChatListViewModel @Inject constructor(): ViewModel() {
                 )
             )
         }
+    }
+    private fun fetchChats() {
+        viewModelScope.launch {
+            try {
+                val response = ApiClient.get().fetchUsers()
+                chatsList.value = response.user_list.map {
+                    ChatWithUserInfo(
+                        Chat(
+                            lastMessage = Message(
+                                "message $it",
+                                "sender $it",
+                                33,
+                                true,
+                            ),
+                            ChatInfo(
+                                id = it.toString(),
+                            )
+                        ),
+                        UserInfo(
+                            "5f9f1b9b9b9b9b1b9b9b9b9b",
+                            "$it",
+                            "",
+                            "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+                            true,
+                        )
+                    )
+                }.toMutableList()
+            } catch (e: Exception) {
+                println(e.message)
+            }
+        }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        job?.cancel()
     }
 
 }

@@ -53,7 +53,7 @@ class ChatListFragment: Fragment() {
 
     private fun navigateToChat(chatWithUserInfo: ChatWithUserInfo) {
         val bundle = bundleOf(
-
+            "username" to chatWithUserInfo.mUserInfo.displayName
         )
         findNavController().navigate(R.id.action_chatListFragment_to_chatFragment, bundle)
     }
