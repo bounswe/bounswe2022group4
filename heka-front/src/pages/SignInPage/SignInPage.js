@@ -135,7 +135,17 @@ const NotRegistered = () => (
         Sign Up{' '}
       </a>
     </div>
+    
+    <label>Forgot Password?</label>
+    
+    <div>
+      <a className='Link' href='/forgot-password'>
+        {' '}
+        Change Password{' '}
+      </a>
+    </div>
   </div>
 );
+
 
 export default LoginForm;
