@@ -105,3 +105,21 @@ class ProfilePageView(APIView):
         profilepage_user = User.objects.get(username=username)
         serializer = ProfilePageSerializer(profilepage_user)
         return Response(data=serializer.data , status=status.HTTP_200_OK)
+
+    @swagger_auto_schema(request_body=ProfilePageSerializer, response=ProfilePageSerializer)
+    def put(self, request, username=None):
+        try:
+            user = Token.objects.get(key=request.auth.key).user
+            token = Token.objects.get(user=user)
+        except:
+            return Response(data={'status': 'Invalid User'}, status=status.HTTP_400_BAD_REQUEST)
+
+        data = request.data
+        profilepage_user = User.objects.get(username=username)
+        serializer = ProfilePageSerializer(profilepage_user, data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(data=serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)

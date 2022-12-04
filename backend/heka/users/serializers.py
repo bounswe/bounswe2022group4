@@ -37,3 +37,12 @@ class ProfilePageSerializer(serializers.ModelSerializer):
             'profile_image',
         ]
 
+    def update(self, instance, validated_data):
+        instance.email = validated_data.get('email', instance.email)
+        instance.username = validated_data.get('username', instance.username)
+        instance.age = validated_data.get('age', instance.age)
+        instance.name = validated_data.get('name', instance.name)
+        print(validated_data)
+        instance.profile_image = validated_data.get('profile_image', instance.profile_image)
+        instance.save()
+        return instance
