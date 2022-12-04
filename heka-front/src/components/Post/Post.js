@@ -21,12 +21,13 @@ import {
   CardContent,
   CardActions,
   Typography,
+  CardMedia,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import Annotation from 'react-image-annotation';
 
 const imgLink =
   'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
+const doctorPhoto = 'https://cdn-icons-png.flaticon.com/512/3774/3774299.png';
 
 const Post = ({
   title,
@@ -40,6 +41,11 @@ const Post = ({
   authenticationToken,
   changeInPost,
   setChangeInPost,
+  upvote,
+  downvote,
+  isExpert,
+  isUpvoted,
+  isDownvoted,
 }) => {
   const style = {
     position: 'absolute',
@@ -78,34 +84,7 @@ const Post = ({
     await BackendApi.postDeletePost(slug + '/', authenticationToken);
     setChangeInPost(!changeInPost);
   };
-  const [annotations, setAnnotations] = useState([
-    {
-      geometry: {
-        type: 'RECTANGLE',
-        x: 76.45089285714286,
-        y: 27.060267857142854,
-        width: 14.732142857142847,
-        height: 32.85714285714286,
-      },
-      data: {
-        text: 'jjj',
-        id: 0.48996757053793494,
-      },
-    },
-    {
-      geometry: {
-        type: 'RECTANGLE',
-        x: 19.642857142857142,
-        y: 34.348214285714285,
-        width: 17.187500000000004,
-        height: 26.857142857142854,
-      },
-      data: {
-        text: 'nnn',
-        id: 0.777,
-      },
-    },
-  ]);
+  const [annotations, setAnnotations] = useState([]);
   const [currentAnnotation, setCurrentAnnotation] = useState({});
   const onAnnotationChange = (annotation) => {
     setCurrentAnnotation(annotation);
@@ -141,17 +120,22 @@ const Post = ({
     >
       <div>
         <CardHeader
-          avatar={<Avatar alt='Unknown Profile Picture' src={imgLink} />}
+          avatar={
+            <Avatar
+              alt='Unknown Profile Picture'
+              src={isExpert ? doctorPhoto : imgLink}
+            />
+          }
           title={user}
           subheader={time}
           action={
             <div>
               <Button startIcon={<ThumbUpIcon />} onClick={() => {}}>
-                5
+                {upvote}
               </Button>
 
               <Button startIcon={<ThumbDownIcon />} onClick={() => {}}>
-                5
+                {downvote}
               </Button>
               <IconButton aria-label='settings' onClick={handleClick}>
                 <MoreVertIcon />
@@ -190,20 +174,11 @@ const Post = ({
         </CardContent>
       </div>
       {image && (
-        // <CardMedia
-        //   component='img'
-        //   height='350'
-        //   image={image}
-        //   alt='Paella dish'
-        // />
-        <Annotation
-          src={imgLink}
-          alt='Two pebbles anthropomorphized holding hands'
-          annotations={annotations}
-          value={currentAnnotation}
-          onChange={onAnnotationChange}
-          onSubmit={onAnnotationSubmit}
-          style={{ height: '350px' }}
+        <CardMedia
+          component='img'
+          height='350'
+          image={image}
+          alt='Paella dish'
         />
       )}
       <CardContent>

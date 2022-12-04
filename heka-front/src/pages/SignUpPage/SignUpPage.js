@@ -108,12 +108,11 @@ const SignUpPage = () => {
       email &&
       validEmail(email)
     ) {
-      setIsExpert(false);
       const response = await BackendApi.postRegister(
         email,
         username,
         password,
-        isExpert
+        true
       );
       console.log(response);
       if ((response.status >= 200) & (response.status < 300)) {
