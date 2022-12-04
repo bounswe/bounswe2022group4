@@ -22,9 +22,9 @@ class RegisterView(APIView):
         if serializer.is_valid():
             user = serializer.save()
             user.save()
-            token = Token.objects.get_or_create(user=user)[0].key
+            #token = Token.objects.get_or_create(user=user)[0].key
             return Response(data = {'message':'Registration succesful!', 'email':user.email,
-                                    'username':user.username, 'token':token}, status=status.HTTP_201_CREATED)
+                                    'username':user.username}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
 class LoginView(APIView):
@@ -80,7 +80,7 @@ class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
     authentication_classes = [TokenAuthentication] 
     @swagger_auto_schema() 
-    def get(self, request):
+    def post(self, request):
         request.user.auth_token.delete()
         logout(request)
         return Response(data = {'message':'Logout succesful!'}, status = status.HTTP_200_OK)

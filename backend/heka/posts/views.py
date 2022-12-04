@@ -18,6 +18,7 @@ from users.models import User
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.authtoken.models import Token
 from django.utils.text import slugify
+import datetime
 
     
 class CreatePostAPIView(APIView):
@@ -167,11 +168,139 @@ class ListPostsAPIView(APIView):
     post:
         Lists all posts.
     """
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     @swagger_auto_schema(responses = {200: PostSerializer(many=True)})
     def get(self, request):
         all_posts = Post.objects.all()
         serializer = PostSerializer(all_posts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+class ListCommentsOfPostsAPIView(APIView):
+    """
+    post:
+        Lists all comments of a post.
+    """
+    permission_classes = [AllowAny]
+    @swagger_auto_schema(responses = {200: PostSerializer(many=True)})
+    def get(self, request, *args, **kwargs):
+        queryset = Post.objects.all()
+        filter = {}
+        filter['slug'] =  self.kwargs['slug']
+        post = get_object_or_404(queryset, **filter)
+        response = []
+        for comment in post.get_comments:
+            temp = {}
+            temp["creator"] = comment.creator.username
+            temp["body"] = comment.body
+            format = '%d-%m-%Y %H:%M:%S'
+            temp["created-at"] = comment.created_at.strftime(format)
+            response.append(temp)
+        return Response({"comments" : response}, status=status.HTTP_200_OK)
+
+class PostUpvoteAPIView(APIView):
+    """
+    post:
+        Upvotes the post. Returns the current number of upvotes and downvotes.
+    """
+    permission_classes = [IsAuthenticated]
+    @swagger_auto_schema()
+    def post(self, request, *args, **kwargs):
+        queryset_Post = Post.objects.all()
+        filter = {}
+        filter['slug'] =  self.kwargs['slug']
+        post = get_object_or_404(queryset_Post, **filter)
+        if request.user in post.upvotes.all():
+            post.upvotes.remove(request.user)
+        elif not request.user in post.downvotes.all():
+            post.upvotes.add(request.user)
+        elif request.user in post.downvotes.all():
+            post.downvotes.remove(request.user)
+            post.upvotes.add(request.user)
+        serializer = PostSerializer(post, data={"title":post.title, "body":post.body} )
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(creator=request.user, slug = kwargs['slug'])
+        return Response({"slug": post.slug, "upvote":post.total_upvotes, "downvote": post.total_downvotes }, status=status.HTTP_200_OK)
+
+class PostDownvoteAPIView(APIView):
+    """
+    post:
+        Downvotes the post. Returns the current number of upvotes and downvotes.
+    """
+    permission_classes = [IsAuthenticated]
+    @swagger_auto_schema()
+    def post(self, request, *args, **kwargs):
+        queryset_Post = Post.objects.all()
+        filter = {}
+        filter['slug'] =  self.kwargs['slug']
+        post = get_object_or_404(queryset_Post, **filter)
+        if request.user in post.downvotes.all():
+            post.downvotes.remove(request.user)
+        elif not request.user in post.upvotes.all():
+            post.downvotes.add(request.user)
+        elif request.user in post.upvotes.all():
+            post.upvotes.remove(request.user)
+            post.downvotes.add(request.user)
+        serializer = PostSerializer(post, data={"title":post.title, "body":post.body} )
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(creator=request.user, slug = kwargs['slug'])
+        return Response({"slug": post.slug, "upvote":post.total_upvotes, "downvote": post.total_downvotes }, status=status.HTTP_200_OK)
+
+
+class CommentUpvoteAPIView(APIView):
+    """
+    post:
+        Upvotes the comment. Returns the current number of upvotes and downvotes.
+    """
+    permission_classes = [IsAuthenticated]
+    @swagger_auto_schema(responses = {200: PostSerializer(many=True)})
+    def post(self, request, *args, **kwargs):
+        queryset_Post = Post.objects.all()
+        queryset_Comment = Comment.objects.all()
+        filter = {}
+        filter['slug'] =  self.kwargs['slug']
+        post = get_object_or_404(queryset_Post, **filter)
+        filter = {}
+        filter['id'] =  self.kwargs['id']
+        comment = get_object_or_404(queryset_Comment, **filter)
+        if request.user in comment.upvotes.all():
+            comment.upvotes.remove(request.user)
+        elif not request.user in comment.downvotes.all():
+            comment.upvotes.add(request.user)
+        elif request.user in comment.downvotes.all():
+            comment.downvotes.remove(request.user)
+            comment.upvotes.add(request.user)
+        serializer = CommentSerializer(comment, data={"body": comment.body })
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(creator=request.user, parent=post)
+        return Response({"slug": post.slug, "comment_id": comment.id, "upvote":comment.total_upvotes, "downvote": comment.total_downvotes }, status=status.HTTP_200_OK)
+
+class CommentDownvoteAPIView(APIView):
+    """
+    post:
+        Downvotes. the comment. Returns the current number of upvotes and downvotes.
+    """
+    permission_classes = [IsAuthenticated]
+    @swagger_auto_schema(responses = {200: PostSerializer(many=True)})
+    def post(self, request, *args, **kwargs):
+        queryset_Post = Post.objects.all()
+        queryset_Comment = Comment.objects.all()
+        filter = {}
+        filter['slug'] =  self.kwargs['slug']
+        post = get_object_or_404(queryset_Post, **filter)
+        filter = {}
+        filter['id'] =  self.kwargs['id']
+        comment = get_object_or_404(queryset_Comment, **filter)
+        if request.user in comment.downvotes.all():
+            comment.downvotes.remove(request.user)
+        elif not request.user in comment.upvotes.all():
+            comment.downvotes.add(request.user)
+        elif request.user in comment.upvotes.all():
+            comment.upvotes.remove(request.user)
+            comment.downvotes.add(request.user)
+        serializer = CommentSerializer(comment, data= {"body" : comment.body})
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(creator=request.user, parent=post)
+        return Response({"slug": post.slug, "comment_id": comment.id, "upvote":comment.total_upvotes, "downvote": comment.total_downvotes }, status=status.HTTP_200_OK)
+
 
 

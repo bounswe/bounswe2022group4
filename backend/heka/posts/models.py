@@ -13,6 +13,17 @@ class Post(models.Model):
     slug = AutoSlugField(populate_from='title', unique=True)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
+    upvotes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="post_upvotes")
+    downvotes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="post_downvotes")
+    image = models.CharField(max_length=9000000, null=True, blank=True)
+
+    @property
+    def total_upvotes(self):
+        return int(self.upvotes.count())
+
+    @property
+    def total_downvotes(self):
+        return int(self.downvotes.count())
 
     def __str__(self):
         return self.title
@@ -25,7 +36,7 @@ class Post(models.Model):
 
     @property
     def get_comments(self):
-        comments = Comment.objects.filter(parent=self)
+        comments = Comment.objects.filter(parent=self).order_by("created_at")
         return comments
  
 
@@ -42,7 +53,18 @@ class Comment(models.Model):
     body = models.TextField(max_length=2500, null=False, blank=False)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
-    number_of_upvotes = models.IntegerField(default=0)
+    upvotes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="comment_upvotes")
+    downvotes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="comment_downvotes")
+    image = models.CharField(max_length=9000000, null=True, blank=True)
+
 
     class Meta:
         ordering = ["-created_at", "-updated_at"]
+    
+    @property
+    def total_upvotes(self):
+        return self.upvotes.count()
+
+    @property
+    def total_downvotes(self):
+        return self.downvotes.count()
