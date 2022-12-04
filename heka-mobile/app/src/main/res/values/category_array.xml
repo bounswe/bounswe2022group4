@@ -1,13 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="category_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+        <item>Eye Health and Diseases</item>
+        <item>        Anesthesia and Reanimation
+</item>
+        <item>Dermatology</item>
+        <item>        Diagnostic Radiology
+</item>
+        <item>        Ear Nose and Throat
+</item>
+        <item>Gastroenterology</item>
+        <item>Urology</item>
+        <item>Neurology</item>
+        <item>Ophthalmology</item>
+        <item>Pathology</item>
+        <item>Pediatrics</item>
+        <item>Surgery</item>
+
+
+
+
+
+
+
+
+
+
+
+
+
     </string-array>
 </resources>

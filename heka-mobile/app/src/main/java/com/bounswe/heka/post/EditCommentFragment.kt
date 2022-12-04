@@ -12,7 +12,7 @@ import com.bounswe.heka.databinding.FragmentEditPostBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class EditPostFragment:Fragment() {
+class EditCommentFragment:Fragment() {
     private lateinit var binding: FragmentEditPostBinding
     private val viewModel: EditPostViewModel by viewModels()
 

@@ -22,27 +22,27 @@ interface ApiService {
     suspend fun createPost(@Body request: CreatePostRequest): CreatePostResponse
     @GET("post/list-posts")
     suspend fun listPosts(): List<ListPostsResponse>
-    @POST("post/create-comment/{slug}")
+    @POST("post/create-comment/{slug}/")
     suspend fun createComment(@Path("slug") slug:String, @Body request: CreateCommentRequest): CreateCommentResponse
     @POST("post/delete-comment/{slug}/{id}")
     suspend fun deleteComment(@Path("slug") slug:String, @Path("id") id:Long): DeleteCommentResponse
-    @POST("post/delete/{slug}")
+    @POST("post/delete/{slug}/")
     suspend fun deletePost(@Path("slug") slug:String): DeletePostResponse
     @POST("post/downvote-comment/{slug}/{id}")
-    suspend fun downvoteComment(@Path("slug") slug:String, @Path("id") id:Long): DownvoteCommentResponse
-    @POST("post/downvote-post/{slug}")
+    suspend fun downvoteComment(@Path("slug") slug:String, @Path("id") id:Int): DownvoteCommentResponse
+    @POST("post/downvote-post/{slug}/")
     suspend fun downvotePost(@Path("slug") slug:String): DownvotePostResponse
     @POST("post/upvote-comment/{slug}/{id}")
-    suspend fun upvoteComment(@Path("slug") slug:String, @Path("id") id:Long): UpvoteCommentResponse
-    @POST("post/upvote-post/{slug}")
+    suspend fun upvoteComment(@Path("slug") slug:String, @Path("id") id:Int): UpvoteCommentResponse
+    @POST("post/upvote-post/{slug}/")
     suspend fun upvotePost(@Path("slug") slug:String): UpvotePostResponse
     @POST("post/update-comment/{slug}/{id}")
     suspend fun updateComment(@Path("slug") slug:String, @Path("id") id:Long, @Body request: UpdateCommentRequest): UpdateCommentResponse
-    @POST("post/update/{slug}")
+    @POST("post/update/{slug}/")
     suspend fun updatePost(@Path("slug") slug:String, @Body request: UpdatePostRequest): UpdatePostResponse
-    @GET("post/fetch-comments/{slug}")
-    suspend fun fetchComments(@Path("slug") slug:String): FetchCommentsResponse
-    @GET("post/fetch/{slug}")
+    @GET("post/fetch-comments/{slug}/")
+    suspend fun fetchComments(@Path("slug") slug:String): List<FetchCommentsResponse>
+    @GET("post/fetch/{slug}/")
     suspend fun fetchPost(@Path("slug") slug:String): FetchPostResponse
 
 

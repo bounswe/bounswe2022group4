@@ -9,30 +9,30 @@ import com.bounswe.heka.network.ApiClient
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class EditPostViewModel @Inject constructor(): ViewModel() {
-    val post = MutableLiveData<FetchPostResponse>()
+class EditCommentViewModel @Inject constructor(): ViewModel() {
+    val comment = MutableLiveData<FetchPostResponse>()
     val activityResult = MutableLiveData<Boolean>()
 
     fun fetchPost(slug: String) {
         viewModelScope.launch {
-            post.value = ApiClient.get().fetchPost(slug)
+            comment.value = ApiClient.get().fetchPost(slug)
         }
     }
     fun editPost() {
         viewModelScope.launch {
-            ApiClient.get().updatePost(post.value!!.slug, UpdatePostRequest(
-                post.value!!.title,
-                post.value!!.body,
-                post.value!!.category,
-                post.value!!.location,
-                post.value!!.image
+            ApiClient.get().updatePost(comment.value!!.slug, UpdatePostRequest(
+                comment.value!!.title,
+                comment.value!!.body,
+                comment.value!!.category,
+                comment.value!!.location,
+                comment.value!!.image
             ))
         }
         activityResult.value = true
     }
     fun deletePost() {
         viewModelScope.launch {
-            ApiClient.get().deletePost(post.value!!.slug)
+            ApiClient.get().deletePost(comment.value!!.slug)
         }
         activityResult.value = true
     }

@@ -1,5 +1,9 @@
 package com.bounswe.heka.data.post
 
-class UpdatePostRequest {
-
-}
+data class UpdatePostRequest(
+    var title: String,
+    var body: String,
+    var category: String,
+    var location: String? = null,
+    var image: String? = null,
+)

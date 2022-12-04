@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bounswe.heka.R
 import com.bounswe.heka.data.chat.ChatWithUserInfo
 import com.bounswe.heka.data.chat.Message
+import com.bounswe.heka.timeline.TimeLineAdapter
+import com.bounswe.heka.timeline.TimelineListItemState
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -19,6 +21,8 @@ fun bindMessagesList(listView: RecyclerView, items: List<Message>?) {
         listView.scrollToPosition(items.size - 1)
     }
 }
+
+
 @BindingAdapter("bind_chats_list")
 fun bindChatsList(listView: RecyclerView, items: List<ChatWithUserInfo>?) {
     items?.let { (listView.adapter as ChatsListAdapter).submitList(items) }

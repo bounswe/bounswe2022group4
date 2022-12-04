@@ -1,5 +1,6 @@
 package com.bounswe.heka.data.post
 
-class CreateCommentRequest {
+data class CreateCommentRequest (
+    val body: String,
+)
 
-}

@@ -22,6 +22,7 @@ class CreatePostViewModel @Inject constructor(): ViewModel() {
     val location = MutableLiveData<String>()
     val imageUri = MutableLiveData<String>()
     val imageBase64 = MutableLiveData<String>()
+    val activityResult = MutableLiveData<Boolean>()
     init {
 
     }
@@ -43,13 +44,14 @@ class CreatePostViewModel @Inject constructor(): ViewModel() {
                         content.value,
                         tags.value,
                         location.value,
-                        imageUri.value
+                        imageBase64.value
                     )
                 )
                 Log.d("CreatePostViewModel", "createPost: ${response.title}")
             } catch (e: Exception) {
                 Log.d("CreatePostViewModel", "createPost: ${e.message}")
             }
+            activityResult.value = true
 
         }
 

@@ -32,7 +32,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:text="EDIT POST"
+                    android:text="EDIT COMMENT"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -86,7 +86,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:text="Edit Post"
+                    android:text="Edit COMMENT"
                     android:onClick="@{() -> viewModel.editPost()}" />
                 <Button
                     android:id="@+id/delete_post_button"

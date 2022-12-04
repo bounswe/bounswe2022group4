@@ -75,6 +75,11 @@ class CreatePostFragment:Fragment() {
             pickImage()
         }
         getLocation()
+        viewModel.activityResult.observe(viewLifecycleOwner) {
+            if (it) {
+                findNavController().popBackStack()
+            }
+        }
     }
 
     private fun getLocation() {
