@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bounswe.heka.data.chat.UserInfo
 import com.bounswe.heka.databinding.FragmentChatBinding
+import com.bounswe.heka.network.SessionManager
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,7 +35,13 @@ class ChatFragment: Fragment() {
         viewDataBinding.viewModel = viewModel
         viewDataBinding.lifecycleOwner = this.viewLifecycleOwner
         setHasOptionsMenu(true)
-
+        viewModel.otherUser.value = UserInfo(
+            "test",
+            requireArguments().getString("username",""),
+            "test",
+            "test",
+            true,
+        )
         return viewDataBinding.root
     }
 
@@ -56,6 +64,7 @@ class ChatFragment: Fragment() {
 
 
     private fun setupListAdapter() {
+        val sessionManager = SessionManager(requireContext())
         val viewModel = viewDataBinding.viewModel
         if (viewModel != null) {
             listAdapterObserver = (object : RecyclerView.AdapterDataObserver() {
@@ -64,9 +73,10 @@ class ChatFragment: Fragment() {
                 }
             })
             listAdapter =
-                MessagesListAdapter(viewModel, "5f9f1b9b9b9b9b1b9b9b9b9b")
+                MessagesListAdapter(viewModel, sessionManager.fetchUsername()!!)
             listAdapter.registerAdapterDataObserver(listAdapterObserver)
             viewDataBinding.messagesRecyclerView.adapter = listAdapter
+            viewModel.initMessages()
         } else {
             throw Exception("The viewmodel is not initialized")
         }

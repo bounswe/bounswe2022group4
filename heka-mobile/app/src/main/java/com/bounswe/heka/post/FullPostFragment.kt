@@ -21,6 +21,7 @@ class FullPostFragment: Fragment() {
         binding = FragmentFullPostBinding.inflate(layoutInflater)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+        binding.adapter = viewModel.adapter
         return binding.root
     }
 

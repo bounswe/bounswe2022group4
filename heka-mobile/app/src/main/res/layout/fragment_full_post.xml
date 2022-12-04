@@ -6,6 +6,9 @@
         <variable
             name="viewModel"
             type="com.bounswe.heka.post.FullPostViewModel" />
+        <variable
+            name="adapter"
+            type="com.bounswe.heka.post.CommentAdapter" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -48,6 +51,7 @@
         </androidx.appcompat.widget.Toolbar>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginHorizontal="10dp"
@@ -55,14 +59,13 @@
             android:minHeight="200dp"
             app:cardBackgroundColor="#AAAAFF"
             app:cardCornerRadius="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -119,7 +122,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginHorizontal="25dp"
                     android:orientation="vertical">
 
@@ -183,5 +186,15 @@
 
 
         </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+            tools:listitem="@layout/list_item_comment"
+            tools:itemCount="10"
+            android:adapter="@{adapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

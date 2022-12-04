@@ -1,7 +1,8 @@
 package com.bounswe.heka.data
 
 data class RegisterRequest(
-    val name: String,
+    val username: String,
     val email: String,
-    val password: String
+    val password: String,
+    val is_expert: Boolean = false,
 )

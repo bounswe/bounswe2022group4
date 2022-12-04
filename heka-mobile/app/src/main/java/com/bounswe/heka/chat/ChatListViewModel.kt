@@ -3,7 +3,9 @@ package com.bounswe.heka.chat
 import androidx.lifecycle.*
 import com.bounswe.heka.data.Event
 import com.bounswe.heka.data.chat.*
+import com.bounswe.heka.network.ApiClient
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -17,7 +19,8 @@ class ChatListViewModel @Inject constructor(): ViewModel() {
     val chatsList = MutableLiveData<MutableList<ChatWithUserInfo>>()
 
     init {
-        setupMockChat()
+//        setupMockChat()
+        fetchChats()
     }
 
     fun selectChatWithUserInfoPressed(chat: ChatWithUserInfo) {
@@ -45,6 +48,37 @@ class ChatListViewModel @Inject constructor(): ViewModel() {
                     true,
                 )
             )
+        }
+    }
+    private fun fetchChats() {
+        viewModelScope.launch {
+            try {
+                val response = ApiClient.get().fetchUsers()
+                chatsList.value = response.user_list.map {
+                    ChatWithUserInfo(
+                        Chat(
+                            lastMessage = Message(
+                                "message $it",
+                                "sender $it",
+                                33,
+                                true,
+                            ),
+                            ChatInfo(
+                                id = it.toString(),
+                            )
+                        ),
+                        UserInfo(
+                            "5f9f1b9b9b9b9b1b9b9b9b9b",
+                            "$it",
+                            "",
+                            "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+                            true,
+                        )
+                    )
+                }.toMutableList()
+            } catch (e: Exception) {
+                println(e.message)
+            }
         }
     }
 

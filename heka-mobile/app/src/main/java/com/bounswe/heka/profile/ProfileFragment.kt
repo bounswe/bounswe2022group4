@@ -41,6 +41,7 @@ class ProfileFragment: Fragment() {
         viewModel.logout.observe(viewLifecycleOwner) {
             if (it) {
                 sessionManager.clearAuthToken()
+                sessionManager.clearUsername()
                 findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
             }
         }
