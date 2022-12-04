@@ -44,10 +44,8 @@ const SideBar = () => {
           <br></br>
           <label>Surgery</label>
           <br></br>
-          <a href="https://www.britannica.com/science/surgery-medicine" rel="noreferrer">
-          Surgery
-         </a>
-         <br></br>
+          
+         
   
     </div>
 
