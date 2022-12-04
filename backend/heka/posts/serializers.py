@@ -21,7 +21,7 @@ class PostSerializer(serializers.ModelSerializer):
 
 	def fetch_last_update(self, post):
 		format = '%d-%m-%Y %H:%M:%S'
-		return post.updated_at.strftime(format)
+		return post.last_update.strftime(format)
 	
 	def fetch_upvotes_downvotes(self, post):
 		return  {"upvote" : post.total_upvotes, "downvote" : post.total_downvotes}
@@ -33,11 +33,11 @@ class CommentSerializer(serializers.ModelSerializer):
 		fields = ["body"]
 
 	def fetch_creator_username(self, comment):
-		return {"username": comment.creator.username, "is_expert": comment.creator.is_expert}
+		return {"id": comment.id, "username": comment.creator.username, "is_expert": comment.creator.is_expert}
 
 	def fetch_last_update(self, comment):
 		format = '%d-%m-%Y %H:%M:%S'
-		return comment.updated_at.strftime(format)
+		return comment.last_update.strftime(format)
 
 	def fetch_upvotes_downvotes(self, comment):
 		return  {"upvote" : comment.total_upvotes, "downvote" : comment.total_downvotes}
