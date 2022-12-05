@@ -266,7 +266,7 @@ class ListCommentsOfPostsAPIView(APIView):
 class SearchPostAPIView(APIView):
     """
     post:
-        Upvotes the post. Returns the current number of upvotes and downvotes.
+        Searches for a post by title and body. 
     """
     permission_classes = [AllowAny]
     @swagger_auto_schema()
