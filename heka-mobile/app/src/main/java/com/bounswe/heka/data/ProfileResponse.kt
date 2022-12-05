@@ -1,9 +1,9 @@
-package com.bounswe.heka.profile
+package com.bounswe.heka.data
 
 import java.sql.Timestamp
 
-data class ProfileState (
-    val email: String?,
+data class ProfileResponse(
+    val email: String,
     val username: String,
     val name: String,
     val age: Int?,
@@ -12,4 +12,4 @@ data class ProfileState (
     val is_admin: Boolean?,
     val date_joined: Timestamp?,
     val last_login: Timestamp?,
-        )
+)

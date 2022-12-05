@@ -5,6 +5,7 @@ import com.bounswe.heka.data.post.*
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface ApiService {
@@ -12,6 +13,14 @@ interface ApiService {
     suspend fun register(@Body request: RegisterRequest): RegisterResponse
     @POST("user/login")
     suspend fun login(@Body request: LoginRequest): LoginResponse
+    @POST("user/forget_password")
+    suspend fun forgetPassword(@Body request: ForgetPasswordRequest): ForgetPasswordResponse
+    @POST("user/reset_password")
+    suspend fun resetPassword(@Body request: ResetPasswordRequest): ResetPasswordResponse
+    @GET("user/profilepage/{username}")
+    suspend fun getProfile(@Path("username") username:String) : ProfileResponse
+    @PUT("user/profilepage/{username}")
+    suspend fun setProfile(@Path("username") username:String, @Body request: ProfilePutRequest) : ProfileResponse
     @GET("user/home")
     suspend fun home() : HomeResponse
     @POST("user/logout")

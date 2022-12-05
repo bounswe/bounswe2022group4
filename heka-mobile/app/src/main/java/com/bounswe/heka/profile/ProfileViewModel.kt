@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bounswe.heka.network.ApiClient
+import com.bounswe.heka.timeline.TimelineListItemState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -11,6 +12,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor(): ViewModel() {
+    val state =  MutableLiveData<ProfileState>();
+    var username = MutableLiveData<String?>()
 
 
     val logout = MutableLiveData<Boolean>()
@@ -26,4 +29,23 @@ class ProfileViewModel @Inject constructor(): ViewModel() {
             }
         }
     }
+
+    fun getProfile() {
+        viewModelScope.launch {
+            val response = ApiClient.get().getProfile(username.value!!)
+            state.value = response.let { ProfileState(
+                it.email,
+                it.username,
+                it.name,
+                it.age,
+                it.profile_image,
+                it.is_expert,
+                it.is_admin,
+                it.date_joined,
+                it.last_login,
+            ) }
+        }
+    }
+
+
 }

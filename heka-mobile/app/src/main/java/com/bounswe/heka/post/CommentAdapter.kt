@@ -21,7 +21,7 @@ class CommentAdapter(private val data: MutableList<CommentListItemState>, val up
                     upvote(slug, state.id)
                 }
             }
-binding.commentItemDownvote.apply {
+            binding.commentItemDownvote.apply {
                 isEnabled = !state.is_downvoted
                 text = state.downvote.toString()
                 setOnClickListener{

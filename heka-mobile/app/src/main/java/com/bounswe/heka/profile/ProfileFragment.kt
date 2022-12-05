@@ -2,6 +2,7 @@ package com.bounswe.heka.profile
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +34,8 @@ class ProfileFragment: Fragment() {
         binding = FragmentProfileBinding.inflate(layoutInflater)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+        viewModel.username.value = arguments?.getString("username") ?: sessionManager.fetchUsername()
+
         return binding.root
     }
 
@@ -45,12 +48,25 @@ class ProfileFragment: Fragment() {
                 findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
             }
         }
-        arguments?.getString("username")?.let {  username ->
-            binding.chatButton.setOnClickListener {
-                val bundle = Bundle()
-                bundle.putString("username", username)
-                findNavController().navigate(R.id.action_profileFragment_to_chatFragment, bundle)
-            }
+      
+
+        arguments?.getString("username")?.let {usernamex ->
+                        binding.chatButton.setOnClickListener {
+                            val bundle = Bundle()
+                            bundle.putString("username", usernamex)
+                            findNavController().navigate(
+                                R.id.action_profileFragment_to_chatFragment,
+                                bundle
+                            )
+                        }
+
+                        if (usernamex != binding.viewModel?.username?.value){
+                            binding.chatButton.visibility = View.VISIBLE;
+                        }
+
+
+
+
         }
     }
 }

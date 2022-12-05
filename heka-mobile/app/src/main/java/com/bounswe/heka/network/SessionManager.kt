@@ -26,6 +26,12 @@ class SessionManager (context: Context) {
         editor.apply()
     }
 
+    fun saveProfileImage(imageUrl: String) {
+        val editor = prefs.edit()
+        editor.putString("profile_image", imageUrl)
+        editor.apply()
+    }
+
     fun clearAuthToken() {
         val editor = prefs.edit()
         editor.remove(USER_TOKEN)
@@ -47,5 +53,9 @@ class SessionManager (context: Context) {
 
     fun fetchUsername(): String? {
         return prefs.getString("username", null)
+    }
+
+    fun fetchProfileImage(): String? {
+        return prefs.getString("profile_image", null)
     }
 }
