@@ -23,7 +23,7 @@ const CommentBox = ({
     getComments(slug, authenticationToken);
   }, [changeInComments]);
   return (
-    <div style={{ padding: 14 }}>
+    <div style={{ padding: 14, marginTop: '0.4vh' }}>
       {comments.map((comment, index) => (
         <Comment
           index={comment.id}
