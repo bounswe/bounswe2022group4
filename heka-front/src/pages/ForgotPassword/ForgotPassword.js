@@ -21,12 +21,13 @@ const ForgotPasswordForm = () => {
   const [password1, setPassword1] = useState('');
   const [password2, setPassword2] = useState('');
   const [confirmationErr, setConfirmationErr] = useState();
+  const [validationCodeErr, setValidationCodeErr] = useState(false);
   const [Done, setDone] = useState(false);
 
   const handleSubmit = async (e) => {
     console.log('saved to firestore , input: ' + username);
     e.preventDefault();
-    //const response = await BackendApi.postLogin(username, password);
+    const response = await BackendApi.postEmail(username);
    /* if (response.status === 200) {
       setIsAuthenticated(true);
     } else if (response.status === 403) {
@@ -36,20 +37,25 @@ const ForgotPasswordForm = () => {
 
     if (validator.isEmail(username)) {
       //alert(username);
-      setIsForgotPassword(false);
-      setIsNewPassword(true);
+      if(response.status === 200 ) {
+        setIsForgotPassword(false);
+        setIsNewPassword(true);
+      }
+      else if (response.status === 400) {
+        setWrong(true);
+      }
+      
       //navigate('/', {replace: true});       // sonradan ekledim
     } else {
       setErrMessage(true);
     }
   };
 
-  
 
   const handleNewPasswordSubmit = async (e) => {
     console.log('saved to firestore , input: ' + username);
     e.preventDefault();
-    //const response = await BackendApi.postLogin(username, password);
+    const response = await BackendApi.postNewPassword(validationCode, password1, password2);
    /* if (response.status === 200) {
       setIsAuthenticated(true);
     } else if (response.status === 403) {
@@ -59,14 +65,25 @@ const ForgotPasswordForm = () => {
 
     if (password1 == password2) {
       //alert(username);
-      setIsForgotPassword(false);
-      setIsNewPassword(false);
-      setDone(true);
+      if (response.status === 200) {
+        setIsForgotPassword(false);
+        //setIsEmailValidation(false);
+        setIsNewPassword(false);
+        setDone(true);
+      }
+      else if (response.status === 500) {
+        setValidationCodeErr(true);
+        
+      }
+      
     } else {
       setConfirmationErr(true);
     
     }
   };
+  
+
+ 
   const handleSuccessSubmit = async (e) => {
     //console.log('saved to firestore , input: ' + username);
     e.preventDefault();
@@ -123,7 +140,7 @@ const ForgotPasswordForm = () => {
               {wrong_email_password && !err_message ? (
                 <div className='error-msg'>
                   <i className='fa fa-times-circle'></i>
-                  Invalid username or password
+                  The Heka account associated with the "{username}" was not found.
                 </div>
               ) : null}
               
@@ -214,6 +231,13 @@ const ForgotPasswordForm = () => {
                 <div className='error-msg'>
                   <i className='fa fa-times-circle'></i>
                   Password and Confirm Password must be matched
+                </div>
+              ) : null}
+
+              {(validationCodeErr) ? (
+                <div className='error-msg'>
+                  <i className='fa fa-times-circle'></i>
+                  {" "} Incorrect validation code
                 </div>
               ) : null}
 
