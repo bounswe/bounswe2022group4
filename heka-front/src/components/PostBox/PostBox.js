@@ -7,7 +7,7 @@ import CreatePost from '../../components/CreatePost/CreatePost';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { BackendApi } from '../../api';
-
+import GridLoader from 'react-spinners/GridLoader';
 const PostBox = ({ isLogged, authenticationToken, userName }) => {
   const [openPostModal, setOpenPostModal] = useState(false);
 
@@ -26,7 +26,7 @@ const PostBox = ({ isLogged, authenticationToken, userName }) => {
   };
   const [posts, setPosts] = useState([]);
   const [changeInPost, setChangeInPost] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const getPosts = async () => {
       const response = await BackendApi.getPosts(authenticationToken);
@@ -34,6 +34,7 @@ const PostBox = ({ isLogged, authenticationToken, userName }) => {
         setPosts(response.data);
         console.log(response.data);
       }
+      setIsLoading(false);
     };
     getPosts(authenticationToken);
   }, [changeInPost]);
@@ -44,7 +45,19 @@ const PostBox = ({ isLogged, authenticationToken, userName }) => {
   const handleClosePostModal = () => {
     setOpenPostModal(false);
   };
-  return (
+  return isLoading ? (
+    <div
+      className='loader'
+      style={{
+        marginTop: '10vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <GridLoader color='rgb(255, 230, 250)' size={80} />
+    </div>
+  ) : (
     <div style={{ padding: 14 }}>
       {isLogged && (
         <Button

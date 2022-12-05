@@ -6,7 +6,6 @@ import CommentBox from '../../components/CommentBox/CommentBox';
 
 import './HomePage.css';
 const HomePage = ({ isLogged, authenticationToken, userName }) => {
-  console.log(userName, 'xd');
   return (
     <>
       <div className='home-container'>
