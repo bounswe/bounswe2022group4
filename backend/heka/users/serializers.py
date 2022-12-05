@@ -19,6 +19,8 @@ class UserSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+    def fetch_user_info(self, user):
+        return {"username" : user.username, "is_expert": user.is_expert}
 
 class ProfilePageSerializer(serializers.ModelSerializer):
 

@@ -135,6 +135,7 @@ class CreateCommentAPIView(APIView):
         response: creator.username, body, update-at, upvote, downvote
     """
     permission_classes = [IsAuthenticated]
+    @swagger_auto_schema()
     def post(self, request, *args, **kwargs):
         queryset = Post.objects.all()
         filter = {}
@@ -183,6 +184,7 @@ class UpdateCommentAPIView(APIView):
         Updates the comment instance. Returns updated comment data.
     """
     permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
+    @swagger_auto_schema()
     def post(self, request, *args, **kwargs):
         queryset_Post = Post.objects.all()
         queryset_Comment = Comment.objects.all()
@@ -260,6 +262,33 @@ class ListCommentsOfPostsAPIView(APIView):
                 response["is_downvoted"] = (request.user in comment.downvotes.all() )
                 comments.append(response)
         return Response(comments, status=status.HTTP_200_OK)
+
+class SearchPostAPIView(APIView):
+    """
+    post:
+        Upvotes the post. Returns the current number of upvotes and downvotes.
+    """
+    permission_classes = [AllowAny]
+    @swagger_auto_schema()
+    def post(self, request, *args, **kwargs):
+        filter = {}
+        keyword =  self.kwargs['keyword']
+        qs_slug= Post.objects.all().filter(slug__contains = keyword).order_by("created_at")
+        qs_body= Post.objects.all().filter(body__contains = keyword).order_by("created_at")
+        qs = Post.objects.none().union(qs_slug, qs_body).order_by("created_at")
+        posts = []
+        for post in qs:
+            response = {}
+            serializer = PostSerializer(post, data={"category": post.category, "title": post.title, "body": post.body})
+            if serializer.is_valid(raise_exception=True):
+                response.update(serializer.data)
+                response.update(serializer.fetch_creator_username(post))
+                response['updated_at'] = serializer.fetch_last_update(post)
+                response.update(serializer.fetch_upvotes_downvotes(post))
+                response["is_upvoted"] = (request.user in post.upvotes.all())
+                response["is_downvoted"] = (request.user in post.downvotes.all() )
+                posts.append(response)
+        return Response(posts, status=status.HTTP_200_OK)
 
 class PostUpvoteAPIView(APIView):
     """

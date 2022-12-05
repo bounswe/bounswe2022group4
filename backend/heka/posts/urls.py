@@ -3,6 +3,7 @@ from django.conf.urls import url
 from .views import CreatePostAPIView, UpdatePostAPIView, DeletePostAPIView, FetchPostAPIView, ListPostsAPIView, ListCommentsOfPostsAPIView
 from .views import CreateCommentAPIView, UpdateCommentAPIView, DeleteCommentAPIView
 from .views import PostUpvoteAPIView, PostDownvoteAPIView, CommentUpvoteAPIView, CommentDownvoteAPIView
+from .views import SearchPostAPIView
 
 urlpatterns = [
     path("create-post", CreatePostAPIView.as_view(),  name='create-post'),
@@ -18,5 +19,5 @@ urlpatterns = [
     url(r'^downvote-post/(?P<slug>[\w-]+)/$', PostDownvoteAPIView.as_view(), name='downvote-post'),
     url(r'^upvote-comment/(?P<slug>[\w-]+)/(?P<id>[\w-]+)$', CommentUpvoteAPIView.as_view(), name='upvote-comment'),
     url(r'^downvote-comment/(?P<slug>[\w-]+)/(?P<id>[\w-]+)$', CommentDownvoteAPIView.as_view(), name='downvote-comment'),
-
+    url(r'^search/(?P<keyword>[\w-]+)/$', SearchPostAPIView.as_view(), name='search-post'),
 ]
