@@ -21,6 +21,7 @@ const branches = [
   'Ear Nose And Throat',
   'Gastroenterology',
   'Orthopedics',
+  'Neurology',
 ];
 const CreatePost = ({
   authenticationToken,
