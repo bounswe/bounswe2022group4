@@ -1,8 +1,9 @@
 from httplib2 import Response
-from rest_framework.test import APITestCase, APIRequestFactory
+from rest_framework.test import APITestCase, APIRequestFactory, force_authenticate
 from django.urls import reverse
 from rest_framework import status
-from .views import RegisterView, LoginView, LogoutView, HomeView
+from .views import RegisterView, LoginView, LogoutView, HomeView, ProfilePageView
+from .models import User,UserManager
 from django.contrib.auth import get_user_model
 
 
@@ -14,6 +15,7 @@ class RegisterTestCase(APITestCase):
     def test_register(self):
         data = {
             "email":"canan.karatay@gmail.com",
+            "username":"melih",
             "password":"karatay.1359",
             "is_expert": False
         }
@@ -40,3 +42,26 @@ class LoginTestCase(APITestCase):
         request = self.factory.post(self.url, data)
         response = self.view(request) 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+class ProfilePageTestCase(APITestCase):
+    def setUp(self):
+        self.factory = APIRequestFactory()
+        self.view = ProfilePageView.as_view()
+        self.url = "/api/user/profilepage"
+        self.data = {
+            "email": "melih@gmail.com",
+            "username": "melih",
+            "password": "1234",
+            "is_expert": False
+        }
+        self.test_user = User.objects.create(**self.data)
+
+    def test_get_profile_page(self):
+
+        request = self.factory.get(self.url)
+        force_authenticate(request, user=self.test_user)
+
+        response = self.view(request, username="melih")
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data["username"], self.test_user.username)
