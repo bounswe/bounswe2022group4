@@ -20,26 +20,28 @@ const HomePage = ({ isLogged, loggedInUser, authenticationToken }) => {
       </div>
 
       <SideBar />
-      <div
-        style={{
-          position: "fixed",
-          bottom: "60px",
-          right: "20px",
-          zIndex: "214783647",
-          width: "320px",
-          height: "224px",
-        }}
-      >
-        <MessageChat
-          authenticatonToken={authenticationToken}
-          isLogged={isLogged}
-          loggedInUser={loggedInUser}
-          styles={{
+      {authenticationToken && isLogged && authenticationToken && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: "60px",
+            right: "20px",
+            zIndex: "214783647",
             width: "320px",
-            height: "400px",
+            height: "224px",
           }}
-        />
-      </div>
+        >
+          <MessageChat
+            authenticatonToken={authenticationToken}
+            isLogged={isLogged}
+            loggedInUser={loggedInUser}
+            styles={{
+              width: "320px",
+              height: "400px",
+            }}
+          />
+        </div>
+      )}
     </>
   );
 };

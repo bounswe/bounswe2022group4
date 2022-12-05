@@ -93,7 +93,7 @@ export const MessageChat = ({ loggedInUser, authenticatonToken }) => {
       );
     } else {
       setChangeInMessages(!changeInMessages);
-      setChangeInUserList(changeInUserList);
+      setChangeInUserList(!changeInUserList);
     }
   };
   const [ChatUserList, setUserListInChat] = useState({
@@ -152,26 +152,34 @@ export const MessageChat = ({ loggedInUser, authenticatonToken }) => {
     <Card>
       {/* <CardHeader></CardHeader> */}
       <CardBody>
-        {loggedInUser && expanded && (
-          <div
-            style={{
-              justifyContent: "right",
-              marginLeft: "4px",
-              overflow: "hidden",
-            }}
-          >
-            {ChatUserList &&
-              ChatUserList.user_list.map((ChatUser) => (
-                <Button
-                  value={ChatUser}
-                  variant="contained"
-                  onClick={() => setSelectedUser(ChatUser)}
-                >
-                  {ChatUser}
-                </Button>
-              ))}
-          </div>
-        )}
+        <div
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {loggedInUser && expanded && (
+            <div style={{ overflowX: "scroll", height: "40px" }}>
+              {ChatUserList &&
+                ChatUserList.user_list.map((ChatUser) => (
+                  <Button
+                    value={ChatUser}
+                    style={{
+                      marginRight: "4px",
+                      marginBottom: "4px",
+                      marginLeft: "4px",
+                      marginTop: "4px",
+                      width: "90px",
+                    }}
+                    variant="contained"
+                    onClick={() => setSelectedUser(ChatUser)}
+                  >
+                    {ChatUser}
+                  </Button>
+                ))}
+            </div>
+          )}
+        </div>
         <CardActions>
           {expanded && loggedInUser && (
             <div
