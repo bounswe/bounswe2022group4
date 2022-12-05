@@ -31,7 +31,7 @@ class CreatePostViewModel @Inject constructor(): ViewModel() {
         val baos = ByteArrayOutputStream()
         it.compress(Bitmap.CompressFormat.JPEG, 100, baos)
         val b = baos.toByteArray()
-        imageBase64.value = Base64.encodeToString(b, Base64.DEFAULT)
+        imageBase64.value = "data:image/png;base64,${Base64.encodeToString(b, Base64.DEFAULT)}"
     }
 
     fun createPost() {

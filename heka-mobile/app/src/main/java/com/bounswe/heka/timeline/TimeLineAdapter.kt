@@ -24,24 +24,26 @@ class TimeLineAdapter(private val data: MutableList<TimelineListItemState>, val 
             Glide.with(binding.root.context)
                 .load(state.image)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(image)
+                .into(binding.timelineImage)
 
             if(state.username != sessionManager.fetchUsername() ) {
                 binding.timelineEditButton.visibility = android.view.View.GONE
-            }
-            if (state.image == null) {
-                binding.timelineImage.visibility = android.view.View.GONE
             } else {
-                try {
-                    Glide.with(binding.root.context)
-                        .load(Base64.decode(state.image, Base64.DEFAULT))
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .into(binding.timelineImage)
-                }
-                catch (e: Exception) {
-                    binding.timelineImage.visibility = android.view.View.GONE
-                }
+                binding.timelineEditButton.visibility = android.view.View.VISIBLE
             }
+//            if (state.image == null) {
+//                binding.timelineImage.visibility = android.view.View.GONE
+//            } else {
+//                try {
+//                    Glide.with(binding.root.context)
+//                        .load(Base64.decode(state.image, Base64.DEFAULT))
+//                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+//                        .into(binding.timelineImage)
+//                }
+//                catch (e: Exception) {
+//                    binding.timelineImage.visibility = android.view.View.GONE
+//                }
+//            }
             binding.timelineEditButton.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString("slug", state.slug)
