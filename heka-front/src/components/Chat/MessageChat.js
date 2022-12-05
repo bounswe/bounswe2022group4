@@ -128,6 +128,7 @@ export const MessageChat = ({ loggedInUser, authenticatonToken }) => {
       </MessageList>
     );
   };
+  //this part is for automatic refreshing for messages
   setTimeout(() => {
     if (loggedInUser && authenticatonToken && expanded) {
       setChangeInMessages(!changeInMessages);
