@@ -50,6 +50,15 @@ const Comment = ({
     setChangeInComments(!changeInComments);
     console.log(response);
   };
+  const handleDeleteComment = async () => {
+    const response = await BackendApi.postDeleteComment(
+      slug,
+      index,
+      authenticationToken
+    );
+    setChangeInComments(!changeInComments);
+    console.log(response);
+  };
   return (
     <div
       style={{
@@ -95,7 +104,7 @@ const Comment = ({
         {isLogged && (
           <Button
             startIcon={<Delete />}
-            // onClick={handleOpenCreateCommentModal}
+            onClick={handleDeleteComment}
             data-testid={'comment-button-' + index}
             // style={{ fontFamily: 'inherit' }}
           >
