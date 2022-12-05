@@ -188,7 +188,7 @@ const EditPost = ({
         <br />
         <br />
         <Button type='submit' variant='outlined'>
-          Post
+          Update Post
         </Button>
       </form>
       <br />
