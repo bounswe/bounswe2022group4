@@ -16,6 +16,10 @@ interface ApiService {
     suspend fun home() : HomeResponse
     @POST("user/logout")
     suspend fun logout(): LogoutResponse
+    @POST("user/search/{keyword}/")
+    suspend fun listUser(@Path("keyword") keyword:String): ListUserResponse
+    @GET("user/profilepage/{username}")
+    suspend fun fetchUser(@Path("username") username: String): FetchUserResponse
 
 
     @POST("post/create-post")
@@ -54,4 +58,8 @@ interface ApiService {
     suspend fun fetchMessage(@Body request: FetchMessageRequest): List<FetchMessageResponse>
     @POST("chat/send/message")
     suspend fun sendMessage(@Body request: SendMessageRequest): SendMessageResponse
+
+
+
+
 }
