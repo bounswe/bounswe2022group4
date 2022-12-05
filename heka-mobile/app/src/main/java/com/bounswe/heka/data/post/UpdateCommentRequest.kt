@@ -1,5 +1,5 @@
 package com.bounswe.heka.data.post
 
-class UpdateCommentRequest {
-
-}
+data class UpdateCommentRequest (
+    val body: String,
+        )

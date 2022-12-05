@@ -104,8 +104,12 @@ class CreatePostFragment:Fragment() {
         fusedLocationClient.getCurrentLocation(100, null)
             .addOnSuccessListener { location : Location? ->
                 location?.let {
-                    binding.createPostLocation.text = """${it.latitude} ${it.longitude}"""
-                    viewModel.location.value = """${it.latitude} ${it.longitude}"""
+                    val geocoder = android.location.Geocoder(requireContext(), java.util.Locale.getDefault())
+                    val addresses = geocoder.getFromLocation(it.latitude, it.longitude, 1)
+                    if (addresses.isNotEmpty()) {
+                        binding.createPostLocation.text = addresses[0].getAddressLine(0)
+                        viewModel.location.value = addresses[0].getAddressLine(0)
+                    }
                 }
             }
     }

@@ -1,5 +1,6 @@
 package com.bounswe.heka.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bounswe.heka.network.ApiClient
@@ -11,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(): ViewModel() {
-    val adapter = TimeLineAdapter(mutableListOf(), this::upvotePost, this::downvotePost)
+    val adapter = TimeLineAdapter(mutableListOf(), this::upvotePost, this::downvotePost, this::getProfileImage)
 
     fun fetchTimeline() {
         viewModelScope.launch {
@@ -62,5 +63,9 @@ class HomeViewModel @Inject constructor(): ViewModel() {
                 fetchTimeline()
             }
         }
+    }
+    suspend fun getProfileImage(username: String): String {
+
+        return ApiClient.get().getProfile(username).profile_image?:"https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg"
     }
 }

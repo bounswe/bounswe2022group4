@@ -9,10 +9,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bounswe.heka.R
 import com.bounswe.heka.databinding.ListItemCommentBinding
 import com.bounswe.heka.network.SessionManager
+import com.bumptech.glide.Glide
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlin.reflect.KSuspendFunction1
 
-class CommentAdapter(private val data: MutableList<CommentListItemState>, val upvote: (String, Int) -> Unit, val downvote: (String, Int) -> Unit, val slug: MutableLiveData<String>): RecyclerView.Adapter<CommentAdapter.TimelineListItemViewHolder>()  {
+class CommentAdapter(private val data: MutableList<CommentListItemState>, val upvote: (String, Int) -> Unit, val downvote: (String, Int) -> Unit, val slug: MutableLiveData<String>, val getProfileImage: KSuspendFunction1<String, String>): RecyclerView.Adapter<CommentAdapter.TimelineListItemViewHolder>()  {
     class TimelineListItemViewHolder(val binding: ListItemCommentBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(state: CommentListItemState, upvote: (String, Int) -> Unit, downvote: (String, Int) -> Unit, slug: String){
+        fun bind(state: CommentListItemState, upvote: (String, Int) -> Unit, downvote: (String, Int) -> Unit, slug: String, getProfileImage: KSuspendFunction1<String, String>){
+            CoroutineScope(Dispatchers.IO).launch {
+                getProfileImage(state.username).let {
+                    CoroutineScope(Dispatchers.Main).launch {
+                        Glide.with(binding.root.context)
+                            .load(it).placeholder(R.drawable.temp_profile_photo).into(binding.timelineProfileImage)
+                    }
+                }
+            }
+
             binding.state = state
             binding.commentItemUpvote.apply {
                 isEnabled = !state.is_upvoted
@@ -46,7 +60,7 @@ class CommentAdapter(private val data: MutableList<CommentListItemState>, val up
     }
 
     override fun onBindViewHolder(holder: TimelineListItemViewHolder, position: Int) {
-        holder.bind(data[position], upvote, downvote, slug.value!!)
+        holder.bind(data[position], upvote, downvote, slug.value!!, getProfileImage)
     }
 
     fun setData(a: List<CommentListItemState>){
