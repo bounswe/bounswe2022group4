@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 const App = () => {
   const [isLogged, setIsLogged] = React.useState(false);
   const [authenticationToken, setAuthenticationToken] = React.useState('');
+  const [userName, setUserName] = React.useState('');
   return (
     <div>
       <Router>
@@ -22,6 +23,7 @@ const App = () => {
               <HomePage
                 isLogged={isLogged}
                 authenticationToken={authenticationToken}
+                userName={userName}
               />
             }
           />
@@ -39,6 +41,7 @@ const App = () => {
               <SignInPage
                 setIsLogged={setIsLogged}
                 setAuthenticationToken={setAuthenticationToken}
+                setUserName={setUserName}
               />
             }
           />
@@ -49,7 +52,6 @@ const App = () => {
         <Routes>
           <Route path='/forgot-password' element={<ForgotPasswordForm />} />
         </Routes>
-
       </Router>
     </div>
   );

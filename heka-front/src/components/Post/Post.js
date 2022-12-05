@@ -11,6 +11,7 @@ import { BackendApi } from '../../api';
 import './Post.css';
 import CreateComment from '../CreateComment/CreateComment';
 import CommentBox from '../CommentBox/CommentBox';
+import Annotation from 'react-image-annotation';
 import {
   IconButton,
   Collapse,
@@ -21,10 +22,9 @@ import {
   CardContent,
   CardActions,
   Typography,
-  CardMedia,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-
+import EditPost from '../EditPost/EditPost';
 const imgLink =
   'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
 const doctorPhoto = 'https://cdn-icons-png.flaticon.com/512/3774/3774299.png';
@@ -37,6 +37,7 @@ const Post = ({
   index,
   isLogged,
   image,
+  category,
   slug,
   authenticationToken,
   changeInPost,
@@ -44,9 +45,12 @@ const Post = ({
   upvote,
   downvote,
   isExpert,
+  location,
+  userName,
   isUpvoted,
   isDownvoted,
 }) => {
+  console.log(userName, 'ds');
   const style = {
     position: 'absolute',
     top: '50%',
@@ -62,12 +66,20 @@ const Post = ({
   };
 
   const [openCreateCommentModal, setOpenCreateCommentModal] = useState(false);
+  const [openEditModal, setOpenEditModal] = useState(false);
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handleOpenCreateCommentModal = () => {
     setOpenCreateCommentModal(true);
   };
   const handleCloseCreateCommentModal = () => {
     setOpenCreateCommentModal(false);
+  };
+  const handleOpenEditModal = () => {
+    setOpenEditModal(true);
+  };
+  const handleCloseEditModal = () => {
+    setOpenEditModal(false);
   };
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -98,6 +110,8 @@ const Post = ({
     setChangeInPost(!changeInPost);
     console.log(response);
   };
+
+  // const handleEdit =
   const [annotations, setAnnotations] = useState([]);
   const [currentAnnotation, setCurrentAnnotation] = useState({});
   const onAnnotationChange = (annotation) => {
@@ -124,7 +138,18 @@ const Post = ({
     }),
   }));
   const [changeInComments, setChangeInComments] = useState(false);
-
+  const subheader = (
+    <div>
+      <Typography variant='body2' color='text.secondary'>
+        {time}
+      </Typography>
+      {isLogged && (
+        <Typography variant='body2' color='text.secondary'>
+          {location}
+        </Typography>
+      )}
+    </div>
+  );
   return (
     <Card
       sx={{ maxWidth: 1000, padding: '40px 20px', marginTop: 5 }}
@@ -141,7 +166,7 @@ const Post = ({
             />
           }
           title={user}
-          subheader={time}
+          subheader={subheader}
           action={
             <div>
               <Button startIcon={<ThumbUpIcon />} onClick={handleUpvote}>
@@ -151,36 +176,40 @@ const Post = ({
               <Button startIcon={<ThumbDownIcon />} onClick={handleDownvote}>
                 {downvote}
               </Button>
-              <IconButton aria-label='settings' onClick={handleClick}>
-                <MoreVertIcon />
-              </IconButton>
+              {userName === user && (
+                <IconButton aria-label='settings' onClick={handleClick}>
+                  <MoreVertIcon />
+                </IconButton>
+              )}
             </div>
           }
         />
+        <CardContent>
+          <Typography
+            variant='sub-header'
+            style={{ margin: 0, textAlign: 'left' }}
+          >
+            {category}
+          </Typography>
+        </CardContent>
+        {userName === user && (
+          <Menu
+            id='simple-menu'
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleOpenEditModal}>Edit</MenuItem>
+            <MenuItem
+              onClick={() => {
+                handleDelete(slug);
+              }}
+            >
+              Delete
+            </MenuItem>
+          </Menu>
+        )}
 
-        <Menu
-          id='simple-menu'
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-        >
-          <MenuItem
-            onClick={() => {
-              alert(
-                'Edit functionality not implemented yet and will be available only for admins and the user who created the post'
-              );
-            }}
-          >
-            Edit
-          </MenuItem>
-          <MenuItem
-            onClick={() => {
-              handleDelete(slug);
-            }}
-          >
-            Delete
-          </MenuItem>
-        </Menu>
         <CardContent>
           <Typography style={{ margin: 0, textAlign: 'left' }}>
             {title}
@@ -188,11 +217,13 @@ const Post = ({
         </CardContent>
       </div>
       {image && (
-        <CardMedia
-          component='img'
-          height='350'
-          image={image}
-          alt='Paella dish'
+        <Annotation
+          src={image}
+          annotations={annotations}
+          value={currentAnnotation}
+          onChange={onAnnotationChange}
+          onSubmit={onAnnotationSubmit}
+          style={{ height: '350px' }}
         />
       )}
       <CardContent>
@@ -229,6 +260,26 @@ const Post = ({
             />
           </Box>
         </Modal>
+        <Modal
+          open={openEditModal}
+          onClose={handleCloseEditModal}
+          aria-labelledby='parent-modal-title'
+          aria-describedby='parent-modal-description'
+        >
+          <Box sx={{ ...style, width: 800 }}>
+            <EditPost
+              imageProp={image}
+              authenticationToken={authenticationToken}
+              setOpenEditModal={setOpenEditModal}
+              changeInPost={changeInPost}
+              setChangeInPost={setChangeInPost}
+              title={title}
+              body={content}
+              slug={slug}
+              category={category}
+            />
+          </Box>
+        </Modal>
 
         <ExpandMore
           expand={expanded}
@@ -249,6 +300,7 @@ const Post = ({
             slug={slug}
             changeInComments={changeInComments}
             setChangeInComments={setChangeInComments}
+            userName={userName}
           />
         </CardContent>
       </Collapse>
