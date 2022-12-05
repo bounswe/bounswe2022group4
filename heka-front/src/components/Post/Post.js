@@ -84,6 +84,20 @@ const Post = ({
     await BackendApi.postDeletePost(slug + '/', authenticationToken);
     setChangeInPost(!changeInPost);
   };
+  const handleUpvote = async () => {
+    const response = await BackendApi.postUpvotePost(slug, authenticationToken);
+    setChangeInPost(!changeInPost);
+    console.log(response);
+    console.log(upvote);
+  };
+  const handleDownvote = async () => {
+    const response = await BackendApi.postDownvotePost(
+      slug,
+      authenticationToken
+    );
+    setChangeInPost(!changeInPost);
+    console.log(response);
+  };
   const [annotations, setAnnotations] = useState([]);
   const [currentAnnotation, setCurrentAnnotation] = useState({});
   const onAnnotationChange = (annotation) => {
@@ -130,11 +144,11 @@ const Post = ({
           subheader={time}
           action={
             <div>
-              <Button startIcon={<ThumbUpIcon />} onClick={() => {}}>
+              <Button startIcon={<ThumbUpIcon />} onClick={handleUpvote}>
                 {upvote}
               </Button>
 
-              <Button startIcon={<ThumbDownIcon />} onClick={() => {}}>
+              <Button startIcon={<ThumbDownIcon />} onClick={handleDownvote}>
                 {downvote}
               </Button>
               <IconButton aria-label='settings' onClick={handleClick}>
