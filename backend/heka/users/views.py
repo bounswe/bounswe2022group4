@@ -85,6 +85,28 @@ class LogoutView(APIView):
         logout(request)
         return Response(data = {'message':'Logout succesful!'}, status = status.HTTP_200_OK)
 
+
+class SearchUserAPIView(APIView):
+    """
+    post:
+        Upvotes the post. Returns the current number of upvotes and downvotes.
+    """
+    permission_classes = [AllowAny]
+    @swagger_auto_schema()
+    def post(self, request, *args, **kwargs):
+        filter = {}
+        keyword =  self.kwargs['keyword']
+        qs_username= User.objects.all().filter(username__contains = keyword).order_by("username")
+        users = []
+        for user in qs_username:
+            response = {}
+            serializer = UserSerializer(user, data={"email": user.email, "username": user.username, "password": user.password, "is_expert": user.is_expert})
+            if serializer.is_valid(raise_exception=True):
+                response.update(serializer.fetch_user_info(user))
+                users.append(response)
+        return Response(users, status=status.HTTP_200_OK)
+
+
 class ProfilePageView(APIView):
     permission_classes = [IsAuthenticated]
 
