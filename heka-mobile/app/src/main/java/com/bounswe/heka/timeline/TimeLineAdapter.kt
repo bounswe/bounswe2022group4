@@ -1,9 +1,11 @@
 package com.bounswe.heka.timeline
 
 import android.graphics.BitmapFactory
+import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Base64
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +23,12 @@ class TimeLineAdapter(private val data: MutableList<TimelineListItemState>, val 
         private val image = binding.timelineProfileImage
         fun bind(state: TimelineListItemState, upvote: (String)->Unit, downvote:(String)->Unit){
             binding.state = state
+            if (state.image == null) {
+                binding.timelineImage.visibility = View.GONE
+            }
+            else{
+                binding.timelineImage.visibility = View.VISIBLE
+            }
             Glide.with(binding.root.context)
                 .load(state.image)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)

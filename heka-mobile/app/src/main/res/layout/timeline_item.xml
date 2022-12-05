@@ -113,6 +113,7 @@
             <ImageView
                 android:id="@+id/timeline_image"
                 android:layout_width="match_parent"
+
                 android:layout_height="140dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/nowzaradan2" />
