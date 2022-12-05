@@ -106,7 +106,7 @@ class FetchPostAPIView(APIView):
         Response: title, body, creator.username, image, location, update-at, upvote, downvote
         convert it into get
     """
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     lookup_field = 'slug' 
     @swagger_auto_schema()
     def get(self, request, *args, **kwargs):
@@ -146,7 +146,7 @@ class CreateCommentAPIView(APIView):
             serializer.save(creator=request.user, parent=post)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
-            return Response({"errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"Errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
 class DeleteCommentAPIView(APIView):
     """
@@ -176,7 +176,7 @@ class DeleteCommentAPIView(APIView):
             serializer.save(creator=request.user, parent=post).delete()
             return Response( {"slug" : post.slug, "id" : comment.id, "status" : "deleted"}  ,status=status.HTTP_200_OK)
         else:
-            return Response({"errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"Errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
 class UpdateCommentAPIView(APIView):
     """
@@ -211,7 +211,43 @@ class UpdateCommentAPIView(APIView):
             response["is_downvoted"] = (request.user in post.downvotes.all() )
             return Response(response, status=status.HTTP_200_OK)
         else:
-            return Response({"errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"Errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+
+class FetchCommentAPIView(APIView):
+    """
+    get:
+        Fetches the comment instance. Returns post data parameters: [title, body]
+        Response: body, creator.username, last , upvote, downvote
+        convert it into get
+    """
+    permission_classes = [AllowAny]
+    @swagger_auto_schema()
+    def get(self, request, *args, **kwargs):
+        queryset_Post = Post.objects.all()
+        queryset_Comment = Comment.objects.all()
+        filter = {}
+        filter['id'] =  self.kwargs['id']
+        comment = get_object_or_404(queryset_Comment, **filter)
+        try:
+            self.check_object_permissions(request, comment)
+        except:
+            return Response({"Error" : "Not allowed!"}, status=status.HTTP_400_BAD_REQUEST)
+        filter = {}
+        filter['slug'] =  self.kwargs['slug']
+        post = get_object_or_404(queryset_Post, **filter)
+        response = {}
+        serializer = CommentSerializer(comment, data= {"body":comment.body})
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(parent=post)
+            response.update(serializer.data)
+            response.update(serializer.fetch_creator_username(comment))
+            response['updated_at'] = serializer.fetch_last_update(comment)
+            response.update(serializer.fetch_upvotes_downvotes(comment))
+            response["is_upvoted"] = (request.user in post.upvotes.all())
+            response["is_downvoted"] = (request.user in post.downvotes.all() )
+            return Response(response, status=status.HTTP_200_OK)
+        else:
+            return Response({"Errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class ListPostsAPIView(APIView):
@@ -222,7 +258,7 @@ class ListPostsAPIView(APIView):
     permission_classes = [AllowAny]
     @swagger_auto_schema(responses = {200: PostSerializer(many=True)})
     def get(self, request):
-        all_posts = Post.objects.all().order_by("created_at")
+        all_posts = Post.objects.all().order_by("-created_at")
         posts = []
         for post in all_posts:
             response = {}

@@ -1,7 +1,7 @@
 from django.urls import path
 from django.conf.urls import url
 from .views import CreatePostAPIView, UpdatePostAPIView, DeletePostAPIView, FetchPostAPIView, ListPostsAPIView, ListCommentsOfPostsAPIView
-from .views import CreateCommentAPIView, UpdateCommentAPIView, DeleteCommentAPIView
+from .views import CreateCommentAPIView, UpdateCommentAPIView, DeleteCommentAPIView, FetchCommentAPIView
 from .views import PostUpvoteAPIView, PostDownvoteAPIView, CommentUpvoteAPIView, CommentDownvoteAPIView
 from .views import SearchPostAPIView
 
@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^create-comment/(?P<slug>[\w-]+)/$', CreateCommentAPIView.as_view(), name='create-comment'),
     url(r'^update-comment/(?P<slug>[\w-]+)/(?P<id>[\w-]+)$', UpdateCommentAPIView.as_view(), name='update-comment'),
     url(r'^delete-comment/(?P<slug>[\w-]+)/(?P<id>[\w-]+)$', DeleteCommentAPIView.as_view(), name='delete-comment'),
+    url(r'^fetch-comment/(?P<slug>[\w-]+)/(?P<id>[\w-]+)$', FetchCommentAPIView.as_view(), name='fetch-comment'),
     url(r'^upvote-post/(?P<slug>[\w-]+)/$', PostUpvoteAPIView.as_view(), name='upvote-post'),
     url(r'^downvote-post/(?P<slug>[\w-]+)/$', PostDownvoteAPIView.as_view(), name='downvote-post'),
     url(r'^upvote-comment/(?P<slug>[\w-]+)/(?P<id>[\w-]+)$', CommentUpvoteAPIView.as_view(), name='upvote-comment'),
