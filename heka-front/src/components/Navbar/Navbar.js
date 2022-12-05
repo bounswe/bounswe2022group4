@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import './Navbar.css';
+import SearchBar from '../../components/SearchBar/SearchBar';
 import { FaBars } from 'react-icons/fa';
 
 const Navbar = ({ isLogged }) => {
@@ -9,9 +10,11 @@ const Navbar = ({ isLogged }) => {
       <nav className='navv'>
         <FaBars className='bars' />
         <div className='navv-menu'>
+          
           <Link to='/' activeStyle className='navv-link'>
             Home
           </Link>
+          
           {isLogged && (
             <Link to='/profile' activeStyle className='navv-link'>
               Profile
