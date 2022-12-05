@@ -1,4 +1,4 @@
-.general-homepage-container {
+.general-sidebar-container {
     background-image: linear-gradient(-225deg, #e3fdf5 0%, #ffe6fa 100%);
     background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
     background-attachment: fixed;
@@ -12,7 +12,7 @@
     width: 18%;
     margin-left: 80%;
     min-height: 89vh;
-    margin-top: 12rem;
+    margin-top: 8.5rem;
     overflow: auto;
   }
   .home-page-con {
@@ -23,7 +23,7 @@
     justify-content:flex-start;
   
     -webkit-flex-wrap: wrap;
-    margin-top: 17rem;
+    
   
     margin: 0 auto;
     flex-direction: column;
