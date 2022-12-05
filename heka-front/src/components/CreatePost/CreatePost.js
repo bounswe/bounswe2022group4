@@ -20,6 +20,7 @@ const branches = [
   'Diagnostic Radiology',
   'Ear Nose And Throat',
   'Gastroenterology',
+  'Orthopedics',
 ];
 const CreatePost = ({
   authenticationToken,
@@ -34,6 +35,7 @@ const CreatePost = ({
   const [imageName, setImageName] = useState(null);
   const [branch, setBranch] = useState('');
   const [address, setAddress] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const handleOnCompleted = (file) => {
     setImageText(file[0].base64_file);
     setImageName(file[0].file_name);
@@ -54,6 +56,7 @@ const CreatePost = ({
       image: imageText,
       location: address,
     };
+
     // console.log(ApiInstance, authenticationToken);
     const response = await BackendApi.postCreatePost(
       data.title,
@@ -63,6 +66,7 @@ const CreatePost = ({
       data.location,
       authenticationToken
     );
+    console.log(isLoading);
 
     console.log(data.title, data.body, response);
     setChangeInPost(!changeInPost);
