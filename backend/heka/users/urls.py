@@ -1,5 +1,4 @@
 from django.urls import path
-<<<<<<< HEAD
 from .views import RegisterView, LoginView, HomeView, LogoutView, ProfilePageView
 from .views import SearchUserAPIView
 from django.conf.urls import url
