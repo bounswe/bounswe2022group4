@@ -222,7 +222,7 @@ class ListPostsAPIView(APIView):
     permission_classes = [AllowAny]
     @swagger_auto_schema(responses = {200: PostSerializer(many=True)})
     def get(self, request):
-        all_posts = Post.objects.all().order_by("created_at")
+        all_posts = Post.objects.all().order_by("-created_at")
         posts = []
         for post in all_posts:
             response = {}
