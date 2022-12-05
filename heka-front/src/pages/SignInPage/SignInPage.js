@@ -1,16 +1,21 @@
-import React, { Component } from 'react';
-import { useState } from 'react';
-import './SignInPage.css';
-import validator from 'validator';
-import { NavLink as Link, Navigate } from 'react-router-dom';
-import { BackendApi } from '../../api';
-import { FaUserCircle, FaKey, FaUserPlus } from 'react-icons/fa';
-import { AiOutlineLogin } from 'react-icons/ai';
-import { display } from '@mui/system';
+import React, { Component } from "react";
+import { useState } from "react";
+import "./SignInPage.css";
+import validator from "validator";
+import { NavLink as Link, Navigate } from "react-router-dom";
+import { BackendApi } from "../../api";
+import { FaUserCircle, FaKey, FaUserPlus } from "react-icons/fa";
+import { AiOutlineLogin } from "react-icons/ai";
+import { display } from "@mui/system";
 
-const LoginForm = ({ setIsLogged, setAuthenticationToken, setUserName }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+const LoginForm = ({
+  setIsLogged,
+  setAuthenticationToken,
+  setUserName,
+  setLoggedInUser,
+}) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [err_message, setErrMessage] = useState();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [wrong_email_password, setWrong] = useState();
@@ -19,10 +24,16 @@ const LoginForm = ({ setIsLogged, setAuthenticationToken, setUserName }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await BackendApi.postLogin(username, password);
-    console.log(response, 'resp');
-    setAuthenticationToken('Token ' + response.data.token);
+    console.log(response, "resp");
+    setAuthenticationToken("Token " + response.data.token);
     if (response.status >= 200 && response.status < 300) {
+      const usernameCookie = "loggedInUser=" + response.data.username + ";";
+      const tokenCookie =
+        "authenticationToken=Token " + response.data.token + ";";
+      document.cookie = usernameCookie;
+      document.cookie = tokenCookie;
       setIsAuthenticated(true);
+      setLoggedInUser(response.data.username);
       setIsLogged(true);
       setUserName(response.data.username);
     } else if (response.status === 403) {
@@ -40,26 +51,26 @@ const LoginForm = ({ setIsLogged, setAuthenticationToken, setUserName }) => {
   return (
     <>
       {isAuthenticated ? (
-        <Navigate to='/' replace={true} />
+        <Navigate to="/" replace={true} />
       ) : (
-        <div className='general-login-container'>
-          <form className='general-form-component'>
-            <div className='con'>
-              <div className='head-form'>
+        <div className="general-login-container">
+          <form className="general-form-component">
+            <div className="con">
+              <div className="head-form">
                 <h2>Log In</h2>
                 <p>
                   <NotRegistered />
                 </p>
               </div>
-              <div className='field-set'>
-                <div className='input-component'>
-                  <span className='input-item'>
+              <div className="field-set">
+                <div className="input-component">
+                  <span className="input-item">
                     <FaUserCircle />
                   </span>
                   <input
-                    className='form-input'
-                    type='text'
-                    placeholder='Email'
+                    className="form-input"
+                    type="text"
+                    placeholder="Email"
                     required
                     value={username}
                     onChange={(e) => {
@@ -70,28 +81,28 @@ const LoginForm = ({ setIsLogged, setAuthenticationToken, setUserName }) => {
                   />
                 </div>
                 {err_message ? (
-                  <div className='error-msg'>
-                    <i className='fa fa-times-circle'></i>
+                  <div className="error-msg">
+                    <i className="fa fa-times-circle"></i>
                     Please enter a valid email address
                   </div>
                 ) : null}
 
                 {wrong_email_password && !err_message ? (
-                  <div className='error-msg'>
-                    <i className='fa fa-times-circle'></i>
+                  <div className="error-msg">
+                    <i className="fa fa-times-circle"></i>
                     Invalid username or password
                   </div>
                 ) : null}
-                <div className='input-component'>
-                  <span className='input-item'>
+                <div className="input-component">
+                  <span className="input-item">
                     <FaKey />
                   </span>
 
                   <input
-                    className='form-input'
-                    type='password'
-                    placeholder='Password'
-                    name='password'
+                    className="form-input"
+                    type="password"
+                    placeholder="Password"
+                    name="password"
                     required
                     value={password}
                     onChange={(e) => {
@@ -100,23 +111,23 @@ const LoginForm = ({ setIsLogged, setAuthenticationToken, setUserName }) => {
                     }}
                   ></input>
                 </div>
-                <button className='login-button' onClick={handleSubmit}>
+                <button className="login-button" onClick={handleSubmit}>
                   Log in
-                  <AiOutlineLogin aria-hidden='true' />
+                  <AiOutlineLogin aria-hidden="true" />
                 </button>
                 <button
-                  className='login-button'
+                  className="login-button"
                   style={{
-                    margin: '0',
+                    margin: "0",
                   }}
                 >
                   <Link
-                    to='/sign-up'
-                    style={{ color: '#252537', textDecoration: 'none' }}
+                    to="/sign-up"
+                    style={{ color: "#252537", textDecoration: "none" }}
                   >
                     Sign up
                   </Link>
-                  <FaUserPlus aria-hidden='true' />
+                  <FaUserPlus aria-hidden="true" />
                 </button>
               </div>
             </div>
@@ -128,22 +139,22 @@ const LoginForm = ({ setIsLogged, setAuthenticationToken, setUserName }) => {
 };
 
 const NotRegistered = () => (
-  <div id='Registered'>
+  <div id="Registered">
     <label>Not Registered yet?</label>
     <br></br>
     <div>
-      <a className='Link' href='/sign-up'>
-        {' '}
-        Sign Up{' '}
+      <a className="Link" href="/sign-up">
+        {" "}
+        Sign Up{" "}
       </a>
     </div>
 
     <label>Forgot Password?</label>
 
     <div>
-      <a className='Link' href='/forgot-password'>
-        {' '}
-        Change Password{' '}
+      <a className="Link" href="/forgot-password">
+        {" "}
+        Change Password{" "}
       </a>
     </div>
   </div>
