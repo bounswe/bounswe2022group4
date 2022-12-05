@@ -11,6 +11,7 @@
     </data>
 
     <LinearLayout
+        android:background="@drawable/gradient"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
@@ -97,6 +98,7 @@
             android:clickable="true"
             android:enabled="@{!viewModel.loading}"
             android:text="@string/forgot_password"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            />
     </LinearLayout>
 </layout>

@@ -16,8 +16,8 @@
 
     <LinearLayout
         android:id="@+id/home_text_view"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="horizontal"
@@ -49,19 +49,21 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="0dp"
+        android:background="@drawable/gradient"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:adapter="@{adapter}"
+        android:scrollbars="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home_text_view"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        tools:listitem="@layout/timeline_item"
-        android:adapter="@{adapter}"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-
-
+        app:layout_constraintVertical_bias="1.0"
+        tools:listitem="@layout/timeline_item" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

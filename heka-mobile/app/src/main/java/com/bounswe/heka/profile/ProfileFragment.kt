@@ -48,7 +48,7 @@ class ProfileFragment: Fragment() {
                 findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
             }
         }
-      
+
 
         arguments?.getString("username")?.let {usernamex ->
                         binding.chatButton.setOnClickListener {

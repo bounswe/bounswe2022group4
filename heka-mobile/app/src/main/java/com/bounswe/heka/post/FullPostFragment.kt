@@ -48,20 +48,6 @@ class FullPostFragment: Fragment() {
             bundle.putString("slug", viewModel.slug.value)
             findNavController().navigate(R.id.action_fullPostFragment_to_editPostFragment, bundle)
         }
-        binding.timelineCollapseButton.setOnClickListener {
-            if(!isCollapsed) {
-                binding.timelineCollapseButton.text = "Show More"
-                binding.image.visibility = View.GONE
-                binding.timelineItemDescription.visibility = View.GONE
-            } else {
-                binding.timelineCollapseButton.text = "Show Less"
-                binding.timelineItemDescription.visibility = View.VISIBLE
-                if(viewModel.state.value!!.image != null) {
-                    binding.image.visibility = View.VISIBLE
-                }
-            }
-            isCollapsed = !isCollapsed
-        }
         viewModel.state.observe(viewLifecycleOwner) {
             binding.timelineItemUpvote.apply {
                 isEnabled = !it.is_upvoted
