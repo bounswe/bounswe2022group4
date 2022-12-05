@@ -87,7 +87,7 @@ class FullPostFragment: Fragment() {
             } else {
                 binding.image.visibility = View.VISIBLE
                 Glide.with(binding.root.context)
-                    .load(Base64.decode(viewModel.state.value!!.image, Base64.DEFAULT))
+                    .load(viewModel.state.value!!.image)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(binding.image)
             }
