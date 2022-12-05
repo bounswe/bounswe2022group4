@@ -92,7 +92,7 @@ class LogoutView(APIView):
 class SearchUserAPIView(APIView):
     """
     post:
-        Upvotes the post. Returns the current number of upvotes and downvotes.
+        Searches for a user by username. 
     """
     permission_classes = [AllowAny]
     @swagger_auto_schema()
