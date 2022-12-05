@@ -139,6 +139,7 @@ export const MessageChat = ({ loggedInUser, authenticatonToken }) => {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
   const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
@@ -151,29 +152,40 @@ export const MessageChat = ({ loggedInUser, authenticatonToken }) => {
   }));
 
   return (
-    <Card>
+    
+    <div>
+      {!expanded && (
+        <div style={{width:'320px', height:'280px'}}>
+        </div>
+      )}
+       <Card>
       {/* <CardHeader></CardHeader> */}
       <CardBody>
-        <div
+      </CardBody>
+      <div
           style={{
             justifyContent: "center",
             alignItems: "center",
+            border:'2px',
           }}
         >
           {loggedInUser && expanded && (
-            <div style={{ overflowX: "scroll", height: "40px" }}>
+            <div style={{ overflowX: "scroll", height: "48px" ,backgroundImage: 'linear-gradient(-225deg, #e3fdf5 50%, #ffe6fa 50%)'}}>
               {ChatUserList &&
                 ChatUserList.user_list.map((ChatUser) => (
                   <Button
                     value={ChatUser}
                     style={{
-                      marginRight: "4px",
+
+
                       marginBottom: "4px",
-                      marginLeft: "4px",
+                      marginLeft: "12px",
                       marginTop: "4px",
                       width: "90px",
+                      backgroundColor:'#6ea9d7',
+                      justifyContent:'normal'
                     }}
-                    variant="contained"
+                    variant="outlined"
                     onClick={() => setSelectedUser(ChatUser)}
                   >
                     {ChatUser}
@@ -181,19 +193,18 @@ export const MessageChat = ({ loggedInUser, authenticatonToken }) => {
                 ))}
             </div>
           )}
-        </div>
-        <CardActions>
           {expanded && loggedInUser && (
             <div
               style={{
                 position: "relative",
-                width: "280px",
+                width: "320px",
               }}
             >
               <MainContainer>
                 <ChatContainer>
                   {messages && messagesList(messages)}
                   <MessageInput
+                    fancyScroll={true} 
                     placeholder="Type message here"
                     onSend={(textContext) => {
                       onSend(textContext);
@@ -203,6 +214,8 @@ export const MessageChat = ({ loggedInUser, authenticatonToken }) => {
               </MainContainer>
             </div>
           )}
+        </div>
+      <CardActions style={{height:'40px',backgroundImage: 'linear-gradient(-225deg, #e3fdf5 50%, #ffe6fa 50%)',}}>
           <ExpandMore
             expand={expanded}
             onClick={handleExpandClick}
@@ -211,14 +224,15 @@ export const MessageChat = ({ loggedInUser, authenticatonToken }) => {
             style={{
               fontSize: "0.875rem",
               fontWeight: 500,
-              position: "relative",
+              position: "absolute",
             }}
           >
             CHAT
             <ExpandMoreIcon />
           </ExpandMore>
         </CardActions>
-      </CardBody>
     </Card>
+    </div>
+   
   );
 };
