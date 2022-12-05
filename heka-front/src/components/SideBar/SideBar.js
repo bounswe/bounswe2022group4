@@ -5,7 +5,7 @@ const SideBar = () => {
 
     return (
 
-        <div className='general-homepage-container'>
+        <div className='general-sidebar-container'>
         
     <div className='home-page-con'>
     

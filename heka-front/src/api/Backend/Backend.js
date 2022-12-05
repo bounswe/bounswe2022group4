@@ -11,6 +11,17 @@ export const postRegister = (email, username, password, is_expert) => {
     is_expert,
   });
 };
+
+export const postEmail = (email) => {
+  return ApiInstance.post('/api/user/forget_password', { email});
+};
+
+export const postNewPassword = (code,new_password,confirm_new_password) => {
+  return ApiInstance.post('/api/user/reset_password', { code,new_password,confirm_new_password});
+};
+
+
+
 export const postCreatePost = (
   title,
   body,
