@@ -36,7 +36,7 @@ const LoginForm = ({
       setLoggedInUser(response.data.username);
       setIsLogged(true);
       setUserName(response.data.username);
-    } else if (response.status === 403) {
+    } else if (response.status === 401 && response.status === 403) {
       setWrong(true);
       /* alert('Invalid username or password'); */
     }

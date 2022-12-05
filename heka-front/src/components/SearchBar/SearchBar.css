@@ -33,7 +33,7 @@
 
 .dataResult {
   margin-top: 5px;
-  width: 300px;
+  width: %20;
   height: 200px;
   background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
