@@ -32,12 +32,13 @@ const HomePage = ({
       {authenticationToken && isLogged && authenticationToken && (
         <div
           style={{
-            position: 'fixed',
-            bottom: '60px',
-            right: '20px',
-            zIndex: '214783647',
-            width: '320px',
-            height: '224px',
+            position: "fixed",
+            bottom: "280px",
+            right: "0px",
+            zIndex: "214783647",
+            width: "320px",
+            height: "40px",
+            maxHeight:"400px"
           }}
         >
           <MessageChat
@@ -45,8 +46,9 @@ const HomePage = ({
             isLogged={isLogged}
             loggedInUser={loggedInUser}
             styles={{
-              width: '320px',
-              height: '400px',
+              width: "320px",
+              height: "40px",
+              maxHeight:"400px",
             }}
           />
         </div>

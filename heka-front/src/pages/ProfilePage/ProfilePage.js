@@ -468,11 +468,12 @@ const ProfilePage = ({ isLogged, authenticationToken, loggedInUser }) => {
       <div
         style={{
           position: "fixed",
-          bottom: "60px",
-          right: "20px",
+          bottom: "280px",
+          right: "0px",
           zIndex: "214783647",
           width: "320px",
-          height: "224px",
+          height: "40px",
+          maxHeight:"400px"
         }}
       >
         <MessageChat
@@ -481,7 +482,8 @@ const ProfilePage = ({ isLogged, authenticationToken, loggedInUser }) => {
           loggedInUser={loggedInUser}
           styles={{
             width: "320px",
-            height: "400px",
+            height: "40px",
+            maxHeight:"400px",
           }}
         />
       </div>
