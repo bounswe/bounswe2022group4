@@ -128,7 +128,11 @@ export const MessageChat = ({ loggedInUser, authenticatonToken }) => {
       </MessageList>
     );
   };
-
+  setTimeout(() => {
+    if (loggedInUser && authenticatonToken && expanded) {
+      setChangeInMessages(!changeInMessages);
+    }
+  }, 1000);
   const [expanded, setExpanded] = React.useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -146,8 +150,9 @@ export const MessageChat = ({ loggedInUser, authenticatonToken }) => {
 
   return (
     <Card>
-      <CardHeader>
-        {loggedInUser && (
+      {/* <CardHeader></CardHeader> */}
+      <CardBody>
+        {loggedInUser && expanded && (
           <div
             style={{
               justifyContent: "right",
@@ -167,13 +172,12 @@ export const MessageChat = ({ loggedInUser, authenticatonToken }) => {
               ))}
           </div>
         )}
-      </CardHeader>
-      <CardBody>
         <CardActions>
           {expanded && loggedInUser && (
             <div
               style={{
                 position: "relative",
+                width: "280px",
               }}
             >
               <MainContainer>
@@ -200,7 +204,7 @@ export const MessageChat = ({ loggedInUser, authenticatonToken }) => {
               position: "relative",
             }}
           >
-            CHATBOT
+            CHAT
             <ExpandMoreIcon />
           </ExpandMore>
         </CardActions>

@@ -26,8 +26,8 @@ const HomePage = ({ isLogged, loggedInUser, authenticationToken }) => {
           bottom: "60px",
           right: "20px",
           zIndex: "214783647",
-          width: "400px",
-          height: "200px",
+          width: "320px",
+          height: "224px",
         }}
       >
         <MessageChat
@@ -35,8 +35,8 @@ const HomePage = ({ isLogged, loggedInUser, authenticationToken }) => {
           isLogged={isLogged}
           loggedInUser={loggedInUser}
           styles={{
-            width: "400px",
-            height: "200px",
+            width: "320px",
+            height: "400px",
           }}
         />
       </div>
