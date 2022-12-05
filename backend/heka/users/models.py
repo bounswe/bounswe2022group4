@@ -35,6 +35,7 @@ class User(AbstractBaseUser):
     name = models.CharField(max_length = 255)
     age = models.IntegerField(null=True)
     is_admin = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     is_expert = models.BooleanField(default=False)
     profile_image = models.CharField(max_length=9000000, null=True, blank=True)
     objects = UserManager()
