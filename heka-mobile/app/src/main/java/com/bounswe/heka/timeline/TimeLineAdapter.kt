@@ -52,6 +52,7 @@ class TimeLineAdapter(private val data: MutableList<TimelineListItemState>, val 
 //                    binding.timelineImage.visibility = android.view.View.GONE
 //                }
 //            }
+
             binding.timelineEditButton.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString("slug", state.slug)
