@@ -8,6 +8,7 @@ const CommentBox = ({
   authenticationToken,
   changeInComments,
   setChangeInComments,
+  userName,
 }) => {
   const [comments, setComments] = useState([]);
 
@@ -40,6 +41,7 @@ const CommentBox = ({
           isDownvoted={comment.is_downvoted}
           authenticationToken={authenticationToken}
           slug={slug}
+          userName={userName}
         />
       ))}
     </div>

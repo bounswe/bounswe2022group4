@@ -5,7 +5,8 @@ import Comment from '../../components/Comment/Comment';
 import CommentBox from '../../components/CommentBox/CommentBox';
 
 import './HomePage.css';
-const HomePage = ({ isLogged, authenticationToken }) => {
+const HomePage = ({ isLogged, authenticationToken, userName }) => {
+  console.log(userName, 'xd');
   return (
     <>
       <div className='home-container'>
@@ -13,6 +14,7 @@ const HomePage = ({ isLogged, authenticationToken }) => {
         <PostBox
           isLogged={isLogged}
           authenticationToken={authenticationToken}
+          userName={userName}
         />
         {/* <CommentBox isLogged={isLogged} /> */}
       </div>

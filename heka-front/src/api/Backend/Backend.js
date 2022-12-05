@@ -16,6 +16,7 @@ export const postCreatePost = (
   body,
   category,
   image,
+  location,
   authenticationToken
 ) => {
   ApiInstance.setHeader('Authorization', authenticationToken);
@@ -24,6 +25,7 @@ export const postCreatePost = (
     body,
     category,
     image,
+    location,
   });
 };
 export const postDeletePost = (slug, authenticationToken) => {
@@ -64,4 +66,22 @@ export const postUpvotePost = (slug, authenticationToken) => {
 export const postDownvotePost = (slug, authenticationToken) => {
   ApiInstance.setHeader('Authorization', authenticationToken);
   return ApiInstance.post('api/post/downvote-post/' + slug + '/');
+};
+export const postEditPost = (
+  slug,
+  title,
+  body,
+  category,
+  image,
+  location,
+  authenticationToken
+) => {
+  ApiInstance.setHeader('Authorization', authenticationToken);
+  return ApiInstance.post('api/post/update/' + slug + '/', {
+    title,
+    body,
+    category,
+    image,
+    location,
+  });
 };

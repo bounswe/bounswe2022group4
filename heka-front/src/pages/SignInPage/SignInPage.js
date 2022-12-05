@@ -8,7 +8,7 @@ import { FaUserCircle, FaKey, FaUserPlus } from 'react-icons/fa';
 import { AiOutlineLogin } from 'react-icons/ai';
 import { display } from '@mui/system';
 
-const LoginForm = ({ setIsLogged, setAuthenticationToken }) => {
+const LoginForm = ({ setIsLogged, setAuthenticationToken, setUserName }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [err_message, setErrMessage] = useState();
@@ -19,10 +19,12 @@ const LoginForm = ({ setIsLogged, setAuthenticationToken }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await BackendApi.postLogin(username, password);
+    console.log(response, 'resp');
     setAuthenticationToken('Token ' + response.data.token);
     if (response.status >= 200 && response.status < 300) {
       setIsAuthenticated(true);
       setIsLogged(true);
+      setUserName(response.data.username);
     } else if (response.status === 403) {
       setWrong(true);
       /* alert('Invalid username or password'); */
@@ -135,9 +137,9 @@ const NotRegistered = () => (
         Sign Up{' '}
       </a>
     </div>
-    
+
     <label>Forgot Password?</label>
-    
+
     <div>
       <a className='Link' href='/forgot-password'>
         {' '}
@@ -146,6 +148,5 @@ const NotRegistered = () => (
     </div>
   </div>
 );
-
 
 export default LoginForm;
