@@ -154,12 +154,14 @@
 
                 </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/image"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:scaleType="centerCrop"
-                    />
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxHeight="400dp"
+                        android:adjustViewBounds="true"
+                        tools:src="@drawable/temp_profile_photo"
+                        />
 
                 <LinearLayout
                     android:layout_width="match_parent"

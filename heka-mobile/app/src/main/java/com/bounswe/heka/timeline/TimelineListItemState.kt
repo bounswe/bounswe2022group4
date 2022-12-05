@@ -14,4 +14,5 @@ data class TimelineListItemState (
     val is_downvoted: Boolean,
     val image: String? = null,
     val location: String? = null,
+    val author_image: String? = null,
 )

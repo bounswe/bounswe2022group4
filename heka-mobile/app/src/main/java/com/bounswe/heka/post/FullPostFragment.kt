@@ -78,6 +78,11 @@ class FullPostFragment: Fragment() {
                     .into(binding.image)
             }
         }
+        Glide.with(this).
+        load(arguments?.getString("slug")).
+        placeholder(R.drawable.temp_profile_photo).
+        diskCacheStrategy(DiskCacheStrategy.ALL).
+        into(binding.timelineProfileImage)
         viewModel.fetchComments()
         viewModel.fetchPost()
 
