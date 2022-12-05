@@ -10,8 +10,9 @@ import { display } from "@mui/system";
 
 const LoginForm = ({
   setIsLogged,
-  setLoggedInUser,
   setAuthenticationToken,
+  setUserName,
+  setLoggedInUser,
 }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -23,15 +24,18 @@ const LoginForm = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await BackendApi.postLogin(username, password);
+    console.log(response, "resp");
     setAuthenticationToken("Token " + response.data.token);
     if (response.status >= 200 && response.status < 300) {
-      const usernameCookie = "loggedInUser="+ response.data.username +";" ;
-      const tokenCookie = "authenticationToken=Token "+response.data.token +";";
+      const usernameCookie = "loggedInUser=" + response.data.username + ";";
+      const tokenCookie =
+        "authenticationToken=Token " + response.data.token + ";";
       document.cookie = usernameCookie;
       document.cookie = tokenCookie;
       setIsAuthenticated(true);
       setLoggedInUser(response.data.username);
       setIsLogged(true);
+      setUserName(response.data.username);
     } else if (response.status === 403) {
       setWrong(true);
       /* alert('Invalid username or password'); */

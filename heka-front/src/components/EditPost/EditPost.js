@@ -21,19 +21,24 @@ const branches = [
   'Ear Nose And Throat',
   'Gastroenterology',
 ];
-const CreatePost = ({
+const EditPost = ({
   authenticationToken,
-  setOpenPostModal,
+  setOpenEditModal,
   changeInPost,
   setChangeInPost,
+  title,
+  body,
+  category,
+  slug,
+  imageProp,
 }) => {
   const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
   // const [title, setTitle] = useState('');
   // const [body, setBody] = useState('');
-  const [imageText, setImageText] = useState(null);
+  const [imageText, setImageText] = useState(imageProp);
   const [imageName, setImageName] = useState(null);
-  const [branch, setBranch] = useState('');
-  const [address, setAddress] = useState('');
+  const [branch, setBranch] = useState(category);
+  const [address, setAddress] = useState(null);
   const handleOnCompleted = (file) => {
     setImageText(file[0].base64_file);
     setImageName(file[0].file_name);
@@ -45,30 +50,6 @@ const CreatePost = ({
     },
     userDecisionTimeout: 5000,
   });
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const data = {
-      title: event.target.title.value,
-      body: event.target.body.value,
-      category: branch,
-      image: imageText,
-      location: address,
-    };
-    // console.log(ApiInstance, authenticationToken);
-    const response = await BackendApi.postCreatePost(
-      data.title,
-      data.body,
-      data.category,
-      data.image,
-      data.location,
-      authenticationToken
-    );
-
-    console.log(data.title, data.body, response);
-    setChangeInPost(!changeInPost);
-    setOpenPostModal(false);
-  };
-
   function displayLocation(latitude, longitude) {
     var request = new XMLHttpRequest();
 
@@ -104,6 +85,30 @@ const CreatePost = ({
     };
     request.send();
   }
+
+  const handleEditSubmit = async (event) => {
+    event.preventDefault();
+    const data = {
+      title: event.target.title.value,
+      body: event.target.body.value,
+      category: branch,
+      image: imageText,
+      location: address,
+    };
+    const response = await BackendApi.postEditPost(
+      slug,
+      data.title,
+      data.body,
+      data.category,
+      imageText && data.image,
+      address && data.location,
+      authenticationToken
+    );
+    console.log(data.title, data, response);
+    setChangeInPost(!changeInPost);
+    setOpenEditModal(false);
+  };
+
   useEffect(() => {
     if (coords) {
       displayLocation(coords.latitude, coords.longitude);
@@ -111,10 +116,11 @@ const CreatePost = ({
   }, [coords]);
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleEditSubmit}>
         <TextField
           id='title'
           label='Title'
+          value={title}
           margin='normal'
           style={{ width: '100%' }}
           required
@@ -124,6 +130,7 @@ const CreatePost = ({
         <TextField
           id='body'
           label='Body'
+          value={body}
           multiline
           rows={4}
           rowsMax='4'
@@ -140,6 +147,7 @@ const CreatePost = ({
             labelId='demo-simple-select-label'
             id='category'
             label='Category'
+            value={category}
             onChange={(e) => setBranch(e.target.value)}
             required
           >
@@ -180,7 +188,7 @@ const CreatePost = ({
         <br />
         <br />
         <Button type='submit' variant='outlined'>
-          Post
+          Update Post
         </Button>
       </form>
       <br />
@@ -188,4 +196,4 @@ const CreatePost = ({
   );
 };
 
-export default CreatePost;
+export default EditPost;

@@ -10,8 +10,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
   const [isLogged, setIsLogged] = React.useState(false);
-  const [loggedInUser, setLoggedInUser] = React.useState("");
   const [authenticationToken, setAuthenticationToken] = React.useState("");
+  const [userName, setUserName] = React.useState("");
+  const [loggedInUser, setLoggedInUser] = React.useState("");
   return (
     <div>
       <Router>
@@ -24,6 +25,7 @@ const App = () => {
                 isLogged={isLogged}
                 loggedInUser={loggedInUser}
                 authenticationToken={authenticationToken}
+                userName={userName}
               />
             }
           />
@@ -48,6 +50,7 @@ const App = () => {
                 setIsLogged={setIsLogged}
                 setLoggedInUser={setLoggedInUser}
                 setAuthenticationToken={setAuthenticationToken}
+                setUserName={setUserName}
               />
             }
           />

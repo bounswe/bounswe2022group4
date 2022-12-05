@@ -6,7 +6,13 @@ import CommentBox from "../../components/CommentBox/CommentBox";
 import { MessageChat } from "../../components/Chat/MessageChat";
 
 import "./HomePage.css";
-const HomePage = ({ isLogged, loggedInUser, authenticationToken }) => {
+const HomePage = ({
+  isLogged,
+  authenticationToken,
+  userName,
+  loggedInUser,
+}) => {
+  console.log(userName, "xd");
   return (
     <>
       <div className="home-container">
@@ -15,6 +21,7 @@ const HomePage = ({ isLogged, loggedInUser, authenticationToken }) => {
           isLogged={isLogged}
           loggedInUser={loggedInUser}
           authenticationToken={authenticationToken}
+          userName={userName}
         />
         {/* <CommentBox isLogged={isLogged} /> */}
       </div>

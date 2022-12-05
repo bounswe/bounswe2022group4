@@ -29,6 +29,7 @@ export const postCreatePost = (
   body,
   category,
   image,
+  location,
   authenticationToken
 ) => {
   ApiInstance.setHeader("Authorization", authenticationToken);
@@ -37,6 +38,7 @@ export const postCreatePost = (
     body,
     category,
     image,
+    location,
   });
 };
 export const postDeletePost = (slug, authenticationToken) => {
@@ -91,4 +93,22 @@ export const fetchMessage = (receiver, authenticationToken) => {
 export const fetchUsersForChat = (authenticationToken) => {
   ApiInstance.setHeader("Authorization", authenticationToken);
   return ApiInstance.get("api/chat/fetch/users");
+};
+export const postEditPost = (
+  slug,
+  title,
+  body,
+  category,
+  image,
+  location,
+  authenticationToken
+) => {
+  ApiInstance.setHeader('Authorization', authenticationToken);
+  return ApiInstance.post('api/post/update/' + slug + '/', {
+    title,
+    body,
+    category,
+    image,
+    location,
+  });
 };
