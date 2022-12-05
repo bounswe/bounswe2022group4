@@ -176,10 +176,14 @@ const Post = ({
               <Button startIcon={<ThumbDownIcon />} onClick={handleDownvote}>
                 {downvote}
               </Button>
+
               {userName === user && (
-                <IconButton aria-label='settings' onClick={handleClick}>
-                  <MoreVertIcon />
-                </IconButton>
+                <>
+                  <Button onClick={handleOpenEditModal}> Edit</Button>
+                  <IconButton aria-label='settings' onClick={handleClick}>
+                    <MoreVertIcon />
+                  </IconButton>
+                </>
               )}
             </div>
           }
@@ -199,7 +203,6 @@ const Post = ({
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleOpenEditModal}>Edit</MenuItem>
             <MenuItem
               onClick={() => {
                 handleDelete(slug);

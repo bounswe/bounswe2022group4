@@ -120,7 +120,7 @@ const EditPost = ({
         <TextField
           id='title'
           label='Title'
-          value={title}
+          defaultValue={title}
           margin='normal'
           style={{ width: '100%' }}
           required
@@ -130,7 +130,7 @@ const EditPost = ({
         <TextField
           id='body'
           label='Body'
-          value={body}
+          defaultValue={body}
           multiline
           rows={4}
           rowsMax='4'
@@ -147,7 +147,7 @@ const EditPost = ({
             labelId='demo-simple-select-label'
             id='category'
             label='Category'
-            value={category}
+            defaultValue={category}
             onChange={(e) => setBranch(e.target.value)}
             required
           >
@@ -177,11 +177,11 @@ const EditPost = ({
         <br />
         <TextField
           id='outlined-multiline-flexible'
-          label='Location'
+          // label='Location'
           multiline
           maxRows={4}
           style={{ width: '100%' }}
-          value={address && address}
+          defaultValue={address && address}
           disabled
           //   onChange={handleChange}
         />
