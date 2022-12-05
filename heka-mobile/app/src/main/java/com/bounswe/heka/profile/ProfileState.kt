@@ -10,6 +10,6 @@ data class ProfileState (
     val profile_image: String?,
     val is_expert: Boolean?,
     val is_admin: Boolean?,
-    val date_joined: Timestamp?,
-    val last_login: Timestamp?,
+    val date_joined: String?,
+    val last_login: String?,
         )

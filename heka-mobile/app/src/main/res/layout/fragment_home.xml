@@ -55,7 +55,7 @@
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:adapter="@{adapter}"
-        android:scrollbars="vertical"
+
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

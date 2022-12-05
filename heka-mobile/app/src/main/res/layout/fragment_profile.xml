@@ -34,7 +34,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
-            app:srcCompat="@drawable/temp_profile_photo"
+            tools:srcCompat="@drawable/temp_profile_photo"
             app:strokeColor="?attr/colorSurface"
             app:strokeWidth="4dp"
 
@@ -44,7 +44,7 @@
             android:id="@+id/user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="User Name"
+            tools:text="User Name"
             android:textColor="?attr/colorOnPrimary"
             android:textSize="20sp"
             android:layout_marginTop="36dp"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:alpha="0.6"
-            android:text="\@nickname"
+            tools:text="\@nickname"
             android:textColor="?attr/colorOnPrimary"
             android:textSize="16sp"
 

@@ -15,6 +15,7 @@ import com.bounswe.heka.databinding.FragmentHomeBinding
 import com.bounswe.heka.databinding.FragmentProfileBinding
 import com.bounswe.heka.home.HomeViewModel
 import com.bounswe.heka.network.SessionManager
+import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -48,7 +49,11 @@ class ProfileFragment: Fragment() {
                 findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
             }
         }
-
+        viewModel.state.observe(viewLifecycleOwner) {
+            binding.userNickname.text = "@"+it.username;
+            binding.userName.text = it.name;
+            Glide.with(this).load(it.profile_image).placeholder(R.drawable.temp_profile_photo).into(binding.profileImageView)
+        }
 
         arguments?.getString("username")?.let {usernamex ->
                         binding.chatButton.setOnClickListener {
@@ -59,14 +64,11 @@ class ProfileFragment: Fragment() {
                                 bundle
                             )
                         }
-
-                        if (usernamex != binding.viewModel?.username?.value){
+                        print(usernamex);
+                        if (usernamex != sessionManager.fetchUsername()){
                             binding.chatButton.visibility = View.VISIBLE;
                         }
-
-
-
-
         }
+        viewModel.getProfile()
     }
 }
