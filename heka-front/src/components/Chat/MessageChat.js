@@ -132,6 +132,7 @@ export const MessageChat = ({ loggedInUser, authenticatonToken }) => {
   setTimeout(() => {
     if (loggedInUser && authenticatonToken && expanded) {
       setChangeInMessages(!changeInMessages);
+      setChangeInUserList(!changeInUserList);
     }
   }, 1000);
   const [expanded, setExpanded] = React.useState(false);
