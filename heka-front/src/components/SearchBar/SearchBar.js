@@ -58,7 +58,7 @@ function SearchBar() {
   };
 
   return (
-    <div className='search-container' style={{ marginRight: '5vh' }}>
+    <div className='search-container'>
       <div className='searchInputs'>
         <input
           className='input1'
