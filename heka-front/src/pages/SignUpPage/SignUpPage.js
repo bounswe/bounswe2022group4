@@ -108,12 +108,11 @@ const SignUpPage = () => {
       email &&
       validEmail(email)
     ) {
-      setIsExpert(false);
       const response = await BackendApi.postRegister(
         email,
         username,
         password,
-        isExpert
+        true
       );
       console.log(response);
       if ((response.status >= 200) & (response.status < 300)) {
@@ -263,7 +262,7 @@ const SignUpPage = () => {
                       ></input>
                     </div>
                     <button
-                      className='login-button'
+                      className='sign-up-button'
                       onClick={handleRegularSubmit}
                     >
                       Sign Up
@@ -349,7 +348,7 @@ const SignUpPage = () => {
                     ))}
 
                     <button
-                      className='login-button'
+                      className='sign-up-button'
                       onClick={handleDoctorSubmit}
                     >
                       Sign Up

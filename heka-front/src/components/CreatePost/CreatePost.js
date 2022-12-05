@@ -7,9 +7,10 @@ import {
   FormControl,
   Select,
 } from '@material-ui/core';
-import { DropzoneArea } from 'material-ui-dropzone';
+// import { DropzoneArea } from 'material-ui-dropzone';
 import { useGeolocated } from 'react-geolocated';
 import { BackendApi } from '../../api';
+import ReactImageFileToBase64 from 'react-file-image-to-base64';
 
 const branches = [
   'Eye Health and Diseases',
@@ -29,9 +30,15 @@ const CreatePost = ({
   const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
   // const [title, setTitle] = useState('');
   // const [body, setBody] = useState('');
-  const [imageFile, setImageFile] = useState(null);
+  const [imageText, setImageText] = useState(null);
+  const [imageName, setImageName] = useState(null);
   const [branch, setBranch] = useState('');
   const [address, setAddress] = useState('');
+  const handleOnCompleted = (file) => {
+    setImageText(file[0].base64_file);
+    setImageName(file[0].file_name);
+    console.log(imageText);
+  };
   const { coords } = useGeolocated({
     positionOptions: {
       enableHighAccuracy: false,
@@ -43,11 +50,15 @@ const CreatePost = ({
     const data = {
       title: event.target.title.value,
       body: event.target.body.value,
+      category: event.target.body.value,
+      image: imageText,
     };
     // console.log(ApiInstance, authenticationToken);
     const response = await BackendApi.postCreatePost(
       data.title,
       data.body,
+      data.category,
+      data.image,
       authenticationToken
     );
 
@@ -55,6 +66,7 @@ const CreatePost = ({
     setChangeInPost(!changeInPost);
     setOpenPostModal(false);
   };
+
   function displayLocation(latitude, longitude) {
     var request = new XMLHttpRequest();
 
@@ -108,14 +120,13 @@ const CreatePost = ({
           required
           // onChange={(e) => setBody(e.target.value)}
         />
-
         <br />
         <br />
         <FormControl fullWidth>
           <InputLabel id='demo-simple-select-label'>Category</InputLabel>
           <Select
             labelId='demo-simple-select-label'
-            id='demo-simple-select'
+            id='category'
             label='Category'
             onChange={(e) => setBranch(e.target.value)}
             required
@@ -125,18 +136,25 @@ const CreatePost = ({
             ))}
           </Select>
         </FormControl>
-
         <br />
         <br />
-        <DropzoneArea
-          onChange={(file) => {
-            setImageFile(file);
+        <div
+          style={{
+            width: '50vw',
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
-          filesLimit={1}
-        />
+        >
+          <ReactImageFileToBase64
+            onCompleted={handleOnCompleted}
+            preferredButtonText='Upload an Image'
+          />
+          <div style={{ marginLeft: '2vw' }}>{imageName && imageName}</div>
+        </div>
         <br />
         <br />
-
         <TextField
           id='outlined-multiline-flexible'
           label='Location'
@@ -158,10 +176,8 @@ const CreatePost = ({
           disabled
           //   onChange={handleChange}
         />
-
         <br />
         <br />
-
         <Button type='submit' variant='outlined'>
           Post
         </Button>

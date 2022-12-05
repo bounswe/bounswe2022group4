@@ -11,10 +11,54 @@ import {
   CardActions,
   Typography,
 } from '@mui/material';
-const Comment = ({ user, content, time, index, isLogged }) => {
+import { BackendApi } from '../../api';
+const Comment = ({
+  user,
+  content,
+  time,
+  index,
+  isLogged,
+  changeInComments,
+  setChangeInComments,
+  upvote,
+  downvote,
+  isExpert,
+  isUpvoted,
+  isDownvoted,
+  authenticationToken,
+  slug,
+}) => {
   const regularUserPhoto =
     'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
   const doctorPhoto = 'https://cdn-icons-png.flaticon.com/512/3774/3774299.png';
+  const handleUpvote = async () => {
+    const response = await BackendApi.postUpvoteComment(
+      slug,
+      index,
+      authenticationToken
+    );
+    setChangeInComments(!changeInComments);
+    console.log(response);
+    console.log(upvote);
+  };
+  const handleDownvote = async () => {
+    const response = await BackendApi.postDownvoteComment(
+      slug,
+      index,
+      authenticationToken
+    );
+    setChangeInComments(!changeInComments);
+    console.log(response);
+  };
+  const handleDeleteComment = async () => {
+    const response = await BackendApi.postDeleteComment(
+      slug,
+      index,
+      authenticationToken
+    );
+    setChangeInComments(!changeInComments);
+    console.log(response);
+  };
   return (
     <div
       style={{
@@ -24,17 +68,22 @@ const Comment = ({ user, content, time, index, isLogged }) => {
       }}
     >
       <CardHeader
-        avatar={<Avatar alt='Unknown Profile Picture' src={regularUserPhoto} />}
+        avatar={
+          <Avatar
+            alt='Unknown Profile Picture'
+            src={isExpert ? doctorPhoto : regularUserPhoto}
+          />
+        }
         title={user}
         subheader={time}
         action={
           <div>
-            <Button startIcon={<ThumbUpIcon />} onClick={() => {}}>
-              5
+            <Button startIcon={<ThumbUpIcon />} onClick={handleUpvote}>
+              {upvote}
             </Button>
 
-            <Button startIcon={<ThumbDownIcon />} onClick={() => {}}>
-              5
+            <Button startIcon={<ThumbDownIcon />} onClick={handleDownvote}>
+              {downvote}
             </Button>
           </div>
         }
@@ -55,7 +104,7 @@ const Comment = ({ user, content, time, index, isLogged }) => {
         {isLogged && (
           <Button
             startIcon={<Delete />}
-            // onClick={handleOpenCreateCommentModal}
+            onClick={handleDeleteComment}
             data-testid={'comment-button-' + index}
             // style={{ fontFamily: 'inherit' }}
           >
