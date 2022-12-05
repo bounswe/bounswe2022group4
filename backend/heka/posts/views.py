@@ -282,7 +282,7 @@ class PostUpvoteAPIView(APIView):
             post.upvotes.add(request.user)
         serializer = PostSerializer(post, data={"category": post.category, "title":post.title, "body":post.body} )
         if serializer.is_valid(raise_exception=True):
-            serializer.save(creator=request.user, slug = kwargs['slug'])
+            serializer.save(slug = kwargs['slug'])
         return Response({"slug": post.slug, "upvote":post.total_upvotes, "downvote": post.total_downvotes }, status=status.HTTP_200_OK)
 
 class PostDownvoteAPIView(APIView):
@@ -306,7 +306,7 @@ class PostDownvoteAPIView(APIView):
             post.downvotes.add(request.user)
         serializer = PostSerializer(post, data={"category": post.category, "title":post.title, "body":  post.body} )
         if serializer.is_valid(raise_exception=True):
-            serializer.save(creator=request.user, slug = kwargs['slug'])
+            serializer.save(slug = kwargs['slug'])
         return Response({"slug": post.slug, "upvote":post.total_upvotes, "downvote": post.total_downvotes }, status=status.HTTP_200_OK)
 
 
@@ -335,7 +335,7 @@ class CommentUpvoteAPIView(APIView):
             comment.upvotes.add(request.user)
         serializer = CommentSerializer(comment, data={"body": comment.body })
         if serializer.is_valid(raise_exception=True):
-            serializer.save(creator=request.user, parent=post)
+            serializer.save(parent=post)
         return Response({"slug": post.slug, "comment_id": comment.id, "upvote":comment.total_upvotes, "downvote": comment.total_downvotes }, status=status.HTTP_200_OK)
 
 class CommentDownvoteAPIView(APIView):
@@ -363,7 +363,7 @@ class CommentDownvoteAPIView(APIView):
             comment.downvotes.add(request.user)
         serializer = CommentSerializer(comment, data= {"body" : comment.body})
         if serializer.is_valid(raise_exception=True):
-            serializer.save(creator=request.user, parent=post)
+            serializer.save(parent=post)
         return Response({"slug": post.slug, "comment_id": comment.id, "upvote":comment.total_upvotes, "downvote": comment.total_downvotes }, status=status.HTTP_200_OK)
 
 
