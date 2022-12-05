@@ -65,3 +65,24 @@ class ProfilePageTestCase(APITestCase):
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data["username"], self.test_user.username)
+    def test_put_profile_page(self):
+        data = {
+            "email": "melih@gmail.com",
+            "username": "kadir",
+            "is_expert": False,
+            "date_joined": "2022-12-04T12:07:36.293874Z",
+            "is_admin": False,
+            "age": 4,
+            "name": "melih aktas",
+            "last_login": "2022-12-04T12:10:24.743456Z",
+            "profile_image": None
+        }
+
+        request = self.factory.put(self.url, data, format="json")
+
+        force_authenticate(request, user=self.test_user)
+        response = self.view(request, username="melih")
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data["username"], data["username"])
+        self.assertEqual(response.data["age"], data["age"])
