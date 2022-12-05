@@ -22,16 +22,16 @@ function getCookie(name) {
 }
 
 export const MessageChat = ({ loggedInUser, authenticatonToken }) => {
-  if (!loggedInUser) {
-    if (getCookie("loggedInUser")) {
-      loggedInUser = getCookie("loggedInUser");
-    }
-  }
-  if (!authenticatonToken) {
-    if (getCookie("authenticationToken")) {
-      authenticatonToken = getCookie("authenticationToken");
-    }
-  }
+  // if (!loggedInUser) {
+  //   if (getCookie("loggedInUser")) {
+  //     loggedInUser = getCookie("loggedInUser");
+  //   }
+  // }
+  // if (!authenticatonToken) {
+  //   if (getCookie("authenticationToken")) {
+  //     authenticatonToken = getCookie("authenticationToken");
+  //   }
+  // }
   const [messages, setMessages] = useState([
     {
       sender: "hekayigit",
