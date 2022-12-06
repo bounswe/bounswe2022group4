@@ -47,8 +47,8 @@ class CommentAdapter(private val data: MutableList<CommentListItemState>, val up
                 setOnClickListener {
                     val bundle = Bundle()
                     bundle.putString("slug", slug)
-                    bundle.putInt("comment_id", state.id)
-//                    binding.root.findNavController().navigate(R.id.action_fullPostFragment_to_editCommentFragment, bundle)
+                    bundle.putString("id", state.id.toString())
+                    binding.root.findNavController().navigate(R.id.action_fullPostFragment_to_editCommentFragment, bundle)
                 }
             }
         }

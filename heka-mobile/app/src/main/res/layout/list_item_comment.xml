@@ -82,27 +82,42 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
+
                     android:orientation="vertical">
 
                     <Button
                         android:id="@+id/comment_item_upvote"
-                        android:layout_width="40dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="u" />
+                        android:drawableLeft="@drawable/ic_baseline_thumb_up_alt_24"
+                        android:drawableTint="@drawable/upvote_color_selector"
+                        tools:text="21"
+                        android:textColor="@android:color/darker_gray"
+
+                        android:background="@android:color/transparent" />
 
                     <Button
                         android:id="@+id/comment_item_downvote"
-                        android:layout_width="40dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="d" />
+                        android:drawableLeft="@drawable/ic_baseline_thumb_down_alt_24"
+                        android:drawableTint="@drawable/upvote_color_selector"
+                        tools:text="21"
+                        android:textColor="@android:color/darker_gray"
+
+                        android:background="@android:color/transparent" />
                 </LinearLayout>
 
             </LinearLayout>
-            <Button
+
+            <ImageButton
                 android:id="@+id/comment_item_edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Edit Comment"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_baseline_create_24"
+                android:background="@drawable/rounded_corner"
+
+
                 />
         </LinearLayout>
 

@@ -37,8 +37,8 @@ interface ApiService {
     suspend fun deleteComment(@Path("slug") slug:String, @Path("id") id:Int): DeleteCommentResponse
     @POST("post/delete/{slug}/")
     suspend fun deletePost(@Path("slug") slug:String): DeletePostResponse
-    @POST("post/fetch-comment/{slug}/{id}")
-    suspend fun fetchComment(@Path("slug") slug:String, @Path("id") id: String): FetchCommentResponse
+    @GET("post/fetch-comment/{slug}/{id}")
+    suspend fun fetchComment(@Path("slug") slug:String, @Path("id") id: String): FetchCommentsResponse
     @POST("post/downvote-comment/{slug}/{id}")
     suspend fun downvoteComment(@Path("slug") slug:String, @Path("id") id:Int): DownvoteCommentResponse
     @POST("post/downvote-post/{slug}/")
