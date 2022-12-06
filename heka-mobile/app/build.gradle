@@ -66,6 +66,10 @@ dependencies {
         transitive = false
     }
     implementation 'com.github.dhaval2404:imagepicker:2.1'
+
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:1.10.19'
 }
 
 kapt {
