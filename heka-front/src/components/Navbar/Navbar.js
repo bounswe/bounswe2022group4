@@ -12,6 +12,9 @@ const Navbar = ({ isLogged }) => {
           <Link to='/' activeStyle className='navv-link'>
             Home
           </Link>
+          <Link to='/profile/ardaturan66' activeStyle className='navv-link'>
+            Test
+          </Link>
           {isLogged && (
             <Link to='/profile' activeStyle className='navv-link'>
               Profile
