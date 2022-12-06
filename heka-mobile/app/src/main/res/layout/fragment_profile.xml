@@ -37,6 +37,7 @@
             tools:srcCompat="@drawable/temp_profile_photo"
             app:strokeColor="?attr/colorSurface"
             app:strokeWidth="4dp"
+            android:scaleType="centerCrop"
 
             />
 

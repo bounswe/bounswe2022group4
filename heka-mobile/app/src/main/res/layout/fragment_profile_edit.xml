@@ -61,6 +61,7 @@
                         app:strokeWidth="4dp"
                         android:layout_marginBottom="36dp"
                         android:clickable="true"
+                        android:scaleType="centerCrop"
                         />
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -86,7 +87,7 @@
                             android:inputType="text"
                             android:text="@={viewModel.name}"
                             tools:text="adasdasdasdasd"
-                            android:textColor="@color/purple_700"
+                            android:textColor="@color/black"
                             />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -111,7 +112,7 @@
                             android:background="@drawable/edit_text_shape"
                             android:enabled="@{!viewModel.loading}"
                             android:inputType="text"
-
+                            android:textColor="@color/black"
                             android:text="@={viewModel.username}"
                              />
 
@@ -136,6 +137,7 @@
                             android:enabled="@{!viewModel.loading}"
                             android:inputType="numberDecimal"
                             android:text="@={viewModel.age}"
+                            android:textColor="@color/black"
                              />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -149,6 +151,7 @@
                         android:hint="Email"
                         app:errorTextColor="@color/white"
                         android:inputType="text"
+
                         android:maxLines="1">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -159,6 +162,7 @@
                             android:enabled="@{!viewModel.loading}"
                             android:inputType="textEmailAddress"
                             android:text="@={viewModel.email}"
+                            android:textColor="@color/black"
                              />
 
                     </com.google.android.material.textfield.TextInputLayout>
