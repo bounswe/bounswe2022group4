@@ -1,9 +1,13 @@
 from httplib2 import Response
 from rest_framework.test import APITestCase, APIRequestFactory, force_authenticate
 from django.urls import reverse
+
 from rest_framework import status
+
 from .views import RegisterView, LoginView, LogoutView, HomeView, ProfilePageView
 from .models import User,UserManager
+
+from rest_framework.authtoken.models import Token
 from django.contrib.auth import get_user_model
 
 
@@ -86,3 +90,20 @@ class ProfilePageTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data["username"], data["username"])
         self.assertEqual(response.data["age"], data["age"])
+
+
+class LogoutTestCase(APITestCase):
+    def setUp(self):
+        self.factory = APIRequestFactory()
+        self.view = LogoutView.as_view()
+        self.url = reverse('logout')
+        self.user = {
+            "name":"Canan Karatay",
+            "email":"canan.karatay@gmail.com",
+            "password":"karatay.1359"
+        }
+    def test_logout(self):
+        self.token = Token.objects.get(user_username="Canan Karatay")
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
+        response = self.client.post(reverse('logout'))
+        self.assertEqual(response.status_code, status.HTTP_200_OK)

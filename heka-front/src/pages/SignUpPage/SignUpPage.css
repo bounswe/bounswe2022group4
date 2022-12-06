@@ -1,0 +1,25 @@
+.sing-up-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #252537;
+
+  width: 240px;
+  height: 50px;
+
+  margin-top: 2%;
+  padding: 15px;
+  background: #fff;
+  border-radius: 5px;
+
+  outline: none;
+  border: none;
+
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s linear;
+
+  margin: 7% auto;
+  letter-spacing: 0.05em;
+}
