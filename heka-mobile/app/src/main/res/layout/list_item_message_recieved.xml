@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginStart="12dp"
-            android:background="#E0E0E0"
+            android:background="@drawable/message_sent_shape"
             android:maxWidth="240dp"
             android:paddingLeft="12dp"
             android:paddingTop="6dp"
