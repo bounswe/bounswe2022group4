@@ -79,7 +79,19 @@
         <action
             android:id="@+id/action_profileFragment_to_chatFragment"
             app:destination="@id/ChatFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/EditProfileFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/EditProfileFragment"
+        android:name="com.bounswe.heka.profile.EditProfileFragment"
+        android:label="EditProfile"
+        tools:layout="@layout/fragment_profile_edit">
+    </fragment>
+
+
     <fragment
         android:id="@+id/CreatePostFragment"
         android:name="com.bounswe.heka.post.CreatePostFragment"

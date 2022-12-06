@@ -65,9 +65,25 @@ class ProfileFragment: Fragment() {
                             )
                         }
                         print(usernamex);
-                        if (usernamex != sessionManager.fetchUsername()){
-                            binding.chatButton.visibility = View.VISIBLE;
-                        }
+
+        }
+        if (viewModel.username.value != sessionManager.fetchUsername()){
+            binding.chatButton.visibility = View.VISIBLE;
+        }else{
+            binding.editProfileButton.visibility = View.VISIBLE;
+            binding.editProfileButton.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString("email", viewModel.state.value?.email ?: "")
+                bundle.putString("username", viewModel.state.value?.username ?: "")
+                bundle.putString("name", viewModel.state.value?.name ?: "")
+                bundle.putInt("age", viewModel.state.value?.age ?: 0)
+                bundle.putString("profile_image", viewModel.state.value?.profile_image ?: "")
+                bundle.putBoolean("is_expert", viewModel.state.value?.is_expert ?: false)
+                findNavController().navigate(
+                    R.id.action_profileFragment_to_editProfileFragment,
+                    bundle
+                )
+            }
         }
         viewModel.getProfile()
     }

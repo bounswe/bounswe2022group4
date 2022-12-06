@@ -18,13 +18,17 @@ class ProfileViewModel @Inject constructor() : ViewModel() {
 
 
     val logout = MutableLiveData<Boolean>()
+
+
     fun logout() {
         println("logout")
         viewModelScope.launch {
             try {
                 val response = ApiClient.get().logout()
                 logout.value = true
+
             } catch (e: Exception) {
+                logout.value = true
                 println(e.message)
 
             }

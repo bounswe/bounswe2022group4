@@ -7,6 +7,7 @@ import com.bounswe.heka.data.LoginRequest
 import com.bounswe.heka.data.LoginResponse
 import com.bounswe.heka.network.ApiClient
 import com.bounswe.heka.utils.EmailValidator
+import com.bounswe.heka.utils.NameValidator
 import com.bounswe.heka.utils.PasswordValidator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -26,6 +27,7 @@ class LoginViewModel @Inject constructor(): ViewModel() {
 
     private val emailValidator = EmailValidator()
     private val passwordValidator = PasswordValidator()
+
     init {
         email.observeForever {
             emailError.value = emailValidator.validate(it)
