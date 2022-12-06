@@ -8,7 +8,7 @@ class EmailValidatorUnitTest {
     @Test
     fun emailValidator_CorrectEmailSimple_ReturnsTrue() {
         val validEmails = listOf("heka@heka.com","haka.hake123@heke.com.tr","heka@eee.com")
-        val invalidEmails = listOf("fff", "@fvmfk.fff", "fff@fff")
+        val invalidEmails = listOf(null,"","fff", "@fvmfk.fff", "fff@fff")
         val emailValidator = EmailValidator()
         for (email in validEmails) {
             assertTrue(emailValidator.validate(email) == null)
