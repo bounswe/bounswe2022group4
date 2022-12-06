@@ -1,5 +1,6 @@
 package com.bounswe.heka.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bounswe.heka.data.post.ListPostsResponse
@@ -11,9 +12,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor() : ViewModel() {
-    val adapter = TimeLineAdapter(mutableListOf(), this::upvotePost, this::downvotePost)
 
+class HomeViewModel @Inject constructor(): ViewModel() {
+    val adapter = TimeLineAdapter(mutableListOf(), this::upvotePost, this::downvotePost, this::getProfileImage)
     fun fetchTimeline() {
         viewModelScope.launch {
             try {
@@ -67,5 +68,9 @@ class HomeViewModel @Inject constructor() : ViewModel() {
                 fetchTimeline()
             }
         }
+    }
+    suspend fun getProfileImage(username: String): String {
+
+        return ApiClient.get().getProfile(username).profile_image?:""
     }
 }

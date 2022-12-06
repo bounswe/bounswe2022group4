@@ -1,7 +1,7 @@
 package com.bounswe.heka.data.post
 
 data class FetchCommentsResponse (
-    val body: String,
+    var body: String,
     val username: String,
     val is_expert: Boolean,
     val updated_at: String,

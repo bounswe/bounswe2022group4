@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.bounswe.heka.post.EditPostViewModel" />
+            type="com.bounswe.heka.post.EditCommentViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -61,21 +61,12 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/create_post_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="@={viewModel.post.title}"
-                    android:hint="Title"
-                    android:inputType="text" />
-
-                <EditText
                     android:id="@+id/create_post_content"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_margin="10dp"
                     android:hint="Content"
-                    android:text="@={viewModel.post.body}"
+                    android:text="@={viewModel.comment.body}"
                     android:lines="8"
                     android:gravity="top|start"
                     android:inputType="textMultiLine" />

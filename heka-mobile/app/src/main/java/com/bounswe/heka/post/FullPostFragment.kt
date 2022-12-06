@@ -14,6 +14,9 @@ import com.bounswe.heka.network.SessionManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -35,6 +38,7 @@ class FullPostFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.closeButton.setOnClickListener {
             activity?.onBackPressed()
         }
@@ -49,6 +53,16 @@ class FullPostFragment: Fragment() {
             findNavController().navigate(R.id.action_fullPostFragment_to_editPostFragment, bundle)
         }
         viewModel.state.observe(viewLifecycleOwner) {
+            CoroutineScope(Dispatchers.IO).launch {
+                viewModel.state.value?.username?.let {
+                    viewModel.getProfileImage(it).let {
+                        CoroutineScope(Dispatchers.Main).launch {
+                            Glide.with(binding.root.context)
+                                .load(it).placeholder(R.drawable.temp_profile_photo).into(binding.timelineProfileImage)
+                        }
+                    }
+                }
+            }
             binding.timelineItemUpvote.apply {
                 isEnabled = !it.is_upvoted
                 text = it.upvote.toString()

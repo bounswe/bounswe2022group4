@@ -120,6 +120,15 @@
             app:destination="@id/HomeFragment" />
     </fragment>
     <fragment
+        android:id="@+id/EditCommentFragment"
+        android:name="com.bounswe.heka.post.EditCommentFragment"
+        android:label="Post"
+        tools:layout="@layout/fragment_edit_comment">
+        <action
+            android:id="@+id/action_editCommentFragment_to_homeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/FullPostFragment"
         android:name="com.bounswe.heka.post.FullPostFragment"
         android:label="Post Details"
@@ -133,5 +142,8 @@
         <action
             android:id="@+id/action_fullPostFragment_to_editPostFragment"
             app:destination="@id/EditPostFragment" />
+        <action
+            android:id="@+id/action_fullPostFragment_to_editCommentFragment"
+            app:destination="@id/EditCommentFragment" />
     </fragment>
 </navigation>

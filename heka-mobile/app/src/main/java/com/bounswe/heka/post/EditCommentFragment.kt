@@ -8,19 +8,20 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bounswe.heka.R
+import com.bounswe.heka.databinding.FragmentEditCommentBinding
 import com.bounswe.heka.databinding.FragmentEditPostBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class EditCommentFragment:Fragment() {
-    private lateinit var binding: FragmentEditPostBinding
-    private val viewModel: EditPostViewModel by viewModels()
+    private lateinit var binding: FragmentEditCommentBinding
+    private val viewModel: EditCommentViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentEditPostBinding.inflate(layoutInflater)
+        binding = FragmentEditCommentBinding.inflate(layoutInflater)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
@@ -36,7 +37,7 @@ class EditCommentFragment:Fragment() {
                 findNavController().popBackStack()
             }
         }
-        viewModel.fetchPost(arguments?.getString("slug","")!!)
+        viewModel.fetchComment(arguments?.getString("slug","")!!, arguments?.getString("id","")!!)
 
     }
 }

@@ -16,7 +16,7 @@ class FullPostViewModel @Inject constructor(): ViewModel() {
 
     val state =  MutableLiveData<TimelineListItemState>();
     var slug = MutableLiveData<String>()
-    val adapter = CommentAdapter(mutableListOf(), this::upvoteComment, this::downvoteComment, slug)
+    val adapter = CommentAdapter(mutableListOf(), this::upvoteComment, this::downvoteComment, slug, this::getProfileImage)
 
 
 
@@ -111,4 +111,8 @@ class FullPostViewModel @Inject constructor(): ViewModel() {
         }
     }
 
+    suspend fun getProfileImage(username: String): String {
+
+        return ApiClient.get().getProfile(username).profile_image?:""
+    }
 }
