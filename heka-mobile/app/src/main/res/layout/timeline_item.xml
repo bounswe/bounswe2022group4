@@ -1,58 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="viewModel"
             type="com.bounswe.heka.timeline.TimelineViewModel" />
+
         <variable
             name="state"
-            type="com.bounswe.heka.timeline.TimelineListItemState" />
+            type="com.bounswe.heka.timeline.TimelineListItemState" />>
     </data>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="120dp"
-    android:background="@color/purple_200"
-    android:layout_marginHorizontal="10dp"
-    android:layout_marginVertical="10dp">
 
-    <ImageView
-        android:id="@+id/timeline_item_image"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginHorizontal="10dp"
-        android:src="@color/black"/>
-
-    <TextView
-        android:id="@+id/timeline_item_title"
-        android:layout_width="0dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="10dp"
-        android:layout_marginHorizontal="10dp"
-        android:text="@{state.title}"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/timeline_item_image"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Death is everywhere" />
+        app:cardCornerRadius="10dp">
 
-    <TextView
-        android:id="@+id/timeline_item_description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:breakStrategy="balanced"
-        android:text="@{state.description}"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/timeline_item_title"
-        app:layout_constraintTop_toBottomOf="@+id/timeline_item_title"
-        tools:text="I see death people. Is it caused by a disease or too much fiction?" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/timeline_item_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="8dp"
+                    android:elevation="12dp"
+                    android:innerRadius="0dp"
+                    android:shape="ring"
+                    app:cardCornerRadius="50dp">
+
+                    <ImageView
+                        android:id="@+id/timeline_Profile_Image"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="centerCrop"
+                        tools:src="@drawable/nowzaradan"
+                        />
+                </androidx.cardview.widget.CardView>
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/timeline_item_author"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@{state.username}"
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif"
+                        android:textFontWeight="400"
+                        android:textColor="@color/black"
+                        tools:text="Younan Nowzaradan M.D." />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+                            android:id="@+id/timeline_item_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{state.updated_at}"
+                            android:textSize="12sp"
+                            android:paddingRight="36dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="11.01.2022 15:11:22" />
+
+                        <TextView
+                            android:id="@+id/timeline_location"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/timeline_item_date"
+                            android:text="@{state.location}"
+                            android:textSize="12sp"
+                            android:textAlignment="textEnd"
+                            tools:text="11.01.2022 15:11:21" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/timeline_image"
+                android:layout_width="match_parent"
+
+                android:layout_height="140dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/nowzaradan2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/timeline_item_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:text="@{state.title}"
+                    android:textSize="20sp"
+                    android:fontFamily="sans-serif"
+                    android:textFontWeight="800"
+                    android:textColor="@android:color/primary_text_light"
+                    tools:text="You should lose weight !!!" />
+                <TextView
+                    android:id="@+id/timeline_item_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:breakStrategy="balanced"
+                    android:maxLines="3"
+                    android:text="@{state.body}"
+                    android:textSize="15sp"
+
+                    tools:text="Laparoscopic evaluation was performed in 43 consecutive patients with right lower abdominal pain and preoperative diagnosis of possible appendicitis. Patients with generalized peritonitis and evidence of perforation of the appendix were not considered for laparoscopy. Visualization was sufficient for making a diagnosis in 97.7% of the cases. In 95%, laparoscopic findings were compatible with the pathology report. Thirty-five patients underwent successful laparoscopic appendectomy with neither intraoperative nor postoperative complications. No further surgery was required; slightly elevated temperatures in 6 patients responded to treatment with antibiotics, and there were no wound infections. Laparoscopic appendectomy is minimally invasive and results in less postoperative pain and morbidity and fewer adhesions and other long-term sequelae than conventional laparotomy. It is associated with superior cosmetic results, a shorter hospital stay, and faster return to normal activities. This experience suggests that if there is no evidence that the appendix is perforated or that generalized peritonitis exists and if qualified physicians and adequate facilities are available, patients presenting with right lower quadrant abdominal pain and possible appendicitis are best evaluated and treated with laparoscopic technique.
+
+
+" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/timeline_item_upvote"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:drawableLeft="@drawable/ic_baseline_thumb_up_alt_24"
+                        android:drawableTint="@drawable/upvote_color_selector"
+                        tools:text="21"
+                        android:textColor="@android:color/darker_gray"
+
+                        android:background="@android:color/transparent"
+                        android:enabled="@{!state._upvoted}" />
+
+                    <Button
+                        android:id="@+id/timeline_item_downvote"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:background="@android:color/transparent"
+                        android:drawableLeft="@drawable/ic_baseline_thumb_down_alt_24"
+                        android:drawableTint="@drawable/upvote_color_selector"
+                        tools:text="15"
+                        android:textColor="@android:color/darker_gray"
+                        android:enabled="@{!state._downvoted}" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+                    <ImageButton
+                        android:id="@+id/timeline_edit_button"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_baseline_create_24"
+                        android:background="@drawable/rounded_corner"
+
+
+                     />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
 </layout>
+
+

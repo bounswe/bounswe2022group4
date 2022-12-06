@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.bounswe.heka.profile.EditProfileViewModel"/>
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/close_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:drawableLeft="@drawable/ic_baseline_arrow_back_48"
+            />
+
+        <FrameLayout
+            android:id="@+id/rounded_purple"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/bottom_rounded_shape"
+            android:layout_width="match_parent"
+            android:paddingBottom="120dp"
+            android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/rounded_corner"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/profile_image_edit"
+                        android:layout_width="108dp"
+                        android:layout_height="108dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@color/white"
+                        android:elevation="20dp"
+                        android:padding="4dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                        tools:srcCompat="@drawable/temp_profile_photo"
+                        app:strokeColor="?attr/colorSurface"
+                        app:strokeWidth="4dp"
+                        android:layout_marginBottom="36dp"
+                        android:clickable="true"
+                        android:scaleType="centerCrop"
+                        />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:theme="@style/editTextStyle"
+                        android:id="@+id/usernameTextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:error="@{viewModel.nameError}"
+                        android:hint="User Name"
+                        app:errorTextColor="@color/white"
+                        app:placeholderTextColor="@color/teal_200"
+                        android:inputType="text"
+                        android:maxLines="1">
+
+                        <com.google.android.material.textfield.TextInputEditText
+
+                            android:id="@+id/usernameEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_shape"
+                            android:enabled="@{!viewModel.loading}"
+                            android:inputType="text"
+                            android:text="@={viewModel.name}"
+                            tools:text="adasdasdasdasd"
+                            android:textColor="@color/black"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/nicknameTextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:error="@{viewModel.usernameError}"
+                        android:hint="\@nickname"
+                        app:errorTextColor="@color/white"
+                        android:inputType="text"
+                        android:maxLines="1">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/nicknameEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_shape"
+                            android:enabled="@{!viewModel.loading}"
+                            android:inputType="text"
+                            android:textColor="@color/black"
+                            android:text="@={viewModel.username}"
+                             />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/ageTextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:hint="Age"
+                        app:errorTextColor="@color/white"
+                        android:inputType="numberDecimal"
+                        android:maxLines="1">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/ageEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_shape"
+                            android:enabled="@{!viewModel.loading}"
+                            android:inputType="numberDecimal"
+                            android:text="@={viewModel.age}"
+                            android:textColor="@color/black"
+                             />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/emailTextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:error="@{viewModel.emailError}"
+                        android:hint="Email"
+                        app:errorTextColor="@color/white"
+                        android:inputType="text"
+
+                        android:maxLines="1">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/emailEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_shape"
+                            android:enabled="@{!viewModel.loading}"
+                            android:inputType="textEmailAddress"
+                            android:text="@={viewModel.email}"
+                            android:textColor="@color/black"
+                             />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+
+
+        </FrameLayout>
+        <Button
+            app:layout_constraintTop_toBottomOf="@id/rounded_purple"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/edit_post_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:layout_marginHorizontal="100dp"
+            android:enabled="@{viewModel.editButtonEnabled}"
+            android:text="Save"
+            android:onClick="@{() -> viewModel.editProfile()}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
