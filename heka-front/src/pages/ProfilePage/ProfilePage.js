@@ -473,8 +473,9 @@ const ProfilePage = ({ isLogged, authenticationToken, loggedInUser }) => {
           zIndex: "214783647",
           width: "320px",
           height: "40px",
-          maxHeight:"400px"
+          maxHeight:"399px"
         }}
+        // Commit.
       >
         <MessageChat
           authenticatonToken={authenticationToken}
