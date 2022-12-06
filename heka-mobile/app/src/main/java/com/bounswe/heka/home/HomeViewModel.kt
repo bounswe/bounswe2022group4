@@ -66,6 +66,6 @@ class HomeViewModel @Inject constructor(): ViewModel() {
     }
     suspend fun getProfileImage(username: String): String {
 
-        return ApiClient.get().getProfile(username).profile_image?:"https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg"
+        return ApiClient.get().getProfile(username).profile_image?:""
     }
 }
