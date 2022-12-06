@@ -1,5 +1,4 @@
 """heka URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
 Examples:
@@ -39,6 +38,5 @@ schema_swagger = get_schema_view(openapi.Info(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/user/', include("users.urls")),
-    path('api/post/', include("posts.urls")),
     path('swagger/', schema_swagger.with_ui('swagger', cache_timeout=0), name='swagger-ui'),
 ]
