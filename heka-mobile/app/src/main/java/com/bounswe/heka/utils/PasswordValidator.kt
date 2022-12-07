@@ -24,3 +24,14 @@ class PasswordValidator {
 
     private fun Char.isSpecialCharacter() = !isDigit() && !isLetter()
 }
+
+class DoublePasswordValidator{
+    val pW: PasswordValidator = PasswordValidator()
+    fun validate(password1: String?, password2: String?): String? {
+        if (password1 == password2) {
+            return pW.validate(password1)
+        }
+        return "Passwords should be equal!"
+    }
+
+}

@@ -27,7 +27,7 @@
             android:text="Login"
             android:id="@+id/header_title"
             android:textColor="?attr/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="26sp"
             android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputLayout
