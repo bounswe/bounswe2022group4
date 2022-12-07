@@ -19,13 +19,13 @@ class DoublePasswordValidatorUnitTest {
             Pair("nouppercase!123","nouppercase!123"),
             Pair("validBut1!different","validBut!2different"),
             )
-        
+
         val doublepassvalidator = DoublePasswordValidator()
         for (p in validPass) {
-            Assert.assertTrue(doublepassvalidator.validate(p.first, p.second) == null)
+            assert(doublepassvalidator.validate(p.first, p.second) == null)
         }
         for (p in unvalidEmails) {
-            Assert.assertTrue(doublepassvalidator.validate(p.first, p.second) != null)
+            assert(doublepassvalidator.validate(p.first, p.second) != null)
         }
     }
 }
