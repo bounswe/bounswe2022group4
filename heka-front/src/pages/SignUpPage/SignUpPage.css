@@ -1,4 +1,4 @@
-.sing-up-button {
+.sign-up-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,4 +22,30 @@
 
   margin: 7% auto;
   letter-spacing: 0.05em;
+}
+
+.sign-up-button:hover {
+  transform: translatey(3px);
+  box-shadow: none;
+}
+
+.sign-up-button:hover {
+  animation: ani9 0.4s ease-in-out infinite alternate;
+}
+
+
+.tab-text {
+  font-family: 'Playfair Display', serif;
+  color: #3e403f;
+}
+.input-item-diploma {
+  background: #fff;
+  color: #333;
+  border-radius: 0px 5px 5px 0px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+  padding: 15px;
 }
