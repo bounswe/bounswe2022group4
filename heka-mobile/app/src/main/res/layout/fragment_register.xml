@@ -21,8 +21,7 @@
             android:gravity="center"
             android:text="Register"
             android:textColor="?attr/colorPrimary"
-
-            android:textSize="26sp"
+            android:id="@+id/header_title"
             android:textStyle="bold" />
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailTextInputLayout"
@@ -91,6 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_marginBottom="16dp"
+            android:id="@+id/submit_button"
             android:enabled="@{viewModel.signUpButtonEnabled}"
             android:onClick="@{() -> viewModel.onSignupButtonClick()}"
             android:text="@string/sign_up" />

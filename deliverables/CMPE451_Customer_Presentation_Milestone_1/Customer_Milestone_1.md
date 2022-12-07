@@ -3,8 +3,8 @@
 * [Software Design (UML)](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram)
 * [Scenarios](https://github.com/bounswe/bounswe2022group4/wiki/451-Milestone-1-Scenarios) and [Mockups](https://github.com/bounswe/bounswe2022group4/wiki/Mockups)
 * [Project Plan](https://github.com/bounswe/bounswe2022group4/wiki/Project-Plan)
-* Individual Contribution Reports
-* Customer Milestone 1 Group Review
+* [Individual Contribution Reports]()
+* [Customer Milestone 1 Group Review](https://github.com/bounswe/bounswe2022group4/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_1/Customer_Milestone_1.md#customer-milestone-1-group-review)
 
 # **INDIVIDUAL REPORTS**
 
@@ -558,7 +558,3 @@ I made some info updateson my personal wiki page. I also revisioned the sidebar 
   * [Update tests.py](https://github.com/bounswe/bounswe2022group4/pull/321)
   * [Heka mobile](https://github.com/bounswe/bounswe2022group4/pull/323)
 </details>
-
-
-
-# **Customer Milestone 1 Group Review**

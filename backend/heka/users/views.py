@@ -81,4 +81,3 @@ class LogoutView(APIView):
         request.user.auth_token.delete()
         logout(request)
         return Response(data = {'message':'Logout succesful!'}, status = status.HTTP_200_OK)
-
