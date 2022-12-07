@@ -51,7 +51,25 @@ class ChangeTextBehaviorKtTest {
         // Check there is no password so button will be not enabled.
         onView(withId(R.id.submit_button)).check(matches(isEnabled()))
     }
-    
+    @Test
+    fun go_register() {
+        onView(withId(R.id.textButton)).perform(click())
+        //navigated to register page
+        onView(withId(R.id.header_title)).check(matches(withText("Register")))
+        //which will go navigate back to login page
+//        onView(withId(R.id.header_title)).check(matches(withText("Login")))
+    }
+
+    @Test
+    fun go_register_and_come_back_null() {
+        onView(withId(R.id.textButton)).perform(click())
+        //navigated to register page
+        onView(withId(R.id.header_title)).check(matches(withText("Register")))
+        //which will go navigate back to login page
+        onView(withId(R.id.textButton)).perform(click())
+       //navigated to register page
+        onView(withId(R.id.header_title)).check(matches(withText("Login")))
+    }
 
     companion object {
 
