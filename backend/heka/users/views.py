@@ -1,29 +1,33 @@
-from importlib import import_module
-from django.shortcuts import render
-from requests import request
-#from httplib2 import Response
-from yaml import serialize
-from rest_framework.views import APIView
-from rest_framework.response import Response
 from rest_framework.exceptions import AuthenticationFailed
-from .serializers import UserSerializer
 from .models import User
-import jwt, datetime
 from drf_yasg.utils import swagger_auto_schema 
 from drf_yasg import openapi
-from rest_framework.decorators import api_view
 from rest_framework import status
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .models import User
+from .serializers import UserSerializer
+from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.authtoken.models import Token
+from django.contrib.auth import authenticate, login, logout
 
-#@swagger_auto_schema(methods=['post',],request_body=UserSerializer )
+
+
 class RegisterView(APIView):
-    @swagger_auto_schema(request_body = UserSerializer, response=UserSerializer) #manual_parameters=parameters)
+    permission_classes = [AllowAny]
+    @swagger_auto_schema(request_body = UserSerializer, response=UserSerializer) 
     def post(self, request):
         serializer = UserSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save() 
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        if serializer.is_valid():
+            user = serializer.save()
+            user.save()
+            token = Token.objects.get_or_create(user=user)[0].key
+            return Response(data = {'message':'Registration succesful!', 'email':user.email, 'token':token}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
 class LoginView(APIView):
+    permission_classes = [AllowAny]
     login_schema = openapi.Schema(
     type=openapi.TYPE_OBJECT,
     properties={
@@ -37,58 +41,43 @@ class LoginView(APIView):
         email = request.data["email"]
         password = request.data["password"]
 
-        
         user = User.objects.filter(email=email).first()
-
         if user is None:
-            raise AuthenticationFailed("user not found!")
+            raise AuthenticationFailed("User not found!")
         if not user.check_password(password):
-            raise AuthenticationFailed("incorrect password")
+            raise AuthenticationFailed("Incorrect password!")
+       
+        try:
+            token = Token.objects.get(user=user)
+        except Token.DoesNotExist:
+            user = authenticate(username=email, password=password)
+            token = Token.objects.get_or_create(user=user)[0].key
+            login(request, user)
+            return  Response( {'message':'Login succesful!', 'email':email, 'token':token}, status=status.HTTP_200_OK)
+        else:
+            return Response(data = {'message':'Already logged in!', 'email':email, 'token': Token.objects.get_or_create(user=user)[0].key })
         
-        payload = {
-            "id": user.id,
-            "exp": datetime.datetime.utcnow() + datetime.timedelta(days=1),
-            "iat": datetime.datetime.utcnow()
-        }
-
-        encoded_jwt = jwt.encode(payload, "secret", algorithm="HS256")
-        
-        response = Response(status=status.HTTP_200_OK)
-        response.set_cookie(key="jwt", value=encoded_jwt, httponly=True)
-        response.data = {
-            "jwt": encoded_jwt
-        }
-        return response
+      
 
 class HomeView(APIView):
-    parameters=[]
-    parameters.append(openapi.Parameter('jwt', in_ = 'cookie', type=openapi.TYPE_STRING))
-    @swagger_auto_schema(manual_parameters=parameters) 
+    permission_classes = [AllowAny]
+    authentication_classes = [TokenAuthentication]
+    @swagger_auto_schema() 
     def get(self, request):
-        token = request.COOKIES.get("jwt")
-        
-        if not token:
-            raise AuthenticationFailed("unauthenticated user!")
-        
         try:
-            decoded_jwt = jwt.decode(token, "secret", algorithms=["HS256"])
-        except jwt.ExpiredSignatureError:
-            raise AuthenticationFailed("JWT signature error!")
-
-        user = User.objects.filter(id=decoded_jwt["id"]).first()
-        serializer = UserSerializer(user)
-
-        return Response(serializer.data)
+            user = Token.objects.get(key=request.auth.key).user
+            token = Token.objects.get(user=user)
+        except:
+            return Response( data = {'status':'Guest User'}, status=status.HTTP_200_OK)
+        
+        return Response(data = {'status':'Registered User', 'email':user.email, 'token': Token.objects.get_or_create(user=user)[0].key},
+                status = status.HTTP_200_OK)
 
 class LogoutView(APIView):
-    parameters=[]
-    parameters.append(openapi.Parameter('jwt', in_ = 'cookie', type=openapi.TYPE_STRING))
-    @swagger_auto_schema(manual_parameters=parameters) 
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication] 
+    @swagger_auto_schema() 
     def get(self, request):
-        response = Response()
-        response.delete_cookie("jwt")
-        response.data = {
-            "message": "Logout success."
-        }
-        return response
-
+        request.user.auth_token.delete()
+        logout(request)
+        return Response(data = {'message':'Logout succesful!'}, status = status.HTTP_200_OK)
