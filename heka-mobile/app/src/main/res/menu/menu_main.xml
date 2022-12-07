@@ -8,9 +8,9 @@
         android:title="HOME"
         app:showAsAction="never" />
     <item
-        android:id="@+id/ChatListFragment"
+        android:id="@+id/TimelineFragment"
         android:orderInCategory="100"
-        android:title="CHAT"
+        android:title="TIMELINE"
         app:showAsAction="never" />
     <item
         android:id="@+id/ProfileFragment"

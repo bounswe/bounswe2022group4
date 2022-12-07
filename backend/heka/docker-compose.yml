@@ -24,6 +24,7 @@ services:
       - POSTGRES_NAME=heka_db
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=1234
-      - DEBUG=True
+      - DEBUG=False
+
 volumes:
   db-volume:

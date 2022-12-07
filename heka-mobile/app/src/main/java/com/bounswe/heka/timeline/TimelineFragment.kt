@@ -21,6 +21,7 @@ class TimelineFragment: Fragment() {
         binding = FragmentTimelineBinding.inflate(layoutInflater)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+        binding.adapter = TimeLineAdapter((0..20).map { TimelineListItemState() })
         return binding.root
     }
 

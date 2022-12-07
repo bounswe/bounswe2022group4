@@ -14,13 +14,13 @@ class RegisterTestCase(APITestCase):
         self.url = reverse('register')
     def test_register(self):
         data = {
+            "name":"Canan Karatay",
             "email":"canan.karatay@gmail.com",
-            "password":"karatay.1359",
-            "is_expert": False
+            "password":"karatay.1359"
         }
         request = self.factory.post(self.url, data)
         response = self.view(request)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
 class LoginTestCase(APITestCase):
     def setUp(self):
@@ -28,9 +28,9 @@ class LoginTestCase(APITestCase):
         self.view = LoginView.as_view()
         self.url = reverse('login')
         self.user = {
+            "name":"Canan Karatay",
             "email":"canan.karatay@gmail.com",
-            "password":"karatay.1359",
-            "is_expert":False
+            "password":"karatay.1359"
         }
     def test_login(self):
         request = self.factory.post( reverse('register'), self.user)
