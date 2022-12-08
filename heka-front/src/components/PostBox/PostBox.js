@@ -3,7 +3,7 @@ import Post from '../Post/Post';
 import './PostBox.css';
 import { Button } from '@material-ui/core';
 import PostAddIcon from '@mui/icons-material/PostAdd';
-import CreatePost from '../../components/CreatePost/CreatePost';
+import CreatePost from '../CreatePost/CreatePost';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { BackendApi } from '../../api';

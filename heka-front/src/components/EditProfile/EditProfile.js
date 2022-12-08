@@ -17,7 +17,7 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { useState } from "react";
-import { MessageChat } from "../../components/Chat/MessageChat";
+import { MessageChat } from "../Chat/MessageChat";
 const userData = [
     {
       id: "0",
