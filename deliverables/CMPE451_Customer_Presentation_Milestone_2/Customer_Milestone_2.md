@@ -140,11 +140,13 @@
 ### **Responsibilities**
 - I was mainly responsible for implementing Chat model.
 - My other responsibility was development of the existing User model by adding Forget Password functionality.
+- Lastly, preparation of the API Documentation page. 
 
 
 ### **Main contributions**
 - Backend: Implementation of Chat APIs.
 - Backend: Development of the existing User model via adding Forget Password functionality.
+- Management: Preperation of the API Documentation page.
 
 #### **Code Related Significant Issues**
 * [Implementation of the Chat API](https://github.com/bounswe/bounswe2022group4/issues/348)
