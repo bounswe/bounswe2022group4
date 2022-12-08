@@ -94,6 +94,15 @@ export const fetchUsersForChat = (authenticationToken) => {
   ApiInstance.setHeader("Authorization", authenticationToken);
   return ApiInstance.get("api/chat/fetch/users");
 };
+export const getProfile = (username, authenticationToken) => {
+  ApiInstance.setHeader('Authorization', authenticationToken);
+  return ApiInstance.get('api/user/profilepage/' + username);
+};
+export const setProfile = ( email,username,is_expert,is_admin,age,namee,lastLogin,profileImage,authenticationToken) => {
+  ApiInstance.setHeader('Authorization', authenticationToken);
+  return ApiInstance.put('api/user/profilepage/' + username + '/'); 
+ 
+  };
 export const postEditPost = (
   slug,
   title,
