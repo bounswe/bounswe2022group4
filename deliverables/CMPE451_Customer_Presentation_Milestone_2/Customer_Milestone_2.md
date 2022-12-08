@@ -84,6 +84,7 @@
 |Reset password functionality added|[PR](https://github.com/bounswe/bounswe2022group4/pull/458)|
 |0.2.0 - Cumulative update|[PR](https://github.com/bounswe/bounswe2022group4/pull/447)|
 |Mobile: Several Functionalities and Tests added|[PR](https://github.com/bounswe/bounswe2022group4/pull/477)|
+|Individual report parts added|[PR](https://github.com/bounswe/bounswe2022group4/pull/491)|
 |Mobile: Login Page Instrumental Tests|[test](https://github.com/bounswe/bounswe2022group4/issues/476)|
 |Mobile: Double Password Validator Tests|[test](https://github.com/bounswe/bounswe2022group4/issues/475)|
 
@@ -155,14 +156,15 @@
   
 #### Standarts
 ***  
-  text
+
 
 </br>
+
 ## Individual Reports
 
 --------------------------  
 
-# **INDIVIDUAL REPORTS**
+# INDIVIDUAL REPORTS
 
 <details>
 <summary>
@@ -324,6 +326,7 @@
 *  [Reset password functionality added](https://github.com/bounswe/bounswe2022group4/pull/458)
 *  [0.2.0 - Cumulative update](https://github.com/bounswe/bounswe2022group4/pull/447)
 *  [Mobile: Several Functionalities and Tests added](https://github.com/bounswe/bounswe2022group4/pull/477)
+*  [Individual report parts added](https://github.com/bounswe/bounswe2022group4/pull/491)
 
 #### **Test Cases**
 * [Mobile: Login Page Instrumental Tests](https://github.com/bounswe/bounswe2022group4/issues/476)
