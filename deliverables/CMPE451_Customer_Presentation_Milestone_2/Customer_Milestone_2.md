@@ -169,6 +169,4 @@
   
 ###
 </details>
-
- <summary>
-
+<details>
