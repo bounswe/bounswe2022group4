@@ -153,7 +153,7 @@
 * [Implement unit tests for APIs related to Chat model](https://github.com/bounswe/bounswe2022group4/issues/483)
 
 #### **Management Related Significant Issues**
-
+* [Management: API Documentation page will be prepared.](https://github.com/bounswe/bounswe2022group4/issues/486)  
   
 ### **Pull Requests**
 *  [Chat Application is Implemented.](https://github.com/bounswe/bounswe2022group4/pull/368) heka-backend-chat -> heka-backend
