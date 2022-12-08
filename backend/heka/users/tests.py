@@ -19,7 +19,7 @@ class RegisterTestCase(APITestCase):
     def test_register(self):
         data = {
             "email":"canan.karatay@gmail.com",
-            "username":"melih",
+            "username":"canankrty",
             "password":"karatay.1359",
             "is_expert": False
         }
@@ -34,6 +34,7 @@ class LoginTestCase(APITestCase):
         self.url = reverse('login')
         self.user = {
             "email":"canan.karatay@gmail.com",
+            "username":"canankrty"
             "password":"karatay.1359",
             "is_expert":False
         }
