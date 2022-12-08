@@ -126,5 +126,49 @@
  <summary>
 
 
+<details>
+  <summary>
+    
+###  **Oğuzhan Tok - Group 4**    
+    
+ </summary>
 
+###  **Member**
+- Student ID: 2019400267
+- Email: oguzhan.tok@boun.edu.tr
+- Personal Wiki: [Oğuzhan Tok](https://github.com/bounswe/bounswe2022group4/wiki/Oğuzhan-Tok)
+- Team: Backend Development Team
+  
+### **Responsibilities**
+- I was mainly responsible for implementing Chat model and Forget Password functionality.
+- My other responsibilities were fixing the existing User model, authenticaiton mechanism, implementing basic search functionalities, and revisiting [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)
+
+
+### **Main contributions**
+- Backend: Implementation of Chat APIs.
+- Backend: Development of the existing User model via adding Forget Password functionality.
+
+#### **Code Related Significant Issues**
+* [Implementation of the Chat API](https://github.com/bounswe/bounswe2022group4/issues/348)
+* [Implement a endpoint to fetch messaged users for Chat Application](https://github.com/bounswe/bounswe2022group4/issues/485)
+* [Implementation of the Forget Password Functionality](https://github.com/bounswe/bounswe2022group4/issues/407)
+* [Implement unit tests for APIs related to Forget Password Functionality](https://github.com/bounswe/bounswe2022group4/issues/484)
+* [Implement unit tests for APIs related to Chat model](https://github.com/bounswe/bounswe2022group4/issues/483)
+
+#### **Management Related Significant Issues**
+
+  
+### **Pull Requests**
+*  [Chat Application is Implemented.](https://github.com/bounswe/bounswe2022group4/pull/368) heka-backend-chat -> heka-backend
+*  [An endpoint to fetch messaged users implemented.](https://github.com/bounswe/bounswe2022group4/pull/375) heka-backend-chat -> heka-backend
+*  [Forget Password functionality implemented for the User model.](https://github.com/bounswe/bounswe2022group4/pull/406) heka-backend-forget-password -> heka-backend
+
+#### **Test Cases**
+*  [Two test cases implemented for the Forget Password functionality.](https://github.com/bounswe/bounswe2022group4/commit/be581a6ea2ce0598798efa21ca4585b1707a0bf0) 
+*  [Three test cases implemented for the Chat model.](https://github.com/bounswe/bounswe2022group4/commit/092a58c7f59b37e6d52bb0fe8299a59b6ccc10df)    
+  
+###
+</details>
+<details>
+ <summary>
 
