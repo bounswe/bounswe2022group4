@@ -15,7 +15,9 @@
 3. [Individual Reports](#individual-reports)
 
 ***
+
 </br>
+
 ## Executive Summary
 ***
 
@@ -33,11 +35,16 @@
 
 
 </br>
+
 ## Progress Based on Teamwork
 ***
 
+
+
 ### Summary of Individual Work
 ***
+
+
 
 - **Fatih Akgöz**
 
