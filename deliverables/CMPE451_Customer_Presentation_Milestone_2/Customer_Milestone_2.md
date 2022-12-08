@@ -147,7 +147,6 @@
 
 #### **Code Related Significant Issues**
 * [Implementation of the Chat API](https://github.com/bounswe/bounswe2022group4/issues/348)
-* [Implement a endpoint to fetch messaged users for Chat Application](https://github.com/bounswe/bounswe2022group4/issues/485)
 * [Implementation of the Forget Password Functionality](https://github.com/bounswe/bounswe2022group4/issues/407)
 * [Implement unit tests for APIs related to Forget Password Functionality](https://github.com/bounswe/bounswe2022group4/issues/484)
 * [Implement unit tests for APIs related to Chat model](https://github.com/bounswe/bounswe2022group4/issues/483)
