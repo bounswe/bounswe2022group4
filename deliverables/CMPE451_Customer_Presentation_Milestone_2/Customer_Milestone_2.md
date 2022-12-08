@@ -3,7 +3,7 @@
 * [Software Design (UML)](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram)
 * [Scenarios](https://github.com/bounswe/bounswe2022group4/wiki/451-Milestone-1-Scenarios) and [Mockups](https://github.com/bounswe/bounswe2022group4/wiki/Mockups)
 * [Project Plan](https://github.com/bounswe/bounswe2022group4/wiki/Project-Plan)
-* [API Documentation] (https://github.com/bounswe/bounswe2022group4/wiki/API-Documentation)
+* [API Documentation](https://github.com/bounswe/bounswe2022group4/wiki/API-Documentation)
 * [Customer Milestone 2 Group Review](https://github.com/bounswe/bounswe2022group4/edit/master/deliverables/CMPE451_Customer_Presentation_Milestone_2/Customer_Milestone_2.md)
 * [Individual Contribution Reports]()
 
