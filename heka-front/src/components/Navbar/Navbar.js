@@ -16,7 +16,10 @@ const Navbar = ({ isLogged }) => {
             <Link to='/profile' activeStyle className='navv-link'>
               Profile
             </Link>
-          )}
+          )} 
+        <Link to='/editprofile' activeStyle className='navv-link'>
+          Edit Profile
+        </Link>
         </div>
         {!isLogged ? (
           <div className='navv-button'>
