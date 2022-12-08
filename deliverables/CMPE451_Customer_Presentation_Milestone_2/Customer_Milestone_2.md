@@ -65,21 +65,21 @@
 
 
     
+    
 <details>
   <summary>
- 
     
 ###  **Yusuf Bayındır - Group 4**    
+    
+ </summary>
 
-  </summary>
-
-  ### **Member**
+###  **Member**
 - Student ID: 2017400042
 - Email: yusuf.bayindir@boun.edu.tr
 - Personal Wiki: [Yusuf Bayındır](https://github.com/bounswe/bounswe2022group4/wiki/Yusuf-Bay%C4%B1nd%C4%B1r)
 - Team: Backend Development Team
   
-  ### **Responsibilities**
+### **Responsibilities**
 - I was mainly responsible for implementing Post and Comment models.
 - My other responsibilities were fixing the existing User model, authenticaiton mechanism, implementing basic search functionalities, and revisiting [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)
 
