@@ -4,7 +4,7 @@ from django.urls import reverse
 
 from rest_framework import status
 
-from .views import RegisterView, LoginView, LogoutView, HomeView, ProfilePageView
+from .views import RegisterView, LoginView, LogoutView, HomeView, ProfilePageView, ForgetPasswordView, ResetPasswordView
 from .models import User,UserManager
 
 from rest_framework.authtoken.models import Token
@@ -107,4 +107,47 @@ class LogoutTestCase(APITestCase):
         self.token = Token.objects.get(user_username="Canan Karatay")
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
         response = self.client.post(reverse('logout'))
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        
+
+class ForgetPasswordTestCase(APITestCase):
+    def setUp(self):
+        self.factory = APIRequestFactory()
+
+        self.view_forget = ForgetPasswordView.as_view()
+        self.view_reset = ResetPasswordView.as_view()
+        
+        self.url_forget = "/api/user/forget_password"
+        self.url_reset = "/api/user/reset_password"
+
+        self.data = {
+            "email": "forget_password_test@gmail.com",
+            "username": "forget_password_test",
+            "password": "1234",
+            "is_expert": False
+        }
+        self.test_user = User.objects.create(**self.data)
+
+    def test_forget(self):
+        data = {
+            "email": self.test_user.email
+        }
+
+        request = self.factory.post(self.url_forget, data, format="json")
+
+        force_authenticate(request, user=self.test_user)
+        response = self.view_forget(request)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+    
+    def test_reset(self):
+        data = {
+            "code": 111111 + self.test_user.id,
+            "new_password": "test_pass",
+            "confirm_new_password": "test_pass"
+        }
+
+        request = self.factory.post(self.url_reset, data, format="json")
+
+        force_authenticate(request, user=self.test_user)
+        response = self.view_reset(request)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
