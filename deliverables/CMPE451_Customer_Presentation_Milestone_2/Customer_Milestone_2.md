@@ -85,8 +85,11 @@
 
 
 ### **Main contributions**
-- Backend development: Implementation of Post and Comment models.
-- Revision on Requirements. [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)
+- Backend: Implementation of Post and Comment APIs.
+- Backend: Development of the existing User model.
+- Backend: Authentication mechanism modification.
+- Backend: Implementation of basic Search APIs.
+- Requirements: Revision on Requirements. [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)
 
 #### **Code Related Significant Issues**
 * [Modification of the User model](https://github.com/bounswe/bounswe2022group4/issues/338)
@@ -99,10 +102,8 @@
 * [Modification of response bodies upon request from other teams.](https://github.com/bounswe/bounswe2022group4/issues/395)
 * [Implementing basic search functionalities.](https://github.com/bounswe/bounswe2022group4/issues/431)
 
-
 #### **Management Related Significant Issues**
 * [Revision on requirements](https://github.com/bounswe/bounswe2022group4/issues/226)
-
   
 ### **Pull Requests**
 *  [Post and Comment model implementation initiated.](https://github.com/bounswe/bounswe2022group4/pull/346)
@@ -116,6 +117,10 @@
 *  [Implementation of user and post search.](https://github.com/bounswe/bounswe2022group4/pull/432)
 *  [API for listing Comments.](https://github.com/bounswe/bounswe2022group4/pull/438)
 
+#### **Test Cases**
+* Rewriting test cases upon modification of User model.
+  
+###
 </details>
 <details>
  <summary>
