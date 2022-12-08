@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Comment from '../../components/Comment/Comment';
+import Comment from '../Comment/Comment';
 import { BackendApi } from '../../api';
 
 const CommentBox = ({
