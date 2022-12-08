@@ -85,9 +85,7 @@
 
 
 ### **Main contributions**
-- Note taker. [CMPE451-General Meeting #1](https://github.com/bounswe/bounswe2022group4/wiki/Meeting-%231,-10.10.2022), [Backend Meeting #1](https://github.com/bounswe/bounswe2022group4/wiki/Backend-Team-Meeting-%231,-20.10.2022)
-- Organizing Wiki. [Branch Management](https://github.com/bounswe/bounswe2022group4/wiki/Branch-Management)
-- Backend development: 
+- Backend development: Implementation of Post and Comment models.
 - Revision on Requirements. [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)
 
 #### **Code Related Significant Issues**
@@ -105,7 +103,7 @@
 #### **Management Related Significant Issues**
 * [Revision on requirements](https://github.com/bounswe/bounswe2022group4/issues/226)
 
-
+  
 ### **Pull Requests**
 *  [Post and Comment model implementation initiated.](https://github.com/bounswe/bounswe2022group4/pull/346)
 *  [Authentication mechanism modified.](https://github.com/bounswe/bounswe2022group4/pull/353)
