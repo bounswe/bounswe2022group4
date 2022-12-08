@@ -121,6 +121,7 @@ The further features which will be implemented in final milestone is like below:
 |0.2.0 - Cumulative update|[PR](https://github.com/bounswe/bounswe2022group4/pull/447)|
 |Mobile: Several Functionalities and Tests added|[PR](https://github.com/bounswe/bounswe2022group4/pull/477)|
 |Individual report parts added|[PR](https://github.com/bounswe/bounswe2022group4/pull/491)|
+|Executive Summary Part filled|[PR](https://github.com/bounswe/bounswe2022group4/pull/492)|
 |Mobile: Login Page Instrumental Tests|[test](https://github.com/bounswe/bounswe2022group4/issues/476)|
 |Mobile: Double Password Validator Tests|[test](https://github.com/bounswe/bounswe2022group4/issues/475)|
 
@@ -380,12 +381,14 @@ The further features which will be implemented in final milestone is like below:
 * [Milestone-2 Report: Individual Report](https://github.com/bounswe/bounswe2022group4/issues/490)
 * [Management: Executive Summary for Milestone 2 Review](https://github.com/bounswe/bounswe2022group4/issues/489)
 
+
   
 ### **Pull Requests**
 *  [Reset password functionality added](https://github.com/bounswe/bounswe2022group4/pull/458)
 *  [0.2.0 - Cumulative update](https://github.com/bounswe/bounswe2022group4/pull/447)
 *  [Mobile: Several Functionalities and Tests added](https://github.com/bounswe/bounswe2022group4/pull/477)
 *  [Individual report parts added](https://github.com/bounswe/bounswe2022group4/pull/491)
+*  [Executive Summary Part filled](https://github.com/bounswe/bounswe2022group4/pull/492)
 
 #### **Test Cases**
 * [Mobile: Login Page Instrumental Tests](https://github.com/bounswe/bounswe2022group4/issues/476)
