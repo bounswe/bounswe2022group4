@@ -1,11 +1,145 @@
-# **DELIVERABLES**
-* [Software Requirements Specification](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)
-* [Software Design (UML)](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram)
-* [Scenarios](https://github.com/bounswe/bounswe2022group4/wiki/451-Milestone-1-Scenarios) and [Mockups](https://github.com/bounswe/bounswe2022group4/wiki/Mockups)
-* [Project Plan](https://github.com/bounswe/bounswe2022group4/wiki/Project-Plan)
-* [API Documentation](https://github.com/bounswe/bounswe2022group4/wiki/API-Documentation)
-* [Customer Milestone 2 Group Review](https://github.com/bounswe/bounswe2022group4/edit/master/deliverables/CMPE451_Customer_Presentation_Milestone_2/Customer_Milestone_2.md)
-* [Individual Contribution Reports]()
+# Group 2 - Milestone 2 - Group Review
+
+1. [Executive Summary](#executive-summary)
+	* 1.1 Summary of the Project Status
+	* 1.2 Changes the team has made or planned since Milestone 1 to improve development process, and how those changes will impact the process
+	* 1.3 The Improvements Planned for the Remainder of the Project
+2. [Progress Based on Teamwork](#progress-based-on-teamwork)
+	* 2.1 Summary of Individual Work
+	* 2.2 Status of the Deliverables of Milestone 1
+	* 2.3 Progress According to Requirements
+	* 2.4 API Endpoints
+	* 2.5 User Interface / User Experience
+	* 2.6 Annotations
+	* 2.7 Standards
+3. [Individual Reports](#individual-reports)
+
+***
+</br>
+## Executive Summary
+***
+
+
+### Summary of the Project Status:
+***
+
+
+### Changes the team has made or planned since Milestone 1 to improve development process, and how those changes will impact the process:
+***
+
+
+### The Improvements Planned for the Remainder of the Project:
+***
+
+
+</br>
+## Progress Based on Teamwork
+***
+
+### Summary of Individual Work
+***
+
+- **Fatih Akgöz**
+
+|Work Title|Related Link|
+| ----------- | ----------- |
+|My issue|[PR](xd.com)|
+
+- **İbrahim Melih Aktaş**
+
+|Work Title|Related Link|
+| ----------- | ----------- |
+|My issue|[PR](xd.com)|
+
+- **Yusuf Bayındır**
+
+|Work Title|Related Link|
+| ----------- | ----------- |
+|My issue|[PR](xd.com)|
+
+
+- **Berat Damar**
+
+|Work Title|Related Link|
+| ----------- | ----------- |
+|My issue|[PR](xd.com)|
+
+- **Erdinç Günaydın**
+
+|Work Title|Related Link|
+| ----------- | ----------- |
+|My issue|[PR](xd.com)|
+
+- **Miraç Batuhan Malazgirt**
+
+|Work Title|Related Link|
+| ----------- | ----------- |
+|My issue|[PR](xd.com)|
+
+- **Halil Salih Orhan**
+
+|Work Title|Related Link|
+| ----------- | ----------- |
+|My issue|[PR](xd.com)|
+
+- **Yiğit Can Özkaya**
+
+|Work Title|Related Link|
+| ----------- | ----------- |
+|My issue|[PR](xd.com)|
+
+- **Umut Deniz Şener**
+
+|Work Title|Related Link|
+| ----------- | ----------- |
+|My issue|[PR](xd.com)|
+
+- **Oğuzhan Tok**
+
+|Work Title|Related Link|
+| ----------- | ----------- |
+|My issue|[PR](xd.com)|
+
+- **Elif Tokluoğlu**
+
+|Work Title|Related Link|
+| ----------- | ----------- |
+|My issue|[PR](xd.com)|
+
+
+
+
+
+</br>
+### Status of the Deliverables of Milestone 1
+***
+
+### Progress According to Requirements
+***
+
+### API Endpoints
+***
+
+### User Interface / User Experience
+***
+
+### Annotations
+***
+
+#### Status
+***
+  
+  
+
+  
+#### Standarts
+***  
+  text
+
+</br>
+## Individual Reports
+
+--------------------------  
 
 # **INDIVIDUAL REPORTS**
 
@@ -39,6 +173,7 @@
 <details>
 <summary>
 
+  
 ### **İbrahim Melih Aktaş - Group 4**
 
 </summary>
@@ -126,6 +261,51 @@
 
 <details>
   <summary>
+    
+###  **Erdinç Günaydın - Group 4**    
+    
+ </summary>
+
+###  **Member**
+- Student ID: 2017400027
+- Email: erdinc.gunaydin@boun.edu.tr
+- Personal Wiki: [Erdinç Günaydın](https://github.com/bounswe/bounswe2022group4/wiki/Erdinç-Günaydın)
+- Team: Mobile Development Team
+  
+### **Responsibilities**
+- My main responsibility is communicator job.
+- I was mainly responsible for implementing profile page, edit profile page, forget password and reset password.
+- My side responsibilities were communicating with backend team to request and adapt apis, enhancing the communication and workflows of team.
+
+
+### **Main contributions**
+- Mobile: Implementation of Profile Page and Edit Profile Page.
+- Mobile: Implementation of Forget Password and Reset Password Pages.
+- Mobile: Revision of timeline items to looks them elegant.
+- Mobile: Revision of post details page to enhance UI and UX.
+
+
+#### **Code Related Significant Issues**
+
+
+#### **Management Related Significant Issues**
+
+  
+### **Pull Requests**
+
+
+#### **Test Cases**
+
+  
+###
+</details>
+   </summary>
+
+
+<details>
+  <summary>
+    
+    
     
 ###  **Oğuzhan Tok - Group 4**    
     
