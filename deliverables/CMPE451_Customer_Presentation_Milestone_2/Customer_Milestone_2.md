@@ -137,8 +137,8 @@
 - Team: Backend Development Team
   
 ### **Responsibilities**
-- I was mainly responsible for implementing Chat model and Forget Password functionality.
-- My other responsibilities were fixing the existing User model, authenticaiton mechanism, implementing basic search functionalities, and revisiting [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)
+- I was mainly responsible for implementing Chat model.
+- My other responsibility was development of the existing User model by adding Forget Password functionality.
 
 
 ### **Main contributions**
