@@ -475,6 +475,7 @@ const ProfilePage = ({ isLogged, authenticationToken, loggedInUser }) => {
           height: "40px",
           maxHeight:"399px"
         }}
+        // Commit.
       >
         <MessageChat
           authenticatonToken={authenticationToken}

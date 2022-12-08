@@ -7,6 +7,7 @@ import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import ForgotPasswordForm from "./pages/ForgotPassword/ForgotPassword";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import EditProfile from "./components/EditProfile/EditProfile";
 
 const App = () => {
   const [isLogged, setIsLogged] = React.useState(false);
@@ -35,6 +36,18 @@ const App = () => {
             path="/profile"
             element={
               <ProfilePage
+                isLogged={isLogged}
+                loggedInUser={loggedInUser}
+                authenticationToken={authenticationToken}
+              />
+            }
+          />
+        </Routes>
+        <Routes>
+          <Route
+            path="/editprofile"
+            element={
+              <EditProfile
                 isLogged={isLogged}
                 loggedInUser={loggedInUser}
                 authenticationToken={authenticationToken}

@@ -50,7 +50,6 @@ const Post = ({
   isUpvoted,
   isDownvoted,
 }) => {
-  console.log(userName, 'ds');
   const style = {
     position: 'absolute',
     top: '50%',
@@ -156,6 +155,7 @@ const Post = ({
       style={{
         backgroundImage: 'linear-gradient(-225deg, #e3fdf5 50%, #ffe6fa 50%)',
       }}
+      data-testid='post'
     >
       <div>
         <CardHeader
