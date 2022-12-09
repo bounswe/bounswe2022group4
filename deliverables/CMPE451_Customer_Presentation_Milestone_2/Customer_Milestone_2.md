@@ -159,9 +159,32 @@ The further features which will be implemented in final milestone is like below:
 
 - **Halil Salih Orhan**
 
+
 |Work Title|Related Link|
 | ----------- | ----------- |
-|My issue|[PR](xd.com)|
+|Mobile: changing endpoint's base url |[issue](https://github.com/bounswe/bounswe2022group4/issues/310)|
+|Mobile: implementation of Authenticated HTTP Calls |[issue](https://github.com/bounswe/bounswe2022group4/issues/341)|
+|Mobile: Chat UI|[issue](https://github.com/bounswe/bounswe2022group4/issues/342)|
+|Mobile: Implementation of Chat|[issue](https://github.com/bounswe/bounswe2022group4/issues/393)|
+|Mobile: Backend integration of Posts and comments |[issue](https://github.com/bounswe/bounswe2022group4/issues/394)|
+|Mobile: List Post UI |[issue](https://github.com/bounswe/bounswe2022group4/issues/459)|
+|Mobile: Create Post Fragment Initialization |[issue](https://github.com/bounswe/bounswe2022group4/issues/460)|
+|Mobile: Edit Post Fragment|[issue](https://github.com/bounswe/bounswe2022group4/issues/461)|
+|Mobile: Implementation of Basic Location Tracking |[issue](https://github.com/bounswe/bounswe2022group4/issues/462)|
+|Mobile: Adding some Navigation actions |[issue](https://github.com/bounswe/bounswe2022group4/issues/463)|
+|Mobile: Refactoring UI of Post List Items |[issue](https://github.com/bounswe/bounswe2022group4/issues/464)|
+|Mobile: Implementation of Upvote and Downvote |[issue](https://github.com/bounswe/bounswe2022group4/issues/465)|
+|Mobile: Base64 issue|[issue](https://github.com/bounswe/bounswe2022group4/issues/466)|
+|Mobile: Implement Edit and Delete Comment|[issue](https://github.com/bounswe/bounswe2022group4/issues/467)|
+|Mobile: Implement Profile Photos to Post and Comments  |[issue](https://github.com/bounswe/bounswe2022group4/issues/468)|
+|Mobile: Implement Edit-Delete Comment |[issue](https://github.com/bounswe/bounswe2022group4/issues/469)|
+|Mobile: Email Validator pattern refactoring for JUnit |[issue](https://github.com/bounswe/bounswe2022group4/issues/470)|
+|Mobile: Email Validator Unit Test |[test](https://github.com/bounswe/bounswe2022group4/issues/471)|
+|Mobile: Add neccessary dependencies for JUnit|[issue](https://github.com/bounswe/bounswe2022group4/issues/472)|
+|Mobile: Username Validator JUnit |[test](https://github.com/bounswe/bounswe2022group4/issues/473)|
+|Mobile: implementation of post item ui |[issue](https://github.com/bounswe/bounswe2022group4/issues/337)|
+|Heka mobile Milestone 2|[PR](https://github.com/bounswe/bounswe2022group4/pull/448)|
+|Mobile: Junit base and Email and Username validator tests|[PR](https://github.com/bounswe/bounswe2022group4/pull/474)|
 
 - **Yiğit Can Özkaya**
 
@@ -1216,6 +1239,87 @@ I think we have improved our products a lot after the customer meeting 1 accordi
 
 </details>
 
+<details>
+  <summary>
+    
+###   Halil Salih Orhan - Group 4  
+    
+ </summary>
 
+###  **Member**
+- Student ID: 2018400057
+- Email: halil.orhan@boun.edu.tr | halilsalihorhan@gmail.com
+- Personal Wiki: [Halil Salih Orhan](https://github.com/bounswe/bounswe2022group4/wiki/Halil-Salih-Orhan)
+- Team: Mobile Development Team
+  
+### **Responsibilities**
+- I was responsible for implementing post list page, post details page, comment list page, comment details page, post creation page, comment creation page, image upload page, image upload functionality, chat functionality, and main structure of the mobile app.
+- By communicating with backend team, I was responsible for adapting the APIs to the mobile app.
+
+
+### **Main contributions**
+- Mobile: implementation of Authenticated HTTP Calls
+- Mobile: Chat UI
+- Mobile: Implementation of Chat
+- Mobile: Backend integration of Posts and comments 
+- Mobile: Implementation of Post List Page
+- Mobile: Create Post Fragment Initialization 
+- Mobile: Edit Post Fragment
+- Mobile: Implementation of Basic Location Tracking
+- Mobile: Adding some Navigation actions
+- Mobile: Refactoring UI of Post List Items
+- Mobile: Implementation of Upvote and Downvote
+- Mobile: Base64 issue
+- Mobile: Implement Edit and Delete Comment
+- Mobile: Implement Profile Photos to Post and Comments
+- Mobile: Implement Edit-Delete Comment
+- Mobile: Email Validator pattern refactoring for JUnit
+- Mobile: Email Validator Unit Test
+- Mobile: Add neccessary dependencies for JUnit
+- Mobile: Username Validator JUnit 
+
+
+
+
+
+
+
+
+#### **Code Related Significant Issues**
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/310)|
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/341)|
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/342)|
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/393)|
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/394)|
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/459)|
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/460)|
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/461)|
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/462)|
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/463)|
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/464)|
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/465)|
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/466)|
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/467)|
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/468)|
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/469)|
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/470)|
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/472)|
+- [issue](https://github.com/bounswe/bounswe2022group4/issues/337)|
+
+
+
+#### **Management Related Significant Issues**
+
+  
+### **Pull Requests**
+- [PR](https://github.com/bounswe/bounswe2022group4/pull/474)
+- [PR](https://github.com/bounswe/bounswe2022group4/pull/448)
+
+#### **Test Cases**
+- [test](https://github.com/bounswe/bounswe2022group4/issues/473)
+- [test](https://github.com/bounswe/bounswe2022group4/issues/471)
+  
+###
+</details>
    
 
