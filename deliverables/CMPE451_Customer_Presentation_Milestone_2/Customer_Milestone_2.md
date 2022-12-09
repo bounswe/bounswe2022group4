@@ -696,4 +696,53 @@ They create a mock data in a mock database.
 </details>
    </summary>
    
+   
+   <details>
+  <summary>
+    
+    
+    
+###  **Yiğit Can Özkaya - Group 4**    
+    
+ </summary>
+
+###  **Member**
+- Student ID: 2017400036
+- Email: yigit.ozkaya@boun.edu.tr
+- Personal Wiki: [Yiğit Can Özkaya](https://github.com/bounswe/bounswe2022group4/wiki/yigit-can-ozkaya)
+- Team: Frontend Development Team
+  
+### **Responsibilities**
+- I was mainly responsible for implementing Chat model for web application.
+- My other responsibility was the general improvement of the ui of this project.
+- Lastly, preparation of the status for this milestone 
+
+
+### **Main contributions**
+- Frontend: Implementation of Chat UI and their connection to the backend.
+- Management: Preperation of the status page.
+
+#### **Code Related Significant Issues**
+* [Implementation of the Chat Model For web-application](https://github.com/bounswe/bounswe2022group4/issues/422)
+* [Improving UI for Chat](https://github.com/bounswe/bounswe2022group4/issues/425)
+* [Improving UI for general](https://github.com/bounswe/bounswe2022group4/issues/425)
+
+#### **Management Related Significant Issues**
+* [Management: Status page will be prepared.]()  
+  
+### **Pull Requests**
+*  [Chat Application is Implemented.](https://github.com/bounswe/bounswe2022group4/pull/419) 
+*  [UI improvement for Chat Page](https://github.com/bounswe/bounswe2022group4/pull/430) 
+*  [General UI improvement implementation and bugfix](https://github.com/bounswe/bounswe2022group4/pull/436) 
+
+#### **Test Cases**
+*  [I implemented the testcases but there is no related issur or pr for me.]()  
+  
+###
+</details>
+   </summary>
+
+
+
+   
 
