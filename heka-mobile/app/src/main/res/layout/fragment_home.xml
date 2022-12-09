@@ -1,29 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="viewModel"
             type="com.bounswe.heka.home.HomeViewModel" />
+        <variable
+            name="adapter"
+            type="com.bounswe.heka.timeline.TimeLineAdapter" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <LinearLayout
         android:id="@+id/home_text_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:gravity="center"
-        android:text="Home"
-        android:textSize="20sp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="HOME"
+            android:layout_marginLeft="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/home_search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            />
+        <Button
+            android:id="@+id/home_create_button"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+
+            android:text="Create"
+            />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:background="@drawable/gradient"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:adapter="@{adapter}"
+
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toBottomOf="@+id/home_text_view"
+        app:layout_constraintVertical_bias="1.0"
+        tools:listitem="@layout/timeline_item" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="state"
+            type="com.bounswe.heka.post.CommentListItemState" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginVertical="10dp"
+        android:layout_marginRight="10dp"
+
+        app:cardCornerRadius="20dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@drawable/gradient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/timeline_item_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="25dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:elevation="12dp"
+                    android:innerRadius="0dp"
+                    android:shape="ring"
+                    app:cardCornerRadius="40dp">
+
+                    <ImageView
+                        android:id="@+id/timeline_Profile_Image"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/nowzaradan" />
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:layout_marginVertical="25dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/timeline_item_author"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        tools:text="This is a comment"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+
+                        android:text="@{state.username}" />
+                    <TextView
+                        android:id="@+id/timeline_item_body"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        tools:text="This is a comment"
+                        android:textSize="16sp"
+                        android:text="@{state.body}" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/comment_item_upvote"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:drawableLeft="@drawable/ic_baseline_thumb_up_alt_24"
+                        android:drawableTint="@drawable/upvote_color_selector"
+                        tools:text="21"
+                        android:textColor="@android:color/darker_gray"
+
+                        android:background="@android:color/transparent" />
+
+                    <Button
+                        android:id="@+id/comment_item_downvote"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:drawableLeft="@drawable/ic_baseline_thumb_down_alt_24"
+                        android:drawableTint="@drawable/upvote_color_selector"
+                        tools:text="21"
+                        android:textColor="@android:color/darker_gray"
+
+                        android:background="@android:color/transparent" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/comment_item_edit"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_baseline_create_24"
+                android:background="@drawable/rounded_corner"
+
+
+                />
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

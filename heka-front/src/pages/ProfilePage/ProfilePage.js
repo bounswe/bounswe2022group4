@@ -16,6 +16,7 @@ import "./profilePage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { useState } from "react";
+import { MessageChat } from "../../components/Chat/MessageChat";
 
 const userData = [
   {
@@ -23,7 +24,7 @@ const userData = [
     name: "Haley Howard",
     userName: "mrcmlzgrt",
     followers: [2, 3],
-    following: [1,4],
+    following: [1, 4],
     posts: [1, 2, 3],
     comments: [1, 2, 3, 4, 5],
     postLikes: [4, 7, 8],
@@ -201,7 +202,7 @@ const comments = [
   { id: "20", text: "comment20", owner: "4" },
 ];
 
-const ProfilePage = (ids) => {
+const ProfilePage = ({ isLogged, authenticationToken, loggedInUser }) => {
   //
 
   ///
@@ -275,9 +276,11 @@ const ProfilePage = (ids) => {
                 }}
               >
                 <div style={{ padding: "10px" }}>
-
                   <h1 style={{ display: "inline" }}> {userData[id].name}</h1>
-                  <div style={{marginTop: '1vh', fontStyle:'italic'}}> Regular User</div>
+                  <div style={{ marginTop: "1vh", fontStyle: "italic" }}>
+                    {" "}
+                    Regular User
+                  </div>
 
                   <Button
                     style={{
@@ -338,26 +341,34 @@ const ProfilePage = (ids) => {
                 <div
                   style={{ padding: "10px", marginTop: "5px", color: "gray" }}
                 >
-                  <p>
-                   A meadow of hay which eager to learn...
-                  </p>
+                  <p>A meadow of hay which eager to learn...</p>
                 </div>
               </Col>
             </Row>
-            <Row style={{ marginTop: "75px", display: "flex", alignItems:'center', justifyContent:'center' }}>
+            <Row
+              style={{
+                marginTop: "75px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <Col
                 sm={{
-                 // offset: 2,
+                  // offset: 2,
                   order: 1,
                   size: 4,
                 }}
-                style={{ display: "flex", alignItems:'center', justifyContent:'center' }}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
               >
                 <div>
-                <h3 style={{ float: "center" }}>Latest Posts</h3>
+                  <h3 style={{ float: "center" }}>Latest Posts</h3>
                 </div>
               </Col>
-       
             </Row>
             <Row style={{ padding: "30px" }}>
               <Col sm={3}>
@@ -369,12 +380,15 @@ const ProfilePage = (ids) => {
                 >
                   {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
                   <CardBody>
-                    <CardTitle tag="h5">My blood pressure is too high</CardTitle>
+                    <CardTitle tag="h5">
+                      My blood pressure is too high
+                    </CardTitle>
                     <CardSubtitle className="mb-2 text-muted" tag="h6">
                       Cardiology
                     </CardSubtitle>
                     <CardText>
-                      I have a very high blood pressure. What could be the reason of that? Should I see a doctor?
+                      I have a very high blood pressure. What could be the
+                      reason of that? Should I see a doctor?
                     </CardText>
                     <Button>See Post</Button>
                   </CardBody>
@@ -389,12 +403,15 @@ const ProfilePage = (ids) => {
                 >
                   {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
                   <CardBody>
-                    <CardTitle tag="h5">My friend thinks that she is a bird!</CardTitle>
+                    <CardTitle tag="h5">
+                      My friend thinks that she is a bird!
+                    </CardTitle>
                     <CardSubtitle className="mb-2 text-muted" tag="h6">
-                        Psychology
+                      Psychology
                     </CardSubtitle>
                     <CardText>
-                      She is completely out of her mind! How can I convince her about she is not a bird?
+                      She is completely out of her mind! How can I convince her
+                      about she is not a bird?
                     </CardText>
                     <Button>See Post</Button>
                   </CardBody>
@@ -409,12 +426,15 @@ const ProfilePage = (ids) => {
                 >
                   {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
                   <CardBody>
-                    <CardTitle tag="h5">Which covid vaccine should I choose?</CardTitle>
+                    <CardTitle tag="h5">
+                      Which covid vaccine should I choose?
+                    </CardTitle>
                     <CardSubtitle className="mb-2 text-muted" tag="h6">
                       Immunology
                     </CardSubtitle>
                     <CardText>
-                      Which vaccine is the best in terms of short and long term side effects? What do you suggest?
+                      Which vaccine is the best in terms of short and long term
+                      side effects? What do you suggest?
                     </CardText>
                     <Button>See Post</Button>
                   </CardBody>
@@ -434,7 +454,8 @@ const ProfilePage = (ids) => {
                       Psychiatry
                     </CardSubtitle>
                     <CardText>
-                      I feel powerless. I feel meaningless. I feel hopelessness. I have deep depression followed by suicidal thoughts.
+                      I feel powerless. I feel meaningless. I feel hopelessness.
+                      I have deep depression followed by suicidal thoughts.
                     </CardText>
                     <Button>See Post</Button>
                   </CardBody>
@@ -444,6 +465,28 @@ const ProfilePage = (ids) => {
           </CardBody>
         </Card>
       </Container>
+      <div
+        style={{
+          position: "fixed",
+          bottom: "280px",
+          right: "0px",
+          zIndex: "214783647",
+          width: "320px",
+          height: "40px",
+          maxHeight:"400px"
+        }}
+      >
+        <MessageChat
+          authenticatonToken={authenticationToken}
+          isLogged={isLogged}
+          loggedInUser={loggedInUser}
+          styles={{
+            width: "320px",
+            height: "40px",
+            maxHeight:"400px",
+          }}
+        />
+      </div>
     </div>
   );
 };

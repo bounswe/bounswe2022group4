@@ -2,89 +2,105 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="viewModel"
             type="com.bounswe.heka.login.LoginViewModel" />
     </data>
+
     <LinearLayout
+        android:background="@drawable/gradient"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         android:padding="16dp">
 
+
         <TextView
+            android:layout_marginTop="64dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
             android:text="Login"
+            android:id="@+id/header_title"
             android:textColor="?attr/colorPrimary"
-
-            android:textSize="20sp"
+            android:textSize="26sp"
             android:textStyle="bold" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailTextInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:error="@{viewModel.emailError}"
-        android:hint="@string/email">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailEditText"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailTextInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:enabled="@{!viewModel.loading}"
-            android:inputType="text"
-            android:text="@={viewModel.email}" />
+            android:layout_marginBottom="16dp"
+            android:error="@{viewModel.emailError}"
+            android:hint="@string/email">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="@{!viewModel.loading}"
+                android:inputType="text"
+                android:maxLines="1"
+                android:text="@={viewModel.email}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordTextInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:error="@{viewModel.passwordError}"
-        android:hint="@string/password"
-        android:maxLines="1"
-        android:inputType="textPassword"
-        app:endIconMode="password_toggle">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/passwordEditText"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordTextInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:error="@{viewModel.passwordError}"
+            android:hint="@string/password"
             android:inputType="textPassword"
+            android:maxLines="1"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="@{!viewModel.loading}"
+                android:inputType="textPassword"
+                android:text="@={viewModel.password}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/submit_button"
+            android:enabled="@{viewModel.loginButtonEnabled}"
+            android:onClick="@{() -> viewModel.onLoginButtonClick()}"
+            android:text="@string/login" />
+
+        <TextView
+            android:id="@+id/textButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
             android:enabled="@{!viewModel.loading}"
-            android:text="@={viewModel.password}" />
+            android:text="@string/dont_have_an_account" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_marginBottom="16dp"
-        android:enabled="@{viewModel.loginButtonEnabled}"
-        android:onClick="@{() -> viewModel.onLoginButtonClick()}"
-        android:text="@string/login" />
-
-    <Button
-        android:id="@+id/textButton"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="match_parent"
-        android:enabled="@{!viewModel.loading}"
-        android:layout_height="64dp"
-        android:text="@string/dont_have_an_account" />
-
-
-
+        <TextView
+            android:id="@+id/forgotButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:layout_marginTop="24dp"
+            android:clickable="true"
+            android:enabled="@{!viewModel.loading}"
+            android:text="@string/forgot_password"
+            android:textSize="16sp"
+            />
     </LinearLayout>
 </layout>
