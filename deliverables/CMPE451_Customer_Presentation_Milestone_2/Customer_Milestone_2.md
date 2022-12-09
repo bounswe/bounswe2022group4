@@ -580,6 +580,18 @@ The further features which will be implemented in final milestone is like below:
 
 ### Annotations
 
+One of the key features of the web application is the annotation structure, which allows authorized users to annotate images using a drag and drop interface. This feature was implemented using the react-annotation library, and provides users with an intuitive and user-friendly way to add labels or tags to images.
+
+The annotation structure is available in the web application, and can be accessed by authorized users. To use the annotation structure, users simply need to select an image and then use the drag and drop interface to add labels or tags to the image.The annotation structure is not currently available in the mobile application, but it is planned to be implemented in a future update. Additionally, the annotation structure is not currently integrated with the backend, but this is also planned for future development.
+
+Overall, the implementation of the annotation structure using the react-annotation library has greatly improved the functionality and usability of the web application. It allows users to add additional information and context to images, and makes it easier for users to find and access specific images within the application.
+
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/74681908/206704772-74679ca6-3355-4b63-b5c6-bcad77da5788.png">
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/74681908/206704946-9b20abef-8024-4bc3-bfbc-91066c5d6343.png">
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/74681908/206705000-29a6292b-7ff6-4e70-b7cc-2de7b5926003.png">
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/74681908/206705016-d8c4dc6a-7633-41d7-ae38-9d556620559e.png">
+
+
 
 #### Status
 
@@ -895,6 +907,109 @@ For the time being, only unit test for creation of a post completed.
 </details>
    </summary>
 
+<details>
+
+  <summary>
+
+###  *Umut Deniz Şener - Group 4*
+    
+</summary>
+  
+  ###  *Member*
+
+* Name: Umut Deniz Şener
+* Student ID: 2018400255
+* Group4 - Frontend Team
+  
+### *Responsibilities*
+  * Implementing Doctor Sign Up page
+  * Implementing a structure that hides personal information from unauthorized users.
+  * Changing whole application backend structure to the new one that contains authentication token.
+  * Implementing Create Post component.
+  * Implementing Delete Post component.
+  * Implementing Edit Post component.
+  * Implementing Upvote - Downvote Post functionalties
+  * Implementing Create Comment component.
+  * Implementing Delete Comment component.
+  * Implementing Upvote - Downvote Comment functionalties
+  * Implementing Annotations Structure in Posts.
+  * Implementing Backend Connections for Create Posts, Get Posts, Delete Post, Edit Post, Upvote-Downvote Posts, Create Comment, Get Comment, Delete Comment Comments, Upvote-Downvote Comments
+  * Implementing base64 text to image format rendering
+  * Implementing unit test cases for Post Structure.
+  * Implementing loading sliders and states for backend connections.
+  * Preparing Posts for customer presentation 2
+  * Improving UI of the Comment and Post Component.
+  * Reviewing the pull requests and issues in frontend team.
+  * Providing support to other frontend team members while they encountered a problem.
+  * Making research on Material UI Modals, React api-sauce library, react-annotation libraries and base64 texts.
+  * Preparing and making the presentation of web application in Customer Meeting 2.
+  * Solving bugs in the implementation of the frontend of our application.
+  * Attending General and Frontend Team Meetings
+
+### *Main contributions*
+
+For the milestone 2, i have implemented most of the functionalities in the frontend. I first implemented doctor sign up page by adding special fields such as uploading diploma, choosing branch etc. Then according the first customer presentation feedbacks i hide the private information of the users from the unauthorized users. Since our backend structure has change i have changed whole backend structure in frontend as well (Authentication Token usage). Then i have started to implement crucial functionalities. I have implemented create post, delete post, edit post, upvote post, downvote post functionalities and connect them to backend. Also, i have implemented create comment, delete comment, upvote-downvote comment functionalities and connect them to backend. In all of these backend connections there is a small delay, in order to provide better user experience i have implemented loading sliders for the delays.
+
+One of my main contributions to the project was the implementation of an image annotation structure using React libraries. This involved researching and selecting appropriate React libraries for the task, and then using those libraries to create a structure for adding annotations to images within the web application. The image annotation structure I implemented allows users to add labels or tags to images by drag and drop, which can provide additional information about the content of the images.
+
+I also created a structure that allows rendering images by converting base64 text to images on frontend and storing them in our database by converting image to base64 text for the efficiency. My other contribution was development of unit test cases for the components that I created. This involved writing test cases that would verify the functionality and correctness of the components, and ensure that they were working properly.
+
+I worked on improvement of the user interface for the comment and post components of the web application. This involved working on the layout, design, and overall appearance of these components, with the goal of making them more user-friendly and intuitive. In addition to improving the UI of these components, I also played a role in reviewing pull requests and issues within the frontend team. This involved carefully examining the code and functionalities of new features and changes, and providing feedback and suggestions for improvements. Another key contribution I made was providing support to other team members who encountered problems or challenges during the development process. This involved offering guidance and advice on technical issues, as well as helping to troubleshoot and resolve any problems that arose. In addition to these responsibilities, I also conducted research on various React libraries and technologies, such as Material UI Modals, React api-sauce, and react-annotation. This research helped to inform the development of new features and functionalities for the web application. I also played a role in preparing for and presenting the web application at Customer Meeting 2, which involved working on the presentation materials and delivering a detailed overview of the features and capabilities of the web application. Finally, I worked on solving bugs and issues in the implementation of the frontend of the web application, and attended both General and Frontend Team Meetings to stay up-to-date on the latest developments and progress on the project. Overall, my contributions to the project were focused on improving the functionality and user experience of the web application.
+
+
+
+#### *Code Related Significant Issues*
+* [Frontend:Implement Create Comment Component For The Posts](https://github.com/bounswe/bounswe2022group4/issues/242)
+* [Frontend:Doctor Sign Up](https://github.com/bounswe/bounswe2022group4/issues/349)
+* [Frontend: Username Privacy](https://github.com/bounswe/bounswe2022group4/issues/355)
+* [Frontend: Create Post Component](https://github.com/bounswe/bounswe2022group4/issues/357)
+* [Frontend: Authentication Token](https://github.com/bounswe/bounswe2022group4/issues/359)
+* [Frontend: Implement Comment and Comment Box Components](https://github.com/bounswe/bounswe2022group4/issues/361)
+* [Frontend: Render Image Under Post and UI Improvement of Post Component](https://github.com/bounswe/bounswe2022group4/issues/363)
+* [Frontend: Implement Annotations Structure](https://github.com/bounswe/bounswe2022group4/issues/365)
+* [Frontend: Create Post Backend Connection](https://github.com/bounswe/bounswe2022group4/issues/385)
+* [Frontend: Get All Posts Backend Connection](https://github.com/bounswe/bounswe2022group4/issues/386)
+* [Frontend: Delete Post Backend Connection](https://github.com/bounswe/bounswe2022group4/issues/387)
+* [Frontend: Update Comment UI and Add New Fields](https://github.com/bounswe/bounswe2022group4/issues/390)
+* [Frontend: Update Create Comment UI](https://github.com/bounswe/bounswe2022group4/issues/391)
+* [Frontend: Create Comment Backend Connection](https://github.com/bounswe/bounswe2022group4/issues/398)
+* [Frontend: Get Comment Backend Connection](https://github.com/bounswe/bounswe2022group4/issues/399)
+* [Frontend: Delete Comment Backend Connection](https://github.com/bounswe/bounswe2022group4/issues/400)
+* [Frontend: Create Post Image Uploading and Post Image Rendering](https://github.com/bounswe/bounswe2022group4/issues/403)
+* [Frontend: Backend Connection Vote Post](https://github.com/bounswe/bounswe2022group4/issues/410)
+* [Frontend: Edit Post](https://github.com/bounswe/bounswe2022group4/issues/417)
+* [Frontend: Unit Tests For Post Structure](https://github.com/bounswe/bounswe2022group4/issues/480)
+#### *Management Related Significant Issues*
+* [Management: Documenting Meeting Notes for the General Meeting 6](https://github.com/bounswe/bounswe2022group4/issues/336)
+* [Management: Prepare Posts For Customer Presentation 2](https://github.com/bounswe/bounswe2022group4/issues/437)
+* [Management: Annotations For Milestone 2](https://github.com/bounswe/bounswe2022group4/issues/488)
+
+### *Pull Requests*
+*  [Frontend: Doctor Signup](https://github.com/bounswe/bounswe2022group4/pull/354)
+*  [Frontend: Username Privacy ](https://github.com/bounswe/bounswe2022group4/pull/356)
+*  [Frontend: Create Post Component](https://github.com/bounswe/bounswe2022group4/pull/358)
+*  [Frontend: Authentication Token](https://github.com/bounswe/bounswe2022group4/pull/360)
+*  [Frontend: Comment Functionality](https://github.com/bounswe/bounswe2022group4/pull/362)
+*  [Frontend: Render Image Under Post and UI Improvement of Posts Component](https://github.com/bounswe/bounswe2022group4/pull/364)
+* [Frontend: Annotations Structure](https://github.com/bounswe/bounswe2022group4/pull/366)
+*  [Frontend: Post Structure Backend Connection](https://github.com/bounswe/bounswe2022group4/pull/388)
+*  [Frontend: Comment UI and Create Comment Structure Update](https://github.com/bounswe/bounswe2022group4/pull/397)
+*  [Frontend: Create Post Image Uploading and Post Base 64 Image Rendering ](https://github.com/bounswe/bounswe2022group4/pull/404)
+*  [Frontend: Comment Backend Connection](https://github.com/bounswe/bounswe2022group4/pull/405)
+*  [Frontend: Backend Connection For Vote Post ](https://github.com/bounswe/bounswe2022group4/pull/411)
+*  [Frontend: Delete Comment Backend Connection ](https://github.com/bounswe/bounswe2022group4/pull/412)
+*  [Frontend: Edit Post ](https://github.com/bounswe/bounswe2022group4/pull/418)
+*  [Frontend: Loading States](https://github.com/bounswe/bounswe2022group4/pull/429)
+*  [Frontend: Unit Tests for Posts](https://github.com/bounswe/bounswe2022group4/pull/487)
+### *Unit Tests*
+* [Frontend: Unit Tests For Post Structure](https://github.com/bounswe/bounswe2022group4/issues/480)
+*  [Frontend: Unit Tests for Posts](https://github.com/bounswe/bounswe2022group4/pull/487)
+
+### *Additional Information*
+I think we have improved our products a lot after the customer meeting 1 according to the feedbacks.
+
+
+</details>
 
 
    
