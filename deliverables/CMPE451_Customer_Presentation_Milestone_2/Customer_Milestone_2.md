@@ -56,7 +56,11 @@
 
 |Work Title|Related Link|
 | ----------- | ----------- |
-|My issue|[PR](xd.com)|
+|Create a CI/CD pipeline for the front end |[#350](https://github.com/bounswe/bounswe2022group4/issues/350)|
+|Create and API for Profile Page |[#367](https://github.com/bounswe/bounswe2022group4/issues/367)|
+|Add username field to the authentication |[#370](https://github.com/bounswe/bounswe2022group4/issues/370)|
+|API for the List all posts |[#396](https://github.com/bounswe/bounswe2022group4/issues/396)|
+|Implement tests for Get and Update profile page |[#427](https://github.com/bounswe/bounswe2022group4/issues/427)|
 
 - **Yusuf Bayındır**
 
@@ -142,17 +146,17 @@
 
 
 * **1.1.1.1 Sign Up** 
-  * **1.1.1.1.1** *Users shall provide their first name and last name.*
-  * **1.1.1.1.2** *Users shall provide a username and e-mail address that are unique in the system.*
-  * **1.1.1.1.3** *Users shall be prevented from registration if they enter a username or email address that is already in use .*
-  * **1.1.1.1.4** *Users shall set a password that is longer than 8 characters and contains at least one upper-case letter, one lower-case letter, and one number.* 
-  * **1.1.1.1.5** *Users shall confirm the password by writing the same password again.* 
-  * **1.1.1.1.6** *Users shall verify their registration process via email verification.*
-  * **1.1.1.1.7** *Health professionals shall be able to register as privileged users.*
-  * **1.1.1.1.8** *Health professionals shall provide all the information that users provide for registration.*
-  * **1.1.1.1.9** *Health professionals shall provide some additional information regarding their educational backgrounds and professional experience.*
-  * **1.1.1.1.10** *Health professionals shall be verified by administrators.*
-  * **1.1.1.1.11** *Health professionals shall be privileged after their proficiency is verified.*
+  * **1.1.1.1.1** *Users shall provide their first name and last name.* ➡️ **Status: Not Started***
+  * **1.1.1.1.2** *Users shall provide a username and e-mail address that are unique in the system.* ➡️ **Status: Completed***
+  * **1.1.1.1.3** *Users shall be prevented from registration if they enter a username or email address that is already in use .* ➡️ **Status: Completed***
+  * **1.1.1.1.4** *Users shall set a password that is longer than 8 characters and contains at least one upper-case letter, one lower-case letter, and one number.* ➡️ **Status: Not Started*** 
+  * **1.1.1.1.5** *Users shall confirm the password by writing the same password again.* ➡️ **Status: Completed*** 
+  * **1.1.1.1.6** *Users shall verify their registration process via email verification.* ➡️ **Status: Not Started***
+  * **1.1.1.1.7** *Health professionals shall be able to register as privileged users.* ➡️ **Status: In Progress***
+  * **1.1.1.1.8** *Health professionals shall provide all the information that users provide for registration.* ➡️ **Status: In Progress***
+  * **1.1.1.1.9** *Health professionals shall provide some additional information regarding their educational backgrounds and professional experience.* ➡️ **Status: In progress***
+  * **1.1.1.1.10** *Health professionals shall be verified by administrators.* ➡️ **Status: Not Started***
+  * **1.1.1.1.11** *Health professionals shall be privileged after their proficiency is verified.* ➡️ **Status: Not Started***
 
 
 * **1.1.1.2. Sign In**
@@ -383,10 +387,10 @@
 <details>
 <summary><strong>2.5. Legal Requirements </strong></summary>
 
-* **2.5.1** *The system shall contain a comprehensive, clear, and accessible privacy policy.*
-* **2.5.2.** *The system shall comply with the Law on the Protection of Personal Data No. 6698 (KVKK).*
-* **2.5.3.** *The system shall comply with [GDPR](https://gdpr-info.eu/).*
-* **2.5.4.** *Users shall accept the privacy policy suggested when registering.*
+* **2.5.1** *The system shall contain a comprehensive, clear, and accessible privacy policy.*➡️ **Status: Not Started***
+* **2.5.2.** *The system shall comply with the Law on the Protection of Personal Data No. 6698 (KVKK).*➡️ **Status: Not Started***
+* **2.5.3.** *The system shall comply with [GDPR](https://gdpr-info.eu/).* ➡️ **Status: Not Started***
+* **2.5.4.** *Users shall accept the privacy policy suggested when registering.*➡️ **Status: Not Started***
 
 
 
@@ -452,34 +456,58 @@
 .
 </details>
 
+
 <details>
 <summary>
 
-  
-### **İbrahim Melih Aktaş - Group 4**
+### **İbrahim Melih Aktaş - Group 4 - Backend**
 
 </summary>
   
 ### **Responsibilities**
+Update and Get endpoints for the Profile Page. List-post endpoint which returns a list for all the posts. Deployment of the frontend. Creating a CI/CD pipeline with Github Actions for the frontend. Maintain the test server.
 
 
 ### **Main contributions**
+* I created Get and Put endpoints for the Profile Page. Get returns the necessary user information. Put endpoint updates the fields changed by the user. I created tests for them.
+* I created an endpoint for the list all posts. 
+* I prepared a CI/CD pipeline for the front end using Github Actions(#350). It builds docker image and it pushes it to the AWS ECR. Then it connects to our EC2 machine, pulls new image and runs it on the [EC2 machine](http://3.75.133.58:3000). 
+* I was responsible for the maintaining test server. I worked on the problems that occurs on the test server. I sent the logs of the errors to my team. I tried to fix them.
 
 
 #### **Code Related Significant Issues**
+* [ Backend: Implement tests for Get and Update profile page #427 ](https://github.com/bounswe/bounswe2022group4/issues/427)
+* [ Backend: List all posts #396 ](https://github.com/bounswe/bounswe2022group4/issues/396)
+* [ Backend: Add username field to the authentication #370 ](https://github.com/bounswe/bounswe2022group4/issues/370)
+* [Backend: Create and API for Profile Page #367](https://github.com/bounswe/bounswe2022group4/issues/367)
+* [Create a CI/CD pipeline for the front end #350](https://github.com/bounswe/bounswe2022group4/issues/350)
 
 #### **Management Related Significant Issues**
+* [ Demo: Requierements all groups covered in the milestone2 #444 ](https://github.com/bounswe/bounswe2022group4/issues/444)
+
 
 
 ### **Pull Requests**
+*  [Backend: profilepage tests #435](https://github.com/bounswe/bounswe2022group4/pull/435)
+*  [Backend: Add edit profile page endpoint #389](https://github.com/bounswe/bounswe2022group4/pull/389)
+*  [Backend: Lists all posts #374](https://github.com/bounswe/bounswe2022group4/pull/374)
+*  [Backend: Get operation for the profilepage endpoint #373](https://github.com/bounswe/bounswe2022group4/pull/373)
+*  [Add EC2 deployment to Github Actions #343](https://github.com/bounswe/bounswe2022group4/pull/343)
 
-
+### **Unit Tests**
+[Backend: profilepage tests #435](https://github.com/bounswe/bounswe2022group4/pull/435)
+This pull request consists of two unit tests.
+They create a mock data in a mock database.
+- profilepage get endpoint
+    - Checks response status
+    - Checks whether the username comes from the database is the same with the mock one
+- profilepage put endpoint  
+    - Checks response status
+    - Checks the updated field (username)
+    - Checks another updated field (age)
 ### **Additional Information**
 .
 </details>
-   </summary>
-
-
     
     
 <details>
@@ -631,3 +659,5 @@
 ###
 </details>
    </summary>
+   
+
