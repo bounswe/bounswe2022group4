@@ -145,12 +145,17 @@ The further features which will be implemented in final milestone is like below:
 |Mobile: Double Password Validator Tests|[test](https://github.com/bounswe/bounswe2022group4/issues/475)|
 
 
-
 - **Miraç Batuhan Malazgirt**
 
 |Work Title|Related Link|
 | ----------- | ----------- |
-|My issue|[PR](xd.com)|
+|Frontend: Design of static Edit Profile Page|[Issue](https://github.com/bounswe/bounswe2022group4/issues/439)|
+|Backend connection of own profile page|[Issue](https://github.com/bounswe/bounswe2022group4/issues/440)|
+|Frontend: Backend Connection of Edit Profile Page |[Issue](https://github.com/bounswe/bounswe2022group4/issues/441)|
+|Frontend: Backend connection of profile pages of different users when clicking their username|[Issue](https://github.com/bounswe/bounswe2022group4/issues/442)|
+|Management: Prepare Presentation Slides for Customer Milestone II |[Issue](https://github.com/bounswe/bounswe2022group4/issues/443)|
+|Management: List and Status of Deliverables of Milestone I |[Issue](https://github.com/bounswe/bounswe2022group4/issues/500)|
+
 
 - **Halil Salih Orhan**
 
