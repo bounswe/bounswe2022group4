@@ -97,7 +97,9 @@
 
 |Work Title|Related Link|
 | ----------- | ----------- |
-|My issue|[PR](xd.com)|
+|Creating Chat for the application |[PR]([xd.com](https://github.com/bounswe/bounswe2022group4/pull/419)|
+|Improving Chat UI for the user friendliness|[PR]([xd.com](https://github.com/bounswe/bounswe2022group4/pull/430))|
+|General UI improvement for application|[PR](https://github.com/bounswe/bounswe2022group4/pull/436)|
 
 - **Umut Deniz Şener**
 
