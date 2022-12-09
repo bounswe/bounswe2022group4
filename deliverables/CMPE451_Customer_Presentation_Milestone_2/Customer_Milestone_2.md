@@ -249,7 +249,11 @@ The further features which will be implemented in final milestone is like below:
 
 |Work Title|Related Link|
 | ----------- | ----------- |
-|My issue|[PR](xd.com)|
+|Implementation of the Chat API|[#348](https://github.com/bounswe/bounswe2022group4/issues/348)|
+|Implementation of the Forget Password Functionality|[#407](https://github.com/bounswe/bounswe2022group4/issues/407)|
+|Implement unit tests for APIs related to Forget Password Functionality|[#484](https://github.com/bounswe/bounswe2022group4/issues/484)|
+|Implement unit tests for APIs related to Chat model|[#483](https://github.com/bounswe/bounswe2022group4/issues/483)|
+|API Documentation page prepared|[#486](https://github.com/bounswe/bounswe2022group4/issues/486)|
 
 - **Elif Tokluoğlu**
 
