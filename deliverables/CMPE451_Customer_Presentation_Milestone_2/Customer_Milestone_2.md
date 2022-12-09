@@ -280,8 +280,8 @@ The further features which will be implemented in final milestone is like below:
 |[Scenarios](https://github.com/bounswe/bounswe2022group4/wiki/User-Scenarios) and [Mockups](https://github.com/bounswe/bounswe2022group4/wiki/Mockups) |Not Changed. | 09/11/2022|
 |[Project Plan](https://github.com/bounswe/bounswe2022group4/wiki/Project-Plan)|Not Changed.|09/11/2022|
 |[Individual Contribution Reports](https://github.com/bounswe/bounswe2022group4/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_1/Customer_Milestone_2.md)|New report was written.|09/11/2022|
-|[Software Release](https://github.com/bounswe/bounswe2022group4/releases/tag/customer-presentation-2) | Delivered but link will be updated | 09/11/2022| 
-|Mobile Deliverables [APK](https://github.com/bounswe/bounswe2022group4/releases/download/customer-presentation-2/heka-mobile.apk)|Delivered but link will be updated |09/11/2022|
+|[Software Release](https://github.com/bounswe/bounswe2022group4/releases/tag/customer-presentation-2) | Delivered| 09/11/2022| 
+|Mobile Deliverables [APK](https://github.com/bounswe/bounswe2022group4/releases/download/customer-presentation-2/heka-mobile.apk)|Delivered |09/11/2022|
 |Group Review  | This Report | 09/11/2022|
 
 
