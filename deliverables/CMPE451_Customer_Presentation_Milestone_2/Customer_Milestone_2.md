@@ -155,6 +155,9 @@ The further features which will be implemented in final milestone is like below:
 |Frontend: Backend connection of profile pages of different users when clicking their username|[Issue](https://github.com/bounswe/bounswe2022group4/issues/442)|
 |Management: Prepare Presentation Slides for Customer Milestone II |[Issue](https://github.com/bounswe/bounswe2022group4/issues/443)|
 |Management: List and Status of Deliverables of Milestone I |[Issue](https://github.com/bounswe/bounswe2022group4/issues/500)|
+|Frontend: Backend Connection of Edit Profile Page|[PR](https://github.com/bounswe/bounswe2022group4/pull/452)|
+|Design of Static Profile Page|[PR](https://github.com/bounswe/bounswe2022group4/pull/455)|
+|Backend connection of users own profile pages|[PR](https://github.com/bounswe/bounswe2022group4/pull/456)|
 
 
 - **Halil Salih Orhan**
