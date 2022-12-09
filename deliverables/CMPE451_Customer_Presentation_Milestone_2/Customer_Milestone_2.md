@@ -70,7 +70,7 @@
 |Token Authentication|[#339](https://github.com/bounswe/bounswe2022group4/issues/339)|
 |Search APIs |[#431](https://github.com/bounswe/bounswe2022group4/issues/431)|
 |Revision on Requirements|[#226](https://github.com/bounswe/bounswe2022group4/issues/226)|
-|Development of the existing User models. |[#427](https://github.com/bounswe/bounswe2022group4/issues/427)|
+|Development of the existing User models. |[PR-1](https://github.com/bounswe/bounswe2022group4/pull/424) [#379](https://github.com/bounswe/bounswe2022group4/issues/379)|
 
 
 
