@@ -500,6 +500,71 @@ The further features which will be implemented in final milestone is like below:
 ### User Interface / User Experience
 
 
+**Sign Up Pages**
+<img src="https://user-images.githubusercontent.com/74484731/206694455-1313f760-52ec-4b35-a2cb-0e5ccd5ad968.jpeg" > 
+<img src="https://user-images.githubusercontent.com/74484731/206694950-976e401b-16b8-43a3-9f9b-3bdefedaebcb.jpeg"> 
+[Sign Up Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/SignUpPage)
+
+**Log In Page**
+<img src="https://user-images.githubusercontent.com/74484731/206697196-bcb64d1b-1371-44c8-98d6-595bd2ebd830.jpeg" > 
+[Log In Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/SignInPage)
+
+**Forget Password Pages**
+<img src="https://user-images.githubusercontent.com/74484731/206697788-66406da9-98f4-418e-b305-04cd01ecc003.jpeg" > 
+<img src="https://user-images.githubusercontent.com/74484731/206697938-b8113e97-96f1-41fd-a0d0-626c32f3f84d.jpeg" > 
+<img src="https://user-images.githubusercontent.com/74484731/206698085-d413825a-f328-46f5-b2ac-362617807f84.jpeg" > 
+<img src="https://user-images.githubusercontent.com/74484731/206698183-89fb2b62-ff82-4ae9-ac00-07524efb2ede.jpeg" > 
+[Forget Password Pages Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/ForgotPassword)
+
+**Create Post Page**
+<img src="https://user-images.githubusercontent.com/74484731/206698513-be145356-a92b-4197-9076-d4db85c8b4a6.jpeg" > 
+[Create Post Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/CreatePost)
+
+**Home Page**
+<img src="https://user-images.githubusercontent.com/74484731/206698920-f99384d8-599e-41a6-9480-3d5fb115187f.jpeg" > 
+[Home Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/HomePage)
+
+**Create Comment Page**
+<img src="https://user-images.githubusercontent.com/74484731/206699188-8f6f2a27-a650-483a-bd27-5e2e48e44f8d.jpeg" > 
+[Create Comment Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/CreateComment)
+
+**Post, Comment, Upvote, Downvote Page**
+<img src="https://user-images.githubusercontent.com/74484731/206699494-86f6f13d-b8f0-4ad3-88e9-2ce776fbf562.jpeg" > 
+[Related Code 1 ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/Comment)
+[Related Code 2 ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/CommentBox)
+[Related Code 3 ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/PostBox)
+[Related Code 4 ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/PostBox)
+
+**Search and Category**
+<img src="https://user-images.githubusercontent.com/74484731/206700613-899b2a5a-5508-4a2b-a73a-ef963fd221fc.jpeg" > 
+[Search Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/SearchBar)
+[Category Code  ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/SideBar)
+
+**Edit Post Page**
+<img src="https://user-images.githubusercontent.com/74484731/206701008-32261207-d0f5-4c4a-827a-c853df7eddfb.jpeg" > 
+[Edit Post Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/EditPost)
+
+**Chat**
+<img src="https://user-images.githubusercontent.com/74484731/206701820-b31b1d73-4ed8-4760-bcea-175a133b002c.jpeg" > 
+<img src="https://user-images.githubusercontent.com/74484731/206701986-85d96de0-86f4-4d92-a358-662979f9970b.jpeg" >
+[Chat Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/Chat)
+
+**Profile Page**
+<img src="https://user-images.githubusercontent.com/74484731/206702252-658b3bad-620b-4af7-a776-74ac904a465e.jpeg" > 
+[Profile Page Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/ProfilePage)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
