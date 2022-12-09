@@ -97,7 +97,9 @@
 
 |Work Title|Related Link|
 | ----------- | ----------- |
-|My issue|[PR](xd.com)|
+|Creating Chat for the application |[PR](https://github.com/bounswe/bounswe2022group4/pull/419)|
+|Improving Chat UI for the user friendliness|[PR](https://github.com/bounswe/bounswe2022group4/pull/430)|
+|General UI improvement for application|[PR](https://github.com/bounswe/bounswe2022group4/pull/436)|
 
 - **Umut Deniz Şener**
 
@@ -533,7 +535,7 @@ They create a mock data in a mock database.
 - Backend: Development of the existing User model.
 - Backend: Authentication mechanism modification.
 - Backend: Implementation of basic Search APIs.
-- Requirements: Revision on Requirements. [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)
+- Requirements: Revision on [Requirements.](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)
 
 #### **Code Related Significant Issues**
 * [Modification of the User model](https://github.com/bounswe/bounswe2022group4/issues/338)
