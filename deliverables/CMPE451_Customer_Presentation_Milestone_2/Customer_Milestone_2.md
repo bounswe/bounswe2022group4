@@ -114,7 +114,17 @@ The further features which will be implemented in final milestone is like below:
 
 |Work Title|Related Link|
 | ----------- | ----------- |
-|My issue|[PR](xd.com)|
+|Frontend: Design and implementation of Forgot Password Related Pages|[Issue](https://github.com/bounswe/boun) - [PR-1](https://github.com/bounswe/bounswe2022group4/pull/371) - [PR-2](https://github.com/bounswe/bounswe2022group4/pull/392)|
+|Frontend: Design and Implementation of Search Functionalities|[Issue](https://github.com/bounswe/bounswe2022group4/issues/421) - [PR](https://github.com/bounswe/bounswe2022group4/pull/426) |
+|Design and Implementation of Category Feature and Side Bar |[Issue](https://github.com/bounswe/bounswe2022group4/issues/372) -  [PR](https://github.com/bounswe/bounswe2022group4/pull/384)|
+|Frontend: Unit Tests for Forgot Password, Categories and Search Functionalities|[Issue](https://github.com/bounswe/bounswe2022group4/issues/433) - [PR](https://github.com/bounswe/bounswe2022group4/pull/493)|
+|Frontend: Backend Connection of Forgot Password Related Pages |[PR](https://github.com/bounswe/bounswe2022group4/pull/416) - [Issue](https://github.com/bounswe/bounswe2022group4/issues/415)|
+|Frontend: Resolving Bugs  | [PR](https://github.com/bounswe/bounswe2022group4/pull/414) - [Issue](https://github.com/bounswe/bounswe2022group4/issues/413)|
+|Milestone 2 Report: Documenting UI and UX with related code links  |[Issue](https://github.com/bounswe/bounswe2022group4/issues/237) |
+|Milestone 2 Report: Reviewing all requirements and determining progress of them |[Issue](https://github.com/bounswe/bounswe2022group4/issues/238) |
+|Management: Prepare Posts and Users For Customer Presentation 2|[Issue](https://github.com/bounswe/bounswe2022group4/issues/437) |
+
+
 
 - **Erdinç Günaydın**
 
