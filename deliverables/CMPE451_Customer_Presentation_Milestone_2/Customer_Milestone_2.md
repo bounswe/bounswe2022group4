@@ -608,7 +608,7 @@ They create a mock data in a mock database.
   
 ### **Responsibilities**
 - I was mainly responsible for implementing Post and Comment models.
-- My other responsibilities were fixing the existing User model, authenticaiton mechanism, implementing basic search functionalities, and revisiting [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)
+- My other responsibilities were fixing the existing User model, authenticaiton mechanism, implementing basic search functionalities, and revisiting [Requirements.](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)
 
 
 ### **Main contributions**
