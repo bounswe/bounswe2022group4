@@ -533,7 +533,7 @@ They create a mock data in a mock database.
 - Backend: Development of the existing User model.
 - Backend: Authentication mechanism modification.
 - Backend: Implementation of basic Search APIs.
-- Requirements: Revision on Requirements. [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)
+- Requirements: Revision on [Requirements.](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)
 
 #### **Code Related Significant Issues**
 * [Modification of the User model](https://github.com/bounswe/bounswe2022group4/issues/338)
