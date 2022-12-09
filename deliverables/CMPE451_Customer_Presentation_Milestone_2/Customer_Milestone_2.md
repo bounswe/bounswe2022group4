@@ -759,33 +759,64 @@ Overall, the implementation of the annotation structure using the react-annotati
 ## Individual Reports
 
 
-<details>
-<summary>
 
-### **Fatih Akgöz - Group 4**
+    
+###  **Miraç Batuhan Malazgirt - Group 4**    
+    
+ </summary>
 
-</summary>
+###  **Member**
+- Student ID: 2018400156
+- Email: mirac.malazgirt@boun.edu.tr
+- Personal Wiki: [Miraç Batuhan Malazgirt](https://github.com/bounswe/bounswe2022group4/wiki/Mira%C3%A7-Batuhan-Malazgirt)
+- Team: Frontend Development Team
   
-## 1. Who am I?
-
 ### **Responsibilities**
-
-
+	
+* Design and implement the user interface of the profile editing page, including the layout, visuals, and interactivity.
+* Write code to connect the frontend profile editing system to the backend database, allowing users' updates to be saved and retrieved correctly.
+* Test the profile editing feature to ensure it is user-friendly and functions correctly.
+* Troubleshoot and resolve any issues that are discovered during testing.
+* Collaborate with other team members, such as backend developers and frontend developers, to ensure that the profile system fits seamlessly with the overall platform.
+* Overall, the my responsibilities in the project involved creating and maintaining the user-facing aspects of the profile system, and ensuring that it functions properly and enhances the user experience.
+* Preparing the "List and status of deliverables of Milestone I" section of the Milestone II.
+* Preparing customer presentation slides to show work we have done for Milestone II.
 
 ### **Main contributions**
+	
+* Implemented the ability for users to edit their profile information, including their name, email address, and profile picture.
+* Connected the frontend profile editing system to the backend database, allowing users' updates to be saved and retrieved correctly.
+* Designed the profile editing page by taking into account user friendliness and functionality.
+* Tested the profile editing feature to ensure that it is user-friendly and functions correctly.
+* Troubleshot and resolved any issues that were discovered during testing. 
+* Overall, my work on the profile system has made it easier for users to update their information and maintain accurate profiles on the platform.
+* Prepared the "List and status of deliverables of Milestone I" section of the Milestone II.
+* I also prepared customer presentation slides for Milestone II and the scenarios in that slide is used for presenting the work we have done in this milestone in presentation.
 
-
-
+	
+#### **Code Related Significant Issues**
+* [Frontend: Design of static Edit Profile Page](https://github.com/bounswe/bounswe2022group4/issues/439)
+* [Frontend: Backend connection of own profile page](https://github.com/bounswe/bounswe2022group4/issues/440)
+* [Frontend: Backend Connection of Edit Profile Page](https://github.com/bounswe/bounswe2022group4/issues/441)
+* [Frontend: Backend connection of profile pages of different users when clicking their username](https://github.com/bounswe/bounswe2022group4/issues/442)
 
 #### **Management Related Significant Issues**
+* [Management: Prepare Presentation Slides for Customer Milestone II Issue](https://github.com/bounswe/bounswe2022group4/issues/443)
+* [Management: List and Status of Deliverables of Milestone I](https://github.com/bounswe/bounswe2022group4/issues/500)
 
+  
 ### **Pull Requests**
+*  [Frontend: Backend Connection of Edit Profile Page](https://github.com/bounswe/bounswe2022group4/pull/452) 
+*  [Design of Static Profile Page](https://github.com/bounswe/bounswe2022group4/pull/455)
+*  [Backend connection of users own profile pages](https://github.com/bounswe/bounswe2022group4/pull/456)
 
-
-### **Additional Information**
-.
 </details>
-
+   </summary>
+   
+   
+   <details>
+  <summary>
+    
 
 <details>
 <summary>
