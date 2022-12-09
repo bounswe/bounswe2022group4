@@ -6,6 +6,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.util.concurrent.TimeUnit
 
 
 private const val BASE_URL = "http://3.72.25.175:8080/api/"
@@ -24,7 +25,7 @@ class ApiClient {
         if (!::apiService.isInitialized) {
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(MoshiConverterFactory.create(moshi))
-                .client(OkHttpClient.Builder().addInterceptor(AuthInterceptor(context)).build())
+                .client(OkHttpClient.Builder().addInterceptor(AuthInterceptor(context)).readTimeout(1000,TimeUnit.SECONDS).build())
                 .baseUrl(BASE_URL)
                 .build()
 
