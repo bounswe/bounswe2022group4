@@ -66,7 +66,12 @@
 
 |Work Title|Related Link|
 | ----------- | ----------- |
-|My issue|[PR](xd.com)|
+|APIs for Post and Comment models.|[PR-1](https://github.com/bounswe/bounswe2022group4/pull/369) [PR-2](https://github.com/bounswe/bounswe2022group4/pull/346)|
+|Token Authentication|[1](https://github.com/bounswe/bounswe2022group4/issues/339)|
+|Search APIs |[1](https://github.com/bounswe/bounswe2022group4/issues/431)|
+|Revision on Requirements|[1](https://github.com/bounswe/bounswe2022group4/issues/226)|
+|Development of the existing User models. |[#427](https://github.com/bounswe/bounswe2022group4/issues/427)|
+
 
 
 - **Berat Damar**
