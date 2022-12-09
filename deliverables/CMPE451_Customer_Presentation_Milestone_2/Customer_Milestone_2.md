@@ -584,6 +584,92 @@ The further features which will be implemented in final milestone is like below:
 ### API Endpoints
 
 
+Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
+
+User Endpoints:
+
+* GET /api/user/home
+* POST /api/user/register
+* POST /api/user/login
+* POST /api/user/logout
+* POST /api/user/forget_password
+* POST /api/user/reset_password
+* GET /api/user/profilepage/{username}
+* PUT /api/user/profilepage/{username}
+* POST /api/user/search/{keyword}
+
+Chat Endpoints: 
+
+* POST /api/chat/send/message
+* POST /api/chat/fetch/message
+* GET /api/chat/fetch/users
+
+Post Endpoints:
+
+* POST /api/post/create-post
+* POST /api/post/delete/{slug}
+* POST /api/post/update/{slug}
+* POST /api/post/upvote-post/{slug}
+* POST /api/post/downvote-post/{slug}
+* GET /api/post/fetch/{slug}
+* GET /api/post/list-posts
+* POST /api/post/search/{keyword}
+* POST /api/post/create-comment/{slug}
+* POST /api/post/delete-comment/{slug}/{id}
+* POST /api/post/upvote-comment/{slug}/{id}
+* POST /api/post/downvote-comment/{slug}/{id}
+* POST /api/post/update-comment/{slug}/{id}
+* GET /api/post/fetch-comment/{slug}/{id}
+* GET /api/post/fetch-comments/{slug}
+
+
+
+
+## Example 1: Register to the Application
+### POST /api/user/register 
+![image](https://user-images.githubusercontent.com/100778825/206544852-2a12c675-69b6-45a4-87a8-84cdae4f3bab.png)
+
+## Example 2: Login to the Application
+### POST /api/user/login
+![image](https://user-images.githubusercontent.com/100778825/206545610-91893b1f-45e2-4145-a9e9-7fd722f1d2d6.png)
+* From now on, we will use the token value returned in the response for all requests we will make to other endpoints of the application.
+
+
+## Example 3: Send Message to the Specific User with His/Her Username 
+### POST /api/chat/send/message
+
+![image](https://user-images.githubusercontent.com/100778825/206546181-ffd147dc-eaef-4d87-9056-dfcfea04a34f.png)
+
+![image](https://user-images.githubusercontent.com/100778825/206546446-9636ffd5-9bb4-455f-b8a8-debd14c61023.png)
+* As I mentioned above, **"Authorization: Token {Token Id}"** HTTP header must be added all of the request.
+
+## Example 4: Get Secret Code In Order To Reset Password
+### POST /api/user/forget_password
+
+![image](https://user-images.githubusercontent.com/100778825/206547964-ed2a19df-474e-4159-b411-fcb83be4b3f3.png)
+* After this request an email which contains a secret code sent to your mail address. You should check the secret code. 
+
+## Example 5: Reset Password Via Supplying Secret Code and the New Password
+### POST /api/user/reset_password
+
+![image](https://user-images.githubusercontent.com/100778825/206548241-ff4626b5-4c76-4cf8-afaa-317e0e82e844.png)
+
+## Example 6: Create a New Post
+### POST /api/post/create-post
+
+![image](https://user-images.githubusercontent.com/100778825/206550293-488a8995-6072-42c4-af0b-081777560eb2.png)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
