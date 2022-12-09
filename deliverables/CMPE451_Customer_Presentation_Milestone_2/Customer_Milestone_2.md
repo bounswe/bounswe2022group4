@@ -758,8 +758,7 @@ Overall, the implementation of the annotation structure using the react-annotati
 
 ## Individual Reports
 
-
-
+<summary>
     
 ###  **Miraç Batuhan Malazgirt - Group 4**    
     
