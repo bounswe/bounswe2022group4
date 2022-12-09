@@ -758,6 +758,7 @@ Overall, the implementation of the annotation structure using the react-annotati
 
 ## Individual Reports
 
+<details>
 <summary>
     
 ###  **Miraç Batuhan Malazgirt - Group 4**    
@@ -810,12 +811,6 @@ Overall, the implementation of the annotation structure using the react-annotati
 *  [Backend connection of users own profile pages](https://github.com/bounswe/bounswe2022group4/pull/456)
 
 </details>
-   </summary>
-   
-   
-   <details>
-  <summary>
-    
 
 <details>
 <summary>
