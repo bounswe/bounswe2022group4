@@ -183,8 +183,24 @@ The further features which will be implemented in final milestone is like below:
 
 </br>
 
-### Status of the Deliverables of Milestone 1
 
+## List and Status of Deliverables.
+
+|Deliverable|Status|Date Delivered| 
+|-----|:--------:|:------:| 
+|[Software Requirements Specification](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)| Delivered |01/11/2022 |
+|[Software Design (UML):Use-Case Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Use-Case-Diagram)|Delivered|01/11/2022|
+|[Software Design (UML):Class Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram)|Delivered|01/11/2022|
+|[Software Design (UML):Sequence Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Sequence-Diagrams)|Delivered|01/11/2022|
+|[Scenarios](https://github.com/bounswe/bounswe2022group4/wiki/User-Scenarios) and [Mockups](https://github.com/bounswe/bounswe2022group4/wiki/Mockups) | Delivered | 01/11/2022|
+|[Project Plan](https://github.com/bounswe/bounswe2022group4/wiki/Project-Plan)|Delivered|04/11/2022|
+|[Individual Contribution Reports](https://github.com/bounswe/bounswe2022group4/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_1/Customer_Milestone_1.md)|Delivered|01/11/2022|
+|[Software Release](https://github.com/bounswe/bounswe2022group4/releases/tag/customer-presentation-1) | Delivered | 01/11/2022| 
+|Mobile Deliverables [APK](https://github.com/bounswe/bounswe2022group4/releases/download/customer-presentation-1/heka-mobile.apk)|Delivered |01/11/2022|
+|Group Review  | Not Delivered | 04/11/2022|
+
+
+---------
 
 
 </br>
