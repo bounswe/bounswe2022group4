@@ -875,7 +875,83 @@ For the time being, only unit test for creation of a post completed.
    <details>
   <summary>
     
+	  
+###  **Berat Damar - Group 4**
     
+</summary>
+  
+###  **Member**
+
+* Name: Berat Damar
+* Student ID: 2018400039
+* Group4 - Frontend Team
+### **Responsibilities**
+  * Designing the forget password related screens (a screen for e-mail, a screen for e-mail verification code and new password , a screen for success of changing password )
+  * Designing search structure of the frontend
+  * Designing category section in homepage
+  * Implementing category section 
+  * Implementing search functionality 
+  * Implementing forget password screen and making its back-end connection
+  * Writing tests for forget password, category and search functionalities.
+  * Documenting a general meeting note
+  * Doing research on annotations to review and improve our annotation structure
+  * Carrying out  research on React libraries, frameworks, and methodologies that can be used for our application.
+  * Reviewing all works done by frontend teammates
+  * Reviewing all requirements and determining progress of them
+  * Documenting User Interface and User Experience of the our web and mobil application
+  * Solving bugs, errors, problems occured during the implementation of application.
+  * Attending and participating general meetings regularly.
+  * Attending and participating frontend team meetings regularly.
+  * As a member of the front-end team, contributing to the development of the front-end and the main decisions about the project.
+
+### **Main contributions**
+I am a member of our frontend team for the development of our application. As front-end team, we determined which functionalities we will provide for Milestone 2. We decided to design and implement post related functioanlities, forget password functionalitiy, search functionality, category sidebar, edit profile and chat functioanlity. We assigned these functionalities into every member. I was assgined to forget password, search and category section in homepage. We met regularly to talk about the progress of tasks assigned to each member and we gave feedbacks for possible improvements. Firstly, I reviewed some popular websites to get idea about the user interface of the fprget password related pages. After some research,  I designed forget password page as a three different page: e-mail validation screen, new password screen and success page containing a button for directing login page. I provided backend connection for all forget password related pages. Secondly, I designed and implemented category feature for our web application. Since backend team have not provided required APIs yet, I could not provide backend connection for that function. As a next task, I review some populer websites and libraries to design and implement semantic search functionality.After that research period, I have designed and implemented search functionality. For all these features I implemented, I wrote units test covering many cases. I have contributed to the development of the front-end and the main decisions about the project. I reviewed so many pull requests and made some comments about possible improvements and bugs. Before merging pull requests, I tested functionalities that are provided by that pull request manually to prevent possible bugs and conflicts with our requirements. I also found different bugs and resolved them. I documented progress of requirements for Milestone 2 Report. I also documented user interface and experience of our web and mobil applications providing related links for the implementations. 
+
+
+
+#### **Code Related Significant Issues**
+* [Frontend: Implementation of Forgot Password Related Pages](https://github.com/bounswe/bounswe2022group4/issues/347)
+* [Frontend: Implementation of Category Feature and Side Bar](https://github.com/bounswe/bounswe2022group4/issues/372)
+* [Frontend: Re-Design and Implementation of Forgot Password Related Pages](https://github.com/bounswe/bounswe2022group4/issues/408)
+* [Frontend Bug: Doctor Sign-up Button and Fields Exceeds Form Size](https://github.com/bounswe/bounswe2022group4/issues/413)
+* [Frontend: Backend Connection of Forgot Password Related Pages](https://github.com/bounswe/bounswe2022group4/issues/415)
+* [Frontend: Implementation of Search Functionalities](https://github.com/bounswe/bounswe2022group4/issues/421)
+* [Frontend: Unit Tests for Forgot Password, Categories and Search Functionalities](https://github.com/bounswe/bounswe2022group4/issues/433)
+  
+#### **Management Related Significant Issues**
+* [Documenting User Interface and User Experience of the our web and mobil application](https://github.com/bounswe/bounswe2022group4/issues/237)
+* [Reviewing all requirements and determining progress of them](https://github.com/bounswe/bounswe2022group4/issues/238)
+* [Management: Prepare Posts and Users For Customer Presentation 2](https://github.com/bounswe/bounswe2022group4/issues/437)
+
+
+
+
+### **Pull Requests**
+* [Frontend: Validation for Forgot Password Feature](https://github.com/bounswe/bounswe2022group4/pull/371)
+* [Frontend: Implementation of Category Feature and Side Bar](https://github.com/bounswe/bounswe2022group4/pull/384)
+* [Frontend: Implementation of Forgot Password Related Pages](https://github.com/bounswe/bounswe2022group4/pull/392)
+* [Frontend: Verification of Email UI Improvement](https://github.com/bounswe/bounswe2022group4/pull/409)
+* [Frontend Bug: Doctor Sign-up Button and Fields Exceeds Form Size](https://github.com/bounswe/bounswe2022group4/pull/414)
+* [Frontend: Backend Connection for Forget Password and Error Messages](https://github.com/bounswe/bounswe2022group4/pull/416)
+* [Frontend: Implementation of Search Functionality](https://github.com/bounswe/bounswe2022group4/pull/426)
+* [Frontend: Unit Test for Forget Password, Search and Categories Functionalities](https://github.com/bounswe/bounswe2022group4/pull/493)
+
+
+
+### **Additional Information**
+I attended all general and frontend meetings. I also reviewed a lot of issues and pull requests. 
+  
+</details>
+
+
+
+
+
+
+
+
+<details>
+  <summary>
     
 ###  **Yiğit Can Özkaya - Group 4**    
     
