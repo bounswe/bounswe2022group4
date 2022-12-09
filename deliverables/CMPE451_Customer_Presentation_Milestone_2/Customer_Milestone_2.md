@@ -173,9 +173,54 @@ The further features which will be implemented in final milestone is like below:
 
 - **Umut Deniz Şener**
 
+
+
 |Work Title|Related Link|
 | ----------- | ----------- |
-|My issue|[PR](xd.com)|
+|Frontend:Implement Create Comment Component For The Posts|[issue](https://github.com/bounswe/bounswe2022group4/issues/242)
+ |Frontend:Doctor Sign Up|[issue](https://github.com/bounswe/bounswe2022group4/issues/349)
+ |Frontend: Username Privacy|[issue](https://github.com/bounswe/bounswe2022group4/issues/355)
+ |Frontend: Create Post Component|[issue](https://github.com/bounswe/bounswe2022group4/issues/357)
+ |Frontend: Authentication Token|[issue](https://github.com/bounswe/bounswe2022group4/issues/359)
+ |Frontend: Implement Comment and Comment Box Components|[issue](https://github.com/bounswe/bounswe2022group4/issues/361)
+ |Frontend: Render Image Under Post and UI Improvement of Post Component|[issue](https://github.com/bounswe/bounswe2022group4/issues/363)
+ |Frontend: Implement Annotations Structure|[issue](https://github.com/bounswe/bounswe2022group4/issues/365)
+ |Frontend: Create Post Backend Connection|[issue](https://github.com/bounswe/bounswe2022group4/issues/385)
+ |Frontend: Get All Posts Backend Connection|[issue](https://github.com/bounswe/bounswe2022group4/issues/386)
+ |Frontend: Delete Post Backend Connection|[issue](https://github.com/bounswe/bounswe2022group4/issues/387)
+ |Frontend: Update Comment UI and Add New Fields|[issue](https://github.com/bounswe/bounswe2022group4/issues/390)
+ |Frontend: Update Create Comment UI|[issue](https://github.com/bounswe/bounswe2022group4/issues/391)
+ |Frontend: Create Comment Backend Connection|[issue](https://github.com/bounswe/bounswe2022group4/issues/398)
+ |Frontend: Get Comment Backend Connection|[issue](https://github.com/bounswe/bounswe2022group4/issues/399)
+ |Frontend: Delete Comment Backend Connection|[issue](https://github.com/bounswe/bounswe2022group4/issues/400)
+ |Frontend: Create Post Image Uploading and Post Image Rendering|[issue](https://github.com/bounswe/bounswe2022group4/issues/403)
+ |Frontend: Backend Connection Vote Post|[issue](https://github.com/bounswe/bounswe2022group4/issues/410)
+ |Frontend: Edit Post|[issue](https://github.com/bounswe/bounswe2022group4/issues/417)
+ |Frontend: Unit Tests For Post Structure|[issue](https://github.com/bounswe/bounswe2022group4/issues/480)
+ |Management: Documenting Meeting Notes for the General Meeting 6|[issue](https://github.com/bounswe/bounswe2022group4/issues/336)
+ |Management: Prepare Posts For Customer Presentation 2|[issue](https://github.com/bounswe/bounswe2022group4/issues/437)
+ |Management: Annotations For Milestone 2|[issue](https://github.com/bounswe/bounswe2022group4/issues/488)
+|Frontend: Doctor Signup|[PR](https://github.com/bounswe/bounswe2022group4/pull/354)
+  |Frontend: Username Privacy |[PR](https://github.com/bounswe/bounswe2022group4/pull/356)
+  |Frontend: Create Post Component|[PR](https://github.com/bounswe/bounswe2022group4/pull/358)
+  |Frontend: Authentication Token|[PR](https://github.com/bounswe/bounswe2022group4/pull/360)
+  |Frontend: Comment Functionality|[PR](https://github.com/bounswe/bounswe2022group4/pull/362)
+  |Frontend: Render Image Under Post and UI Improvement of Posts Component|[PR](https://github.com/bounswe/bounswe2022group4/pull/364)
+ |Frontend: Annotations Structure|[PR](https://github.com/bounswe/bounswe2022group4/pull/366)
+  |Frontend: Post Structure Backend Connection|[PR](https://github.com/bounswe/bounswe2022group4/pull/388)
+  |Frontend: Comment UI and Create Comment Structure Update|[PR](https://github.com/bounswe/bounswe2022group4/pull/397)
+  |Frontend: Create Post Image Uploading and Post Base 64 Image Rendering |[PR](https://github.com/bounswe/bounswe2022group4/pull/404)
+  |Frontend: Comment Backend Connection|[PR](https://github.com/bounswe/bounswe2022group4/pull/405)
+  |Frontend: Backend Connection For Vote Post |[PR](https://github.com/bounswe/bounswe2022group4/pull/411)
+  |Frontend: Delete Comment Backend Connection |[PR](https://github.com/bounswe/bounswe2022group4/pull/412)
+  |Frontend: Edit Post |[PR](https://github.com/bounswe/bounswe2022group4/pull/418)
+  |Frontend: Loading States|[PR](https://github.com/bounswe/bounswe2022group4/pull/429)
+  |Frontend: Loading States|[PR](https://github.com/bounswe/bounswe2022group4/pull/429)
+|Frontend: Unit Tests For Post Structure|[Test](https://github.com/bounswe/bounswe2022group4/issues/480)
+|Frontend: Unit Tests for Posts|[Test](https://github.com/bounswe/bounswe2022group4/pull/487)
+
+
+
 
 - **Oğuzhan Tok**
 
@@ -188,6 +233,7 @@ The further features which will be implemented in final milestone is like below:
 |Work Title|Related Link|
 | ----------- | ----------- |
 |My issue|[PR](xd.com)|
+
 
 
 
