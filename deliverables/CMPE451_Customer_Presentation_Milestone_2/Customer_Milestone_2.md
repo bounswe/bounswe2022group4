@@ -79,7 +79,20 @@
 
 |Work Title|Related Link|
 | ----------- | ----------- |
-|My issue|[PR](xd.com)|
+|Mobile: Forgot Password and Reset Password Pages|[issue](https://github.com/bounswe/bounswe2022group4/issues/344)|
+|Mobile: Timeline Item and Post Detail Page Revision|[issue](https://github.com/bounswe/bounswe2022group4/issues/420)|
+|Mobile: Edit Profile Page and Profile Page Implementation|[issue](https://github.com/bounswe/bounswe2022group4/issues/478)|
+|General: Issue Templete Need|[issue](https://github.com/bounswe/bounswe2022group4/issues/482)|
+|Milestone-2 Report: Individual Report|[issue](https://github.com/bounswe/bounswe2022group4/issues/490)|
+|Management: Executive Summary for Milestone 2 Review|[issue](https://github.com/bounswe/bounswe2022group4/issues/489)|
+|Reset password functionality added|[PR](https://github.com/bounswe/bounswe2022group4/pull/458)|
+|0.2.0 - Cumulative update|[PR](https://github.com/bounswe/bounswe2022group4/pull/447)|
+|Mobile: Several Functionalities and Tests added|[PR](https://github.com/bounswe/bounswe2022group4/pull/477)|
+|Individual report parts added|[PR](https://github.com/bounswe/bounswe2022group4/pull/491)|
+|Mobile: Login Page Instrumental Tests|[test](https://github.com/bounswe/bounswe2022group4/issues/476)|
+|Mobile: Double Password Validator Tests|[test](https://github.com/bounswe/bounswe2022group4/issues/475)|
+
+
 
 - **Miraç Batuhan Malazgirt**
 
@@ -124,6 +137,8 @@
 
 
 </br>
+
+
 ### Status of the Deliverables of Milestone 1
 ***
 
@@ -422,14 +437,15 @@
   
 #### Standarts
 ***  
-  text
+
 
 </br>
+
 ## Individual Reports
 
 --------------------------  
 
-# **INDIVIDUAL REPORTS**
+# INDIVIDUAL REPORTS
 
 <details>
 <summary>
@@ -586,30 +602,43 @@ They create a mock data in a mock database.
   
 ### **Responsibilities**
 - My main responsibility is communicator job.
-- I was mainly responsible for implementing profile page, edit profile page, forget password and reset password.
+- I was mainly responsible for implementing profile page, edit profile page, forget password and reset password. And enhancing the UI of mobile pages which other team members have implemented.
 - My side responsibilities were communicating with backend team to request and adapt apis, enhancing the communication and workflows of team.
 
 
 ### **Main contributions**
 - Mobile: Implementation of Profile Page and Edit Profile Page.
 - Mobile: Implementation of Forget Password and Reset Password Pages.
-- Mobile: Revision of timeline items to looks them elegant.
-- Mobile: Revision of post details page to enhance UI and UX.
+- Mobile: Revision of timeline post items to looks them elegant.
+- Mobile: Revision of post details page to enhance UI.
+- Mobile: Nested sliding added to post details page to enhance UX.
+- Mobile: Double Password Validator implemented.
 
 
 #### **Code Related Significant Issues**
+* [Mobile: Forgot Password and Reset Password Pages](https://github.com/bounswe/bounswe2022group4/issues/344)
+* [Mobile: Timeline Item and Post Detail Page Revision](https://github.com/bounswe/bounswe2022group4/issues/420)
+* [Mobile: Edit Profile Page and Profile Page Implementation](https://github.com/bounswe/bounswe2022group4/issues/478)
 
 
 #### **Management Related Significant Issues**
+* [General: Issue Templete Need](https://github.com/bounswe/bounswe2022group4/issues/482)
+* [Milestone-2 Report: Individual Report](https://github.com/bounswe/bounswe2022group4/issues/490)
+* [Management: Executive Summary for Milestone 2 Review](https://github.com/bounswe/bounswe2022group4/issues/489)
 
   
 ### **Pull Requests**
-
+*  [Reset password functionality added](https://github.com/bounswe/bounswe2022group4/pull/458)
+*  [0.2.0 - Cumulative update](https://github.com/bounswe/bounswe2022group4/pull/447)
+*  [Mobile: Several Functionalities and Tests added](https://github.com/bounswe/bounswe2022group4/pull/477)
+*  [Individual report parts added](https://github.com/bounswe/bounswe2022group4/pull/491)
 
 #### **Test Cases**
-
+* [Mobile: Login Page Instrumental Tests](https://github.com/bounswe/bounswe2022group4/issues/476)
+* [Mobile: Double Password Validator Tests](https://github.com/bounswe/bounswe2022group4/issues/475)
   
-###
+### **Additional Information**
+* Contributions are distributed into commits well, all contributions have not explicitly implied on issues, only mojor ones implied.
 </details>
    </summary>
 
