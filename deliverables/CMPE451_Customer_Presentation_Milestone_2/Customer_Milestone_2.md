@@ -727,10 +727,10 @@ They create a mock data in a mock database.
 
 #### **Test Cases**
 * Unit Test for /api/user/register was modified.
-[Backend: Post and Comment tests #435]([https://github.com/bounswe/bounswe2022group4/pull/435](https://github.com/bounswe/bounswe2022group4/issues/481))
-For the time being, only unit test for creation of post completed.
+##### [Backend: Post and Comment tests #435](https://github.com/bounswe/bounswe2022group4/issues/481)
+For the time being, only unit test for creation of a post completed.
 - api/post/create-post [*](37a19edfd797f5e3ad3943067e11e27759d1ffc9)
-Other unit tests are to be implemented as soon as possible.
+- Other unit tests are to be implemented as soon as possible.
 	
 ### **Additional Information**
   
