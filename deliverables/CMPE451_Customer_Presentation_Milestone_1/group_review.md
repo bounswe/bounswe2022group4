@@ -34,9 +34,9 @@ Team members went over the requirements and design diagrams of the application a
 
 ---------
 
-## List and status of deliverables.
+## List and status of deliverables of Milestone I
 
-|Deliverable|Status|Date Delivered| 
+|Deliverable|Status change since Milestone I|Date Delivered| 
 |-----|:--------:|:------:| 
 |[Software Requirements Specification](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)| Delivered |01/11/2022 |
 |[Software Design (UML):Use-Case Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Use-Case-Diagram)|Delivered|01/11/2022|
