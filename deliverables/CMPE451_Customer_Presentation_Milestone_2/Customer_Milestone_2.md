@@ -619,6 +619,72 @@ The further features which will be implemented in final milestone is like below:
 [Profile Page Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/ProfilePage)
 
 
+Mobile
+
+</br>**signup**</br>
+[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/register)
+![photo_2022-12-09 15 23 01](https://user-images.githubusercontent.com/26671168/206707872-23948d6a-9f3a-42cc-adbc-b31d16ab4b94.jpeg)
+
+</br>**login**</br>
+[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/login)
+![photo_2022-12-09 15 23 02](https://user-images.githubusercontent.com/26671168/206708087-b490f5ba-d386-4e73-9307-ccc1ecd707ab.jpeg)
+
+</br>**forget password**</br>
+[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/forgotpassword)
+![photo_2022-12-09 15 22 59 (1)](https://user-images.githubusercontent.com/26671168/206708689-bfef9724-f54f-4659-9784-7717192735b2.jpeg)
+![photo_2022-12-09 15 22 59](https://user-images.githubusercontent.com/26671168/206708721-af934ab6-828b-478b-94a4-2dfe30bb7ca7.jpeg)
+![photo_2022-12-09 15 22 57](https://user-images.githubusercontent.com/26671168/206708753-6ead1da0-7c81-4849-b372-5d371a9a4ce3.jpeg)
+
+</br>**create post**</br>
+[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/post)
+![photo_2022-12-09 15 22 46](https://user-images.githubusercontent.com/26671168/206709229-c132e82c-c4a2-4445-9fba-efab60cd6ce0.jpeg)
+![photo_2022-12-09 15 22 49](https://user-images.githubusercontent.com/26671168/206709412-d5aba464-1ac2-4104-a755-a8d368d465ba.jpeg)
+![photo_2022-12-09 15 22 49 (1)](https://user-images.githubusercontent.com/26671168/206709433-648bc88a-1eeb-4ae0-95e5-1c4da19fe793.jpeg)
+![photo_2022-12-09 15 22 50](https://user-images.githubusercontent.com/26671168/206709458-c6c5e476-8747-4e96-8b52-1f7be19d9125.jpeg)
+![photo_2022-12-09 15 22 51](https://user-images.githubusercontent.com/26671168/206709482-a04af6a1-45c8-4b35-8610-5117512bb27d.jpeg)
+
+</br>**home page**</br>
+[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/home)
+![photo_2022-12-09 15 22 47 (1)](https://user-images.githubusercontent.com/26671168/206709360-d49869d5-92d1-465c-8465-ca9af4a834a3.jpeg)
+![photo_2022-12-09 15 22 48](https://user-images.githubusercontent.com/26671168/206709384-15399076-4de3-4869-8ee5-823c4e8395ba.jpeg)
+
+</br>**create comment page**</br>
+[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/post)
+![photo_2022-12-09 15 22 44](https://user-images.githubusercontent.com/26671168/206709796-5bf01d0e-f523-4f22-9949-f761eb4c1f23.jpeg)
+
+</br>**Post, Comment, Upvote, Downvote Page**</br>
+[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/post)
+![photo_2022-12-09 15 22 44](https://user-images.githubusercontent.com/26671168/206709084-8f4ed041-6233-49d6-a6b7-d037d601cf29.jpeg)
+
+</br>**Edit Post Page**</br>
+[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/post)
+![photo_2022-12-09 15 22 43](https://user-images.githubusercontent.com/26671168/206709032-a78b2170-c988-4c18-80d8-9e413b9b5a77.jpeg)
+
+</br>**Edit Comment Page**</br>
+[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/post)
+![photo_2022-12-09 15 22 40](https://user-images.githubusercontent.com/26671168/206708903-d3233ce2-278e-4901-a1e4-e79845090455.jpeg)
+
+</br>**Post Details Page**</br>
+[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/post)
+![photo_2022-12-09 15 22 42](https://user-images.githubusercontent.com/26671168/206709005-02b24c12-24b7-4a07-af1e-1dbfc72a356c.jpeg)
+![photo_2022-12-09 15 22 44 (1)](https://user-images.githubusercontent.com/26671168/206709147-8e1ca850-9708-498a-b403-1275f4b82e7d.jpeg)
+
+</br>**Chat**</br>
+[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/chat)
+![photo_2022-12-09 15 22 52](https://user-images.githubusercontent.com/26671168/206709564-dc067336-5997-4531-a0ab-2fabe71cec04.jpeg)
+![photo_2022-12-09 15 22 52 (1)](https://user-images.githubusercontent.com/26671168/206709583-384dfb9c-7e72-4d6a-8a74-9838eecaa964.jpeg)
+![photo_2022-12-09 15 22 53](https://user-images.githubusercontent.com/26671168/206709627-23580c2b-a80b-4a17-a330-dd1bcb0290e7.jpeg)
+
+</br>**Profile Page**</br>
+[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/profile)
+![photo_2022-12-09 15 22 55](https://user-images.githubusercontent.com/26671168/206708796-f8469160-7fc6-4819-8b1c-5390435186f1.jpeg)
+![photo_2022-12-09 15 22 47](https://user-images.githubusercontent.com/26671168/206709283-5a64a316-207b-4059-9056-ec9b010af9b9.jpeg)
+
+</br>**Edit Profile Page** 
+</br>
+[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/profile)
+![photo_2022-12-09 15 22 54](https://user-images.githubusercontent.com/26671168/206709702-91cea36c-3843-42e7-9787-771cc5334694.jpeg)
+![photo_2022-12-09 15 22 54 (1)](https://user-images.githubusercontent.com/26671168/206709731-6ac20167-77ff-4db3-a61b-ab2e3c50cef7.jpeg)
 
 
 
