@@ -19,30 +19,66 @@
 </br>
 
 ## Executive Summary
-***
+
+### **Summary of the Project Status:**
+
+Team members went over again the requirements and some of them have changed due to needs.
+The team were implemented features after getting the related apis from the backend team. The aimed features which are planned to implemented in Milestone II has done except notification. The annotations has implemented on client side for now. Due to actuality of concept for us, this will be implemented fully in final project. Also search is not has fancy features as we planned before, it is OK but not enough for our standarts. Search will be better. There is a list of planned functionalities:
+
+* POST
+* COMMENT 
+* ANNOTATION `(Partially done)`
+* FORGET/RESET PASSWORD
+* SEARCH 
+* PROFILE/EDIT PROFILE
+* CATEGORY 
+* NOTIFICATION `(Not implemented)`
+* CHAT
+
+The main objective of Milestone 2 was implementing most of the features which a general user will use and enhancing the UI experience of the user for both web and mobile.  In addition to planned features, authentication system has revisioned and sidebar of the we has revisioned regarding to new features. Another new concept for us is uploading the images, for now our system send images directly instead of url of the image which is restrick us on caching the images. There is still an active work on this subject, there could be further updates. The deployed server is failing rarely, this is not a big issue for now, but it will be resolved soon by our team.
+
+</br>
+
+### **Changes the team has made or planned since Milestone 1 to improve development process, and how those changes will impact the process:**
 
 
-### Summary of the Project Status:
-***
-
-
-### Changes the team has made or planned since Milestone 1 to improve development process, and how those changes will impact the process:
-***
-
-
-### The Improvements Planned for the Remainder of the Project:
-***
+* The teams decided to move faster than the previous milestone. To achive that we run decide operations locally. Little clans decided feature behaviours, which are not too important, in light of the requirements.
+* The team decided to match UIs of both mobile and front side for consistency. It has achived partially, the themes are not completely same but they have common colors and patterns in itselves. 
+* The front-end deployment has been automized to observe changes without using local deployment techniques.
 
 
 </br>
 
-## Progress Based on Teamwork
+### **The Improvements Planned for the Remainder of the Project:**
+
+
+The further features which will be implemented in final milestone is like below:
+* Enhancing search
+* Enhancing post view for better UX
+* Integration of categories semanticaly
+* Chatbot to improve UX
+* Saving and serving annotations on server side
+* Health professional integration on application
+* Better image managing on client side
+* Completing theme gap between mobile and web
+* Adding notifications for user interactions
+* Profile page enhancement to see user activities
+
+</br>
+
 ***
 
+## Progress Based on Teamwork
 
+
+
+
+
+
+***
 
 ### Summary of Individual Work
-***
+
 
 
 
@@ -94,6 +130,7 @@
 |0.2.0 - Cumulative update|[PR](https://github.com/bounswe/bounswe2022group4/pull/447)|
 |Mobile: Several Functionalities and Tests added|[PR](https://github.com/bounswe/bounswe2022group4/pull/477)|
 |Individual report parts added|[PR](https://github.com/bounswe/bounswe2022group4/pull/491)|
+|Executive Summary Part filled|[PR](https://github.com/bounswe/bounswe2022group4/pull/492)|
 |Mobile: Login Page Instrumental Tests|[test](https://github.com/bounswe/bounswe2022group4/issues/476)|
 |Mobile: Double Password Validator Tests|[test](https://github.com/bounswe/bounswe2022group4/issues/475)|
 
@@ -141,14 +178,25 @@
 
 
 
+
+***
+
 </br>
 
-
 ### Status of the Deliverables of Milestone 1
-***
+
+
+
+</br>
 
 ### Progress According to Requirements
-***
+
+
+
+
+
+
+</br>
 
 
 
@@ -426,31 +474,43 @@
 
 
 ### API Endpoints
-***
+
+
+
+
+
+</br>
 
 ### User Interface / User Experience
-***
+
+
+
+
+
+
+
+</br>
+
+
 
 ### Annotations
-***
+
 
 #### Status
-***
+
   
   
 
   
 #### Standarts
-***  
+
+
 
 
 </br>
 
 ## Individual Reports
 
---------------------------  
-
-# INDIVIDUAL REPORTS
 
 <details>
 <summary>
@@ -631,12 +691,14 @@ They create a mock data in a mock database.
 * [Milestone-2 Report: Individual Report](https://github.com/bounswe/bounswe2022group4/issues/490)
 * [Management: Executive Summary for Milestone 2 Review](https://github.com/bounswe/bounswe2022group4/issues/489)
 
+
   
 ### **Pull Requests**
 *  [Reset password functionality added](https://github.com/bounswe/bounswe2022group4/pull/458)
 *  [0.2.0 - Cumulative update](https://github.com/bounswe/bounswe2022group4/pull/447)
 *  [Mobile: Several Functionalities and Tests added](https://github.com/bounswe/bounswe2022group4/pull/477)
 *  [Individual report parts added](https://github.com/bounswe/bounswe2022group4/pull/491)
+*  [Executive Summary Part filled](https://github.com/bounswe/bounswe2022group4/pull/492)
 
 #### **Test Cases**
 * [Mobile: Login Page Instrumental Tests](https://github.com/bounswe/bounswe2022group4/issues/476)
