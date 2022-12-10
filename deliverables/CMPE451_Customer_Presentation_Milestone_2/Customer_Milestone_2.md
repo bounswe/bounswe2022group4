@@ -1086,7 +1086,8 @@ I am a member of our frontend team for the development of our application. As fr
 * [Frontend: Implementation of Search Functionality](https://github.com/bounswe/bounswe2022group4/pull/426)
 * [Frontend: Unit Test for Forget Password, Search and Categories Functionalities](https://github.com/bounswe/bounswe2022group4/pull/493)
 
-
+### *Unit Tests*
+* [Frontend:  Unit Tests for Forget Password, Search and Categories Functionalities](https://github.com/bounswe/bounswe2022group4/pull/493)
 
 ### **Additional Information**
 I attended all general and frontend meetings. I also reviewed a lot of issues and pull requests. 
