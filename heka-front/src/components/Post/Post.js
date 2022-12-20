@@ -7,6 +7,7 @@ import {
   Comment as CommentIcon,
   ExpandMore as ExpandMoreIcon,
   MoreVert as MoreVertIcon,
+  ReportProblemOutlined as ReportProblemOutlinedIcon,
 } from '@mui/icons-material';
 import { BackendApi } from '../../api';
 import './Post.css';
@@ -183,6 +184,10 @@ const Post = ({
                   <Button>Post Page</Button>
                 </Link>
               )}
+              {isLogged && (
+                <Button endIcon={<ReportProblemOutlinedIcon />}></Button>
+              )}
+
               <Button startIcon={<ThumbUpIcon />} onClick={handleUpvote}>
                 {upvote}
               </Button>
