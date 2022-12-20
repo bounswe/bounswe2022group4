@@ -48,6 +48,7 @@ const Post = ({
   isExpert,
   location,
   userName,
+  postPageButton,
   isUpvoted,
   isDownvoted,
 }) => {
@@ -171,23 +172,23 @@ const Post = ({
           subheader={subheader}
           action={
             <div>
-              <Link
-                to={'/post/' + slug}
-                style={{
-                  textDecoration: 'none',
-                  backgroundColor: 'none',
-                }}
-              >
-                <Button>Post Page</Button>
-              </Link>
+              {postPageButton && (
+                <Link
+                  to={'/post/' + slug}
+                  style={{
+                    textDecoration: 'none',
+                    backgroundColor: 'none',
+                  }}
+                >
+                  <Button>Post Page</Button>
+                </Link>
+              )}
               <Button startIcon={<ThumbUpIcon />} onClick={handleUpvote}>
                 {upvote}
               </Button>
-
               <Button startIcon={<ThumbDownIcon />} onClick={handleDownvote}>
                 {downvote}
               </Button>
-
               {userName === user && (
                 <>
                   <Button onClick={handleOpenEditModal}> Edit</Button>

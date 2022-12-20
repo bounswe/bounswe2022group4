@@ -114,6 +114,7 @@ const PostBox = ({
             changeInPost={changeInPost}
             setChangeInPost={setChangeInPost}
             userName={userName}
+            postPageButton={true}
           />
         ))}
     </div>
