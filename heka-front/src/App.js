@@ -8,6 +8,8 @@ import ForgotPasswordForm from './pages/ForgotPassword/ForgotPassword';
 import PostPage from './pages/PostPage/PostPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import EditProfile from './components/EditProfile/EditProfile';
+import { Recogito } from '@recogito/recogito-js';
+import '@recogito/recogito-js/dist/recogito.min.css';
 
 const App = () => {
   const [isLogged, setIsLogged] = React.useState(false);
@@ -15,6 +17,8 @@ const App = () => {
   const [userName, setUserName] = React.useState('');
   const [loggedInUser, setLoggedInUser] = React.useState('');
   const [changeInPost, setChangeInPost] = React.useState(false);
+  const r = new Recogito({ content: document.getElementById('root') });
+
   return (
     <div>
       <Router>
