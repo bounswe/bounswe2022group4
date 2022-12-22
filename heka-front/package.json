@@ -24,6 +24,7 @@
     "react-geolocated": "^4.0.3",
     "react-icons": "^4.6.0",
     "react-image-annotation": "^0.9.10",
+    "react-image-base64": "^1.1.2",
     "react-router": "^6.4.2",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
