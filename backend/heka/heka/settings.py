@@ -93,6 +93,14 @@ DATABASES = {
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
         'HOST': os.environ.get('POSTGRES_HOST'),
         'PORT': 5432,
+    },
+    'annotations': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('ANNO_POSTGRES_NAME'),
+        'USER': os.environ.get('ANNO_POSTGRES_USER'),
+        'PASSWORD': os.environ.get('ANNO_POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('ANNO_POSTGRES_HOST'),
+        'PORT': 5433,
     }
 }
 
