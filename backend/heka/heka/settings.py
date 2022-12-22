@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'chat',
     'posts',
+    'annotations',
 ]
 
 MIDDLEWARE = [
