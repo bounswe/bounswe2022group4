@@ -7,11 +7,13 @@ import {
   Comment as CommentIcon,
   ExpandMore as ExpandMoreIcon,
   MoreVert as MoreVertIcon,
+  ReportProblemOutlined as ReportProblemOutlinedIcon,
 } from '@mui/icons-material';
 import { BackendApi } from '../../api';
 import './Post.css';
 import CreateComment from '../CreateComment/CreateComment';
 import CommentBox from '../CommentBox/CommentBox';
+import ReportPost from '../ReportPost/ReportPost';
 import Annotation from 'react-image-annotation';
 import {
   IconButton,
@@ -68,8 +70,15 @@ const Post = ({
 
   const [openCreateCommentModal, setOpenCreateCommentModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
+  const [openReportModal, setOpenReportModal] = useState(false);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const handleOpenReportModal = () => {
+    setOpenReportModal(true);
+  };
+  const handleCloseReportModal = () => {
+    setOpenReportModal(false);
+  };
   const handleOpenCreateCommentModal = () => {
     setOpenCreateCommentModal(true);
   };
@@ -183,6 +192,13 @@ const Post = ({
                   <Button>Post Page</Button>
                 </Link>
               )}
+              {isLogged && (
+                <Button
+                  endIcon={<ReportProblemOutlinedIcon />}
+                  onClick={handleOpenReportModal}
+                ></Button>
+              )}
+
               <Button startIcon={<ThumbUpIcon />} onClick={handleUpvote}>
                 {upvote}
               </Button>
@@ -258,6 +274,16 @@ const Post = ({
             Add Comment
           </Button>
         )}
+        <Modal
+          open={openReportModal}
+          onClose={handleCloseReportModal}
+          aria-labelledby='parent-modal-title'
+          aria-describedby='parent-modal-description'
+        >
+          <Box sx={{ ...style, width: 800 }}>
+            <ReportPost setOpenReportModal={setOpenReportModal} />
+          </Box>
+        </Modal>
 
         <Modal
           open={openCreateCommentModal}
