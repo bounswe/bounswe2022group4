@@ -7,7 +7,7 @@ import SignUpPage from './pages/SignUpPage/SignUpPage';
 import ForgotPasswordForm from './pages/ForgotPassword/ForgotPassword';
 import PostPage from './pages/PostPage/PostPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import EditProfile from './components/EditProfile/EditProfile';
+import EditProfilePage from './pages/EditProfilePage/EditProfilePage';
 import { Recogito } from '@recogito/recogito-js';
 import '@recogito/recogito-js/dist/recogito.min.css';
 
@@ -53,9 +53,9 @@ const App = () => {
         </Routes>
         <Routes>
           <Route
-            path='/editprofile'
+            path='/edit-profile'
             element={
-              <EditProfile
+              <EditProfilePage
                 isLogged={isLogged}
                 loggedInUser={loggedInUser}
                 authenticationToken={authenticationToken}
