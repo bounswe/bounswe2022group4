@@ -13,50 +13,26 @@ import {
   Input,
   FormText,
 } from 'reactstrap';
-//import "./profilePage.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { BackendApi } from '../../api';
 import { useState } from 'react';
-const userData = [
-  {
-    id: '0',
-    name: 'Haley Howard',
-    userName: 'mrcmlzgrt',
-    followers: [0, 0],
-    following: [0, 0],
-    posts: [0, 0],
-    comments: [0, 0],
-    postLikes: [0, 0],
-    email: 'mrcmlzgrt@test.com',
-  },
-];
-const EditProfilePage = () => {
-  const showPosts = () => {
-    setPostModelOpen(!postModelOpen);
-  };
-  const showFollowers = () => {
-    setFollowersModelOpen(!followersModelOpen);
-  };
-  const showFollowings = () => {
-    setFollowingModelOpen(!followingModelOpen);
-  };
 
-  const onClose1 = () => {
-    setFollowersModelOpen(!followersModelOpen);
+const EditProfilePage = ({ userName, authenticationToken }) => {
+  console.log(userName, 'uu');
+  const [updatedUserName, setUpdatedUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await BackendApi.editProfile(
+      email,
+      userName,
+      updatedUserName,
+      name,
+      authenticationToken
+    );
+    console.log(response, 'edit');
   };
-
-  const onClose2 = () => {
-    setFollowingModelOpen(!followingModelOpen);
-  };
-
-  const onClose3 = () => {
-    setPostModelOpen(!postModelOpen);
-  };
-
-  const [postModelOpen, setPostModelOpen] = useState(false);
-  const [followersModelOpen, setFollowersModelOpen] = useState(false);
-  const [followingModelOpen, setFollowingModelOpen] = useState(false);
-  const [id, setID] = useState('0');
   return (
     <div>
       <Container fluid style={{ padding: '0' }}>
@@ -152,6 +128,9 @@ const EditProfilePage = () => {
                             name='change_email'
                             id='change_email'
                             placeholder='email'
+                            onChange={(e) => {
+                              setEmail(e.target.value);
+                            }}
                           />
                         </FormGroup>
                         <FormGroup>
@@ -160,6 +139,9 @@ const EditProfilePage = () => {
                             name='change_username'
                             id='change_username'
                             placeholder='username'
+                            onChange={(e) => {
+                              setUpdatedUserName(e.target.value);
+                            }}
                           />
                         </FormGroup>
                         <FormGroup>
@@ -168,11 +150,14 @@ const EditProfilePage = () => {
                             name='change_name'
                             id='change_name'
                             placeholder='name'
+                            onChange={(e) => {
+                              setName(e.target.value);
+                            }}
                           />
                         </FormGroup>
                       </div>
                     </CardText>
-                    <Button>Submit</Button>
+                    <Button onClick={handleSubmit}>Submit</Button>
                   </CardBody>
                 </Card>
               </Col>
