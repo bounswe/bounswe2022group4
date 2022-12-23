@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
 import { Divider, Avatar, Button, MenuItem, Menu } from '@material-ui/core';
 import {
   ThumbUp as ThumbUpIcon,
@@ -47,6 +48,7 @@ const Post = ({
   isExpert,
   location,
   userName,
+  postPageButton,
   isUpvoted,
   isDownvoted,
 }) => {
@@ -154,6 +156,7 @@ const Post = ({
       sx={{ maxWidth: 1000, padding: '40px 20px', marginTop: 5 }}
       style={{
         backgroundImage: 'linear-gradient(-225deg, #e3fdf5 50%, #ffe6fa 50%)',
+        minWidth: '800px',
       }}
       data-testid='post'
     >
@@ -169,14 +172,23 @@ const Post = ({
           subheader={subheader}
           action={
             <div>
+              {postPageButton && (
+                <Link
+                  to={'/post/' + slug}
+                  style={{
+                    textDecoration: 'none',
+                    backgroundColor: 'none',
+                  }}
+                >
+                  <Button>Post Page</Button>
+                </Link>
+              )}
               <Button startIcon={<ThumbUpIcon />} onClick={handleUpvote}>
                 {upvote}
               </Button>
-
               <Button startIcon={<ThumbDownIcon />} onClick={handleDownvote}>
                 {downvote}
               </Button>
-
               {userName === user && (
                 <>
                   <Button onClick={handleOpenEditModal}> Edit</Button>

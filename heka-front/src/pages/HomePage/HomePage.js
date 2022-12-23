@@ -12,6 +12,8 @@ const HomePage = ({
   authenticationToken,
   userName,
   loggedInUser,
+  changeInPost,
+  setChangeInPost,
 }) => {
   console.log(userName, 'xd');
   return (
@@ -23,6 +25,8 @@ const HomePage = ({
           loggedInUser={loggedInUser}
           authenticationToken={authenticationToken}
           userName={userName}
+          changeInPost={changeInPost}
+          setChangeInPost={setChangeInPost}
         />
         {/* <CommentBox isLogged={isLogged} /> */}
       </div>
@@ -32,13 +36,13 @@ const HomePage = ({
       {authenticationToken && isLogged && authenticationToken && (
         <div
           style={{
-            position: "fixed",
-            bottom: "280px",
-            right: "0px",
-            zIndex: "214783647",
-            width: "320px",
-            height: "40px",
-            maxHeight:"400px"
+            position: 'fixed',
+            bottom: '280px',
+            right: '0px',
+            zIndex: '214783647',
+            width: '320px',
+            height: '40px',
+            maxHeight: '400px',
           }}
         >
           <MessageChat
@@ -46,9 +50,9 @@ const HomePage = ({
             isLogged={isLogged}
             loggedInUser={loggedInUser}
             styles={{
-              width: "320px",
-              height: "40px",
-              maxHeight:"400px",
+              width: '320px',
+              height: '40px',
+              maxHeight: '400px',
             }}
           />
         </div>

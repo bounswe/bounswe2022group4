@@ -1,39 +1,42 @@
-import React from "react";
-import Header from "./components/Navbar/Navbar";
-import HomePage from "./pages/HomePage/HomePage";
-import ProfilePage from "./pages/ProfilePage/ProfilePage";
-import SignInPage from "./pages/SignInPage/SignInPage";
-import SignUpPage from "./pages/SignUpPage/SignUpPage";
-import ForgotPasswordForm from "./pages/ForgotPassword/ForgotPassword";
-
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import EditProfile from "./components/EditProfile/EditProfile";
+import React from 'react';
+import Header from './components/Navbar/Navbar';
+import HomePage from './pages/HomePage/HomePage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
+import SignInPage from './pages/SignInPage/SignInPage';
+import SignUpPage from './pages/SignUpPage/SignUpPage';
+import ForgotPasswordForm from './pages/ForgotPassword/ForgotPassword';
+import PostPage from './pages/PostPage/PostPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import EditProfile from './components/EditProfile/EditProfile';
 
 const App = () => {
   const [isLogged, setIsLogged] = React.useState(false);
-  const [authenticationToken, setAuthenticationToken] = React.useState("");
-  const [userName, setUserName] = React.useState("");
-  const [loggedInUser, setLoggedInUser] = React.useState("");
+  const [authenticationToken, setAuthenticationToken] = React.useState('');
+  const [userName, setUserName] = React.useState('');
+  const [loggedInUser, setLoggedInUser] = React.useState('');
+  const [changeInPost, setChangeInPost] = React.useState(false);
   return (
     <div>
       <Router>
         <Header isLogged={isLogged} />
         <Routes>
           <Route
-            path="/"
+            path='/'
             element={
               <HomePage
                 isLogged={isLogged}
                 loggedInUser={loggedInUser}
                 authenticationToken={authenticationToken}
                 userName={userName}
+                changeInPost={changeInPost}
+                setChangeInPost={setChangeInPost}
               />
             }
           />
         </Routes>
         <Routes>
           <Route
-            path="/profile"
+            path='/profile'
             element={
               <ProfilePage
                 isLogged={isLogged}
@@ -45,7 +48,7 @@ const App = () => {
         </Routes>
         <Routes>
           <Route
-            path="/editprofile"
+            path='/editprofile'
             element={
               <EditProfile
                 isLogged={isLogged}
@@ -57,7 +60,7 @@ const App = () => {
         </Routes>
         <Routes>
           <Route
-            path="/sign-in"
+            path='/sign-in'
             element={
               <SignInPage
                 setIsLogged={setIsLogged}
@@ -69,10 +72,24 @@ const App = () => {
           />
         </Routes>
         <Routes>
-          <Route path="/sign-up" element={<SignUpPage />} />
+          <Route path='/sign-up' element={<SignUpPage />} />
         </Routes>
         <Routes>
-          <Route path="/forgot-password" element={<ForgotPasswordForm />} />
+          <Route path='/forgot-password' element={<ForgotPasswordForm />} />
+        </Routes>
+        <Routes>
+          <Route
+            path='/post/:id'
+            element={
+              <PostPage
+                authenticationToken={authenticationToken}
+                userName={userName}
+                isLogged={isLogged}
+                changeInPost={changeInPost}
+                setChangeInPost={setChangeInPost}
+              />
+            }
+          />
         </Routes>
       </Router>
     </div>

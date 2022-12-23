@@ -8,7 +8,13 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { BackendApi } from '../../api';
 import GridLoader from 'react-spinners/GridLoader';
-const PostBox = ({ isLogged, authenticationToken, userName }) => {
+const PostBox = ({
+  isLogged,
+  authenticationToken,
+  userName,
+  changeInPost,
+  setChangeInPost,
+}) => {
   const [openPostModal, setOpenPostModal] = useState(false);
 
   const style = {
@@ -25,7 +31,7 @@ const PostBox = ({ isLogged, authenticationToken, userName }) => {
     pb: 3,
   };
   const [posts, setPosts] = useState([]);
-  const [changeInPost, setChangeInPost] = useState(false);
+  // const [changeInPost, setChangeInPost] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const getPosts = async () => {
@@ -108,6 +114,7 @@ const PostBox = ({ isLogged, authenticationToken, userName }) => {
             changeInPost={changeInPost}
             setChangeInPost={setChangeInPost}
             userName={userName}
+            postPageButton={true}
           />
         ))}
     </div>
