@@ -26,10 +26,14 @@ services:
   django:
     depends_on:
       - db
+      - annoDB
     build: .
     volumes:
       - .:/code
-    command: sh -c "python manage.py makemigrations && python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8080"
+    command: sh -c "python manage.py makemigrations --noinput
+                  && python manage.py migrate --database anno_db --noinput
+                  && python manage.py migrate --noinput 
+                  && python manage.py runserver 0.0.0.0:8080"
     ports:
       - "8080:8080"
     environment:
