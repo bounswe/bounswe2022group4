@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import './Navbar.css';
 import { FaBars } from 'react-icons/fa';
-
+import SearchBar from '../SearchBar/SearchBar';
 const Navbar = ({ isLogged }) => {
   return (
     <>
@@ -22,6 +22,7 @@ const Navbar = ({ isLogged }) => {
               Edit Profile
             </Link>
           )}
+          <SearchBar />
         </div>
         {!isLogged ? (
           <div className='navv-button'>
