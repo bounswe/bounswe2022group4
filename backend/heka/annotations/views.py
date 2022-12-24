@@ -21,12 +21,13 @@ class ImageAnnotationAPIView(APIView):
 
 class PostImageAnnotationAPIView(APIView):
     permission_classes = [IsAuthenticated]
-    @swagger_auto_schema()
+    @swagger_auto_schema(responses={200:ImageAnnotationSerializer(many=True)})
     def get(self, request, post_slug=None):
         annotation = ImageAnnotation.objects.filter(post_slug=post_slug)
         serializer = ImageAnnotationSerializer(annotation, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+    @swagger_auto_schema(responses={201:ImageAnnotationSerializer})
     def post(self, request, post_slug=None):
         default_url = request.build_absolute_uri()
         default_w3c_template = {
@@ -48,22 +49,23 @@ class PostImageAnnotationAPIView(APIView):
                 }
             }
         }
-        anno = ImageAnnotation(post_slug=post_slug, json=default_w3c_template)
-        anno.save()
+        try:
+            anno = ImageAnnotation(post_slug=post_slug, json=default_w3c_template)
+            anno.save()
 
-        geometry = request.data["geometry"]
-        xywh_value = f'xywh={geometry["x"]},{geometry["y"]},{geometry["width"]},{geometry["height"]}'
+            geometry = request.data["geometry"]
+            xywh_value = f'xywh={geometry["x"]},{geometry["y"]},{geometry["width"]},{geometry["height"]}'
 
-        default_w3c_template["id"] = default_url.split("post")[0] + str(anno.id)
-        default_w3c_template["body"]["value"] = request.data["data"]["text"]
-        default_w3c_template["target"]["source"] = request.data["data"]["source"]
-        default_w3c_template["target"]["selector"]["value"] = xywh_value
+            default_w3c_template["id"] = default_url.split("post")[0] + str(anno.id)
+            default_w3c_template["body"]["value"] = request.data["data"]["text"]
+            default_w3c_template["target"]["source"] = request.data["data"]["source"]
+            default_w3c_template["target"]["selector"]["value"] = xywh_value
 
-        anno.json = default_w3c_template
+            anno.json = default_w3c_template
+            serializer = ImageAnnotationSerializer(anno)
+            anno.save()
 
-        anno.save()
-
-        annotation = ImageAnnotation.objects.filter(post_slug=post_slug)
-        serializer = ImageAnnotationSerializer(annotation, many=True)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.data["json"], status=status.HTTP_201_CREATED)
+        except Exception as e:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
