@@ -15,11 +15,7 @@ class ImageAnnotationAPIView(APIView):
 
     @swagger_auto_schema()
     def get(self, request, annotation_id=None):
-        temp = ImageAnnotation(post_slug="melih", json={"melih":"True"})
-        temp.save()
-
         annotation = ImageAnnotation.objects.get(pk=annotation_id)
         serializer = ImageAnnotationSerializer(annotation)
-
-        print(serializer, type(serializer))
         return Response(serializer.data, status=status.HTTP_200_OK)
+
