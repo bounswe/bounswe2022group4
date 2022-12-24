@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'chat',
     'posts',
-    'search',
+    'textSearch',
     'django.contrib.postgres.search',
 ]
 
