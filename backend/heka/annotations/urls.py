@@ -1,9 +1,7 @@
 from django.urls import path
-from .views import ImageAnnotationAPIView
-urlpatterns = [
-    # path('fetch/message', FetchView.as_view(), name='fetch-message'),
-    # path("send/message", SendView.as_view(), name='send-message'),
-    # path("fetch/users", MessagedUsersView.as_view(), name='get-users'),
-    path("image/<int:annotation_id>", ImageAnnotationAPIView.as_view(), name='get-annotations')
+from .views import ImageAnnotationAPIView, PostImageAnnotationAPIView
 
+urlpatterns = [
+    path("image/<int:annotation_id>", ImageAnnotationAPIView.as_view(), name='get-annotations'),
+    path("image/post/<string:post_slug>", PostImageAnnotationAPIView.as_view(), name='get-post-annotations'),
 ]
