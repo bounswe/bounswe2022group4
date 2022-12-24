@@ -53,18 +53,24 @@ class SearchPostView(APIView):
     @swagger_auto_schema()
 
     def get(self,request):
-        query = request.GET.get("query")
-        query_list = query.split()
-        #for i in range
+        #query = request.GET.get("query")
+        query_list = request.GET.get("query").split()
+        query = ""
+        for i in range(len(query_list)):
+            query += query_list[i]
+            if i != len(query_list) - 1:
+                query += " | "
+        print(query)
         response_data = {}
         response_data[f'posts'] = {}
         
         if query:
-            vector = SearchVector('title', 'body')
-            q = SearchQuery(query)
-            qs = Post.objects.annotate(rank=SearchRank(vector, q)).filter(rank__gte=0.001).order_by("-rank")
+            #vector = SearchVector('title', 'body')
+            vector = SearchVector('title', weight='A', config='english') + SearchVector('body', weight='B', config='english')
+            q = SearchQuery(query, search_type="raw")
+            qs = Post.objects.annotate(rank=SearchRank(vector, q)).filter().order_by("-rank")
             #qs = Post.objects.filter(title__icontains=query).order_by("id")
-            
+            #rank__gte=0.001
             if qs:
                 response_data[f'posts']["error"] = False
                 response_data[f'posts']["count"] = len(qs)
@@ -75,6 +81,7 @@ class SearchPostView(APIView):
                     response_data["posts"][f"post_{i+1}"]['body'] = qs[i].body
                     response_data["posts"][f"post_{i+1}"]['creator'] = qs[i].creator.username
                     response_data["posts"][f"post_{i+1}"]['created_at'] = qs[i].created_at
+                    response_data["posts"][f"post_{i+1}"]['rank'] = qs[i].rank
             else:
                 response_data[f'posts']["error"] = True
                 response_data[f'posts']["count"] = 0
