@@ -7,17 +7,16 @@ import {
   Row,
   Col,
   CardText,
-  CardSubtitle,
   CardTitle,
-  Modal,
-  ModalHeader,
-  ModalBody,
+  FormGroup,
+  Label,
+  Input,
+  FormText,
 } from 'reactstrap';
 //import "./profilePage.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useState } from 'react';
-import { MessageChat } from '../../components/Chat/MessageChat';
 const userData = [
   {
     id: '0',
@@ -61,9 +60,7 @@ const EditProfilePage = () => {
   return (
     <div>
       <Container fluid style={{ padding: '0' }}>
-        <Row style={{ height: '350px', backgroundColor: 'black' }}>
-          {/* <img src={bgImg} style={{ height: "400px", zIndex: "-1" }}></img> */}
-        </Row>
+        <Row style={{ height: '350px', backgroundColor: 'black' }}></Row>
       </Container>
       <Container fluid>
         <Card
@@ -91,84 +88,6 @@ const EditProfilePage = () => {
               ></img>
             </div>
 
-            <Row style={{ marginTop: '100px' }}>
-              <Col
-                sm={{
-                  offset: 3,
-                  order: 2,
-                  size: 6,
-                }}
-              >
-                <div style={{ padding: '10px' }}>
-                  <h1 style={{ display: 'inline' }}> {userData[id].name}</h1>
-                  <div style={{ marginTop: '1vh', fontStyle: 'italic' }}>
-                    {' '}
-                    Regular User
-                  </div>
-
-                  <Button
-                    style={{
-                      float: 'right',
-                      color: 'blue',
-                      backgroundColor: 'white',
-                      borderColor: 'blue',
-                    }}
-                  >
-                    Follow
-                  </Button>
-                </div>
-                <div style={{ padding: '10px' }}>
-                  <span>
-                    <a className='links' onClick={showPosts}>
-                      <b>{userData[id].posts.length}</b> {'Posts '}
-                    </a>
-                  </span>
-                  <span>
-                    <a className='links' onClick={showFollowers}>
-                      <b>{userData[id].followers.length}</b>
-                      {' Followers '}
-                    </a>
-                  </span>
-                  <span>
-                    <a className='links' onClick={showFollowings}>
-                      <b>{userData[id].following.length}</b> {'Following '}{' '}
-                    </a>
-                  </span>
-                </div>
-                <Modal isOpen={followersModelOpen} toggle={() => onClose1()}>
-                  <ModalHeader>Followers</ModalHeader>
-
-                  <ModalBody>
-                    {userData[id].followers.map((follower) => {
-                      return <div id={follower}>{userData[follower].name}</div>;
-                    })}
-                  </ModalBody>
-                </Modal>
-                <Modal isOpen={followingModelOpen} toggle={() => onClose2()}>
-                  <ModalHeader>Following</ModalHeader>
-
-                  <ModalBody>
-                    {userData[id].following.map((follow) => {
-                      return <div> {userData[follow].name}</div>;
-                    })}
-                  </ModalBody>
-                </Modal>
-                {/* <Modal isOpen={postModelOpen} toggle={() => onClose3()}>
-                  <ModalHeader>Posts</ModalHeader>
-
-                  <ModalBody>
-                    {userData[id].posts.map((post) => {
-                      return <div> {posts[post].header}</div>;
-                    })}
-                  </ModalBody>
-                </Modal> */}
-                <div
-                  style={{ padding: '10px', marginTop: '5px', color: 'gray' }}
-                >
-                  <p>A meadow of hay which eager to learn...</p>
-                </div>
-              </Col>
-            </Row>
             <Row
               style={{
                 marginTop: '75px',
@@ -194,23 +113,63 @@ const EditProfilePage = () => {
                 </div>
               </Col>
             </Row>
-            <Row style={{ padding: '30px', marginLeft: '770px' }}>
-              <Col sm={3}>
+            <Row
+              style={{
+                padding: '30px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'column',
+              }}
+            >
+              <Col
+                sm={5}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexDirection: 'column',
+                }}
+              >
                 <Card
                   style={{
-                    width: '100%',
                     padding: '10px',
                   }}
                 >
-                  {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
                   <CardBody>
-                    <CardTitle tag='h5'>Please enter</CardTitle>
-
                     <CardText>
-                      <div>
-                        <input value='Change username'></input>
-                        <input value='Change bio'></input>
-                        <input value='Change avatar'></input>
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          flexDirection: 'column',
+                        }}
+                      >
+                        <FormGroup>
+                          <Input
+                            type='email'
+                            name='change_email'
+                            id='change_email'
+                            placeholder='email'
+                          />
+                        </FormGroup>
+                        <FormGroup>
+                          <Input
+                            type='username'
+                            name='change_username'
+                            id='change_username'
+                            placeholder='username'
+                          />
+                        </FormGroup>
+                        <FormGroup>
+                          <Input
+                            type='name'
+                            name='change_name'
+                            id='change_name'
+                            placeholder='name'
+                          />
+                        </FormGroup>
                       </div>
                     </CardText>
                     <Button>Submit</Button>
