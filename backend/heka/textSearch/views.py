@@ -10,7 +10,7 @@ from chat.models import Message                                                 
 from chat.serializers import MessageSerializer # Message Serializer Class
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
-from django.contrib.postgres.search import SearchVector, SearchQuery, SearchHeadline
+from django.contrib.postgres.search import SearchVector, SearchQuery, SearchHeadline, SearchRank
 
 class SearchUserView(APIView):
     #permission_classes = [IsAuthenticated]
@@ -54,13 +54,17 @@ class SearchPostView(APIView):
 
     def get(self,request):
         query = request.GET.get("query")
-        
+        query_list = query.split()
+        #for i in range
         response_data = {}
         response_data[f'posts'] = {}
         
         if query:
-            qs = Post.objects.annotate(search=SearchVector('title', 'body'),).filter(search=query).order_by("id")
+            vector = SearchVector('title', 'body')
+            q = SearchQuery(query)
+            qs = Post.objects.annotate(rank=SearchRank(vector, q)).filter(rank__gte=0.001).order_by("-rank")
             #qs = Post.objects.filter(title__icontains=query).order_by("id")
+            
             if qs:
                 response_data[f'posts']["error"] = False
                 response_data[f'posts']["count"] = len(qs)
