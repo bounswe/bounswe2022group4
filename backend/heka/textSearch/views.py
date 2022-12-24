@@ -5,6 +5,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework.views import APIView
 from drf_yasg.utils import swagger_auto_schema 
 from users.models import User
+from posts.models import Post
 from chat.models import Message                                                   # Our Message model
 from chat.serializers import MessageSerializer # Message Serializer Class
 from rest_framework.permissions import IsAuthenticated
@@ -18,13 +19,14 @@ class SearchUserView(APIView):
     @swagger_auto_schema()
 
     def get(self,request):
-        qs = User.objects.all()
         query = request.GET.get("query")
+        
+        response_data = {}
+        response_data[f'users'] = {}
+        
         if query:
             qs = User.objects.filter(username__contains=query)
             
-            response_data = {}
-            response_data[f'users'] = {}
             if qs:
                 response_data[f'users']["error"] = False
                 for i in range(len(qs)):
@@ -35,7 +37,10 @@ class SearchUserView(APIView):
                 response_data[f'users']["error"] = True
                 response_data[f'users']["message"] = "No user found with this query input!"
             return JsonResponse(response_data, safe=False)
-
+        else:
+            response_data[f'users']["error"] = True
+            response_data[f'users']["message"] = "No query input supplied!"
+            return JsonResponse(response_data, safe=False)
 class SearchPostView(APIView):
     #permission_classes = [IsAuthenticated]
     #authentication_classes = [TokenAuthentication]
