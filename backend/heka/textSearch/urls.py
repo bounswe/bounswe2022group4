@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import SearchView
+from .views import SearchUserView
 urlpatterns = [
-    path('', SearchView.as_view(), name='search'), 
+    path('user', SearchUserView.as_view(), name='search'), 
 ]
