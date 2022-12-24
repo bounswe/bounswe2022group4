@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Divider, Avatar, Button, MenuItem, Menu } from '@material-ui/core';
 import {
   ThumbUp as ThumbUpIcon,
@@ -28,6 +28,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import EditPost from '../EditPost/EditPost';
+import TextAnnotation from '../TextAnnotation/TextAnnotation';
 const imgLink =
   'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
 const doctorPhoto = 'https://cdn-icons-png.flaticon.com/512/3774/3774299.png';
