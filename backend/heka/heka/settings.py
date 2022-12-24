@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'chat',
     'posts',
     'annotations',
+    'textSearch',
+    'django.contrib.postgres.search',
 ]
 
 MIDDLEWARE = [

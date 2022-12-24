@@ -41,5 +41,6 @@ urlpatterns = [
     path('api/chat/', include('chat.urls')),
     path('api/post/', include("posts.urls")),
     path('api/annotation/', include("annotations.urls")),
+    path('api/search/', include("textSearch.urls")),
     path('swagger/', schema_swagger.with_ui('swagger', cache_timeout=0), name='swagger-ui'),
 ]
