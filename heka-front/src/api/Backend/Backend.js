@@ -98,19 +98,20 @@ export const getProfile = (username, authenticationToken) => {
   ApiInstance.setHeader('Authorization', authenticationToken);
   return ApiInstance.get('api/user/profilepage/' + username);
 };
-export const setProfile = (
+export const editProfile = (
   email,
   username,
-  is_expert,
-  is_admin,
-  age,
-  namee,
-  lastLogin,
-  profileImage,
+  updatedUserName,
+  name,
   authenticationToken
 ) => {
   ApiInstance.setHeader('Authorization', authenticationToken);
-  return ApiInstance.put('api/user/profilepage/' + username + '/');
+  console.log(username, 'aaaa');
+  return ApiInstance.put('api/user/profilepage/' + username, {
+    email,
+    username: updatedUserName,
+    name,
+  });
 };
 export const getPost = (slug, authenticationToken) => {
   ApiInstance.setHeader('Authorization', authenticationToken);
