@@ -18,6 +18,7 @@ import { BackendApi } from '../../api';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { MessageChat } from '../../components/Chat/MessageChat';
+import { useParams } from 'react-router-dom';
 
 const userData = [
   {
@@ -179,15 +180,13 @@ const posts = [
   },
 ];
 
-const ProfilePage = ({
-  isLogged,
-  authenticationToken,
-  loggedInUser,
-  userName,
-}) => {
+const ProfilePage = ({ isLogged, authenticationToken, loggedInUser }) => {
   const [profile, setProfile] = useState({});
   const [postData, setPostData] = useState([]);
+  const { userName } = useParams();
   useEffect(() => {
+    console.log(userName);
+
     const getProfile = async () => {
       const response = await BackendApi.getProfile(
         userName,
@@ -215,10 +214,6 @@ const ProfilePage = ({
     console.log(profile, 'xx');
   }, [postData]);
 
-  //
-
-  ///
-  //
   const showPosts = () => {
     setPostModelOpen(!postModelOpen);
   };
