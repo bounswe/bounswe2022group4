@@ -12,13 +12,28 @@ services:
       - POSTGRES_DB=heka_db
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=1234
+  annoDB:
+    image: postgres:15
+    volumes:
+      - annodb-volume:/var/lib/postgresql/data
+    restart: always
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_DB=anno_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
   django:
     depends_on:
       - db
+      - annoDB
     build: .
     volumes:
       - .:/code
-    command: sh -c "python manage.py makemigrations && python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8080"
+    command: sh -c "python manage.py makemigrations --noinput
+                  && python manage.py migrate --database anno_db --noinput
+                  && python manage.py migrate --noinput 
+                  && python manage.py runserver 0.0.0.0:8080"
     ports:
       - "8080:8080"
     environment:
@@ -26,6 +41,11 @@ services:
       - POSTGRES_NAME=heka_db
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=1234
+      - ANNO_POSTGRES_HOST=annoDB
+      - ANNO_POSTGRES_NAME=anno_db
+      - ANNO_POSTGRES_USER=postgres
+      - ANNO_POSTGRES_PASSWORD=1234
       - DEBUG=True
 volumes:
   db-volume:
+  annodb-volume:

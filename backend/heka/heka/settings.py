@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
+DATABASE_ROUTERS = ['routers.AnnoRouter.AnnoRouter']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'chat',
     'posts',
+    'annotations',
     'textSearch',
     'django.contrib.postgres.search',
 ]
@@ -94,6 +96,14 @@ DATABASES = {
         'USER': os.environ.get('POSTGRES_USER'),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
         'HOST': os.environ.get('POSTGRES_HOST'),
+        'PORT': 5432,
+    },
+    'anno_db': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('ANNO_POSTGRES_NAME'),
+        'USER': os.environ.get('ANNO_POSTGRES_USER'),
+        'PASSWORD': os.environ.get('ANNO_POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('ANNO_POSTGRES_HOST'),
         'PORT': 5432,
     }
 }
