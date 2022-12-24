@@ -51,11 +51,15 @@ class PostImageAnnotationAPIView(APIView):
         anno = ImageAnnotation(post_slug=post_slug, json=default_w3c_template)
         anno.save()
 
+        geometry = request.data["geometry"]
+        xywh_value = f'xywh={geometry["x"]},{geometry["y"]},{geometry["width"]},{geometry["height"]}'
+
         default_w3c_template["id"] = default_url.split("post")[0] + str(anno.id)
+        default_w3c_template["body"]["value"] = request.data["data"]["text"]
+        default_w3c_template["target"]["source"] = request.data["data"]["source"]
+        default_w3c_template["target"]["selector"]["value"] = xywh_value
 
         anno.json = default_w3c_template
-
-
 
         anno.save()
 
