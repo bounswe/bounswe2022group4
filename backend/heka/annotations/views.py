@@ -19,3 +19,47 @@ class ImageAnnotationAPIView(APIView):
         serializer = ImageAnnotationSerializer(annotation)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+class PostImageAnnotationAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+    @swagger_auto_schema()
+    def get(self, request, post_slug=None):
+        annotation = ImageAnnotation.objects.filter(post_slug=post_slug)
+        serializer = ImageAnnotationSerializer(annotation, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request, post_slug=None):
+        default_url = request.build_absolute_uri()
+        default_w3c_template = {
+            "@context": "http://www.w3.org/ns/anno.jsonld",
+            "id": "http://example.org/anno20",
+            "type": "Annotation",
+            "body": {
+                "type" : "TextualBody",
+                "value" : "<p>example!</p>",
+                "format" : "text/html",
+                "language" : "en"
+            },
+            "target": {
+                "source": "http://example.org/post-slug",
+                "selector": {
+                    "type": "FragmentSelector",
+                    "conformsTo": "http://www.w3.org/TR/media-frags/",
+                    "value": "xywh=50,50,640,480"
+                }
+            }
+        }
+        anno = ImageAnnotation(post_slug=post_slug, json=default_w3c_template)
+        anno.save()
+
+        default_w3c_template["id"] = default_url.split("post")[0] + str(anno.id)
+
+        anno.json = default_w3c_template
+
+
+
+        anno.save()
+
+        annotation = ImageAnnotation.objects.filter(post_slug=post_slug)
+        serializer = ImageAnnotationSerializer(annotation, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
