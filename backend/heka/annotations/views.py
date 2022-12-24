@@ -68,4 +68,3 @@ class PostImageAnnotationAPIView(APIView):
             return Response(serializer.data["json"], status=status.HTTP_201_CREATED)
         except Exception as e:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
