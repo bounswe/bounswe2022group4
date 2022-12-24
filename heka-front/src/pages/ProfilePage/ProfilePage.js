@@ -15,7 +15,7 @@ import {
 import './profilePage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BackendApi } from '../../api';
-
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { MessageChat } from '../../components/Chat/MessageChat';
 
@@ -179,30 +179,6 @@ const posts = [
   },
 ];
 
-const comments = [
-  { id: '0', text: 'comment1', owner: '1' },
-  { id: '1', text: 'comment1', owner: '1' },
-  { id: '2', text: 'comment2', owner: '1' },
-  { id: '3', text: 'comment3', owner: '1' },
-  { id: '4', text: 'comment4', owner: '1' },
-  { id: '5', text: 'comment5', owner: '1' },
-  { id: '6', text: 'comment6', owner: '2' },
-  { id: '7', text: 'comment7', owner: '2' },
-  { id: '8', text: 'comment8', owner: '2' },
-  { id: '9', text: 'comment9', owner: '2' },
-  { id: '10', text: 'comment10', owner: '2' },
-  { id: '11', text: 'comment11', owner: '3' },
-  { id: '12', text: 'comment12', owner: '3' },
-  { id: '13', text: 'comment13', owner: '3' },
-  { id: '14', text: 'comment14', owner: '3' },
-  { id: '15', text: 'comment15', owner: '3' },
-  { id: '16', text: 'comment16', owner: '4' },
-  { id: '17', text: 'comment17', owner: '4' },
-  { id: '18', text: 'comment18', owner: '4' },
-  { id: '19', text: 'comment19', owner: '4' },
-  { id: '20', text: 'comment20', owner: '4' },
-];
-
 const ProfilePage = ({
   isLogged,
   authenticationToken,
@@ -210,19 +186,34 @@ const ProfilePage = ({
   userName,
 }) => {
   const [profile, setProfile] = useState({});
+  const [postData, setPostData] = useState([]);
   useEffect(() => {
     const getProfile = async () => {
       const response = await BackendApi.getProfile(
         userName,
         authenticationToken
       );
+      console.log(response, 'response');
       if (response.status >= 200 && response.status < 300) {
         setProfile(response.data);
       }
     };
+    const getPosts = async () => {
+      const response = await BackendApi.getPosts(authenticationToken);
+      console.log(response, 'response');
+      if (response.status >= 200 && response.status < 300) {
+        const filteredData = await response?.data.filter(
+          (post) => post.username === profile.username
+        );
+        setPostData(filteredData);
+        console.log(filteredData, 'filteredData');
+        console.log(postData, 'postData');
+      }
+    };
     getProfile(userName, authenticationToken);
+    getPosts(authenticationToken);
     console.log(profile, 'xx');
-  }, []);
+  }, [postData]);
 
   //
 
@@ -305,6 +296,10 @@ const ProfilePage = ({
                   <div style={{ marginTop: '1vh', fontStyle: 'italic' }}>
                     {' '}
                     {profile.is_expert ? 'Doctor' : 'Regular User'}
+                  </div>
+                  <div style={{ marginTop: '1vh', fontStyle: 'italic' }}>
+                    {' '}
+                    {profile.email}
                   </div>
 
                   <Button
@@ -396,37 +391,37 @@ const ProfilePage = ({
               </Col>
             </Row>
             <Row style={{ padding: '30px' }}>
-              <Col sm={3}>
+              {postData.map((item) => (
+                <Col sm={3}>
+                  <Card
+                    style={{
+                      width: '100%',
+                      padding: '10px',
+                    }}
+                  >
+                    {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
+                    <CardBody>
+                      <CardTitle tag='h5'>{item?.title}</CardTitle>
+                      <CardSubtitle className='mb-2 text-muted' tag='h6'>
+                        {item?.category}
+                      </CardSubtitle>
+                      <CardText>{item?.body}</CardText>
+                      <Link to={'/post/' + item?.slug}>
+                        <Button>See Post</Button>
+                      </Link>
+                    </CardBody>
+                  </Card>
+                </Col>
+              ))}
+
+              {/* <Col sm={3}>
                 <Card
                   style={{
                     width: '100%',
                     padding: '10px',
                   }}
                 >
-                  {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
-                  <CardBody>
-                    <CardTitle tag='h5'>
-                      My blood pressure is too high
-                    </CardTitle>
-                    <CardSubtitle className='mb-2 text-muted' tag='h6'>
-                      Cardiology
-                    </CardSubtitle>
-                    <CardText>
-                      I have a very high blood pressure. What could be the
-                      reason of that? Should I see a doctor?
-                    </CardText>
-                    <Button>See Post</Button>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col sm={3}>
-                <Card
-                  style={{
-                    width: '100%',
-                    padding: '10px',
-                  }}
-                >
-                  {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
+                  <img alt="Sample" src="https://picsum.photos/300/200" />
                   <CardBody>
                     <CardTitle tag='h5'>
                       My friend thinks that she is a bird!
@@ -449,7 +444,7 @@ const ProfilePage = ({
                     padding: '10px',
                   }}
                 >
-                  {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
+                  <img alt="Sample" src="https://picsum.photos/300/200" />
                   <CardBody>
                     <CardTitle tag='h5'>
                       Which covid vaccine should I choose?
@@ -472,7 +467,7 @@ const ProfilePage = ({
                     padding: '10px',
                   }}
                 >
-                  {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
+                  <img alt="Sample" src="https://picsum.photos/300/200" />
                   <CardBody>
                     <CardTitle tag='h5'>I feel powerless</CardTitle>
                     <CardSubtitle className='mb-2 text-muted' tag='h6'>
@@ -485,7 +480,7 @@ const ProfilePage = ({
                     <Button>See Post</Button>
                   </CardBody>
                 </Card>
-              </Col>
+              </Col> */}
             </Row>
           </CardBody>
         </Card>

@@ -46,6 +46,7 @@ const App = () => {
                 isLogged={isLogged}
                 loggedInUser={loggedInUser}
                 authenticationToken={authenticationToken}
+                userName={userName}
               />
             }
           />
@@ -58,6 +59,7 @@ const App = () => {
                 isLogged={isLogged}
                 loggedInUser={loggedInUser}
                 authenticationToken={authenticationToken}
+                userName={userName}
               />
             }
           />
