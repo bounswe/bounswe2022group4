@@ -35,3 +35,12 @@ class SearchUserView(APIView):
                 response_data[f'users']["error"] = True
                 response_data[f'users']["message"] = "No user found with this query input!"
             return JsonResponse(response_data, safe=False)
+
+class SearchPostView(APIView):
+    #permission_classes = [IsAuthenticated]
+    #authentication_classes = [TokenAuthentication]
+
+    @swagger_auto_schema()
+
+    def get(self,request):
+        pass
