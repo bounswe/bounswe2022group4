@@ -99,7 +99,7 @@ class SortPostView(APIView):
     @swagger_auto_schema()
 
     def get(self,request):
-
+        myist = []
         if request.GET.get("count"):
             count = int(request.GET.get("count"))
         else:
@@ -126,21 +126,12 @@ class SortPostView(APIView):
         if count == 0 or count > len(qs):
             count = len(qs)
         
-        response_data = {}
-        response_data[f'posts'] = {}
-        response_data[f'posts']["count"] = count
-
-        myist = []
+        
         for i in range(count):
             data = {}
             data["id"] = qs[i].id
             data["title"] = qs[i].title
             data["link"] = "http://3.72.25.175:3000/post/" + qs[i].slug
             myist.append(data)
-            #response_data[f'posts'][i] = {}
-            #response_data["posts"][i]['id'] = qs[i].id
-            #response_data["posts"][i]['title'] = qs[i].title
-            #response_data["posts"][i]['link'] = "http://3.72.25.175:3000/post/" + qs[i].slug
-            
-        #return JsonResponse(response_data, safe=False)
-        return JsonResponse(list, safe=False)
+
+        return JsonResponse(myist, safe=False)
