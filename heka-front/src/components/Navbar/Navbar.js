@@ -1,12 +1,10 @@
 import React from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import './Navbar.css';
-import SearchBar from '../SearchBar/SearchBar'
-import { FaBars } from 'react-icons/fa';
 import SearchBar from '../SearchBar/SearchBar';
+import { FaBars } from 'react-icons/fa';
 
 const Navbar = ({ isLogged, userName }) => {
-
   return (
     <>
       <nav className='navv'>
@@ -25,7 +23,6 @@ const Navbar = ({ isLogged, userName }) => {
               Edit Profile
             </Link>
           )}
-          
         </div>
         <SearchBar />
         {!isLogged ? (

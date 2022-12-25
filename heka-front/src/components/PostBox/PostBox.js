@@ -31,14 +31,12 @@ const PostBox = ({
     pb: 3,
   };
   const [posts, setPosts] = useState([]);
-  // const [changeInPost, setChangeInPost] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const getPosts = async () => {
       const response = await BackendApi.getPosts(authenticationToken);
       if (response.status >= 200 && response.status < 300) {
         setPosts(response.data);
-        console.log(response.data);
       }
       setIsLoading(false);
     };
