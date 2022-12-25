@@ -37,7 +37,10 @@ class Post(models.Model):
     
     def get_api_url(self):
         return reverse('api/post/post', kwargs={"slug": self.slug})
-    
+
+    def upvotes_for_sorting(self):
+        return int(self.upvotes.count())
+
     class Meta:
         ordering = ["-created_at","-updated_at"]
 
