@@ -12,6 +12,7 @@
         <variable
             name="adapter"
             type="com.bounswe.heka.post.CommentAdapter" />
+        <import type="android.text.Html"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -199,7 +200,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:breakStrategy="balanced"
-                                android:text="@{viewModel.state.body}"
+                                android:textIsSelectable="true"
                                 android:textSize="15sp"
                                 tools:text="Laparoscopic evaluation w
 " />

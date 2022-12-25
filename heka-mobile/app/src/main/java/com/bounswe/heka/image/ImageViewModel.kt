@@ -1,6 +1,5 @@
 package com.bounswe.heka.image
 
-import android.graphics.Color
 import android.graphics.Rect
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -22,7 +21,7 @@ class ImageViewModel: ViewModel() {
         slug.observeForever {
             try {
                 viewModelScope.launch {
-                    val response = ApiClient.get().getAnnotations(it)
+                    val response = ApiClient.get().getImageAnnotations(it)
                     annotations.value = response
                 }
             } catch (e: Exception) {
@@ -34,7 +33,7 @@ class ImageViewModel: ViewModel() {
     fun addAnnotation(it: Rect, text: String) {
         try {
             viewModelScope.launch {
-                val response = ApiClient.get().postAnnotation(
+                val response = ApiClient.get().postImageAnnotation(
                     slug.value!!,
                     AnnotationResponse(
                         Geometry(
@@ -51,7 +50,7 @@ class ImageViewModel: ViewModel() {
                         null
                     )
                 )
-                annotations.value = ApiClient.get().getAnnotations(slug.value!!)
+                annotations.value = ApiClient.get().getImageAnnotations(slug.value!!)
             }
         } catch (e: Exception) {
             e.printStackTrace()

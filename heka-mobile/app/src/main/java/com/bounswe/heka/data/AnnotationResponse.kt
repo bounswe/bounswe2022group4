@@ -1,11 +1,16 @@
 package com.bounswe.heka.data
 
 data class AnnotationResponse(
-    val geometry: Geometry?,
-    val data: Data?,
-    val json: JsonData?
+    val geometry: Geometry? =null,
+    val data: Data? = null,
+    val json: JsonData? = null,
+    val position: Position? = null,
 )
 
+data class Position(
+    val start: Int? = null,
+    val end: Int? = null,
+)
 data class Data(
     val text: String,
     val id: Double,
@@ -23,7 +28,9 @@ data class AnnotationTarget(
 )
 
 data class Selector(
-    val value: String
+    val value: String? = null,
+    val start: Int? = null,
+    val end: Int? = null,
 )
 
 data class JsonData(
