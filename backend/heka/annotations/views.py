@@ -52,20 +52,24 @@ class PostImageAnnotationAPIView(APIView):
             }
         }
         try:
-            anno = ImageAnnotation(post_slug=post_slug, json=default_w3c_template)
-            anno.save()
+
 
             geometry = request.data["geometry"]
             xywh_value = f'xywh={geometry["x"]},{geometry["y"]},{geometry["width"]},{geometry["height"]}'
 
-            default_w3c_template["id"] = default_url.split("post")[0] + str(anno.id)
             default_w3c_template["body"]["value"] = request.data["data"]["text"]
             default_w3c_template["target"]["source"] = request.data["data"]["source"]
             default_w3c_template["target"]["selector"]["value"] = xywh_value
 
-            anno.json = default_w3c_template
-            serializer = ImageAnnotationSerializer(anno)
+            anno = ImageAnnotation(post_slug=post_slug, json=default_w3c_template)
             anno.save()
+
+            default_w3c_template["id"] = default_url.split("post")[0] + str(anno.id)
+            anno.json = default_w3c_template
+
+            anno.save()
+
+            serializer = ImageAnnotationSerializer(anno)
 
             return Response(serializer.data["json"], status=status.HTTP_201_CREATED)
         except Exception as e:
@@ -107,28 +111,30 @@ class PostTextAnnotationAPIView(APIView):
                 "source": "http://example.org/post-slug",
                 "selector": {
                     "type": "TextPositionSelector",
-                    "start": 412,
-                    "end": 795
+                    "start": 0,
+                    "end": 0
                 }
             }
         }
 
         try:
-            anno = TextAnnotation(post_slug=post_slug, json=default_w3c_template)
-            anno.save()
-
-            position = request.data["position"]
-
-            default_w3c_template["id"] = default_url.split("post")[0] + str(anno.id)
             default_w3c_template["body"]["value"] = request.data["data"]["text"]
             default_w3c_template["target"]["source"] = request.data["data"]["source"]
+            position = request.data["position"]
 
             default_w3c_template["target"]["selector"]["start"] = position["start"]
             default_w3c_template["target"]["selector"]["end"] = position["end"]
 
-            anno.json = default_w3c_template
-            serializer = TextAnnotationSerializer(anno)
+            anno = TextAnnotation(post_slug=post_slug, json=default_w3c_template)
+
             anno.save()
+
+            default_w3c_template["id"] = default_url.split("post")[0] + str(anno.id)
+            anno.json = default_w3c_template
+
+            anno.save()
+
+            serializer = TextAnnotationSerializer(anno)
 
             return Response(serializer.data["json"], status=status.HTTP_201_CREATED)
         except Exception as e:
