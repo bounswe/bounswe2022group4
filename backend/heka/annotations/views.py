@@ -20,7 +20,7 @@ class ImageAnnotationAPIView(APIView):
         return Response(serializer.data["json"], status=status.HTTP_200_OK)
 
 class PostImageAnnotationAPIView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     @swagger_auto_schema(responses={200:ImageAnnotationSerializer(many=True)})
     def get(self, request, post_slug=None):
         annotation = ImageAnnotation.objects.filter(post_slug=post_slug)
