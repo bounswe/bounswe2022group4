@@ -1,5 +1,6 @@
 package com.bounswe.heka.post
 
+import android.text.Html
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,19 +22,6 @@ class FullPostViewModel @Inject constructor(): ViewModel() {
     val annotations = MutableLiveData<List<AnnotationResponse>>()
 
 
-    init {
-        slug.observeForever {
-            try {
-                viewModelScope.launch {
-                    val response = ApiClient.get().getTextAnnotations(it)
-                    annotations.value = response
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
-    }
-
     fun fetchPost() {
         viewModelScope.launch {
             val response = ApiClient.get().fetchPost(slug.value!!)
@@ -52,6 +40,17 @@ class FullPostViewModel @Inject constructor(): ViewModel() {
                 it.image,
                 it.location
             ) }
+        }
+    }
+
+    fun getAnnotations() {
+        try {
+            viewModelScope.launch {
+                val response = ApiClient.get().getTextAnnotations(slug.value!!)
+                annotations.value = response
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 

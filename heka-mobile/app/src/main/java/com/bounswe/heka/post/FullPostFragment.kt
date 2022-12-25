@@ -1,7 +1,13 @@
 package com.bounswe.heka.post
 
 import android.os.Bundle
+import android.text.Html
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
 import android.util.Base64
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,6 +58,29 @@ class FullPostFragment: Fragment() {
             bundle.putString("slug", viewModel.slug.value)
             findNavController().navigate(R.id.action_fullPostFragment_to_editPostFragment, bundle)
         }
+        // make timeLineItemDescription textview highlighted and clickable by annotations
+        viewModel.annotations.observe(viewLifecycleOwner) { annotations ->
+            val text = viewModel.state.value?.body
+            if (text != null) {
+                val spannedText = text
+                val spannableString = SpannableString(spannedText)
+                annotations.forEach { annotation ->
+                    val start = annotation.json!!.target!!.selector.start!!
+                    val end = annotation.json.target!!.selector.end!!
+                    val clickableSpan = object : ClickableSpan() {
+                        override fun onClick(widget: View) {
+                            val bundle = Bundle()
+//                            bundle.putString("slug", annotation.slug)
+//                            findNavController().navigate(R.id.action_fullPostFragment_to_fullPostFragment, bundle)
+                            Log.d("TAG", "onClick: ${annotation}")
+                        }
+                    }
+                    spannableString.setSpan(clickableSpan, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                }
+                binding.timelineItemDescription.text = spannableString
+                binding.timelineItemDescription.movementMethod = LinkMovementMethod.getInstance()
+            }
+        }
         viewModel.state.observe(viewLifecycleOwner) {
             CoroutineScope(Dispatchers.IO).launch {
                 viewModel.state.value?.username?.let {
@@ -63,6 +92,8 @@ class FullPostFragment: Fragment() {
                     }
                 }
             }
+            binding.timelineItemDescription.text = it.body
+            viewModel.getAnnotations()
             binding.timelineItemUpvote.apply {
                 isEnabled = !it.is_upvoted
                 text = it.upvote.toString()
