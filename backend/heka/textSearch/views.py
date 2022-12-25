@@ -9,39 +9,42 @@ class SearchUserView(APIView):
     @swagger_auto_schema()
 
     def get(self,request):
+        myist = []
+        error = {}
+
         query = request.GET.get("query")
-        
-        response_data = {}
-        response_data[f'users'] = {}
         
         if query:
             qs = User.objects.filter(username__contains=query).order_by("id")
             
             if qs:
-                response_data[f'users']["error"] = False
-                response_data[f'users']["count"] = len(qs)
+                error["error"] = False
+                error["count"] = len(qs)
+                myist.append(error)
                 for i in range(len(qs)):
-                    response_data[f'users'][i] = {}
-                    response_data["users"][i]['id'] = qs[i].id
-                    response_data["users"][i]['username'] = qs[i].username
-                    response_data["users"][i]['email'] = qs[i].email
+                    data = {}
+                    data["id"] = qs[i].id
+                    data["username"] = qs[i].username
+                    data["email"] = qs[i].email
+                    myist.append(data)
             else:
-                response_data[f'users']["error"] = True
-                response_data[f'users']["count"] = 0
-                response_data[f'users']["message"] = "No user found with this query input!"
-            return JsonResponse(response_data, safe=False)
+                error["error"] = True
+                error["count"] = 0
+                error["message"] = "No user found with this query input!"
+                myist.append(error)
+            return JsonResponse(myist, safe=False)
         else:
-            response_data[f'users']["error"] = True
-            response_data[f'users']["count"] = 0
-            response_data[f'users']["message"] = "No query input supplied!"
-            return JsonResponse(response_data, safe=False)
+            error["error"] = True
+            error["count"] = 0
+            error["message"] = "No query input supplied!"
+            myist.append(error)
+            return JsonResponse(myist, safe=False)
 
 class SearchPostView(APIView):
     @swagger_auto_schema()
 
     def get(self,request):
         myist = []
-
         error = {}
         
         query_list = request.GET.get("query").split()
