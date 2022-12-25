@@ -71,19 +71,36 @@ const Post = ({
   };
   const [textAnnotation, setTextAnnotation] = useState();
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    const postTextAnnotation = async () => {
       const r = new Recogito({
         content: document.getElementById('body-text' + slug),
       });
-      console.log('r', r?.getAnnotations());
       r.on('createAnnotation', function (propsTextAnnotation) {
-        // console.log('Created', textAnnotation);
-        propsTextAnnotation.slug = slug;
+        console.log('propsTextAnnotation', propsTextAnnotation);
         setTextAnnotation(propsTextAnnotation);
       });
-    }, 100);
-    return () => clearTimeout(timeout);
-  }, []);
+      let position = {
+        start: textAnnotation.target.selector[1].start,
+        end: textAnnotation.target.selector[1].end,
+      };
+      console.log(
+        'position',
+        textAnnotation.target.selector[1].start,
+        position
+      );
+      let data = {
+        text: textAnnotation.body[0].value,
+        source: 'http://3.72.25.175:3000/' + slug,
+      };
+      const response = await BackendApi.postTextAnnotation(
+        slug,
+        position,
+        data
+      );
+      console.log('response post', response);
+    };
+    postTextAnnotation();
+  }, [textAnnotation]);
 
   useEffect(() => {
     console.log('textAnnotation', textAnnotation);
@@ -130,8 +147,6 @@ const Post = ({
   const handleUpvote = async () => {
     const response = await BackendApi.postUpvotePost(slug, authenticationToken);
     setChangeInPost(!changeInPost);
-    console.log(response);
-    console.log(upvote);
   };
   const handleDownvote = async () => {
     const response = await BackendApi.postDownvotePost(
@@ -139,7 +154,6 @@ const Post = ({
       authenticationToken
     );
     setChangeInPost(!changeInPost);
-    console.log(response);
   };
 
   // const handleEdit =
@@ -156,7 +170,6 @@ const Post = ({
         data: { ...data, id: Math.random() },
       })
     );
-    console.log(imageAnnotation, 'image ann yukari');
     let modifiedData = {
       ...data,
       source: 'http://3.72.25.175:3000/' + slug,
@@ -167,14 +180,11 @@ const Post = ({
       geometry,
       modifiedData
     );
-    console.log(annotation, 'dsadsaas');
-    console.log(response, 'post ann resp');
   };
   useEffect(() => {
-    const getAnn = async () => {
+    const getImageAnnotation = async () => {
       const response = await BackendApi.getImageAnnotation(slug);
       const data = response?.data;
-      console.log(data, 'data');
       let imageAnnotationList = [];
       data.map((item) => {
         let geometryText = item.json.target.selector.value.split('xywh=')[1];
@@ -202,12 +212,53 @@ const Post = ({
             id: Math.random(),
           },
         });
-
-        console.log(imageAnnotation, 'imageAnnotation');
       });
       setImageAnnotation(imageAnnotationList);
     };
-    getAnn();
+    const getTextAnnotation = async () => {
+      const response = await BackendApi.getTextAnnotation(slug);
+      const data = response?.data;
+      console.log('data', data);
+      const r = new Recogito({
+        content: document.getElementById('body-text' + slug),
+      });
+
+      data.map((item) => {
+        let text = item.json.body.value;
+        let start = item.json.target.selector.start;
+        let end = item.json.target.selector.end;
+        r.addAnnotation({
+          '@context': 'http://www.w3.org/ns/anno.jsonld',
+          type: 'Annotation',
+          body: [
+            {
+              type: 'TextualBody',
+              value: text,
+              purpose: 'commenting',
+            },
+          ],
+          target: {
+            selector: [
+              {
+                type: 'TextQuoteSelector',
+                exact: text,
+              },
+              {
+                type: 'TextPositionSelector',
+                start: start,
+                end: end,
+              },
+            ],
+          },
+          id: '#1b4017ca-9a93-4f8d-ac32-da32adf8b1d2',
+          slug: slug,
+        });
+        console.log(text, start, end);
+      });
+      console.log('response', response);
+    };
+    getImageAnnotation();
+    getTextAnnotation();
   }, []);
   const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -270,7 +321,7 @@ const Post = ({
                     backgroundColor: 'none',
                   }}
                 >
-                  <Button>Post Page</Button>
+                  <Button>View Text Annotations</Button>
                 </Link>
               )}
               {isLogged && (
