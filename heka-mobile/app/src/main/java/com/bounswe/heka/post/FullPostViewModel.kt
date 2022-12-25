@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bounswe.heka.data.AnnotationResponse
 import com.bounswe.heka.network.ApiClient
 import com.bounswe.heka.timeline.TimeLineAdapter
 import com.bounswe.heka.timeline.TimelineListItemState
@@ -17,9 +18,21 @@ class FullPostViewModel @Inject constructor(): ViewModel() {
     val state =  MutableLiveData<TimelineListItemState>();
     var slug = MutableLiveData<String>()
     val adapter = CommentAdapter(mutableListOf(), this::upvoteComment, this::downvoteComment, slug, this::getProfileImage)
+    val annotations = MutableLiveData<List<AnnotationResponse>>()
 
 
-
+    init {
+        slug.observeForever {
+            try {
+                viewModelScope.launch {
+                    val response = ApiClient.get().getTextAnnotations(it)
+                    annotations.value = response
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
 
     fun fetchPost() {
         viewModelScope.launch {

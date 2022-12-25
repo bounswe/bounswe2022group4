@@ -200,6 +200,7 @@
                                 android:layout_height="wrap_content"
                                 android:breakStrategy="balanced"
                                 android:text="@{viewModel.state.body}"
+                                android:textIsSelectable="true"
                                 android:textSize="15sp"
                                 tools:text="Laparoscopic evaluation w
 " />
