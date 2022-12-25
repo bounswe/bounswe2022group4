@@ -96,15 +96,19 @@ class SortPostView(APIView):
     def get(self,request):
 
         if request.GET.get("type"):
-            type = int(request.GET.get("type"))
+            type = request.GET.get("type")
         else:
             type = 0
-        
-#        unsorted_results = Post.objects.filter().all()        
-#        qs = sorted(unsorted_results, key= lambda t: Post.upvotes_for_sorting(t), reverse=True)
-
-        qs = Post.objects.filter().all().order_by("-created_at")    # Last Created Post    
-
+ 
+        if type == 0:
+            qs = Post.objects.filter().all()
+        elif type.lower() == "create":
+            qs = Post.objects.filter().all().order_by("-created_at")    # Last Created Post First
+        elif type.lower() == "update":
+            qs = Post.objects.filter().all().order_by("-last_update")    # Last Updated Post First
+        elif type.lower() == "upvote":
+            unsorted_results = Post.objects.filter().all()               # Most Upvoted Post First
+            qs = sorted(unsorted_results, key= lambda t: Post.upvotes_for_sorting(t), reverse=True)
 
         count = len(qs)
         
@@ -118,5 +122,7 @@ class SortPostView(APIView):
             response_data["posts"][f"post_{i+1}"]['upvotes'] = qs[i].upvotes.count()
             response_data["posts"][f"post_{i+1}"]['slug'] = qs[i].slug
             response_data["posts"][f"post_{i+1}"]['created_at'] = qs[i].created_at
+            response_data["posts"][f"post_{i+1}"]['last_update'] = qs[i].last_update
+            
             
         return JsonResponse(response_data, safe=False)
