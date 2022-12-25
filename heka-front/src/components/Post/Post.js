@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Divider, Avatar, Button, MenuItem, Menu } from '@material-ui/core';
 import {
@@ -28,7 +28,6 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import EditPost from '../EditPost/EditPost';
-import TextAnnotation from '../TextAnnotation/TextAnnotation';
 const imgLink =
   'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
 const doctorPhoto = 'https://cdn-icons-png.flaticon.com/512/3774/3774299.png';
@@ -123,21 +122,72 @@ const Post = ({
   };
 
   // const handleEdit =
-  const [annotations, setAnnotations] = useState([]);
+  const [imageAnnotation, setImageAnnotation] = useState([]);
   const [currentAnnotation, setCurrentAnnotation] = useState({});
   const onAnnotationChange = (annotation) => {
     setCurrentAnnotation(annotation);
   };
-  const onAnnotationSubmit = (annotation) => {
+  const onAnnotationSubmit = async (annotation) => {
     const { geometry, data } = annotation;
-    setAnnotations(
-      annotations.concat({
+    setImageAnnotation(
+      imageAnnotation.concat({
         geometry,
         data: { ...data, id: Math.random() },
       })
     );
-    console.log(annotations);
+    console.log(imageAnnotation, 'image ann yukari');
+    let modifiedData = {
+      ...data,
+      source: 'http://3.72.25.175:3000/' + slug,
+    };
+
+    const response = await BackendApi.postImageAnnotation(
+      slug,
+      geometry,
+      modifiedData
+    );
+    console.log(annotation, 'dsadsaas');
+    console.log(response, 'post ann resp');
   };
+  useEffect(() => {
+    const getAnn = async () => {
+      const response = await BackendApi.getImageAnnotation(slug);
+      const data = response?.data;
+      console.log(data, 'data');
+      let imageAnnotationList = [];
+      data.map((item) => {
+        let geometryText = item.json.target.selector.value.split('xywh=')[1];
+        let geometry = geometryText.split(',');
+        let x = parseFloat(geometry[0]);
+        let y = parseFloat(geometry[1]);
+        let width = parseFloat(geometry[2]);
+        let height = parseFloat(geometry[3]);
+        setImageAnnotation(
+          imageAnnotation.concat({
+            geometry,
+            data: { ...data, id: Math.random() },
+          })
+        );
+        imageAnnotationList.push({
+          geometry: {
+            x: x,
+            y: y,
+            width: width,
+            height: height,
+            type: 'RECTANGLE',
+          },
+          data: {
+            text: item.json.body.value,
+            id: Math.random(),
+          },
+        });
+
+        console.log(imageAnnotation, 'imageAnnotation');
+      });
+      setImageAnnotation(imageAnnotationList);
+    };
+    getAnn();
+  }, []);
   const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
@@ -251,7 +301,7 @@ const Post = ({
       {image && (
         <Annotation
           src={image}
-          annotations={annotations}
+          annotations={imageAnnotation}
           value={currentAnnotation}
           onChange={onAnnotationChange}
           onSubmit={onAnnotationSubmit}

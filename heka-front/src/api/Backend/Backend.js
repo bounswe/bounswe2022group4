@@ -137,11 +137,11 @@ export const postEditPost = (
   });
 };
 
-export const getAnnotation = (slug) => {
+export const getImageAnnotation = (slug) => {
   return ApiInstance.get('api/annotation/image/post/' + slug);
 };
 
-export const postAnnotation = (slug, geometry, data) => {
+export const postImageAnnotation = (slug, geometry, data) => {
   return ApiInstance.post('api/annotation/image/post/' + slug, {
     geometry,
     data,
