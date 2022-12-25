@@ -76,8 +76,8 @@ class SearchPostView(APIView):
                     response_data[f'posts'][f"post_{i+1}"] = {}
                     response_data["posts"][f"post_{i+1}"]['id'] = qs[i].id
                     response_data["posts"][f"post_{i+1}"]['title'] = qs[i].title
-                    response_data["posts"][f"post_{i+1}"]['body'] = qs[i].body
-                    response_data["posts"][f"post_{i+1}"]['creator_id'] = qs[i].creator.username
+                    link = "http://3.72.25.175:3000/post/" + qs[i].slug
+                    response_data["posts"][f"post_{i+1}"]['link'] = link
             else:
                 response_data[f'posts']["error"] = True
                 response_data[f'posts']["count"] = 0
@@ -88,4 +88,50 @@ class SearchPostView(APIView):
             response_data[f'posts']["count"] = 0
             response_data[f'posts']["message"] = "No query input supplied!"
             pass
+        return JsonResponse(response_data, safe=False)
+
+class SortPostView(APIView):
+    @swagger_auto_schema()
+
+    def get(self,request):
+
+        if request.GET.get("count"):
+            count = int(request.GET.get("count"))
+        else:
+            count = 0
+
+        if request.GET.get("type"):
+            type = request.GET.get("type")
+        else:
+            type = 0
+
+        if type == 0:
+            qs = Post.objects.filter().all().order_by("id")
+        elif type.lower() == "create_date":
+            qs = Post.objects.filter().all().order_by("-created_at")    # Last Created Post First
+        elif type.lower() == "update_date":
+            qs = Post.objects.filter().all().order_by("-last_update")    # Last Updated Post First
+        elif type.lower() == "upvote_count":
+            unsorted_results = Post.objects.filter().all()               # Most Upvoted Post First
+            qs = sorted(unsorted_results, key= lambda t: Post.upvotes_for_sorting(t), reverse=True)
+        elif type.lower() == "comment_count":
+            unsorted_results = Post.objects.filter().all()
+            qs = sorted(unsorted_results, key= lambda t: Post.comments_for_sorting(t), reverse=True)
+        
+        if count == 0 or count > len(qs):
+            count = len(qs)
+        
+        response_data = {}
+        response_data[f'posts'] = {}
+        response_data[f'posts']["count"] = count
+
+        for i in range(count):
+            response_data[f'posts'][f"post_{i+1}"] = {}
+            response_data["posts"][f"post_{i+1}"]['id'] = qs[i].id
+            response_data["posts"][f"post_{i+1}"]['title'] = qs[i].title
+            response_data["posts"][f"post_{i+1}"]['upvotes'] = qs[i].upvotes.count()
+            response_data["posts"][f"post_{i+1}"]['created_at'] = qs[i].created_at
+            response_data["posts"][f"post_{i+1}"]['last_update'] = qs[i].last_update
+            response_data["posts"][f"post_{i+1}"]['link'] = "http://3.72.25.175:3000/post/" + qs[i].slug
+            
         return JsonResponse(response_data, safe=False)
