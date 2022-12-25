@@ -3,14 +3,9 @@ from rest_framework.views import APIView
 from drf_yasg.utils import swagger_auto_schema 
 from users.models import User
 from posts.models import Post
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.authentication import TokenAuthentication
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 
 class SearchUserView(APIView):
-    #permission_classes = [IsAuthenticated]
-    #authentication_classes = [TokenAuthentication]
-
     @swagger_auto_schema()
 
     def get(self,request):
@@ -42,9 +37,6 @@ class SearchUserView(APIView):
             return JsonResponse(response_data, safe=False)
 
 class SearchPostView(APIView):
-    #permission_classes = [IsAuthenticated]
-    #authentication_classes = [TokenAuthentication]
-
     @swagger_auto_schema()
 
     def get(self,request):
@@ -61,10 +53,7 @@ class SearchPostView(APIView):
             query += ':*'  # Thanks to this line we can make partial matches 
             if i != len(query_list) - 1:
                 query += " | "
-        
-        response_data = {}
-        response_data[f'posts'] = {}
-        
+                
         if query:
             vector = SearchVector('title', weight='A', config='english') + SearchVector('body', weight='B', config='english')
             q = SearchQuery(query, search_type="raw")
@@ -75,18 +64,20 @@ class SearchPostView(APIView):
             else:
                 if count > len(qs):
                     count = len(qs)
-
+            
+            response_data = {}
+            response_data[f'posts'] = {}
+            
             if qs:
                 response_data[f'posts']["error"] = False
-
                 response_data[f'posts']["count"] = count
+
                 for i in range(count):
                     response_data[f'posts'][f"post_{i+1}"] = {}
                     response_data["posts"][f"post_{i+1}"]['id'] = qs[i].id
                     response_data["posts"][f"post_{i+1}"]['title'] = qs[i].title
                     response_data["posts"][f"post_{i+1}"]['body'] = qs[i].body
-                    response_data["posts"][f"post_{i+1}"]['creator_id'] = qs[i].creator.id
-                    response_data["posts"][f"post_{i+1}"]['created_at'] = qs[i].created_at
+                    response_data["posts"][f"post_{i+1}"]['creator_id'] = qs[i].creator.username
             else:
                 response_data[f'posts']["error"] = True
                 response_data[f'posts']["count"] = 0
