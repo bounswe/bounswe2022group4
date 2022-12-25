@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.bounswe.heka.databinding.FragmentFullPostBinding
 import com.bounswe.heka.databinding.FragmentImageBinding
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,6 +24,12 @@ class ImageFragment: Fragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
         viewModel.image.value = arguments?.getString("image")
+        viewModel.slug.value = arguments?.getString("slug")
+        binding.annotatedImageView.setPostAnnotationListener {
+            viewModel.width.value = binding.annotatedImageView.width
+            viewModel.height.value = binding.annotatedImageView.height
+            viewModel.addAnnotation(it)
+        }
         return binding.root
     }
 
@@ -33,6 +38,25 @@ class ImageFragment: Fragment() {
         Glide.with(binding.root.context)
             .load(viewModel.image.value)
             .into(binding.imageView)
-        binding.annotatedImageView.addAnnotation(AnnotatedImageView.Annotation(Rect(50,50,200,200), Color.RED))
+        viewModel.annotations.observe(viewLifecycleOwner) {
+            binding.annotatedImageView.clearAnnotations()
+            it.forEach { annotation ->
+                annotation.json?.target?.selector?.value?.let { value ->
+                    value.split("=")[1].split(",").let { (x, y, width, height) ->
+                    binding.annotatedImageView.addAnnotation(
+                        AnnotatedImageView.Annotation(
+                            Rect(
+                                (x.toDouble() * binding.imageView.width).toInt(),
+                                (y.toDouble() * binding.imageView.height).toInt(),
+                                ((x.toDouble() + width.toDouble()) * binding.imageView.width).toInt(),
+                                ((y.toDouble() + height.toDouble()) * binding.imageView.height).toInt()
+                            ),
+                            Color.RED,
+                        )
+                    )
+                        }
+                }
+            }
+        }
     }
 }

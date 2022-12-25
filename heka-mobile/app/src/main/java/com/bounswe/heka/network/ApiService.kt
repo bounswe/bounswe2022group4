@@ -55,6 +55,10 @@ interface ApiService {
     suspend fun fetchComments(@Path("slug") slug:String): List<FetchCommentsResponse>
     @GET("post/fetch/{slug}/")
     suspend fun fetchPost(@Path("slug") slug:String): FetchPostResponse
+    @GET("annotation/image/post/{slug}")
+    suspend fun getAnnotations(@Path("slug") slug:String): List<AnnotationResponse>
+    @POST("annotation/image/post/{slug}")
+    suspend fun postAnnotation(@Path("slug") slug:String, @Body request: AnnotationResponse): AnnotationResponse
 
 
 

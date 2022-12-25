@@ -23,6 +23,8 @@ class AnnotatedImageView(context: Context?, attrs: AttributeSet?) : View(context
 
     private var tempRect = RectF()
 
+    private lateinit var postAnnotationListener: (Rect) -> Unit
+
 
 
     // Add an annotation to the view
@@ -35,6 +37,10 @@ class AnnotatedImageView(context: Context?, attrs: AttributeSet?) : View(context
     fun clearAnnotations() {
         annotations.clear()
         invalidate()
+    }
+
+    fun setPostAnnotationListener(listener: (Rect) -> Unit) {
+        postAnnotationListener = listener
     }
 
     // Draw the view
@@ -82,7 +88,8 @@ class AnnotatedImageView(context: Context?, attrs: AttributeSet?) : View(context
                 endX = event.x
                 endY = event.y
                 isDrawing = false
-                addAnnotation(Annotation(Rect(startX.toInt(), startY.toInt(), endX.toInt(), endY.toInt()), Color.RED))
+                var newRect = Rect(startX.toInt(), startY.toInt(), endX.toInt(), endY.toInt())
+                postAnnotationListener(newRect)
                 invalidate()
                 return true
             }
