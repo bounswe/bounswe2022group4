@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Divider, Avatar, Button, MenuItem, Menu } from '@material-ui/core';
 import {
@@ -15,6 +15,8 @@ import CreateComment from '../CreateComment/CreateComment';
 import CommentBox from '../CommentBox/CommentBox';
 import ReportPost from '../ReportPost/ReportPost';
 import Annotation from 'react-image-annotation';
+import { Recogito } from '@recogito/recogito-js';
+import '@recogito/recogito-js/dist/recogito.min.css';
 import {
   IconButton,
   Collapse,
@@ -28,7 +30,6 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import EditPost from '../EditPost/EditPost';
-import TextAnnotation from '../TextAnnotation/TextAnnotation';
 const imgLink =
   'https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg';
 const doctorPhoto = 'https://cdn-icons-png.flaticon.com/512/3774/3774299.png';
@@ -68,6 +69,25 @@ const Post = ({
     px: 4,
     pb: 3,
   };
+  const [textAnnotation, setTextAnnotation] = useState();
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const r = new Recogito({
+        content: document.getElementById('body-text' + slug),
+      });
+      console.log('r', r?.getAnnotations());
+      r.on('createAnnotation', function (propsTextAnnotation) {
+        // console.log('Created', textAnnotation);
+        propsTextAnnotation.slug = slug;
+        setTextAnnotation(propsTextAnnotation);
+      });
+    }, 100);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  useEffect(() => {
+    console.log('textAnnotation', textAnnotation);
+  }, [textAnnotation]);
 
   const [openCreateCommentModal, setOpenCreateCommentModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
@@ -259,8 +279,13 @@ const Post = ({
         />
       )}
       <CardContent>
-        <Typography variant='body2' color='text.secondary'>
+        <Typography
+          variant='body2'
+          color='text.secondary'
+          id={'body-text' + slug}
+        >
           {content}
+          {/* {content} */}
         </Typography>
       </CardContent>
       <Divider style={{ height: '4px' }} />

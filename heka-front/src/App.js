@@ -9,8 +9,8 @@ import PostPage from './pages/PostPage/PostPage';
 import SignUpVerificationPage from './pages/SignUpVerificationPage/SignUpVerificationPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import EditProfilePage from './pages/EditProfilePage/EditProfilePage';
-import { Recogito } from '@recogito/recogito-js';
-import '@recogito/recogito-js/dist/recogito.min.css';
+// import { Recogito } from '@recogito/recogito-js';
+// import '@recogito/recogito-js/dist/recogito.min.css';
 
 const App = () => {
   const [isLogged, setIsLogged] = React.useState(false);
@@ -18,7 +18,7 @@ const App = () => {
   const [userName, setUserName] = React.useState('');
   const [loggedInUser, setLoggedInUser] = React.useState('');
   const [changeInPost, setChangeInPost] = React.useState(false);
-  const r = new Recogito({ content: document.getElementById('root') });
+  // const r = new Recogito({ content: document.getElementById('root') });
 
   return (
     <div>
@@ -83,7 +83,10 @@ const App = () => {
         </Routes>
 
         <Routes>
-          <Route path='/sign-up-verification' element={<SignUpVerificationPage />} />
+          <Route
+            path='/sign-up-verification'
+            element={<SignUpVerificationPage />}
+          />
         </Routes>
 
         <Routes>
