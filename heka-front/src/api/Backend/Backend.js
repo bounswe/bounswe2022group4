@@ -147,3 +147,12 @@ export const postImageAnnotation = (slug, geometry, data) => {
     data,
   });
 };
+export const getTextAnnotation = (slug) => {
+  return ApiInstance.get('api/annotation/text/post/' + slug);
+};
+export const postTextAnnotation = (slug, position, data) => {
+  return ApiInstance.post('api/annotation/text/post/' + slug, {
+    position,
+    data,
+  });
+};
