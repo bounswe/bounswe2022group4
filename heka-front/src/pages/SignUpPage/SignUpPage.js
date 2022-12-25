@@ -344,9 +344,11 @@ const SignUpPage = () => {
                             />
                           </div>
                         )}
+                        
                       </>
+                      
                     ))}
-
+                     
                     <button
                       className='sign-up-button'
                       onClick={handleDoctorSubmit}
@@ -355,10 +357,29 @@ const SignUpPage = () => {
                       <AiOutlineLogin aria-hidden='true' />
                     </button>
                   </div>
+                  
+                            
+                                <input 
+                                    className="class-kvkk"
+                                    type="checkbox"
+                                    data-testid="kvkk"
+                                    
+                                />
+                                <span> I have read the {" "}<a href="https://www.nvi.gov.tr/kvkk-aydinlatma-metni" target="_blank" rel="noopener noreferrer" className="registerKVKK">
+                                        clarification on KVKK
+                                    </a> and agree on all the terms and conditions.
+                                </span>
+                                
+                           
+                        
+                
                 </div>
+                
               </form>
             </div>
+            
           </Content>
+          
         </>
       )}
     </>
