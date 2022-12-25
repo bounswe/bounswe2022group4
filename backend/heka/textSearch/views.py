@@ -76,7 +76,7 @@ class SearchPostView(APIView):
                     response_data[f'posts'][f"post_{i+1}"] = {}
                     response_data["posts"][f"post_{i+1}"]['id'] = qs[i].id
                     response_data["posts"][f"post_{i+1}"]['title'] = qs[i].title
-                    link = "http://3.72.25.175:3000/post/" + qs[i].title.replace(" ", "-")
+                    link = "http://3.72.25.175:3000/post/" + qs[i].slug
                     response_data["posts"][f"post_{i+1}"]['link'] = link
             else:
                 response_data[f'posts']["error"] = True
@@ -109,7 +109,9 @@ class SortPostView(APIView):
         elif type.lower() == "upvote":
             unsorted_results = Post.objects.filter().all()               # Most Upvoted Post First
             qs = sorted(unsorted_results, key= lambda t: Post.upvotes_for_sorting(t), reverse=True)
-
+        elif type.lower() == "comment":
+            unsorted_results = Post.objects.filter().all()
+            qs = sorted(unsorted_results, key= lambda t: Post.comments_for_sorting(t), reverse=True)
         count = len(qs)
         
         response_data = {}
