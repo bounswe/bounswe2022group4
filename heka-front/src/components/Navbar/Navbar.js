@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import './Navbar.css';
+import SearchBar from '../SearchBar/SearchBar'
 import { FaBars } from 'react-icons/fa';
 import SearchBar from '../SearchBar/SearchBar';
 
@@ -24,8 +25,9 @@ const Navbar = ({ isLogged, userName }) => {
               Edit Profile
             </Link>
           )}
-          <SearchBar />
+          
         </div>
+        <SearchBar />
         {!isLogged ? (
           <div className='navv-button'>
             <Link to='/sign-in' className='navv-button-link'>
