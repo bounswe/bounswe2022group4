@@ -6,6 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bounswe.heka.data.AnnotationResponse
+import com.bounswe.heka.data.Data
+import com.bounswe.heka.data.Position
 import com.bounswe.heka.network.ApiClient
 import com.bounswe.heka.timeline.TimeLineAdapter
 import com.bounswe.heka.timeline.TimelineListItemState
@@ -126,5 +128,23 @@ class FullPostViewModel @Inject constructor(): ViewModel() {
     suspend fun getProfileImage(username: String): String {
 
         return ApiClient.get().getProfile(username).profile_image?:""
+    }
+    fun addAnnotation(it: String, start: Int, end: Int) {
+        viewModelScope.launch {
+            try {
+                ApiClient.get().postTextAnnotation(slug.value!!, AnnotationResponse(
+                    position = Position(start, end),
+                    data = Data(
+                        text =it,
+                        source = slug.value!!,
+                        id = .0
+                    )
+                )
+                )
+                getAnnotations()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
     }
 }
