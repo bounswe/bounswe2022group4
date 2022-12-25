@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useRef } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate,  } from 'react-router-dom';
 import { BackendApi } from '../../api';
 import {
   FaUserCircle,
@@ -179,7 +179,7 @@ const SignUpPage = () => {
   return (
     <>
       {isAuthenticated ? (
-        <Navigate to='/sign-in' replace={true} />
+        <Navigate to='/sign-up-verification'  replace={true} />
       ) : (
         <>
           <Tabs>
