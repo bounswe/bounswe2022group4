@@ -76,8 +76,8 @@ class SearchPostView(APIView):
                     response_data[f'posts'][f"post_{i+1}"] = {}
                     response_data["posts"][f"post_{i+1}"]['id'] = qs[i].id
                     response_data["posts"][f"post_{i+1}"]['title'] = qs[i].title
-                    response_data["posts"][f"post_{i+1}"]['body'] = qs[i].body
-                    response_data["posts"][f"post_{i+1}"]['creator_id'] = qs[i].creator.username
+                    link = "http://3.72.25.175:3000/post/" + qs[i].title.replace(" ", "-")
+                    response_data["posts"][f"post_{i+1}"]['link'] = link
             else:
                 response_data[f'posts']["error"] = True
                 response_data[f'posts']["count"] = 0
