@@ -6,6 +6,7 @@ import SignInPage from './pages/SignInPage/SignInPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import ForgotPasswordForm from './pages/ForgotPassword/ForgotPassword';
 import PostPage from './pages/PostPage/PostPage';
+import SignUpVerificationPage from './pages/SignUpVerificationPage/SignUpVerificationPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import EditProfilePage from './pages/EditProfilePage/EditProfilePage';
 import { Recogito } from '@recogito/recogito-js';
@@ -80,6 +81,11 @@ const App = () => {
         <Routes>
           <Route path='/sign-up' element={<SignUpPage />} />
         </Routes>
+
+        <Routes>
+          <Route path='/sign-up-verification' element={<SignUpVerificationPage />} />
+        </Routes>
+
         <Routes>
           <Route path='/forgot-password' element={<ForgotPasswordForm />} />
         </Routes>
