@@ -171,5 +171,17 @@
         <action
             android:id="@+id/action_fullPostFragment_to_editCommentFragment"
             app:destination="@id/EditCommentFragment" />
+        <action
+            android:id="@+id/action_fullPostFragment_to_imageFragment"
+            app:destination="@id/ImageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ImageFragment"
+        android:name="com.bounswe.heka.image.ImageFragment"
+        android:label="Image Details"
+        tools:layout="@layout/fragment_image">
+        <action
+            android:id="@+id/action_imagefragment_to_fullPostFragment"
+            app:destination="@id/FullPostFragment" />
     </fragment>
 </navigation>
