@@ -94,4 +94,22 @@ class SortPostView(APIView):
     @swagger_auto_schema()
 
     def get(self,request):
-        pass
+
+        if request.GET.get("type"):
+            type = int(request.GET.get("type"))
+        else:
+            type = 0
+        
+        unsorted_results = Post.objects.filter().all()
+        qs = sorted(unsorted_results, key= lambda t: Post.upvotes_for_sorting(t), reverse=True)
+        count = len(qs)
+        response_data = {}
+        response_data[f'posts'] = {}
+
+        for i in range(count):
+            response_data[f'posts'][f"post_{i+1}"] = {}
+            response_data["posts"][f"post_{i+1}"]['id'] = qs[i].id
+            response_data["posts"][f"post_{i+1}"]['title'] = qs[i].title
+            response_data["posts"][f"post_{i+1}"]['upvotes'] = qs[i].upvotes.count()
+            response_data["posts"][f"post_{i+1}"]['slug'] = qs[i].slug
+        return JsonResponse(response_data, safe=False)
