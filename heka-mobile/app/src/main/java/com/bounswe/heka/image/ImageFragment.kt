@@ -2,6 +2,7 @@ package com.bounswe.heka.image
 
 import android.graphics.Color
 import android.graphics.Rect
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bounswe.heka.databinding.FragmentImageBinding
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,8 +31,6 @@ class ImageFragment: Fragment() {
         viewModel.image.value = arguments?.getString("image")
         viewModel.slug.value = arguments?.getString("slug")
         binding.annotatedImageView.setPostAnnotationListener {
-            viewModel.width.value = binding.annotatedImageView.width
-            viewModel.height.value = binding.annotatedImageView.height
             viewModel.addAnnotation(it)
         }
         return binding.root
@@ -37,6 +40,29 @@ class ImageFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Glide.with(binding.root.context)
             .load(viewModel.image.value)
+            .listener(object: RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    return false
+                }
+
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    binding.annotatedImageView.layoutParams.height = (binding.annotatedImageView.width * resource!!.intrinsicHeight) / resource.intrinsicWidth
+                    viewModel.width.value = binding.annotatedImageView.width
+                    viewModel.height.value = binding.annotatedImageView.layoutParams.height
+                    return false
+                }
+            })
             .into(binding.imageView)
         viewModel.annotations.observe(viewLifecycleOwner) {
             binding.annotatedImageView.clearAnnotations()
@@ -47,9 +73,9 @@ class ImageFragment: Fragment() {
                         AnnotatedImageView.Annotation(
                             Rect(
                                 (x.toDouble() * binding.imageView.width).toInt(),
-                                (y.toDouble() * binding.imageView.height).toInt(),
+                                (y.toDouble() * binding.annotatedImageView.layoutParams.height).toInt(),
                                 ((x.toDouble() + width.toDouble()) * binding.imageView.width).toInt(),
-                                ((y.toDouble() + height.toDouble()) * binding.imageView.height).toInt()
+                                ((y.toDouble() + height.toDouble()) * binding.annotatedImageView.layoutParams.height).toInt()
                             ),
                             Color.RED,
                         )

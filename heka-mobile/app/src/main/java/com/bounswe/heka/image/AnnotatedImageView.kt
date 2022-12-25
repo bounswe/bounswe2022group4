@@ -69,7 +69,7 @@ class AnnotatedImageView(context: Context?, attrs: AttributeSet?) : View(context
         when(event?.action) {
             MotionEvent.ACTION_DOWN -> {
                 annotations.forEach { annotation ->
-                    if (annotation.rect.contains(event.x.toInt(), event.y.toInt())) {
+                    if (annotation.rect.contains(event.rawX.toInt(), event.rawY.toInt())) {
                         Log.d("AnnotatedImageView", "Annotation clicked")
                         return false
                     }
