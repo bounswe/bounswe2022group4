@@ -4,6 +4,7 @@ import android.content.Context
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
@@ -20,12 +21,18 @@ class ApiClient {
     private lateinit var apiService: ApiService
     private lateinit var context: Context
     fun getApiService(): ApiService {
-
+//xywh=0.5351851851851852,0.2876997915218902,0.34629629629629627,0.6240444753300903
+// "x":0.5351851851851852,"y":0.2876997915218902,"width":0.34629629629629627,"height":0.6240444753300903
         // Initialize ApiService if not initialized yet
         if (!::apiService.isInitialized) {
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(MoshiConverterFactory.create(moshi))
-                .client(OkHttpClient.Builder().addInterceptor(AuthInterceptor(context)).readTimeout(1000,TimeUnit.SECONDS).build())
+                .client(OkHttpClient.Builder()
+                    .addInterceptor(AuthInterceptor(context))
+                    .addInterceptor(HttpLoggingInterceptor().apply {
+                        level = HttpLoggingInterceptor.Level.BODY
+                    })
+                    .readTimeout(1000,TimeUnit.SECONDS).build())
                 .baseUrl(BASE_URL)
                 .build()
 

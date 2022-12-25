@@ -90,6 +90,12 @@ class FullPostFragment: Fragment() {
                     .load(viewModel.state.value!!.image)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(binding.image)
+                binding.image.setOnClickListener {
+                    val bundle = Bundle()
+                    bundle.putString("image", viewModel.state.value!!.image)
+                    bundle.putString("slug", viewModel.slug.value)
+                    findNavController().navigate(R.id.action_fullPostFragment_to_imageFragment, bundle)
+                }
             }
         }
         Glide.with(this).
