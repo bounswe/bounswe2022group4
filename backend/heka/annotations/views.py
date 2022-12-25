@@ -4,8 +4,8 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import ImageAnnotationSerializer
-from .models import ImageAnnotation
+from .serializers import ImageAnnotationSerializer, TextAnnotationSerializer
+from .models import ImageAnnotation, TextAnnotation
 import json
 
 # Create your views here.
@@ -69,3 +69,11 @@ class PostImageAnnotationAPIView(APIView):
         except Exception as e:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+class TextAnnotationAPIView(APIView):
+    permission_classes = [AllowAny]
+
+    @swagger_auto_schema(responses={200:TextAnnotationSerializer(many=True)})
+    def get(self, request, annotation_id=None):
+        annotation = TextAnnotation.objects.get(pk=annotation_id)
+        serializer = TextAnnotationSerializer(annotation)
+        return Response(serializer.data["json"], status=status.HTTP_200_OK)
