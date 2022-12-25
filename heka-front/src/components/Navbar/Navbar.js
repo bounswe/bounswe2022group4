@@ -1,9 +1,12 @@
 import React from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import './Navbar.css';
+import SearchBar from '../SearchBar/SearchBar'
 import { FaBars } from 'react-icons/fa';
 import SearchBar from '../SearchBar/SearchBar';
-const Navbar = ({ isLogged }) => {
+
+const Navbar = ({ isLogged, userName }) => {
+
   return (
     <>
       <nav className='navv'>
@@ -13,7 +16,7 @@ const Navbar = ({ isLogged }) => {
             Home
           </Link>
           {isLogged && (
-            <Link to='/profile' activeStyle className='navv-link'>
+            <Link to={'/profile/' + userName} activeStyle className='navv-link'>
               Profile
             </Link>
           )}
@@ -22,8 +25,9 @@ const Navbar = ({ isLogged }) => {
               Edit Profile
             </Link>
           )}
-          <SearchBar />
+          
         </div>
+        <SearchBar />
         {!isLogged ? (
           <div className='navv-button'>
             <Link to='/sign-in' className='navv-button-link'>
