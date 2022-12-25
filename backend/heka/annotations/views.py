@@ -1,3 +1,5 @@
+import logging
+
 from django.shortcuts import render
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
@@ -67,7 +69,8 @@ class PostImageAnnotationAPIView(APIView):
 
             return Response(serializer.data["json"], status=status.HTTP_201_CREATED)
         except Exception as e:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            logging.exception(e)
+            return Response("Wrong request body", status=status.HTTP_400_BAD_REQUEST)
 
 class TextAnnotationAPIView(APIView):
     permission_classes = [AllowAny]
