@@ -1,5 +1,7 @@
 package com.bounswe.heka.image
 
+import android.graphics.Color
+import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,5 +33,6 @@ class ImageFragment: Fragment() {
         Glide.with(binding.root.context)
             .load(viewModel.image.value)
             .into(binding.imageView)
+        binding.annotatedImageView.addAnnotation(AnnotatedImageView.Annotation(Rect(50,50,200,200), Color.RED))
     }
 }
