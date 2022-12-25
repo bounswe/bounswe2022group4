@@ -2,8 +2,9 @@ import React from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import './Navbar.css';
 import { FaBars } from 'react-icons/fa';
-import SearchBar from '../SearchBar/SearchBar';
-const Navbar = ({ isLogged }) => {
+
+const Navbar = ({ isLogged, userName }) => {
+
   return (
     <>
       <nav className='navv'>
@@ -13,7 +14,7 @@ const Navbar = ({ isLogged }) => {
             Home
           </Link>
           {isLogged && (
-            <Link to='/profile' activeStyle className='navv-link'>
+            <Link to={'/profile/' + userName} activeStyle className='navv-link'>
               Profile
             </Link>
           )}

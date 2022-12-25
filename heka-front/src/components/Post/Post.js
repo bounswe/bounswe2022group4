@@ -173,10 +173,19 @@ const Post = ({
       <div>
         <CardHeader
           avatar={
-            <Avatar
-              alt='Unknown Profile Picture'
-              src={isExpert ? doctorPhoto : imgLink}
-            />
+            isLogged ? (
+              <Link to={'/profile/' + user}>
+                <Avatar
+                  alt='Unknown Profile Picture'
+                  src={isExpert ? doctorPhoto : imgLink}
+                />
+              </Link>
+            ) : (
+              <Avatar
+                alt='Unknown Profile Picture'
+                src={isExpert ? doctorPhoto : imgLink}
+              />
+            )
           }
           title={user}
           subheader={subheader}

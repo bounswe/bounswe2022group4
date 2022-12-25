@@ -23,7 +23,7 @@ const App = () => {
   return (
     <div>
       <Router>
-        <Header isLogged={isLogged} />
+        <Header isLogged={isLogged} userName={userName} />
         <Routes>
           <Route
             path='/'
@@ -41,13 +41,12 @@ const App = () => {
         </Routes>
         <Routes>
           <Route
-            path='/profile'
+            path='/profile/:userName'
             element={
               <ProfilePage
                 isLogged={isLogged}
                 loggedInUser={loggedInUser}
                 authenticationToken={authenticationToken}
-                userName={userName}
               />
             }
           />
