@@ -30,8 +30,16 @@ class ImageFragment: Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         viewModel.image.value = arguments?.getString("image")
         viewModel.slug.value = arguments?.getString("slug")
-        binding.annotatedImageView.setPostAnnotationListener {
-            viewModel.addAnnotation(it)
+        binding.annotatedImageView.setPostAnnotationListener { rect ->
+            AnnotationDialogFragment.newInstance {
+                viewModel.addAnnotation(rect, it)
+            }.show(childFragmentManager, "annotation")
+        }
+        binding.annotatedImageView.setClickAnnotationListener { index ->
+            viewModel.annotations.value?.get(index)?.json?.body?.value?.let {
+                AnnotationDialogFragment.newInstance(it) {
+                }.show(childFragmentManager, "annotation")
+            }
         }
         return binding.root
     }

@@ -27,5 +27,12 @@ data class Selector(
 )
 
 data class JsonData(
-    val target: AnnotationTarget?
+    val target: AnnotationTarget?,
+    val body: AnnotationBody?
+)
+
+data class AnnotationBody(
+    val type: String? = "TextualBody",
+    val value: String? = "",
+    val format: String? = "text/plain",
 )

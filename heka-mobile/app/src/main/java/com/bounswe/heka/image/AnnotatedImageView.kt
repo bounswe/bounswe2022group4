@@ -24,6 +24,7 @@ class AnnotatedImageView(context: Context?, attrs: AttributeSet?) : View(context
     private var tempRect = RectF()
 
     private lateinit var postAnnotationListener: (Rect) -> Unit
+    private lateinit var clickAnnotationListener: (Int) -> Unit
 
 
 
@@ -41,6 +42,10 @@ class AnnotatedImageView(context: Context?, attrs: AttributeSet?) : View(context
 
     fun setPostAnnotationListener(listener: (Rect) -> Unit) {
         postAnnotationListener = listener
+    }
+
+    fun setClickAnnotationListener(listener: (Int) -> Unit) {
+        clickAnnotationListener = listener
     }
 
     // Draw the view
@@ -68,9 +73,9 @@ class AnnotatedImageView(context: Context?, attrs: AttributeSet?) : View(context
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         when(event?.action) {
             MotionEvent.ACTION_DOWN -> {
-                annotations.forEach { annotation ->
-                    if (annotation.rect.contains(event.rawX.toInt(), event.rawY.toInt())) {
-                        Log.d("AnnotatedImageView", "Annotation clicked")
+                annotations.forEachIndexed { index, annotation ->
+                    if (annotation.rect.contains(event.x.toInt(), event.y.toInt())) {
+                        clickAnnotationListener(index)
                         return false
                     }
                 }
@@ -91,7 +96,7 @@ class AnnotatedImageView(context: Context?, attrs: AttributeSet?) : View(context
                 var newRect = Rect(startX.toInt(), startY.toInt(), endX.toInt(), endY.toInt())
                 postAnnotationListener(newRect)
                 invalidate()
-                return true
+                return false
             }
         }
         return super.onTouchEvent(event)

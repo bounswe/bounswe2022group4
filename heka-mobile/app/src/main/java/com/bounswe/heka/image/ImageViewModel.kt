@@ -31,7 +31,7 @@ class ImageViewModel: ViewModel() {
             }
         }
 
-    fun addAnnotation(it: Rect) {
+    fun addAnnotation(it: Rect, text: String) {
         try {
             viewModelScope.launch {
                 val response = ApiClient.get().postAnnotation(
@@ -44,9 +44,9 @@ class ImageViewModel: ViewModel() {
                             it.height().toDouble() / height.value!!
                         ),
                         Data(
-                            "test",
+                            text,
                             0.0,
-                            "test",
+                            slug.value!!,
                         ),
                         null
                     )
