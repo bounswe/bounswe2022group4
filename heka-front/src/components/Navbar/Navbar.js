@@ -4,6 +4,7 @@ import './Navbar.css';
 import { FaBars } from 'react-icons/fa';
 
 const Navbar = ({ isLogged, userName }) => {
+
   return (
     <>
       <nav className='navv'>
@@ -22,6 +23,7 @@ const Navbar = ({ isLogged, userName }) => {
               Edit Profile
             </Link>
           )}
+          <SearchBar />
         </div>
         {!isLogged ? (
           <div className='navv-button'>
