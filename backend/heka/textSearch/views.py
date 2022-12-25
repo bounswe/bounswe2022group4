@@ -89,3 +89,9 @@ class SearchPostView(APIView):
             response_data[f'posts']["message"] = "No query input supplied!"
             pass
         return JsonResponse(response_data, safe=False)
+
+class SortPostView(APIView):
+    @swagger_auto_schema()
+
+    def get(self,request):
+        pass
