@@ -312,7 +312,7 @@ const ProfilePage = () => {
                 <div style={{ padding: '10px' }}>
                   <span>
                     <a className='links' onClick={showPosts}>
-                      <b>{userData[id].posts.length}</b> {'Posts '}
+                      <b>{postData?.length}</b> {'Posts '}
                     </a>
                   </span>
                   <span>
