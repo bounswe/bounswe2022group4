@@ -7,11 +7,8 @@ import {
   Row,
   Col,
   CardText,
-  CardTitle,
   FormGroup,
-  Label,
   Input,
-  FormText,
 } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BackendApi } from '../../api';
@@ -40,7 +37,7 @@ const EditProfilePage = () => {
     );
   };
   return (
-    <div>
+    <div data-testid='edit-profile'>
       <Container fluid style={{ padding: '0' }}>
         <Row style={{ height: '350px', backgroundColor: 'black' }}></Row>
       </Container>
