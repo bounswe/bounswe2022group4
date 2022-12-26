@@ -27,7 +27,7 @@ class CreatePostTestCase(APITestCase):
     def test_create_post(self):
         data = {
             "category" : "Pregnancy",
-            "title"    : "How should I sleep in pregnancy?",
+            "title"    : "Sleep during pregnancy",
             "body"     : "I'm a 4 months pregnant. I have terrible insomnia in recent days. What do you recommend me \
                           to cure it?"
         }
