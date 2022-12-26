@@ -36,6 +36,7 @@ const PostBox = ({ changeInPost, setChangeInPost }) => {
       const response = await BackendApi.getPosts(authToken);
       if (response.status >= 200 && response.status < 300) {
         setPosts(response.data);
+        console.log("post response", response.data);
       }
       setIsLoading(false);
     };

@@ -94,12 +94,16 @@ const Post = ({
   }, [textAnnotation]);
   const [authToken, setAuthToken] = React.useState('');
   const [loggedUser, setLoggedUser] = React.useState('');
+  const [commentCount, setCommentCount] = React.useState(0);
   useEffect(() => {
     setLoggedUser(localStorage['user']);
   }, [localStorage['user']]);
   useEffect(() => {
     setAuthToken(localStorage['authToken']);
   }, [localStorage['authToken']]);
+
+
+
 
   const [openCreateCommentModal, setOpenCreateCommentModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
@@ -260,6 +264,17 @@ const Post = ({
     }),
   }));
   const [changeInComments, setChangeInComments] = useState(false);
+
+  useEffect(() => {
+    const getComments = async () => {
+      const response = await BackendApi.getComments(slug, authToken);
+      if (response.status >= 200 && response.status < 300) {
+        console.log(response.data);
+        setCommentCount(response.data.length);
+      }
+    };
+    getComments(slug, authToken);
+  }, [changeInComments]);
   const subheader = (
     <div>
       <Typography variant='body2' color='text.secondary'>
@@ -455,7 +470,7 @@ const Post = ({
           aria-label='show more'
           style={{ fontSize: '0.875rem', fontWeight: 500 }}
         >
-          SHOW COMMENTS
+          SHOW COMMENTS  {'('}  {commentCount} {')'}
           <ExpandMoreIcon />
         </ExpandMore>
       </CardActions>
@@ -465,6 +480,7 @@ const Post = ({
             slug={slug}
             changeInComments={changeInComments}
             setChangeInComments={setChangeInComments}
+            //etCommentForPost = {setCommentCount} 
           />
         </CardContent>
       </Collapse>
