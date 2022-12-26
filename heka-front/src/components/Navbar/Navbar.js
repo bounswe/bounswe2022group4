@@ -3,6 +3,7 @@ import { NavLink as Link } from 'react-router-dom';
 import './Navbar.css';
 import SearchBar from '../SearchBar/SearchBar';
 import { FaBars } from 'react-icons/fa';
+import logo from './logo.svg';
 
 const Navbar = () => {
   const [authToken, setAuthToken] = React.useState('');
@@ -17,6 +18,25 @@ const Navbar = () => {
     <>
       <nav className='navv'>
         <FaBars className='bars' />
+        <div
+          className='navv-logo'
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Link to='/' className='navv-logo-link'>
+            <img
+              src={logo}
+              alt='logo'
+              className='navv-logo-img'
+              style={{
+                height: '50px',
+              }}
+            />
+          </Link>
+        </div>
         <div className='navv-menu'>
           <Link to='/' activeStyle className='navv-link'>
             Home
