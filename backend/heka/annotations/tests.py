@@ -77,3 +77,35 @@ class PostImageAnnotationTestCase(APITestCase):
         request = self.factory.post(self.url, self.data, format="json")
         response = self.view(request, post_slug=self.post_slug)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+    def test_get_post_image_anno(self):
+        self.data = {
+            "post_slug": self.post_slug,
+            "json": {
+                "id": "http://3.72.25.175:8080/api/annotation/image/1",
+                "body": {
+                    "type": "TextualBody",
+                    "value": "num",
+                    "format": "text/html",
+                    "language": "en"
+                },
+                "type": "Annotation",
+                "target": {
+                    "source": "http://3.72.25.175:3000/deneme",
+                    "selector": {
+                        "type": "FragmentSelector",
+                        "value": "xywh=4.25531914893617,2.3482142857142856,13.191489361702128,44.857142857142854",
+                        "conformsTo": "http://www.w3.org/TR/media-frags/"
+                    }
+                },
+                "@context": "http://www.w3.org/ns/anno.jsonld"
+            },
+        }
+        ImageAnnotation.objects.create(**self.data)
+        ImageAnnotation.objects.create(**self.data)
+
+        request = self.factory.get(self.url, post_slug=self.post_slug)
+        response = self.view(request, post_slug=self.post_slug)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        # checks if it creates and returns 2 annotations
+        self.assertEqual(len(response.data), 2)
