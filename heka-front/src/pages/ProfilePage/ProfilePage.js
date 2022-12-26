@@ -185,6 +185,7 @@ const ProfilePage = () => {
   const [profile, setProfile] = useState({});
   const [postData, setPostData] = useState([]);
   const { userName } = useParams();
+
   const [authToken, setAuthToken] = React.useState('');
   const [loggedUser, setLoggedUser] = React.useState('');
   const [isLoading, setIsLoading] = useState(true);
@@ -242,6 +243,15 @@ const ProfilePage = () => {
   const [followingModelOpen, setFollowingModelOpen] = useState(false);
   const [id, setID] = useState('0');
 
+  const onSendMessage = async (value) => {
+    const response = await BackendApi.sendMessage(value, 'Merhaba!', authToken);
+    if (!(response.status >= 200 && response.status < 300)) {
+      alert(
+        'Karşıdaki kullanıcı bulunamadı veya serverda bir hata meydana geldi'
+      );
+    }
+  };
+
   return (
     <div data-testid='profile-page'>
       <Container fluid style={{ padding: '0' }}>
@@ -298,16 +308,30 @@ const ProfilePage = () => {
                     {profile.email}
                   </div>
 
-                  <Button
-                    style={{
-                      float: 'right',
-                      color: 'blue',
-                      backgroundColor: 'white',
-                      borderColor: 'blue',
-                    }}
-                  >
-                    Follow
-                  </Button>
+                  <div style={{ marginRigth: '4px' }}>
+                    <Button
+                      style={{
+                        float: 'right',
+                        color: 'blue',
+                        backgroundColor: 'white',
+                        borderColor: 'blue',
+                      }}
+                    >
+                      Follow
+                    </Button>
+                    <Button
+                      style={{
+                        float: 'right',
+                        color: 'blue',
+                        backgroundColor: 'white',
+                        borderColor: 'blue',
+                      }}
+                      variant='outlined'
+                      onClick={() => onSendMessage(profile.username)}
+                    >
+                      Send Message
+                    </Button>
+                  </div>
                 </div>
                 <div style={{ padding: '10px' }}>
                   <span>
@@ -390,6 +414,7 @@ const ProfilePage = () => {
                 </div>
               </Col>
             </Row>
+
             <Row style={{ padding: '30px' }}>
               {isLoading ? (
                 <div
