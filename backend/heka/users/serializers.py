@@ -44,7 +44,6 @@ class ProfilePageSerializer(serializers.ModelSerializer):
         instance.username = validated_data.get('username', instance.username)
         instance.age = validated_data.get('age', instance.age)
         instance.name = validated_data.get('name', instance.name)
-        print(validated_data)
         instance.profile_image = validated_data.get('profile_image', instance.profile_image)
         instance.save()
         return instance
