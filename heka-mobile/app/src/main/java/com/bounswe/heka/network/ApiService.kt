@@ -2,11 +2,7 @@ package com.bounswe.heka.network
 import com.bounswe.heka.data.*
 import com.bounswe.heka.data.chat.*
 import com.bounswe.heka.data.post.*
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.PUT
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ApiService {
     @POST("user/register")
@@ -63,6 +59,10 @@ interface ApiService {
     suspend fun getTextAnnotations(@Path("slug") slug:String): List<AnnotationResponse>
     @POST("annotation/text/post/{slug}")
     suspend fun postTextAnnotation(@Path("slug") slug:String, @Body request: AnnotationResponse): AnnotationResponse
+
+
+    @GET("search/user?")
+    suspend fun searchUser(@Query("query") query: String): List<SearchUserResponse>
 
 
 

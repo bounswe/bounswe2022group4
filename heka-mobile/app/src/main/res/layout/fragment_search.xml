@@ -5,20 +5,71 @@
         <variable
             name="viewModel"
             type="com.bounswe.heka.search.SearchViewModel" />
+         <variable
+             name="adapter"
+             type="com.bounswe.heka.search.SearchResultAdapter" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_search"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:tooltipText="Search"
-            android:hint="Search"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_search"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="6dp"
+                    android:background="@android:color/white"
+                    android:hint="Search"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingStart="40dp"
+                    android:textColorHint="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <Button
+                    android:id="@+id/ib_back"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="x"
+                    android:textColor="#000000"
+                    app:layout_constraintBottom_toBottomOf="@+id/et_search"
+                    app:layout_constraintStart_toStartOf="@id/et_search"
+                    app:layout_constraintTop_toTopOf="@+id/et_search" />
+                <Button
+                    android:id="@+id/ib_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="cancel"
+                    android:textColor="#000000"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/et_search"
+                    app:layout_constraintEnd_toEndOf="@+id/et_search"
+                    app:layout_constraintTop_toTopOf="@+id/et_search" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"
@@ -26,6 +77,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText" />
+            app:layout_constraintTop_toBottomOf="@+id/tb_search"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:adapter="@{adapter}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

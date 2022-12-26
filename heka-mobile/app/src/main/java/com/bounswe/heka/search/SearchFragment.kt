@@ -22,8 +22,22 @@ class SearchFragment: Fragment() {
         binding = FragmentSearchBinding.inflate(layoutInflater)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
-//        binding.adapter = viewModel.adapter
+        binding.adapter = viewModel.adapter
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        SearchManager.queryTextChanges(binding.etSearch)
+            .skip(3)
+            .debounce(300)
+            .onSuccess {
+                viewModel.search(it)
+            }
+            .onError {
+                viewModel.clearUsers()
+            }
+            .onTextChanged {  }
     }
 
 }
