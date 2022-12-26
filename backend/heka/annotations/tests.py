@@ -178,3 +178,36 @@ class PostTextAnnotationTestCase(APITestCase):
         request = self.factory.post(self.url, self.data, format="json")
         response = self.view(request, post_slug=self.post_slug)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+    def test_get_post_image_anno(self):
+        self.data = {
+            "post_slug": self.post_slug,
+            "json": {
+                "id": "http://3.72.25.175:8080/api/annotation/text/1",
+                "body": {
+                    "type": "TextualBody",
+                    "value": "test_text",
+                    "format": "text/html",
+                    "language": "en"
+                },
+                "type": "Annotation",
+                "target": {
+                    "source": "http://example.org/post-slug1313",
+                    "selector": {
+                        "end": 57,
+                        "type": "TextPositionSelector",
+                        "start": 31
+                    }
+                },
+                "@context": "http://www.w3.org/ns/anno.jsonld"
+            }
+        }
+        self.object_count = 3
+        for _ in range(self.object_count):
+            TextAnnotation.objects.create(**self.data)
+
+        request = self.factory.get(self.url, post_slug=self.post_slug)
+        response = self.view(request, post_slug=self.post_slug)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        # checks if it creates and returns 3 annotations
+        self.assertEqual(len(response.data), self.object_count)
