@@ -34,7 +34,7 @@ class LoginTestCase(APITestCase):
         self.url = reverse('login')
         self.user = {
             "email":"canan.karatay@gmail.com",
-            "username":"canankrty"
+            "username":"canankrty",
             "password":"karatay.1359",
             "is_expert":False
         }
