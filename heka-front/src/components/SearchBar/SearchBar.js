@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import './SearchBar.css';
 import SearchIcon from '@material-ui/icons/Search';
 import CloseIcon from '@material-ui/icons/Close';
+import { BackendApi } from '../../api';
 
 function SearchBar() {
   const [foundData, setfoundData] = useState([]);
   const [wordEntered, setWordEntered] = useState('');
-
-  const handle = (event) => {
+  const [posts, setPosts] = useState([]);
+  const handle = async (event) => {
     const searchWord = event.target.value;
     const data = [
       {
@@ -46,14 +47,17 @@ function SearchBar() {
     });
 
     if (searchWord === '') {
-      setfoundData([]);
+      setPosts([]);
     } else {
-      setfoundData(allData);
+      const response = await BackendApi.getSearchPost(searchWord.toLowerCase(),4);
+      setPosts(response.data);
+      console.log("offff " + response.data[0].title);
+      //setfoundData(allData);
     }
   };
 
   const clearInput = () => {
-    setfoundData([]);
+    setPosts([]);
     setWordEntered('');
   };
 
@@ -68,21 +72,25 @@ function SearchBar() {
           onChange={handle}
         />
         <div className='searchIcon'>
-          {foundData.length === 0 ? (
+          {posts.length === 0 ? (
             <SearchIcon />
           ) : (
             <CloseIcon id='clearBtn' onClick={clearInput} />
           )}
         </div>
       </div>
-      {foundData.length != 0 && (
+      {posts.length > 1 && (
         <div className='dataResult'>
-          {foundData.slice(0, 7).map((value, key) => {
-            return (
-              <a className='dataItem' href={value.link} target='_blank'>
-                <p>{value.title} </p>
-              </a>
-            );
+          {posts.slice(0, 7).map((value, key) => {
+            if(value.title != null) {
+              return (
+              
+                <a className='dataItem' href={value.link} target='_blank'>
+                  <p>{value.title} </p>
+                </a>
+              );
+            }
+            
           })}
         </div>
       )}
@@ -91,3 +99,7 @@ function SearchBar() {
 }
 
 export default SearchBar;
+
+
+
+
