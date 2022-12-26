@@ -142,6 +142,10 @@ export const getSearchPost = (keyword, count) => {
   return ApiInstance.get('api/search/post?query=' + keyword + '&count=' +count);
 };
 
+export const getSearchUser = (keyword, count) => {
+  
+  return ApiInstance.get('api/search/user?query=' + keyword + '&count=' +count);
+};
 
 export const getImageAnnotation = (slug) => {
   return ApiInstance.get('api/annotation/image/post/' + slug);

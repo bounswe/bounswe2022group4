@@ -8,6 +8,7 @@ function SearchBar() {
   const [foundData, setfoundData] = useState([]);
   const [wordEntered, setWordEntered] = useState('');
   const [posts, setPosts] = useState([]);
+  const [users, setUsers] = useState([]);
   const handle = async (event) => {
     const searchWord = event.target.value;
     const data = [
@@ -48,9 +49,12 @@ function SearchBar() {
 
     if (searchWord === '') {
       setPosts([]);
+      setUsers([]);
     } else {
       const response = await BackendApi.getSearchPost(searchWord.toLowerCase(),4);
+      const response_user = await BackendApi.getSearchUser(searchWord.toLowerCase(),4);
       setPosts(response.data);
+      setUsers(response_user.data);
       console.log("offff " + response.data[0].title);
       //setfoundData(allData);
     }
@@ -58,6 +62,7 @@ function SearchBar() {
 
   const clearInput = () => {
     setPosts([]);
+    setUsers([]);
     setWordEntered('');
   };
 
@@ -79,21 +84,34 @@ function SearchBar() {
           )}
         </div>
       </div>
-      {posts.length > 1 && (
+      {(posts.length > 1 || users.length > 1) && (
         <div className='dataResult'>
-          {posts.slice(0, 7).map((value, key) => {
+          {posts.slice(0, 4).map((value, key) => {
             if(value.title != null) {
               return (
               
-                <a className='dataItem' href={value.link} target='_blank'>
+                <a className='dataItem' href={value.link} >
                   <p>{value.title} </p>
                 </a>
               );
             }
             
           })}
+          {users.slice(0, 4).map((value, key) => {
+            if(value.username != null) {
+              return (
+              
+                <a className='dataItem' href={"/profile/" + value.username} >
+                  <p>{value.username} </p>
+                </a>
+              );
+            }
+            
+          })}
+
         </div>
       )}
+      
     </div>
   );
 }
