@@ -76,18 +76,13 @@ const Post = ({
         content: document.getElementById('body-text' + slug),
       });
       r.on('createAnnotation', function (propsTextAnnotation) {
-        console.log('propsTextAnnotation', propsTextAnnotation);
         setTextAnnotation(propsTextAnnotation);
       });
       let position = {
         start: textAnnotation.target.selector[1].start,
         end: textAnnotation.target.selector[1].end,
       };
-      console.log(
-        'position',
-        textAnnotation.target.selector[1].start,
-        position
-      );
+
       let data = {
         text: textAnnotation.body[0].value,
         source: 'http://3.72.25.175:3000/' + slug,
@@ -97,14 +92,11 @@ const Post = ({
         position,
         data
       );
-      console.log('response post', response);
     };
     postTextAnnotation();
   }, [textAnnotation]);
 
-  useEffect(() => {
-    console.log('textAnnotation', textAnnotation);
-  }, [textAnnotation]);
+  useEffect(() => {}, [textAnnotation]);
 
   const [openCreateCommentModal, setOpenCreateCommentModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
@@ -218,7 +210,6 @@ const Post = ({
     const getTextAnnotation = async () => {
       const response = await BackendApi.getTextAnnotation(slug);
       const data = response?.data;
-      console.log('data', data);
       const r = new Recogito({
         content: document.getElementById('body-text' + slug),
       });
@@ -253,9 +244,7 @@ const Post = ({
           id: '#1b4017ca-9a93-4f8d-ac32-da32adf8b1d2',
           slug: slug,
         });
-        console.log(text, start, end);
       });
-      console.log('response', response);
     };
     getImageAnnotation();
     getTextAnnotation();
