@@ -14,7 +14,7 @@ from .models import Post, Comment
 
 from django.conf.urls import url
 
-class CreatePostTestCase(APITestCase):
+class PostTestCase(APITestCase):
     def setUp(self):
         self.factory = APIRequestFactory()
         self.create_view = CreatePostAPIView.as_view()
@@ -56,33 +56,3 @@ class CreatePostTestCase(APITestCase):
         response = self.update_view(request, **kwargs)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(self.post_data["title"], response.data["title"] )
-
-# class UpdatePostTestCase(APITestCase):
-#     def setUp(self):
-#         self.factory = APIRequestFactory()
-#         self.view = CreatePostAPIView.as_view()
-#         self.url = '/api/post/create-post'
-#         self.data = {
-#             "email": "selen@gmail.com",
-#             "username": "selen",
-#             "password": "12345",
-#             "is_expert": False
-#         }
-#         self.test_user = User.objects.create(**self.data)
-
-#     def test_create_post(self):
-#         data = {
-#             "category" : "Pregnancy",
-#             "title"    : "Sleep during pregnancy",
-#             "body"     : "I'm a 4 months pregnant. I have terrible insomnia in recent days. What do you recommend me \
-#                           to cure it?"
-#         }
-#         request = self.factory.post(self.url, data, format="json")
-#         force_authenticate(request, user=self.test_user)
-#         response = self.view(request)
-#         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-    
-    
-
-
-#     def test_update_post(self):
