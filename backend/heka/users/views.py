@@ -147,8 +147,8 @@ class ForgetPasswordView(APIView):
         try:
             user = User.objects.get(email=email)
 
-            subject = 'HEKA - Reset Password!'
-            message = f'Hi {user.username}, your code is {111111 + user.id}. You can create new password using this code.'
+            subject = 'HEKA - Security Code'
+            message = f'Hi {user.username}, your code is {111111 + user.id}. Using this code, you can register to the application or reset your password!'
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [user.email, ]
             send_mail( subject, message, email_from, recipient_list )
