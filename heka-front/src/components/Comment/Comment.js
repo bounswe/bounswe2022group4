@@ -56,9 +56,14 @@ const Comment = ({
   return (
     <div
       style={{
-        backgroundColor: !isExpert ? 'white' : 'red',
+      
+        background: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(200,242,251,1) 100%)",
+        border: "solid",
+        borderWidth: isExpert ? '3px' : '0px',
+        borderColor:"yellow",
         marginBottom: '2vh',
         borderRadius: '2vh',
+        boxShadow: "rgb(0 0 0 / 35%) 0px 5px 15px"
       }}
     >
       <CardHeader
