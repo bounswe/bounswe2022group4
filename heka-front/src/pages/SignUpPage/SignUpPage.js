@@ -27,6 +27,10 @@ const SignUpPage = () => {
   const [fullName, setFullName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [password2, setPassword2] = useState('');
+  const [password3, setPassword3] = useState('');
+  const [confirmationErr, setConfirmationErr] = useState();
+
   const [institution, setInstitution] = useState('');
   const [email, setEmail] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -88,6 +92,7 @@ const SignUpPage = () => {
       value: password,
       type: 'password',
     },
+    
   ];
   const handleClick = (e) => {
     const index = parseInt(e.target.id, 0);
@@ -118,7 +123,7 @@ const SignUpPage = () => {
       if ((response.status >= 200) & (response.status < 300)) {
         setIsAuthenticated(true);
       } else if (response.status === 400) {
-        alert('This e-mail had already been registered!');
+        alert('This e-mail or username had already been registered!');
         setUsername('');
         setEmail('');
         setPassword('');
@@ -139,31 +144,44 @@ const SignUpPage = () => {
     console.log('email', email);
     if (
       username.length !== 0 &&
-      password.length !== 0 &&
-      email &&
+      password2.length !== 0 &&
+      email && password2 == password3 && 
       validEmail(email)
     ) {
       setIsExpert(false);
       const response = await BackendApi.postRegister(
         email,
         username,
-        password,
+        password2,
         isExpert
       );
       console.log(response);
+      
       if ((response.status >= 200) & (response.status < 300)) {
         setIsAuthenticated(true);
       } else if (response.status === 400) {
-        alert('This e-mail had already been registered!');
+        alert('This e-mail or username had already been registered!');
         setUsername('');
         setEmail('');
-        setPassword('');
+        setPassword2('');
+        setPassword3('');
       }
     } else {
-      alert('Please enter valid registration information!');
-      setUsername('');
-      setEmail('');
-      setPassword('');
+      if (password2 != password3){
+        setConfirmationErr(true);
+        setUsername('');
+        setEmail('');
+        setPassword2('');
+        setPassword3('');
+      }
+      else {
+        alert('Please enter valid registration information!');
+        setUsername('');
+        setEmail('');
+        setPassword2('');
+        setPassword3('');
+      }
+      
     }
   };
 
@@ -226,6 +244,7 @@ const SignUpPage = () => {
                         value={email}
                         onChange={(e) => {
                           setEmail(e.target.value);
+                          setConfirmationErr(false);
                         }}
                       />
                     </div>
@@ -241,6 +260,7 @@ const SignUpPage = () => {
                         value={username}
                         onChange={(e) => {
                           setUsername(e.target.value);
+                          setConfirmationErr(false);
                         }}
                       />
                     </div>
@@ -253,14 +273,40 @@ const SignUpPage = () => {
                         className='form-input'
                         type='password'
                         placeholder='Password'
-                        name='password'
+                        name='password2'
                         required
-                        value={password}
+                        value={password2}
                         onChange={(e) => {
-                          setPassword(e.target.value);
+                          setPassword2(e.target.value);
+                          setConfirmationErr(false);
                         }}
                       ></input>
                     </div>
+
+                    <div className='input-component'>
+                      <span className='input-item'>
+                        <FaKey />
+                      </span>
+
+                      <input
+                        className='form-input'
+                        type='password'
+                        placeholder='Confirm Password'
+                        name='password3'
+                        required
+                        value={password3}
+                        onChange={(e) => {
+                          setPassword3(e.target.value);
+                          setConfirmationErr(false);
+                        }}
+                      ></input>
+                    </div>
+                    {(confirmationErr) ? (
+                <div className='error-msg'>
+                  <i className='fa fa-times-circle'></i>
+                  Password and Confirm Password must be matched
+                </div>
+              ) : null}
                     <button
                       className='sign-up-button'
                       onClick={handleRegularSubmit}
@@ -356,19 +402,11 @@ const SignUpPage = () => {
                       Sign Up
                       <AiOutlineLogin aria-hidden='true' />
                     </button>
+                   
                   </div>
                   
                             
-                                <input 
-                                    className="class-kvkk"
-                                    type="checkbox"
-                                    data-testid="kvkk"
-                                    
-                                />
-                                <span> I have read the {" "}<a href="https://www.nvi.gov.tr/kvkk-aydinlatma-metni" target="_blank" rel="noopener noreferrer" className="registerKVKK">
-                                        clarification on KVKK
-                                    </a> and agree on all the terms and conditions.
-                                </span>
+                                
                                 
                            
                         
