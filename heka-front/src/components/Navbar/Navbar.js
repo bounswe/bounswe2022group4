@@ -39,8 +39,8 @@ const Navbar = () => {
           </Link>
         </div>
         <div className='navv-menu'>
-          <Link to='/' activeStyle className='navv-link'>
-            Home
+          <Link to='/chatbot' activeStyle className='navv-link'>
+            ChatBot
           </Link>
           {authToken && (
             <Link
