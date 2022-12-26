@@ -109,10 +109,8 @@ class SortPostView(APIView):
             type = request.GET.get("type")
         else:
             type = 0
-
-        if type == 0:
-            qs = Post.objects.filter().all().order_by("id")
-        elif type.lower() == "create_date":
+        
+        if type.lower() == "create_date":
             qs = Post.objects.filter().all().order_by("-created_at")    # Last Created Post First
         elif type.lower() == "update_date":
             qs = Post.objects.filter().all().order_by("-last_update")    # Last Updated Post First
@@ -122,6 +120,8 @@ class SortPostView(APIView):
         elif type.lower() == "comment_count":
             unsorted_results = Post.objects.filter().all()
             qs = sorted(unsorted_results, key= lambda t: Post.comments_for_sorting(t), reverse=True)
+        else:
+            qs = Post.objects.filter().all().order_by("id")
         
         if count == 0 or count > len(qs):
             count = len(qs)
