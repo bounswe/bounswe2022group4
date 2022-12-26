@@ -9,7 +9,7 @@ import PostPage from './pages/PostPage/PostPage';
 import SignUpVerificationPage from './pages/SignUpVerificationPage/SignUpVerificationPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import EditProfilePage from './pages/EditProfilePage/EditProfilePage';
-
+import ChatBotPage from './pages/ChatBotPage/ChatBotPage';
 const App = () => {
   const [changeInPost, setChangeInPost] = React.useState(false);
 
@@ -61,6 +61,9 @@ const App = () => {
               />
             }
           />
+        </Routes>
+        <Routes>
+          <Route path='/chatbot' element={<ChatBotPage />} />
         </Routes>
       </Router>
     </div>
