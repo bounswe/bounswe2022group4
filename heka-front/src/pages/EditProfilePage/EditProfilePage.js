@@ -15,10 +15,17 @@ import {
 } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BackendApi } from '../../api';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const EditProfilePage = ({ userName, authenticationToken }) => {
-  console.log(userName, 'uu');
+const EditProfilePage = () => {
+  const [authToken, setAuthToken] = React.useState('');
+  const [loggedUser, setLoggedUser] = React.useState('');
+  useEffect(() => {
+    setLoggedUser(localStorage['user']);
+  }, [localStorage['user']]);
+  useEffect(() => {
+    setAuthToken(localStorage['authToken']);
+  }, [localStorage['authToken']]);
   const [updatedUserName, setUpdatedUserName] = useState('');
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -26,12 +33,11 @@ const EditProfilePage = ({ userName, authenticationToken }) => {
     e.preventDefault();
     const response = await BackendApi.editProfile(
       email,
-      userName,
+      loggedUser,
       updatedUserName,
       name,
-      authenticationToken
+      authToken
     );
-    console.log(response, 'edit');
   };
   return (
     <div>
