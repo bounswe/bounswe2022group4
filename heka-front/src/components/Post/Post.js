@@ -293,6 +293,7 @@ const Post = ({
       style={{
         backgroundImage: 'linear-gradient(-225deg, #e3fdf5 50%, #ffe6fa 50%)',
         minWidth: '800px',
+        boxShadow: "rgb(0 0 0 / 35%) 0px 5px 15px"
       }}
       data-testid='post'
     >
