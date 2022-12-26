@@ -22,6 +22,7 @@
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.21965579710144928" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.29405466715494794" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.15677083333333333" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.263920588623789" />
         <entry key="app/src/main/res/layout/fragment_timeline.xml" value="0.21965579710144928" />
         <entry key="app/src/main/res/layout/list_item_chat.xml" value="0.37003173828125" />
         <entry key="app/src/main/res/layout/list_item_comment.xml" value="0.2749094202898551" />

@@ -73,6 +73,9 @@
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/ProfileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/SearchFragment" />
     </fragment>
     <fragment
         android:id="@+id/ChatListFragment"
@@ -183,5 +186,14 @@
         <action
             android:id="@+id/action_imagefragment_to_fullPostFragment"
             app:destination="@id/FullPostFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SearchFragment"
+        android:name="com.bounswe.heka.search.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_homeFragment"
+            app:destination="@id/HomeFragment" />
     </fragment>
 </navigation>
