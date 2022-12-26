@@ -29,6 +29,7 @@ class EditProfileViewModel @Inject constructor() : ViewModel() {
     val age = MutableLiveData<String>()
     val profile_image = MutableLiveData<String?>()
     val editButtonEnabled = MutableLiveData<Boolean>()
+    val isExpert = MutableLiveData<Boolean?>(null);
 
 
     var oldUsername: String? = null
@@ -69,6 +70,7 @@ class EditProfileViewModel @Inject constructor() : ViewModel() {
                 name.value = it.name
                 age.value = it.age?.toString()
                 profile_image.value = it.profile_image
+                isExpert.value = it.is_expert;
             }
 
         }

@@ -23,12 +23,14 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:drawableLeft="@drawable/ic_baseline_arrow_back_48"
+            android:backgroundTint="@color/black"
             />
 
         <FrameLayout
             android:id="@+id/rounded_purple"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:backgroundTint="@color/black"
             android:background="@drawable/bottom_rounded_shape"
             android:layout_width="match_parent"
             android:paddingBottom="120dp"
