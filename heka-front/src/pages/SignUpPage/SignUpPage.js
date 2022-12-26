@@ -108,6 +108,7 @@ const SignUpPage = () => {
     console.log('username', username);
     console.log('password', password);
     console.log('email', email);
+    
     if (
       username.length !== 0 &&
       password.length !== 0 &&
@@ -123,6 +124,7 @@ const SignUpPage = () => {
       console.log(response);
       if ((response.status >= 200) & (response.status < 300)) {
         setIsAuthenticated(true);
+        const response_1 = await BackendApi.postEmail(email);
       } else if (response.status === 400) {
         alert('This e-mail or username had already been registered!');
         setUsername('');
@@ -160,6 +162,7 @@ const SignUpPage = () => {
       
       if ((response.status >= 200) & (response.status < 300)) {
         setIsAuthenticated(true);
+        const response_2 = await BackendApi.postEmail(email);
       } else if (response.status === 400) {
         alert('This e-mail or username had already been registered!');
         setUsername('');
