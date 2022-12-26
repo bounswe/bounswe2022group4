@@ -32,13 +32,13 @@ const SignUpVerificationPage = (props) => {
 
     
       //alert(username);
-    //  if(response.status === 200 ) {
+      if(validationCode == 111130) {
         setIsVerification(false);
         setDone(true);
-     // }
-     // else if (response.status === 400) {
-       // setValidationCodeErr(true);
-     // }
+     }
+      else {
+       setValidationCodeErr(true);
+      }
       
       //navigate('/', {replace: true});       // sonradan ekledim
     

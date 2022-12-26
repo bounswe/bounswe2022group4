@@ -11,6 +11,7 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
+
   Input,
   FormGroup,
 } from "reactstrap";
@@ -21,164 +22,166 @@ import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { MessageChat } from "../../components/Chat/MessageChat";
 import { useParams } from "react-router-dom";
+import GridLoader from 'react-spinners/GridLoader';
+
 
 const userData = [
   {
-    id: "0",
-    name: "Haley Howard",
-    userName: "mrcmlzgrt",
+    id: '0',
+    name: 'Haley Howard',
+    userName: 'mrcmlzgrt',
     followers: [2, 3],
     following: [1, 4],
     posts: [1, 2, 3],
     comments: [1, 2, 3, 4, 5],
     postLikes: [4, 7, 8],
-    email: "mrcmlzgrt@test.com",
+    email: 'mrcmlzgrt@test.com',
   },
   {
-    id: "1",
-    name: "Batuhan Malazgirt",
-    userName: "mrcmlzgrt",
+    id: '1',
+    name: 'Batuhan Malazgirt',
+    userName: 'mrcmlzgrt',
     followers: [2, 3],
     following: [3, 4],
     posts: [1, 2, 3],
     comments: [1, 2, 3, 4, 5],
     postLikes: [4, 7, 8],
-    email: "mrcmlzgrt@test.com",
+    email: 'mrcmlzgrt@test.com',
   },
   {
-    id: "2",
-    name: "Berat Damar",
-    userName: "brtdmr",
+    id: '2',
+    name: 'Berat Damar',
+    userName: 'brtdmr',
     followers: [3, 4],
     following: [1, 3, 4],
     posts: [4, 5, 6],
     comments: [6, 7, 8, 9, 10],
     postLikes: [1, 7, 8, 9],
-    email: "brtdmr@test.com",
+    email: 'brtdmr@test.com',
   },
   {
-    id: "3",
-    name: "Umut Deniz",
-    userName: "umtdnz",
+    id: '3',
+    name: 'Umut Deniz',
+    userName: 'umtdnz',
     followers: [1, 2, 4],
     following: [1, 2],
     posts: [7, 8],
     comments: [11, 12, 13, 14, 15],
     postLikes: [1, 2, 3, 6, 9],
-    email: "umdnz@test.com",
+    email: 'umdnz@test.com',
   },
   {
-    id: "4",
-    name: "Melih AktaÅŸ",
-    userName: "mlhakts",
+    id: '4',
+    name: 'Melih AktaÅŸ',
+    userName: 'mlhakts',
     followers: [1, 2],
     following: [1, 2, 3],
     posts: [9, 10],
     comments: [16, 17, 18, 19, 20],
     postLikes: [2, 5, 6, 7],
-    email: "mlhakts@test.com",
+    email: 'mlhakts@test.com',
   },
 ];
 
 const posts = [
   {
-    id: "0",
-    header: "Post0",
-    text: "post0",
+    id: '0',
+    header: 'Post0',
+    text: 'post0',
     img: null,
     comments: [1, 2],
     likers: [2, 3],
-    owner: "1",
+    owner: '1',
   },
   {
-    id: "1",
-    header: "Post1",
-    text: "post1",
+    id: '1',
+    header: 'Post1',
+    text: 'post1',
     img: null,
     comments: [1, 2],
     likers: [2, 3],
-    owner: "1",
+    owner: '1',
   },
   {
-    id: "2",
-    header: "Post2",
-    text: "post2",
+    id: '2',
+    header: 'Post2',
+    text: 'post2',
     img: null,
     comments: [1, 2],
     likers: [3, 4],
-    owner: "1",
+    owner: '1',
   },
   {
-    id: "3",
-    header: "Post3",
-    text: "post3",
+    id: '3',
+    header: 'Post3',
+    text: 'post3',
     img: null,
     comments: [1, 2],
     likers: [3],
-    owner: "1",
+    owner: '1',
   },
   {
-    id: "4",
-    header: "Post4",
-    text: "post4",
+    id: '4',
+    header: 'Post4',
+    text: 'post4',
     img: null,
     comments: [1, 2],
     likers: [1],
-    owner: "2",
+    owner: '2',
   },
   {
-    id: "5",
-    header: "Post5",
-    text: "post5",
+    id: '5',
+    header: 'Post5',
+    text: 'post5',
     img: null,
     comments: [1, 2],
     likers: [4],
-    owner: "2",
+    owner: '2',
   },
   {
-    id: "6",
-    header: "Post6",
-    text: "post6",
+    id: '6',
+    header: 'Post6',
+    text: 'post6',
     img: null,
     comments: [1, 2],
     likers: [3, 4],
-    owner: "2",
+    owner: '2',
   },
   {
-    id: "7",
-    header: "Post7",
-    text: "post7",
+    id: '7',
+    header: 'Post7',
+    text: 'post7',
     img: null,
     comments: [1, 2],
     likers: [1, 2, 4],
-    owner: "3",
+    owner: '3',
   },
   {
-    id: "8",
-    header: "Post8",
-    text: "post8",
+    id: '8',
+    header: 'Post8',
+    text: 'post8',
     img: null,
     comments: [1, 2],
     likers: [1, 2],
-    owner: "3",
+    owner: '3',
   },
   {
-    id: "9",
-    header: "Post9",
-    text: "post9",
+    id: '9',
+    header: 'Post9',
+    text: 'post9',
     img: null,
     comments: [1, 2],
     likers: [2, 3],
-    owner: "4",
+    owner: '4',
   },
   {
-    id: "10",
-    header: "Post10",
-    text: "post10",
+    id: '10',
+    header: 'Post10',
+    text: 'post10',
     img: null,
     comments: [1, 2],
     likers: [],
-    owner: "4",
+    owner: '4',
   },
 ];
 
@@ -186,14 +189,16 @@ const ProfilePage = () => {
   const [profile, setProfile] = useState({});
   const [postData, setPostData] = useState([]);
   const { userName } = useParams();
-  const [authToken, setAuthToken] = React.useState("");
-  const [loggedUser, setLoggedUser] = React.useState("");
+
+  const [authToken, setAuthToken] = React.useState('');
+  const [loggedUser, setLoggedUser] = React.useState('');
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    setLoggedUser(localStorage["user"]);
-  }, [localStorage["user"]]);
+    setLoggedUser(localStorage['user']);
+  }, [localStorage['user']]);
   useEffect(() => {
-    setAuthToken(localStorage["authToken"]);
-  }, [localStorage["authToken"]]);
+    setAuthToken(localStorage['authToken']);
+  }, [localStorage['authToken']]);
   useEffect(() => {
     const getProfile = async () => {
       const response = await BackendApi.getProfile(userName, authToken);
@@ -208,6 +213,7 @@ const ProfilePage = () => {
           (post) => post.username === profile.username
         );
         setPostData(filteredData);
+        setIsLoading(false);
       }
     };
     getProfile(userName, authToken);
@@ -249,6 +255,7 @@ const ProfilePage = () => {
   const [messageModelOpen, setMessageModelOpen] = useState(false);
   const [id, setID] = useState("0");
 
+
   const [sentMessage, setSentMessage] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -263,51 +270,52 @@ const ProfilePage = () => {
       sentMessage,
       authToken
     );
+
     if (!(response.status >= 200 && response.status < 300)) {
       alert(
-        "Karşıdaki kullanıcı bulunamadı veya serverda bir hata meydana geldi"
+        'Karşıdaki kullanıcı bulunamadı veya serverda bir hata meydana geldi'
       );
     }
   };
 
   return (
-    <div data-testid="profile-page">
-      <Container fluid style={{ padding: "0" }}>
-        <Row style={{ height: "350px", backgroundColor: "black" }}>
+    <div data-testid='profile-page'>
+      <Container fluid style={{ padding: '0' }}>
+        <Row style={{ height: '350px', backgroundColor: 'black' }}>
           {/* <img src={bgImg} style={{ height: "400px", zIndex: "-1" }}></img> */}
         </Row>
       </Container>
       <Container fluid>
         <Card
           style={{
-            margin: "16px",
-            marginTop: "-75px",
-            border: "0 solid rgba(122, 123, 151, 0.3)",
-            borderRadius: "1rem",
+            margin: '16px',
+            marginTop: '-75px',
+            border: '0 solid rgba(122, 123, 151, 0.3)',
+            borderRadius: '1rem',
             boxShadow:
-              "0 0.46875rem 2.1875rem rgb(59 62 102 / 10%), 0 0.9375rem 1.40625rem rgb(59 62 102 / 10%), 0 0.25rem 0.53125rem rgb(59 62 102 / 10%), 0 0.125rem 0.1875rem rgb(59 62 102 / 10%)",
+              '0 0.46875rem 2.1875rem rgb(59 62 102 / 10%), 0 0.9375rem 1.40625rem rgb(59 62 102 / 10%), 0 0.25rem 0.53125rem rgb(59 62 102 / 10%), 0 0.125rem 0.1875rem rgb(59 62 102 / 10%)',
           }}
         >
           <CardBody>
             <div
               style={{
-                marginTop: "-90px",
-                display: "flex",
-                justifyContent: "center",
+                marginTop: '-90px',
+                display: 'flex',
+                justifyContent: 'center',
               }}
             >
               <img
                 src={
                   profile.is_expert
-                    ? "https://cdn-icons-png.flaticon.com/512/3774/3774299.png"
-                    : "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                    ? 'https://cdn-icons-png.flaticon.com/512/3774/3774299.png'
+                    : 'https://cdn-icons-png.flaticon.com/512/149/149071.png'
                 }
-                alt="Computer Icons User Clip Art - Transparent Png Icon User, Png Download@kindpng.com"
-                style={{ width: "150px", height: "150px" }}
+                alt='Computer Icons User Clip Art - Transparent Png Icon User, Png Download@kindpng.com'
+                style={{ width: '150px', height: '150px' }}
               ></img>
             </div>
 
-            <Row style={{ marginTop: "100px" }}>
+            <Row style={{ marginTop: '100px' }}>
               <Col
                 sm={{
                   offset: 3,
@@ -315,39 +323,40 @@ const ProfilePage = () => {
                   size: 6,
                 }}
               >
-                <div style={{ padding: "10px" }}>
-                  <h1 style={{ display: "inline" }}> {profile.username}</h1>
-                  <div style={{ marginTop: "1vh", fontStyle: "italic" }}>
-                    {" "}
-                    {profile.is_expert ? "Doctor" : "Regular User"}
+                <div style={{ padding: '10px' }}>
+                  <h1 style={{ display: 'inline' }}> {profile.username}</h1>
+                  <div style={{ marginTop: '1vh', fontStyle: 'italic' }}>
+                    {' '}
+                    {profile.is_expert ? 'Doctor' : 'Regular User'}
                   </div>
-                  <div style={{ marginTop: "1vh", fontStyle: "italic" }}>
-                    {" "}
+                  <div style={{ marginTop: '1vh', fontStyle: 'italic' }}>
+                    {' '}
                     {profile.email}
                   </div>
 
-                  <div style={{ marginRigth: "4px" }}>
+                  <div style={{ marginRigth: '4px' }}>
                     <Button
                       style={{
-                        float: "right",
-                        color: "blue",
-                        backgroundColor: "white",
-                        borderColor: "blue",
+                        float: 'right',
+                        color: 'blue',
+                        backgroundColor: 'white',
+                        borderColor: 'blue',
                       }}
                     >
                       Follow
                     </Button>
                     <Button
                       style={{
-                        float: "right",
-                        color: "blue",
-                        backgroundColor: "white",
-                        borderColor: "blue",
+                        float: 'right',
+                        color: 'blue',
+                        backgroundColor: 'white',
+                        borderColor: 'blue',
                       }}
                       variant="outlined"
                       onClick={() => {
                         showMessageModel();
                       }}
+
                     >
                       Send Message
                     </Button>
@@ -374,21 +383,21 @@ const ProfilePage = () => {
                     </Modal>
                   </div>
                 </div>
-                <div style={{ padding: "10px" }}>
+                <div style={{ padding: '10px' }}>
                   <span>
-                    <a className="links" onClick={showPosts}>
-                      <b>{userData[id].posts.length}</b> {"Posts "}
+                    <a className='links' onClick={showPosts}>
+                      <b>{postData?.length}</b> {'Posts '}
                     </a>
                   </span>
                   <span>
-                    <a className="links" onClick={showFollowers}>
+                    <a className='links' onClick={showFollowers}>
                       <b>{userData[id].followers.length}</b>
-                      {" Followers "}
+                      {' Followers '}
                     </a>
                   </span>
                   <span>
-                    <a className="links" onClick={showFollowings}>
-                      <b>{userData[id].following.length}</b> {"Following "}{" "}
+                    <a className='links' onClick={showFollowings}>
+                      <b>{userData[id].following.length}</b> {'Following '}{' '}
                     </a>
                   </span>
                 </div>
@@ -424,7 +433,7 @@ const ProfilePage = () => {
                   </ModalBody>
                 </Modal>
                 <div
-                  style={{ padding: "10px", marginTop: "5px", color: "gray" }}
+                  style={{ padding: '10px', marginTop: '5px', color: 'gray' }}
                 >
                   <p>A meadow of hay which eager to learn...</p>
                 </div>
@@ -432,10 +441,10 @@ const ProfilePage = () => {
             </Row>
             <Row
               style={{
-                marginTop: "75px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                marginTop: '75px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
               <Col
@@ -445,125 +454,72 @@ const ProfilePage = () => {
                   size: 4,
                 }}
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 }}
               >
                 <div>
-                  <h3 style={{ float: "center" }}>Latest Posts</h3>
+                  <h3 style={{ float: 'center' }}>Latest Posts</h3>
                 </div>
               </Col>
             </Row>
-            <Row style={{ padding: "30px" }}>
-              {postData.map((item, idx) => (
-                <Col sm={3} key={idx}>
-                  <Card
-                    style={{
-                      width: "100%",
-                      padding: "10px",
-                    }}
-                  >
-                    {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
-                    <CardBody>
-                      <CardTitle tag="h5">{item?.title}</CardTitle>
-                      <CardSubtitle className="mb-2 text-muted" tag="h6">
-                        {item?.category}
-                      </CardSubtitle>
-                      <CardText>{item?.body}</CardText>
-                      <Link to={"/post/" + item?.slug}>
-                        <Button>See Post</Button>
-                      </Link>
-                    </CardBody>
-                  </Card>
-                </Col>
-              ))}
 
-              {/* <Col sm={3}>
-                <Card
+            <Row style={{ padding: '30px' }}>
+              {isLoading ? (
+                <div
+                  className='loader'
                   style={{
-                    width: '100%',
-                    padding: '10px',
+                    marginTop: '10vh',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                   }}
                 >
-                  <img alt="Sample" src="https://picsum.photos/300/200" />
-                  <CardBody>
-                    <CardTitle tag='h5'>
-                      My friend thinks that she is a bird!
-                    </CardTitle>
-                    <CardSubtitle className='mb-2 text-muted' tag='h6'>
-                      Psychology
-                    </CardSubtitle>
-                    <CardText>
-                      She is completely out of her mind! How can I convince her
-                      about she is not a bird?
-                    </CardText>
-                    <Button>See Post</Button>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col sm={3}>
-                <Card
-                  style={{
-                    width: '100%',
-                    padding: '10px',
-                  }}
-                >
-                  <img alt="Sample" src="https://picsum.photos/300/200" />
-                  <CardBody>
-                    <CardTitle tag='h5'>
-                      Which covid vaccine should I choose?
-                    </CardTitle>
-                    <CardSubtitle className='mb-2 text-muted' tag='h6'>
-                      Immunology
-                    </CardSubtitle>
-                    <CardText>
-                      Which vaccine is the best in terms of short and long term
-                      side effects? What do you suggest?
-                    </CardText>
-                    <Button>See Post</Button>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col sm={3}>
-                <Card
-                  style={{
-                    width: '100%',
-                    padding: '10px',
-                  }}
-                >
-                  <img alt="Sample" src="https://picsum.photos/300/200" />
-                  <CardBody>
-                    <CardTitle tag='h5'>I feel powerless</CardTitle>
-                    <CardSubtitle className='mb-2 text-muted' tag='h6'>
-                      Psychiatry
-                    </CardSubtitle>
-                    <CardText>
-                      I feel powerless. I feel meaningless. I feel hopelessness.
-                      I have deep depression followed by suicidal thoughts.
-                    </CardText>
-                    <Button>See Post</Button>
-                  </CardBody>
-                </Card>
-              </Col> */}
+                  <GridLoader color='rgb(255, 230, 250)' size={80} />
+                </div>
+              ) : (
+                postData.map((item, idx) => (
+                  <Col sm={3} key={idx}>
+                    <Card
+                      style={{
+                        width: '100%',
+                        padding: '10px',
+                      }}
+                    >
+                      {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
+                      <CardBody>
+                        <CardTitle tag='h5'>{item?.title}</CardTitle>
+                        <CardSubtitle className='mb-2 text-muted' tag='h6'>
+                          {item?.category}
+                        </CardSubtitle>
+                        <CardText>{item?.body}</CardText>
+                        <Link to={'/post/' + item?.slug}>
+                          <Button>See Post</Button>
+                        </Link>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                ))
+              )}
             </Row>
           </CardBody>
         </Card>
       </Container>
       <div
         style={{
-          position: "fixed",
-          bottom: "60px",
-          right: "20px",
-          zIndex: "214783647",
-          width: "320px",
-          height: "224px",
+          position: 'fixed',
+          bottom: '60px',
+          right: '20px',
+          zIndex: '214783647',
+          width: '320px',
+          height: '224px',
         }}
       >
         <MessageChat
           styles={{
-            width: "320px",
-            height: "400px",
+            width: '320px',
+            height: '400px',
           }}
         />
       </div>

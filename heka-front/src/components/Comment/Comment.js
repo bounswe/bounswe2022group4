@@ -56,7 +56,7 @@ const Comment = ({
   return (
     <div
       style={{
-        backgroundColor: 'white',
+        backgroundColor: !isExpert ? 'white' : 'red',
         marginBottom: '2vh',
         borderRadius: '2vh',
       }}
