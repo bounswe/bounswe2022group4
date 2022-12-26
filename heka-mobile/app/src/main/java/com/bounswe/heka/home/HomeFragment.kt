@@ -35,6 +35,9 @@ class HomeFragment: Fragment() {
         binding.homeCreateButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_createPostFragment)
         }
+        binding.homeSearchButton.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+        }
         viewModel.fetchTimeline()
     }
 
