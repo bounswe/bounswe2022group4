@@ -3,7 +3,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase, APIRequestFactory, force_authenticate
 
 from .views import ImageAnnotationAPIView, PostImageAnnotationAPIView, TextAnnotationAPIView, PostTextAnnotationAPIView
-from .models import ImageAnnotation
+from .models import ImageAnnotation, TextAnnotation
 
 
 # Create your tests here.
@@ -109,3 +109,47 @@ class PostImageAnnotationTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         # checks if it creates and returns 2 annotations
         self.assertEqual(len(response.data), 2)
+
+
+class TextAnnotationTestCase(APITestCase):
+    databases = '__all__'
+
+    def setUp(self):
+        self.factory = APIRequestFactory()
+        self.view = TextAnnotationAPIView.as_view()
+        self.url = "/api/annotation/text"
+
+        self.data = {
+            "post_slug": "melih",
+            "json": {
+                "id": "http://3.72.25.175:8080/api/annotation/text/1",
+                "body": {
+                    "type": "TextualBody",
+                    "value": "test_text",
+                    "format": "text/html",
+                    "language": "en"
+                },
+                "type": "Annotation",
+                "target": {
+                    "source": "http://example.org/post-slug1313",
+                    "selector": {
+                        "end": 57,
+                        "type": "TextPositionSelector",
+                        "start": 31
+                    }
+                },
+                "@context": "http://www.w3.org/ns/anno.jsonld"
+            }
+        }
+        self.test_anno = TextAnnotation.objects.create(**self.data)
+
+    def test_get_text_anno(self):
+        request = self.factory.get(self.url)
+        response = self.view(request, annotation_id=self.test_anno.id)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data["type"], self.data['json']['type'])
+
+    def test_get_text_anno_bad_request(self):
+        request = self.factory.get(self.url)
+        response = self.view(request, annotation_id=78)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
