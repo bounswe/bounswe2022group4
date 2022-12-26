@@ -63,6 +63,8 @@ interface ApiService {
 
     @GET("search/user?")
     suspend fun searchUser(@Query("query") query: String): List<SearchUserResponse>
+    @GET("search/post?")
+    suspend fun searchPost(@Query("query") query: String): List<SearchPostResponse>
 
 
 

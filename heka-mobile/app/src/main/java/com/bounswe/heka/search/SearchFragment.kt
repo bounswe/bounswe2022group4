@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.bounswe.heka.databinding.FragmentSearchBinding
-import com.bounswe.heka.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,12 +32,17 @@ class SearchFragment: Fragment() {
             .skip(3)
             .debounce(300)
             .onSuccess {
-                viewModel.search(it)
+                viewModel.searchUsers(it)
+                viewModel.searchPosts(it)
             }
             .onError {
                 viewModel.clearUsers()
+                viewModel.clearPosts()
             }
             .onTextChanged {  }
+        binding.ibCancel.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
 }

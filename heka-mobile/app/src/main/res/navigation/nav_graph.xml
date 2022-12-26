@@ -195,5 +195,11 @@
         <action
             android:id="@+id/action_searchFragment_to_homeFragment"
             app:destination="@id/HomeFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_profileFragment"
+            app:destination="@id/ProfileFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_fullPostFragment"
+            app:destination="@id/FullPostFragment" />
     </fragment>
 </navigation>

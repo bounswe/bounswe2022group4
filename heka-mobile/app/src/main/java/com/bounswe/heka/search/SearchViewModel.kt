@@ -12,7 +12,7 @@ import javax.inject.Inject
 class SearchViewModel @Inject constructor() : ViewModel() {
     val adapter = SearchResultAdapter()
 
-    fun search(query: String) {
+    fun searchUsers(query: String) {
         viewModelScope.launch {
             try {
                 val response = ApiClient.get().searchUser(query)
@@ -27,10 +27,31 @@ class SearchViewModel @Inject constructor() : ViewModel() {
             }
         }
     }
+    fun searchPosts(query: String) {
+        viewModelScope.launch {
+            try {
+                val response = ApiClient.get().searchPost(query)
+                Log.d("SearchViewModel", "search: $response")
+                adapter.clearPosts()
+                response.forEach {
+                    if (it.error != null) return@forEach
+                    adapter.addPost(it)
+                }
+            } catch (e: Exception) {
+
+            }
+        }
+    }
+
 
     fun clearUsers() {
         viewModelScope.launch {
             adapter.clearUsers()
+        }
+    }
+    fun clearPosts() {
+        viewModelScope.launch {
+            adapter.clearPosts()
         }
     }
 }
