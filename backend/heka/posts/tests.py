@@ -56,3 +56,12 @@ class PostTestCase(APITestCase):
         response = self.update_view(request, **kwargs)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(self.post_data["title"], response.data["title"] )
+    
+    def test_delete_post(self):
+        url_ = '/api/post/delete/' + self.test_post.slug + '/'
+        kwargs = {"slug" : self.test_post.slug}
+        request = self.factory.post( url_,  data=self.post_data,  format="json")
+        force_authenticate(request, user=self.test_user)
+        response = DeletePostAPIView.as_view()(request, **kwargs)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertFalse(Post.objects.filter(creator=self.test_user))
