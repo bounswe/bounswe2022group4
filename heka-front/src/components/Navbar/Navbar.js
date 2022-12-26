@@ -39,9 +39,6 @@ const Navbar = () => {
           </Link>
         </div>
         <div className='navv-menu'>
-          <Link to='/chatbot' activeStyle className='navv-link'>
-            ChatBot
-          </Link>
           {authToken && (
             <Link
               to={'/profile/' + loggedUser}
@@ -56,6 +53,9 @@ const Navbar = () => {
               Edit Profile
             </Link>
           )}
+          <Link to='/chatbot' activeStyle className='navv-link'>
+            ChatBot
+          </Link>
         </div>
         <SearchBar />
         {!authToken ? (
