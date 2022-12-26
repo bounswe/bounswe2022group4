@@ -252,7 +252,12 @@ const ProfilePage = () => {
   const [sentMessage, setSentMessage] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await onSendMessage(profile.username);
+    const isSent = await onSendMessage(profile.username);
+    if (isSent) {
+      alert("Message sent successfully!");
+    } else {
+      alert("There is an error while sending a message!");
+    }
     setSentMessage("");
     setMessageModelOpen(!messageModelOpen);
   };
@@ -267,6 +272,9 @@ const ProfilePage = () => {
       alert(
         "Karşıdaki kullanıcı bulunamadı veya serverda bir hata meydana geldi"
       );
+      return false;
+    } else {
+      return true;
     }
   };
 
