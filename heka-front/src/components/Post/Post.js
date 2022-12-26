@@ -72,7 +72,7 @@ const Post = ({
       const r = new Recogito({
         content: document.getElementById('body-text' + slug),
       });
-      r.on('createAnnotation', function (propsTextAnnotation) {
+      r.on('createAnnotation', function(propsTextAnnotation) {
         setTextAnnotation(propsTextAnnotation);
       });
       let position = {
@@ -101,9 +101,6 @@ const Post = ({
   useEffect(() => {
     setAuthToken(localStorage['authToken']);
   }, [localStorage['authToken']]);
-
-
-
 
   const [openCreateCommentModal, setOpenCreateCommentModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
@@ -245,7 +242,7 @@ const Post = ({
               },
             ],
           },
-          id: '#1b4017ca-9a93-4f8d-ac32-da32adf8b1d2',
+          // id: '#1b4017ca-9a93-4f8d-ac32-da32adf8b1d2',
           slug: slug,
         });
       });
@@ -293,7 +290,7 @@ const Post = ({
       style={{
         backgroundImage: 'linear-gradient(-225deg, #e3fdf5 50%, #ffe6fa 50%)',
         minWidth: '800px',
-        boxShadow: "rgb(0 0 0 / 35%) 0px 5px 15px"
+        boxShadow: 'rgb(0 0 0 / 35%) 0px 5px 15px',
       }}
       data-testid='post'
     >
@@ -326,7 +323,7 @@ const Post = ({
                     backgroundColor: 'none',
                   }}
                 >
-                  <Button>View Text Annotations</Button>
+                  <Button>Post Page</Button>
                 </Link>
               )}
               {authToken && (
@@ -471,7 +468,7 @@ const Post = ({
           aria-label='show more'
           style={{ fontSize: '0.875rem', fontWeight: 500 }}
         >
-          SHOW COMMENTS  {'('}  {commentCount} {')'}
+          SHOW COMMENTS {'('} {commentCount} {')'}
           <ExpandMoreIcon />
         </ExpandMore>
       </CardActions>
@@ -481,7 +478,7 @@ const Post = ({
             slug={slug}
             changeInComments={changeInComments}
             setChangeInComments={setChangeInComments}
-            //etCommentForPost = {setCommentCount} 
+            //etCommentForPost = {setCommentCount}
           />
         </CardContent>
       </Collapse>
