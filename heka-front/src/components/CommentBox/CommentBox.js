@@ -15,6 +15,7 @@ const CommentBox = ({ slug, changeInComments, setChangeInComments }) => {
       if (response.status >= 200 && response.status < 300) {
         setComments(response.data);
         console.log(response.data);
+        //setCommentForPost(response.data.length);
       }
     };
     getComments(slug, authToken);

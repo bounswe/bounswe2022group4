@@ -30,6 +30,7 @@ const SignUpPage = () => {
   const [password2, setPassword2] = useState('');
   const [password3, setPassword3] = useState('');
   const [confirmationErr, setConfirmationErr] = useState();
+  const [passwordReqErr, setPasswordReqErr] = useState();
 
   const [institution, setInstitution] = useState('');
   const [email, setEmail] = useState('');
@@ -107,6 +108,7 @@ const SignUpPage = () => {
     console.log('username', username);
     console.log('password', password);
     console.log('email', email);
+    
     if (
       username.length !== 0 &&
       password.length !== 0 &&
@@ -122,6 +124,7 @@ const SignUpPage = () => {
       console.log(response);
       if ((response.status >= 200) & (response.status < 300)) {
         setIsAuthenticated(true);
+        const response_1 = await BackendApi.postEmail(email);
       } else if (response.status === 400) {
         alert('This e-mail or username had already been registered!');
         setUsername('');
@@ -159,6 +162,7 @@ const SignUpPage = () => {
       
       if ((response.status >= 200) & (response.status < 300)) {
         setIsAuthenticated(true);
+        const response_2 = await BackendApi.postEmail(email);
       } else if (response.status === 400) {
         alert('This e-mail or username had already been registered!');
         setUsername('');
@@ -167,7 +171,16 @@ const SignUpPage = () => {
         setPassword3('');
       }
     } else {
-      if (password2 != password3){
+      var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/;
+      if(!(password2.match(passw)))
+      {
+        setPasswordReqErr(true);
+        setUsername('');
+        setEmail('');
+        setPassword2('');
+        setPassword3(''); 
+      }
+      else if (password2 != password3){
         setConfirmationErr(true);
         setUsername('');
         setEmail('');
@@ -245,6 +258,8 @@ const SignUpPage = () => {
                         onChange={(e) => {
                           setEmail(e.target.value);
                           setConfirmationErr(false);
+                          setPasswordReqErr(false);
+
                         }}
                       />
                     </div>
@@ -259,6 +274,7 @@ const SignUpPage = () => {
                         required
                         value={username}
                         onChange={(e) => {
+                          setPasswordReqErr(false);
                           setUsername(e.target.value);
                           setConfirmationErr(false);
                         }}
@@ -277,6 +293,7 @@ const SignUpPage = () => {
                         required
                         value={password2}
                         onChange={(e) => {
+                          setPasswordReqErr(false);
                           setPassword2(e.target.value);
                           setConfirmationErr(false);
                         }}
@@ -296,11 +313,19 @@ const SignUpPage = () => {
                         required
                         value={password3}
                         onChange={(e) => {
+                          setPasswordReqErr(false);
                           setPassword3(e.target.value);
                           setConfirmationErr(false);
+                          
                         }}
                       ></input>
                     </div>
+                    {(passwordReqErr) ? (
+                <div className='error-msg'>
+                  <i className='fa fa-times-circle'></i>
+                  Users shall set a password that is longer than 8 characters and contains at least one upper-case letter, one lower-case letter, and one number.
+                </div>
+              ) : null}
                     {(confirmationErr) ? (
                 <div className='error-msg'>
                   <i className='fa fa-times-circle'></i>
