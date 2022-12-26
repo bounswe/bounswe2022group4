@@ -153,3 +153,28 @@ class TextAnnotationTestCase(APITestCase):
         request = self.factory.get(self.url)
         response = self.view(request, annotation_id=78)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+
+class PostTextAnnotationTestCase(APITestCase):
+    databases = '__all__'
+
+    def setUp(self):
+        self.factory = APIRequestFactory()
+        self.view = PostTextAnnotationAPIView.as_view()
+        self.url = "/api/annotation/text/post"
+        self.post_slug = "test_slug"
+        self.data = {
+            "position": {
+                "start": 31,
+                "end": 57
+            },
+            "data": {
+                "text": "test_text",
+                "source": "http://example.org/post-slug1313"
+            }
+        }
+
+    def test_post_text_anno(self):
+        request = self.factory.post(self.url, self.data, format="json")
+        response = self.view(request, post_slug=self.post_slug)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
