@@ -193,25 +193,19 @@ const ProfilePage = () => {
     setAuthToken(localStorage['authToken']);
   }, [localStorage['authToken']]);
   useEffect(() => {
-    console.log(userName);
-
     const getProfile = async () => {
       const response = await BackendApi.getProfile(userName, authToken);
-      console.log(response, 'response');
       if (response.status >= 200 && response.status < 300) {
         setProfile(response.data);
       }
     };
     const getPosts = async () => {
       const response = await BackendApi.getPosts(authToken);
-      console.log(response, 'response');
       if (response.status >= 200 && response.status < 300) {
         const filteredData = await response?.data.filter(
           (post) => post.username === profile.username
         );
         setPostData(filteredData);
-        console.log(filteredData, 'filteredData');
-        console.log(postData, 'postData');
       }
     };
     getProfile(userName, authToken);
@@ -246,7 +240,7 @@ const ProfilePage = () => {
   const [id, setID] = useState('0');
 
   return (
-    <div>
+    <div data-testid='profile-page'>
       <Container fluid style={{ padding: '0' }}>
         <Row style={{ height: '350px', backgroundColor: 'black' }}>
           {/* <img src={bgImg} style={{ height: "400px", zIndex: "-1" }}></img> */}
@@ -334,8 +328,12 @@ const ProfilePage = () => {
                   <ModalHeader>Followers</ModalHeader>
 
                   <ModalBody>
-                    {userData[id].followers.map((follower) => {
-                      return <div id={follower}>{userData[follower].name}</div>;
+                    {userData[id].followers.map((follower, idx) => {
+                      return (
+                        <div key={idx} id={follower}>
+                          {userData[follower].name}
+                        </div>
+                      );
                     })}
                   </ModalBody>
                 </Modal>
@@ -343,8 +341,8 @@ const ProfilePage = () => {
                   <ModalHeader>Following</ModalHeader>
 
                   <ModalBody>
-                    {userData[id].following.map((follow) => {
-                      return <div> {userData[follow].name}</div>;
+                    {userData[id].following.map((follow, idx) => {
+                      return <div key={idx}> {userData[follow].name}</div>;
                     })}
                   </ModalBody>
                 </Modal>
@@ -352,8 +350,8 @@ const ProfilePage = () => {
                   <ModalHeader>Posts</ModalHeader>
 
                   <ModalBody>
-                    {userData[id].posts.map((post) => {
-                      return <div> {posts[post].header}</div>;
+                    {userData[id].posts.map((post, idx) => {
+                      return <div key={idx}> {posts[post].header}</div>;
                     })}
                   </ModalBody>
                 </Modal>
@@ -390,8 +388,8 @@ const ProfilePage = () => {
               </Col>
             </Row>
             <Row style={{ padding: '30px' }}>
-              {postData.map((item) => (
-                <Col sm={3}>
+              {postData.map((item, idx) => (
+                <Col sm={3} key={idx}>
                   <Card
                     style={{
                       width: '100%',
