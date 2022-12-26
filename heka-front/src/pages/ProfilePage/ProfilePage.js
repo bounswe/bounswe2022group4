@@ -19,6 +19,7 @@ import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { MessageChat } from '../../components/Chat/MessageChat';
 import { useParams } from 'react-router-dom';
+import GridLoader from 'react-spinners/GridLoader';
 
 const userData = [
   {
@@ -186,6 +187,7 @@ const ProfilePage = () => {
   const { userName } = useParams();
   const [authToken, setAuthToken] = React.useState('');
   const [loggedUser, setLoggedUser] = React.useState('');
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setLoggedUser(localStorage['user']);
   }, [localStorage['user']]);
@@ -206,6 +208,7 @@ const ProfilePage = () => {
           (post) => post.username === profile.username
         );
         setPostData(filteredData);
+        setIsLoading(false);
       }
     };
     getProfile(userName, authToken);
@@ -388,96 +391,42 @@ const ProfilePage = () => {
               </Col>
             </Row>
             <Row style={{ padding: '30px' }}>
-              {postData.map((item, idx) => (
-                <Col sm={3} key={idx}>
-                  <Card
-                    style={{
-                      width: '100%',
-                      padding: '10px',
-                    }}
-                  >
-                    {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
-                    <CardBody>
-                      <CardTitle tag='h5'>{item?.title}</CardTitle>
-                      <CardSubtitle className='mb-2 text-muted' tag='h6'>
-                        {item?.category}
-                      </CardSubtitle>
-                      <CardText>{item?.body}</CardText>
-                      <Link to={'/post/' + item?.slug}>
-                        <Button>See Post</Button>
-                      </Link>
-                    </CardBody>
-                  </Card>
-                </Col>
-              ))}
-
-              {/* <Col sm={3}>
-                <Card
+              {isLoading ? (
+                <div
+                  className='loader'
                   style={{
-                    width: '100%',
-                    padding: '10px',
+                    marginTop: '10vh',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                   }}
                 >
-                  <img alt="Sample" src="https://picsum.photos/300/200" />
-                  <CardBody>
-                    <CardTitle tag='h5'>
-                      My friend thinks that she is a bird!
-                    </CardTitle>
-                    <CardSubtitle className='mb-2 text-muted' tag='h6'>
-                      Psychology
-                    </CardSubtitle>
-                    <CardText>
-                      She is completely out of her mind! How can I convince her
-                      about she is not a bird?
-                    </CardText>
-                    <Button>See Post</Button>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col sm={3}>
-                <Card
-                  style={{
-                    width: '100%',
-                    padding: '10px',
-                  }}
-                >
-                  <img alt="Sample" src="https://picsum.photos/300/200" />
-                  <CardBody>
-                    <CardTitle tag='h5'>
-                      Which covid vaccine should I choose?
-                    </CardTitle>
-                    <CardSubtitle className='mb-2 text-muted' tag='h6'>
-                      Immunology
-                    </CardSubtitle>
-                    <CardText>
-                      Which vaccine is the best in terms of short and long term
-                      side effects? What do you suggest?
-                    </CardText>
-                    <Button>See Post</Button>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col sm={3}>
-                <Card
-                  style={{
-                    width: '100%',
-                    padding: '10px',
-                  }}
-                >
-                  <img alt="Sample" src="https://picsum.photos/300/200" />
-                  <CardBody>
-                    <CardTitle tag='h5'>I feel powerless</CardTitle>
-                    <CardSubtitle className='mb-2 text-muted' tag='h6'>
-                      Psychiatry
-                    </CardSubtitle>
-                    <CardText>
-                      I feel powerless. I feel meaningless. I feel hopelessness.
-                      I have deep depression followed by suicidal thoughts.
-                    </CardText>
-                    <Button>See Post</Button>
-                  </CardBody>
-                </Card>
-              </Col> */}
+                  <GridLoader color='rgb(255, 230, 250)' size={80} />
+                </div>
+              ) : (
+                postData.map((item, idx) => (
+                  <Col sm={3} key={idx}>
+                    <Card
+                      style={{
+                        width: '100%',
+                        padding: '10px',
+                      }}
+                    >
+                      {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
+                      <CardBody>
+                        <CardTitle tag='h5'>{item?.title}</CardTitle>
+                        <CardSubtitle className='mb-2 text-muted' tag='h6'>
+                          {item?.category}
+                        </CardSubtitle>
+                        <CardText>{item?.body}</CardText>
+                        <Link to={'/post/' + item?.slug}>
+                          <Button>See Post</Button>
+                        </Link>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                ))
+              )}
             </Row>
           </CardBody>
         </Card>
