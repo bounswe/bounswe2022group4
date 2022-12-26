@@ -84,9 +84,12 @@ class TextAnnotationAPIView(APIView):
 
     @swagger_auto_schema(responses={200:TextAnnotationSerializer(many=True)})
     def get(self, request, annotation_id=None):
-        annotation = TextAnnotation.objects.get(pk=annotation_id)
-        serializer = TextAnnotationSerializer(annotation)
-        return Response(serializer.data["json"], status=status.HTTP_200_OK)
+        try:
+            annotation = TextAnnotation.objects.get(pk=annotation_id)
+            serializer = TextAnnotationSerializer(annotation)
+            return Response(serializer.data["json"], status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response("Bad request", status=status.HTTP_400_BAD_REQUEST)
 
 class PostTextAnnotationAPIView(APIView):
     permission_classes = [AllowAny]
