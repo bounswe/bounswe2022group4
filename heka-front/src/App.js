@@ -9,30 +9,19 @@ import PostPage from './pages/PostPage/PostPage';
 import SignUpVerificationPage from './pages/SignUpVerificationPage/SignUpVerificationPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import EditProfilePage from './pages/EditProfilePage/EditProfilePage';
-// import { Recogito } from '@recogito/recogito-js';
-// import '@recogito/recogito-js/dist/recogito.min.css';
 
 const App = () => {
-  const [isLogged, setIsLogged] = React.useState(false);
-  const [authenticationToken, setAuthenticationToken] = React.useState('');
-  const [userName, setUserName] = React.useState('');
-  const [loggedInUser, setLoggedInUser] = React.useState('');
   const [changeInPost, setChangeInPost] = React.useState(false);
-  // const r = new Recogito({ content: document.getElementById('root') });
 
   return (
     <div>
       <Router>
-        <Header isLogged={isLogged} userName={userName} />
+        <Header />
         <Routes>
           <Route
             path='/'
             element={
               <HomePage
-                isLogged={isLogged}
-                loggedInUser={loggedInUser}
-                authenticationToken={authenticationToken}
-                userName={userName}
                 changeInPost={changeInPost}
                 setChangeInPost={setChangeInPost}
               />
@@ -40,42 +29,13 @@ const App = () => {
           />
         </Routes>
         <Routes>
-          <Route
-            path='/profile/:userName'
-            element={
-              <ProfilePage
-                isLogged={isLogged}
-                loggedInUser={loggedInUser}
-                authenticationToken={authenticationToken}
-              />
-            }
-          />
+          <Route path='/profile/:userName' element={<ProfilePage />} />
         </Routes>
         <Routes>
-          <Route
-            path='/edit-profile'
-            element={
-              <EditProfilePage
-                isLogged={isLogged}
-                loggedInUser={loggedInUser}
-                authenticationToken={authenticationToken}
-                userName={userName}
-              />
-            }
-          />
+          <Route path='/edit-profile' element={<EditProfilePage />} />
         </Routes>
         <Routes>
-          <Route
-            path='/sign-in'
-            element={
-              <SignInPage
-                setIsLogged={setIsLogged}
-                setLoggedInUser={setLoggedInUser}
-                setAuthenticationToken={setAuthenticationToken}
-                setUserName={setUserName}
-              />
-            }
-          />
+          <Route path='/sign-in' element={<SignInPage />} />
         </Routes>
         <Routes>
           <Route path='/sign-up' element={<SignUpPage />} />
@@ -96,9 +56,6 @@ const App = () => {
             path='/post/:id'
             element={
               <PostPage
-                authenticationToken={authenticationToken}
-                userName={userName}
-                isLogged={isLogged}
                 changeInPost={changeInPost}
                 setChangeInPost={setChangeInPost}
               />

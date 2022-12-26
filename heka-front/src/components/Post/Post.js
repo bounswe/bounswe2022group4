@@ -40,18 +40,15 @@ const Post = ({
   content,
   time,
   index,
-  isLogged,
   image,
   category,
   slug,
-  authenticationToken,
   changeInPost,
   setChangeInPost,
   upvote,
   downvote,
   isExpert,
   location,
-  userName,
   postPageButton,
   isUpvoted,
   isDownvoted,
@@ -76,18 +73,13 @@ const Post = ({
         content: document.getElementById('body-text' + slug),
       });
       r.on('createAnnotation', function (propsTextAnnotation) {
-        console.log('propsTextAnnotation', propsTextAnnotation);
         setTextAnnotation(propsTextAnnotation);
       });
       let position = {
         start: textAnnotation.target.selector[1].start,
         end: textAnnotation.target.selector[1].end,
       };
-      console.log(
-        'position',
-        textAnnotation.target.selector[1].start,
-        position
-      );
+
       let data = {
         text: textAnnotation.body[0].value,
         source: 'http://3.72.25.175:3000/' + slug,
@@ -97,14 +89,17 @@ const Post = ({
         position,
         data
       );
-      console.log('response post', response);
     };
     postTextAnnotation();
   }, [textAnnotation]);
-
+  const [authToken, setAuthToken] = React.useState('');
+  const [loggedUser, setLoggedUser] = React.useState('');
   useEffect(() => {
-    console.log('textAnnotation', textAnnotation);
-  }, [textAnnotation]);
+    setLoggedUser(localStorage['user']);
+  }, [localStorage['user']]);
+  useEffect(() => {
+    setAuthToken(localStorage['authToken']);
+  }, [localStorage['authToken']]);
 
   const [openCreateCommentModal, setOpenCreateCommentModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
@@ -141,18 +136,15 @@ const Post = ({
     setExpanded(!expanded);
   };
   const handleDelete = async (slug) => {
-    await BackendApi.postDeletePost(slug + '/', authenticationToken);
+    await BackendApi.postDeletePost(slug + '/', authToken);
     setChangeInPost(!changeInPost);
   };
   const handleUpvote = async () => {
-    const response = await BackendApi.postUpvotePost(slug, authenticationToken);
+    const response = await BackendApi.postUpvotePost(slug, authToken);
     setChangeInPost(!changeInPost);
   };
   const handleDownvote = async () => {
-    const response = await BackendApi.postDownvotePost(
-      slug,
-      authenticationToken
-    );
+    const response = await BackendApi.postDownvotePost(slug, authToken);
     setChangeInPost(!changeInPost);
   };
 
@@ -218,7 +210,6 @@ const Post = ({
     const getTextAnnotation = async () => {
       const response = await BackendApi.getTextAnnotation(slug);
       const data = response?.data;
-      console.log('data', data);
       const r = new Recogito({
         content: document.getElementById('body-text' + slug),
       });
@@ -253,9 +244,7 @@ const Post = ({
           id: '#1b4017ca-9a93-4f8d-ac32-da32adf8b1d2',
           slug: slug,
         });
-        console.log(text, start, end);
       });
-      console.log('response', response);
     };
     getImageAnnotation();
     getTextAnnotation();
@@ -276,7 +265,7 @@ const Post = ({
       <Typography variant='body2' color='text.secondary'>
         {time}
       </Typography>
-      {isLogged && (
+      {authToken && (
         <Typography variant='body2' color='text.secondary'>
           {location}
         </Typography>
@@ -295,7 +284,7 @@ const Post = ({
       <div>
         <CardHeader
           avatar={
-            isLogged ? (
+            authToken ? (
               <Link to={'/profile/' + user}>
                 <Avatar
                   alt='Unknown Profile Picture'
@@ -324,7 +313,7 @@ const Post = ({
                   <Button>View Text Annotations</Button>
                 </Link>
               )}
-              {isLogged && (
+              {authToken && (
                 <Button
                   endIcon={<ReportProblemOutlinedIcon />}
                   onClick={handleOpenReportModal}
@@ -337,7 +326,7 @@ const Post = ({
               <Button startIcon={<ThumbDownIcon />} onClick={handleDownvote}>
                 {downvote}
               </Button>
-              {userName === user && (
+              {loggedUser === user && (
                 <>
                   <Button onClick={handleOpenEditModal}> Edit</Button>
                   <IconButton aria-label='settings' onClick={handleClick}>
@@ -356,7 +345,7 @@ const Post = ({
             {category}
           </Typography>
         </CardContent>
-        {userName === user && (
+        {loggedUser === user && (
           <Menu
             id='simple-menu'
             anchorEl={anchorEl}
@@ -401,7 +390,7 @@ const Post = ({
       </CardContent>
       <Divider style={{ height: '4px' }} />
       <CardActions>
-        {isLogged && (
+        {authToken && (
           <Button
             startIcon={<CommentIcon />}
             onClick={handleOpenCreateCommentModal}
@@ -430,7 +419,7 @@ const Post = ({
         >
           <Box sx={{ ...style, width: 800 }}>
             <CreateComment
-              authenticationToken={authenticationToken}
+              authenticationToken={authToken}
               slug={slug}
               setOpenCreateCommentModal={setOpenCreateCommentModal}
               changeInComments={changeInComments}
@@ -447,7 +436,7 @@ const Post = ({
           <Box sx={{ ...style, width: 800 }}>
             <EditPost
               imageProp={image}
-              authenticationToken={authenticationToken}
+              authenticationToken={authToken}
               setOpenEditModal={setOpenEditModal}
               changeInPost={changeInPost}
               setChangeInPost={setChangeInPost}
@@ -473,12 +462,9 @@ const Post = ({
       <Collapse in={expanded} timeout='auto' unmountOnExit>
         <CardContent>
           <CommentBox
-            isLogged={isLogged}
-            authenticationToken={authenticationToken}
             slug={slug}
             changeInComments={changeInComments}
             setChangeInComments={setChangeInComments}
-            userName={userName}
           />
         </CardContent>
       </Collapse>
