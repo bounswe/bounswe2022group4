@@ -40,18 +40,15 @@ const Post = ({
   content,
   time,
   index,
-  isLogged,
   image,
   category,
   slug,
-  authenticationToken,
   changeInPost,
   setChangeInPost,
   upvote,
   downvote,
   isExpert,
   location,
-  userName,
   postPageButton,
   isUpvoted,
   isDownvoted,
@@ -95,8 +92,14 @@ const Post = ({
     };
     postTextAnnotation();
   }, [textAnnotation]);
-
-  useEffect(() => {}, [textAnnotation]);
+  const [authToken, setAuthToken] = React.useState('');
+  const [loggedUser, setLoggedUser] = React.useState('');
+  useEffect(() => {
+    setLoggedUser(localStorage['user']);
+  }, [localStorage['user']]);
+  useEffect(() => {
+    setAuthToken(localStorage['authToken']);
+  }, [localStorage['authToken']]);
 
   const [openCreateCommentModal, setOpenCreateCommentModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
@@ -133,18 +136,15 @@ const Post = ({
     setExpanded(!expanded);
   };
   const handleDelete = async (slug) => {
-    await BackendApi.postDeletePost(slug + '/', authenticationToken);
+    await BackendApi.postDeletePost(slug + '/', authToken);
     setChangeInPost(!changeInPost);
   };
   const handleUpvote = async () => {
-    const response = await BackendApi.postUpvotePost(slug, authenticationToken);
+    const response = await BackendApi.postUpvotePost(slug, authToken);
     setChangeInPost(!changeInPost);
   };
   const handleDownvote = async () => {
-    const response = await BackendApi.postDownvotePost(
-      slug,
-      authenticationToken
-    );
+    const response = await BackendApi.postDownvotePost(slug, authToken);
     setChangeInPost(!changeInPost);
   };
 
@@ -265,7 +265,7 @@ const Post = ({
       <Typography variant='body2' color='text.secondary'>
         {time}
       </Typography>
-      {isLogged && (
+      {authToken && (
         <Typography variant='body2' color='text.secondary'>
           {location}
         </Typography>
@@ -284,7 +284,7 @@ const Post = ({
       <div>
         <CardHeader
           avatar={
-            isLogged ? (
+            authToken ? (
               <Link to={'/profile/' + user}>
                 <Avatar
                   alt='Unknown Profile Picture'
@@ -313,7 +313,7 @@ const Post = ({
                   <Button>View Text Annotations</Button>
                 </Link>
               )}
-              {isLogged && (
+              {authToken && (
                 <Button
                   endIcon={<ReportProblemOutlinedIcon />}
                   onClick={handleOpenReportModal}
@@ -326,7 +326,7 @@ const Post = ({
               <Button startIcon={<ThumbDownIcon />} onClick={handleDownvote}>
                 {downvote}
               </Button>
-              {userName === user && (
+              {loggedUser === user && (
                 <>
                   <Button onClick={handleOpenEditModal}> Edit</Button>
                   <IconButton aria-label='settings' onClick={handleClick}>
@@ -345,7 +345,7 @@ const Post = ({
             {category}
           </Typography>
         </CardContent>
-        {userName === user && (
+        {loggedUser === user && (
           <Menu
             id='simple-menu'
             anchorEl={anchorEl}
@@ -390,7 +390,7 @@ const Post = ({
       </CardContent>
       <Divider style={{ height: '4px' }} />
       <CardActions>
-        {isLogged && (
+        {authToken && (
           <Button
             startIcon={<CommentIcon />}
             onClick={handleOpenCreateCommentModal}
@@ -419,7 +419,7 @@ const Post = ({
         >
           <Box sx={{ ...style, width: 800 }}>
             <CreateComment
-              authenticationToken={authenticationToken}
+              authenticationToken={authToken}
               slug={slug}
               setOpenCreateCommentModal={setOpenCreateCommentModal}
               changeInComments={changeInComments}
@@ -436,7 +436,7 @@ const Post = ({
           <Box sx={{ ...style, width: 800 }}>
             <EditPost
               imageProp={image}
-              authenticationToken={authenticationToken}
+              authenticationToken={authToken}
               setOpenEditModal={setOpenEditModal}
               changeInPost={changeInPost}
               setChangeInPost={setChangeInPost}
@@ -462,12 +462,9 @@ const Post = ({
       <Collapse in={expanded} timeout='auto' unmountOnExit>
         <CardContent>
           <CommentBox
-            isLogged={isLogged}
-            authenticationToken={authenticationToken}
             slug={slug}
             changeInComments={changeInComments}
             setChangeInComments={setChangeInComments}
-            userName={userName}
           />
         </CardContent>
       </Collapse>

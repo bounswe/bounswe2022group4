@@ -8,14 +8,13 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { BackendApi } from '../../api';
 import GridLoader from 'react-spinners/GridLoader';
-const PostBox = ({
-  isLogged,
-  authenticationToken,
-  userName,
-  changeInPost,
-  setChangeInPost,
-}) => {
+const PostBox = ({ changeInPost, setChangeInPost }) => {
   const [openPostModal, setOpenPostModal] = useState(false);
+  const [authToken, setAuthToken] = React.useState('');
+
+  useEffect(() => {
+    setAuthToken(localStorage['authToken']);
+  }, [localStorage['authToken']]);
 
   const style = {
     position: 'absolute',
@@ -34,13 +33,13 @@ const PostBox = ({
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const getPosts = async () => {
-      const response = await BackendApi.getPosts(authenticationToken);
+      const response = await BackendApi.getPosts(authToken);
       if (response.status >= 200 && response.status < 300) {
         setPosts(response.data);
       }
       setIsLoading(false);
     };
-    getPosts(authenticationToken);
+    getPosts(authToken);
   }, [changeInPost]);
 
   const handleOpenPostModal = () => {
@@ -63,7 +62,7 @@ const PostBox = ({
     </div>
   ) : (
     <div style={{ padding: 14 }}>
-      {isLogged && (
+      {authToken && (
         <Button
           variant='outlined'
           startIcon={<PostAddIcon />}
@@ -82,7 +81,7 @@ const PostBox = ({
       >
         <Box sx={{ ...style, width: 800 }}>
           <CreatePost
-            authenticationToken={authenticationToken}
+            authenticationToken={authToken}
             setOpenPostModal={setOpenPostModal}
             changeInPost={changeInPost}
             setChangeInPost={setChangeInPost}
@@ -95,7 +94,7 @@ const PostBox = ({
             index={index}
             key={index}
             title={post.title}
-            user={isLogged ? post.username : 'Anonymous'}
+            user={authToken ? post.username : 'Anonymous'}
             content={post.body}
             time={post.updated_at}
             category={post.category}
@@ -106,12 +105,9 @@ const PostBox = ({
             isDownvoted={post.is_downvoted}
             location={post.location}
             image={post.image}
-            isLogged={isLogged}
             slug={post.slug}
-            authenticationToken={authenticationToken}
             changeInPost={changeInPost}
             setChangeInPost={setChangeInPost}
-            userName={userName}
             postPageButton={true}
           />
         ))}

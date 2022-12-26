@@ -2,25 +2,22 @@ import React, { useState, useEffect } from 'react';
 import Comment from '../Comment/Comment';
 import { BackendApi } from '../../api';
 
-const CommentBox = ({
-  isLogged,
-  slug,
-  authenticationToken,
-  changeInComments,
-  setChangeInComments,
-  userName,
-}) => {
+const CommentBox = ({ slug, changeInComments, setChangeInComments }) => {
   const [comments, setComments] = useState([]);
+  const [authToken, setAuthToken] = React.useState('');
 
   useEffect(() => {
+    setAuthToken(localStorage['authToken']);
+  }, [localStorage['authToken']]);
+  useEffect(() => {
     const getComments = async () => {
-      const response = await BackendApi.getComments(slug, authenticationToken);
+      const response = await BackendApi.getComments(slug, authToken);
       if (response.status >= 200 && response.status < 300) {
         setComments(response.data);
         console.log(response.data);
       }
     };
-    getComments(slug, authenticationToken);
+    getComments(slug, authToken);
   }, [changeInComments]);
   return (
     <div style={{ padding: 14, marginTop: '0.4vh' }}>
@@ -28,10 +25,9 @@ const CommentBox = ({
         <Comment
           index={comment.id}
           key={index}
-          user={isLogged ? comment.username : 'Anonymous'}
+          user={authToken ? comment.username : 'Anonymous'}
           content={comment.body}
           time={comment.updated_at}
-          isLogged={isLogged}
           upvote={comment.upvote}
           downvote={comment.downvote}
           isExpert={comment.is_expert}
@@ -39,9 +35,7 @@ const CommentBox = ({
           setChangeInComments={setChangeInComments}
           isUpvoted={comment.is_upvoted}
           isDownvoted={comment.is_downvoted}
-          authenticationToken={authenticationToken}
           slug={slug}
-          userName={userName}
         />
       ))}
     </div>

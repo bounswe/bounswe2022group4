@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import './Navbar.css';
 import SearchBar from '../SearchBar/SearchBar';
 import { FaBars } from 'react-icons/fa';
 
-const Navbar = ({ isLogged, userName }) => {
+const Navbar = () => {
+  const [authToken, setAuthToken] = React.useState('');
+  const [loggedUser, setLoggedUser] = React.useState('');
+  useEffect(() => {
+    setLoggedUser(localStorage['user']);
+  }, [localStorage['user']]);
+  useEffect(() => {
+    setAuthToken(localStorage['authToken']);
+  }, [localStorage['authToken']]);
   return (
     <>
       <nav className='navv'>
@@ -13,19 +21,23 @@ const Navbar = ({ isLogged, userName }) => {
           <Link to='/' activeStyle className='navv-link'>
             Home
           </Link>
-          {isLogged && (
-            <Link to={'/profile/' + userName} activeStyle className='navv-link'>
+          {authToken && (
+            <Link
+              to={'/profile/' + loggedUser}
+              activeStyle
+              className='navv-link'
+            >
               Profile
             </Link>
           )}
-          {isLogged && (
+          {authToken && (
             <Link to='/edit-profile' activeStyle className='navv-link'>
               Edit Profile
             </Link>
           )}
         </div>
         <SearchBar />
-        {!isLogged ? (
+        {!authToken ? (
           <div className='navv-button'>
             <Link to='/sign-in' className='navv-button-link'>
               Sign In
@@ -35,7 +47,12 @@ const Navbar = ({ isLogged, userName }) => {
             </Link>
           </div>
         ) : (
-          <div className='navv-button'>
+          <div
+            className='navv-button'
+            onClick={() => {
+              localStorage.removeItem('authToken');
+            }}
+          >
             <a href='/sign-in' className='navv-button-link'>
               Sign Out
             </a>

@@ -16,7 +16,7 @@ import './profilePage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BackendApi } from '../../api';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MessageChat } from '../../components/Chat/MessageChat';
 import { useParams } from 'react-router-dom';
 
@@ -180,25 +180,30 @@ const posts = [
   },
 ];
 
-const ProfilePage = ({ isLogged, authenticationToken, loggedInUser }) => {
+const ProfilePage = () => {
   const [profile, setProfile] = useState({});
   const [postData, setPostData] = useState([]);
   const { userName } = useParams();
+  const [authToken, setAuthToken] = React.useState('');
+  const [loggedUser, setLoggedUser] = React.useState('');
+  useEffect(() => {
+    setLoggedUser(localStorage['user']);
+  }, [localStorage['user']]);
+  useEffect(() => {
+    setAuthToken(localStorage['authToken']);
+  }, [localStorage['authToken']]);
   useEffect(() => {
     console.log(userName);
 
     const getProfile = async () => {
-      const response = await BackendApi.getProfile(
-        userName,
-        authenticationToken
-      );
+      const response = await BackendApi.getProfile(userName, authToken);
       console.log(response, 'response');
       if (response.status >= 200 && response.status < 300) {
         setProfile(response.data);
       }
     };
     const getPosts = async () => {
-      const response = await BackendApi.getPosts(authenticationToken);
+      const response = await BackendApi.getPosts(authToken);
       console.log(response, 'response');
       if (response.status >= 200 && response.status < 300) {
         const filteredData = await response?.data.filter(
@@ -209,9 +214,8 @@ const ProfilePage = ({ isLogged, authenticationToken, loggedInUser }) => {
         console.log(postData, 'postData');
       }
     };
-    getProfile(userName, authenticationToken);
-    getPosts(authenticationToken);
-    console.log(profile, 'xx');
+    getProfile(userName, authToken);
+    getPosts(authToken);
   }, [postData]);
 
   const showPosts = () => {
@@ -491,9 +495,6 @@ const ProfilePage = ({ isLogged, authenticationToken, loggedInUser }) => {
         }}
       >
         <MessageChat
-          authenticatonToken={authenticationToken}
-          isLogged={isLogged}
-          loggedInUser={loggedInUser}
           styles={{
             width: '320px',
             height: '400px',

@@ -4,20 +4,17 @@ import GridLoader from 'react-spinners/GridLoader';
 import Post from '../../components/Post/Post';
 import { BackendApi } from '../../api';
 
-const PostPage = ({
-  userName,
-  isLogged,
-  changeInPost,
-  setChangeInPost,
-  authenticationToken,
-}) => {
+const PostPage = ({ changeInPost, setChangeInPost }) => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [authToken, setAuthToken] = React.useState('');
+  useEffect(() => {
+    setAuthToken(localStorage['authToken']);
+  }, [localStorage['authToken']]);
   useEffect(() => {
     const getPosts = async () => {
-      const response = await BackendApi.getPost(id, authenticationToken);
+      const response = await BackendApi.getPost(id, authToken);
       if (response.status >= 200 && response.status < 300) {
         setPost(response.data);
         console.log(response.data);
@@ -52,7 +49,7 @@ const PostPage = ({
         >
           <Post
             title={post.title}
-            user={isLogged ? post.username : 'Anonymous'}
+            user={authToken ? post.username : 'Anonymous'}
             content={post.body}
             time={post.updated_at}
             category={post.category}
@@ -63,12 +60,9 @@ const PostPage = ({
             isDownvoted={post.is_downvoted}
             location={post.location}
             image={post.image}
-            isLogged={isLogged}
             slug={post.slug}
-            authenticationToken={authenticationToken}
             changeInPost={changeInPost}
             setChangeInPost={setChangeInPost}
-            userName={userName}
           />
         </div>
       )}
