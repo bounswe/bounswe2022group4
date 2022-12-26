@@ -11,6 +11,8 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
+  Input,
+  FormGroup,
 } from "reactstrap";
 import "./profilePage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -221,6 +223,13 @@ const ProfilePage = () => {
   const showFollowings = () => {
     setFollowingModelOpen(!followingModelOpen);
   };
+  const showMessageModel = () => {
+    setMessageModelOpen(!messageModelOpen);
+  };
+
+  const onMessageModelClose = () => {
+    setMessageModelOpen(!messageModelOpen);
+  };
 
   const onClose1 = () => {
     setFollowersModelOpen(!followersModelOpen);
@@ -237,10 +246,23 @@ const ProfilePage = () => {
   const [postModelOpen, setPostModelOpen] = useState(false);
   const [followersModelOpen, setFollowersModelOpen] = useState(false);
   const [followingModelOpen, setFollowingModelOpen] = useState(false);
+  const [messageModelOpen, setMessageModelOpen] = useState(false);
   const [id, setID] = useState("0");
 
+  const [sentMessage, setSentMessage] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await onSendMessage(profile.username);
+    setSentMessage("");
+    setMessageModelOpen(!messageModelOpen);
+  };
+
   const onSendMessage = async (value) => {
-    const response = await BackendApi.sendMessage(value, "Merhaba!", authToken);
+    const response = await BackendApi.sendMessage(
+      value,
+      sentMessage,
+      authToken
+    );
     if (!(response.status >= 200 && response.status < 300)) {
       alert(
         "Karşıdaki kullanıcı bulunamadı veya serverda bir hata meydana geldi"
@@ -323,10 +345,33 @@ const ProfilePage = () => {
                         borderColor: "blue",
                       }}
                       variant="outlined"
-                      onClick={() => onSendMessage(profile.username)}
+                      onClick={() => {
+                        showMessageModel();
+                      }}
                     >
                       Send Message
                     </Button>
+                    <Modal
+                      isOpen={messageModelOpen}
+                      toggle={() => onMessageModelClose()}
+                    >
+                      <ModalHeader>Send First Message</ModalHeader>
+
+                      <ModalBody>
+                        <FormGroup>
+                          <Input
+                            type="text"
+                            name="message"
+                            id="message_input"
+                            placeholder="Sent a message!"
+                            onChange={(e) => {
+                              setSentMessage(e.target.value);
+                            }}
+                          />
+                        </FormGroup>
+                        <Button onClick={handleSubmit}>Send</Button>
+                      </ModalBody>
+                    </Modal>
                   </div>
                 </div>
                 <div style={{ padding: "10px" }}>
