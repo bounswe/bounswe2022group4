@@ -16,16 +16,11 @@ import kotlin.random.Random
 @HiltViewModel
 class ChatViewModel @Inject constructor(): ViewModel() {
     val otherUser: MutableLiveData<UserInfo> = MutableLiveData()
-    private val _addedMessage = MutableLiveData<Message>()
     val messagesList = MutableLiveData<MutableList<Message>>()
     val newMessageText = MutableLiveData<String>()
     var job: Job? = null
 
-
-
-
-
-    fun fetchMessages() {
+    private fun fetchMessages() {
         viewModelScope.launch {
             try {
                 otherUser.value?.let {
@@ -40,7 +35,6 @@ class ChatViewModel @Inject constructor(): ViewModel() {
                         }.toMutableList()
                     }
                 }
-
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -49,7 +43,6 @@ class ChatViewModel @Inject constructor(): ViewModel() {
     fun sendMessage() {
         viewModelScope.launch {
             try {
-
                 otherUser.value?.let {
                     ApiClient.get().sendMessage(
                         SendMessageRequest(
@@ -64,28 +57,10 @@ class ChatViewModel @Inject constructor(): ViewModel() {
             }
         }
     }
-
-    private fun setupMockChat() {
-        messagesList.value = MutableList(10) {
-            if(Random.nextInt() % 2 == 0) {
-                Message( "message $it",
-                    "sender $it",
-                    it.toLong(),
-                    true,)
-            } else {
-                Message( "5f9f1b9b9b9b9b1b9b9b9b9b",
-                    "sender $it",
-                    it.toLong(),
-                    true,)
-            }
-        }
-    }
-
     override fun onCleared() {
         super.onCleared()
         job?.cancel()
     }
-
     fun initMessages() {
         job = viewModelScope.launch {
             while (true) {

@@ -42,7 +42,7 @@ class ChatListFragment: Fragment() {
             listAdapter = ChatsListAdapter(viewModel)
             viewDataBinding.chatsRecyclerView.adapter = listAdapter
         } else {
-            throw Exception("The viewmodel is not initialized")
+            throw Exception("")
         }
     }
 

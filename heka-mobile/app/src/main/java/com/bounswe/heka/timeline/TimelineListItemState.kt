@@ -3,7 +3,7 @@ package com.bounswe.heka.timeline
 data class TimelineListItemState (
     val category: String,
     var title: String,
-    var body: String,
+    var body: String? = "",
     val slug: String,
     val username: String,
     val is_expert: Boolean,

@@ -68,7 +68,7 @@ class MessagesListAdapter internal constructor(private val viewModel: ChatViewMo
                 ReceivedViewHolder(binding)
             }
             else -> {
-                throw Exception("Error reading holder type")
+                throw Exception("")
             }
         }
     }
