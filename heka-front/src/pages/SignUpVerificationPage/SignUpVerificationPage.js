@@ -22,6 +22,7 @@ const SignUpVerificationPage = (props) => {
   const handleSubmit = async (e) => {
     console.log('saved to firestore , input: ' + username);
     e.preventDefault();
+    //const response_user = await BackendApi.getSearchUser(searchWord.toLowerCase(),4);
    // const response = await BackendApi.postEmail("test@gmail.com");  // I tested with forgot password backend for now. I will implement backend connection after API is provided.
    /* if (response.status === 200) {
       setIsAuthenticated(true);
@@ -32,7 +33,7 @@ const SignUpVerificationPage = (props) => {
 
     
       //alert(username);
-      if(validationCode == 111130) {
+      if(validationCode.startsWith(11)) {
         setIsVerification(false);
         setDone(true);
      }
