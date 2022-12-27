@@ -8,3 +8,11 @@ class EmailValidator {
         else -> null
     }
 }
+
+class CodeValidator {
+    fun validate(code: String?) = when {
+        code == null -> "Code cannot be empty"
+        code.isBlank() -> "Code cannot be empty"
+        else -> null
+    }
+}

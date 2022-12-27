@@ -40,7 +40,11 @@ schema_swagger = get_schema_view(openapi.Info(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/user/', include("users.urls") ),
+    path('api/user/', include("users.urls")),
+    path('api/chat/', include('chat.urls')),
+    path('api/post/', include("posts.urls")),
+    path('api/annotation/', include("annotations.urls")),
+    path('api/search/', include("textSearch.urls")),
     path('swagger/', schema_swagger.with_ui('swagger', cache_timeout=0), name='swagger-ui'),
     path('redoc/', schema_swagger.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]

@@ -27,9 +27,35 @@
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/RegisterFragment" />
         <action
+            android:id="@+id/action_loginFragment_to_forgetPassword"
+            app:destination="@id/ForgetPassword" />
+        <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/HomeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/ForgetPassword"
+        android:name="com.bounswe.heka.forgotpassword.ForgetPasswordFragment"
+        android:label="@string/forgot_password"
+        tools:layout="@layout/forget_password">
+        <action
+            android:id="@+id/action_ForgetPassword_to_ResetPassword"
+            app:destination="@id/ResetPassword" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/ResetPassword"
+        android:name="com.bounswe.heka.resetpassword.ResetPasswordFragment"
+        android:label="Reset Password"
+        tools:layout="@layout/reset_password">
+        <action
+            android:id="@+id/action_ResetPassword_to_homeFragment"
+            app:destination="@id/LoginFragment" />
+    </fragment>
+
+
+
     <fragment
         android:id="@+id/HomeFragment"
         android:name="com.bounswe.heka.home.HomeFragment"

@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
+DATABASE_ROUTERS = ['routers.AnnoRouter.AnnoRouter']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -43,7 +44,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'users',
-    'drf_yasg'
+    'drf_yasg',
+    'chat',
+    'posts',
+    'annotations',
+    'textSearch',
+    'django.contrib.postgres.search',
 ]
 
 MIDDLEWARE = [
@@ -88,6 +94,14 @@ DATABASES = {
         'USER': os.environ.get('POSTGRES_USER'),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
         'HOST': os.environ.get('POSTGRES_HOST'),
+        'PORT': 5432,
+    },
+    'anno_db': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('ANNO_POSTGRES_NAME'),
+        'USER': os.environ.get('ANNO_POSTGRES_USER'),
+        'PASSWORD': os.environ.get('ANNO_POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('ANNO_POSTGRES_HOST'),
         'PORT': 5432,
     }
 }
@@ -137,4 +151,27 @@ AUTH_USER_MODEL = "users.User"
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
-REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ),
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+         'rest_framework.authentication.TokenAuthentication',
+    ), 
+    "DEFAULT_PERMISSION_CLASSES": (
+        'rest_framework.permissions.AllowAny',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 50,
+}
+
+# SMTP Configuration
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = "587"
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')

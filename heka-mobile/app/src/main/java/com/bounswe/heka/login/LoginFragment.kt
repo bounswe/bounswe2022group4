@@ -37,6 +37,9 @@ class LoginFragment: Fragment() {
         binding.textButton.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
+        binding.forgotButton.setOnClickListener{
+            findNavController().navigate(R.id.action_loginFragment_to_forgetPassword)
+        }
       viewModel.toastMessage.observe(viewLifecycleOwner) {
           if (it != null) {
               Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
@@ -58,7 +61,4 @@ class LoginFragment: Fragment() {
         }
 
     }
-
-
-
 }

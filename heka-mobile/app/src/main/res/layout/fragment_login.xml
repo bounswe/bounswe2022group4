@@ -18,9 +18,9 @@
             android:layout_height="50dp"
             android:gravity="center"
             android:text="Login"
+            android:id="@+id/header_title"
             android:textColor="?attr/colorPrimary"
-
-            android:textSize="20sp"
+            android:textSize="26sp"
             android:textStyle="bold" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -68,13 +68,14 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_marginBottom="16dp"
-        android:enabled="@{viewModel.loginButtonEnabled}"
-        android:onClick="@{() -> viewModel.onLoginButtonClick()}"
-        android:text="@string/login" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/submit_button"
+            android:enabled="@{viewModel.loginButtonEnabled}"
+            android:onClick="@{() -> viewModel.onLoginButtonClick()}"
+            android:text="@string/login" />
 
     <Button
         android:id="@+id/textButton"
