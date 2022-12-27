@@ -50,13 +50,13 @@ class EditProfileFragment:Fragment() {
             }
         }
         if(arguments?.getString("username") != null){
-
             viewModel.oldUsername = arguments?.getString("username");
             viewModel.username.value = arguments?.getString("username")!!
             viewModel.email.value = arguments?.getString("email")!!
             viewModel.name.value =  arguments?.getString("name")!!
             viewModel.age.value = arguments?.getInt("age")?.toString()
             viewModel.profile_image.value = arguments?.getString("profile_image")
+            viewModel.isExpert.value = arguments?.getBoolean("is_expert",false)
 
         }else{
             viewModel.fetchProfile(sessionManager.fetchUsername()!!)

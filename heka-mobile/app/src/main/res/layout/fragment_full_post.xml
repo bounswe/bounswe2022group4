@@ -22,26 +22,29 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:background="?attr/colorPrimary"
             android:elevation="4dp"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                >
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:text="POST DETAILS"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/v_white"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -49,12 +52,14 @@
                     android:id="@+id/comment_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
                     android:text="Comment" />
 
                 <Button
                     android:id="@+id/close_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
                     android:text="close" />
 
             </LinearLayout>
@@ -226,7 +231,7 @@
                                     android:layout_height="50dp"
                                     android:background="@android:color/transparent"
                                     android:drawableLeft="@drawable/ic_baseline_thumb_down_alt_24"
-                                    android:drawableTint="@drawable/upvote_color_selector"
+                                    android:drawableTint="@drawable/downvote_color_selector"
                                     android:textColor="@android:color/darker_gray"
                                     tools:text="15" />
 

@@ -173,7 +173,7 @@
                         android:layout_height="50dp"
                         android:background="@android:color/transparent"
                         android:drawableLeft="@drawable/ic_baseline_thumb_down_alt_24"
-                        android:drawableTint="@drawable/upvote_color_selector"
+                        android:drawableTint="@drawable/downvote_color_selector"
                         tools:text="15"
                         android:textColor="@android:color/darker_gray"
                         android:enabled="@{!state._downvoted}" />

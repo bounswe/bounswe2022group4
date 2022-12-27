@@ -1,25 +1,21 @@
 package com.bounswe.heka.profile
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.opengl.Visibility
+
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bounswe.heka.R
-import com.bounswe.heka.databinding.FragmentHomeBinding
 import com.bounswe.heka.databinding.FragmentProfileBinding
-import com.bounswe.heka.home.HomeViewModel
 import com.bounswe.heka.network.SessionManager
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
-class ProfileFragment: Fragment() {
+class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     private val viewModel: ProfileViewModel by viewModels()
 
@@ -28,15 +24,12 @@ class ProfileFragment: Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
         sessionManager = SessionManager(requireContext())
-
         binding = FragmentProfileBinding.inflate(layoutInflater)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
-        viewModel.username.value = arguments?.getString("username") ?: sessionManager.fetchUsername()
-
+        viewModel.username.value =
+            arguments?.getString("username") ?: sessionManager.fetchUsername()
         return binding.root
     }
 
@@ -46,30 +39,38 @@ class ProfileFragment: Fragment() {
             if (it) {
                 sessionManager.clearAuthToken()
                 sessionManager.clearUsername()
-                findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
+                findNavController().navigate(com.bounswe.heka.R.id.action_profileFragment_to_loginFragment)
             }
         }
         viewModel.state.observe(viewLifecycleOwner) {
-            binding.userNickname.text = "@"+it.username;
+            binding.userNickname.text = "@" + it.username;
             binding.userName.text = it.name;
-            Glide.with(this).load(it.profile_image).placeholder(R.drawable.temp_profile_photo).into(binding.profileImageView)
+            binding.viewModel?.isExpert?.value = it.is_expert?:false
+            Glide.with(this).load(it.profile_image)
+                .placeholder(com.bounswe.heka.R.drawable.temp_profile_photo)
+                .into(binding.profileImageView)
         }
 
-        arguments?.getString("username")?.let {usernamex ->
-                        binding.chatButton.setOnClickListener {
-                            val bundle = Bundle()
-                            bundle.putString("username", usernamex)
-                            findNavController().navigate(
-                                R.id.action_profileFragment_to_chatFragment,
-                                bundle
-                            )
-                        }
-                        print(usernamex);
+//        val window: Window = requireActivity().window
+//        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+//        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+//        window.statusBarColor = ContextCompat.getColor(requireActivity(), R.color.v_blue)
+
+        arguments?.getString("username")?.let { usernamex ->
+            binding.chatButton.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString("username", usernamex)
+                findNavController().navigate(
+                    com.bounswe.heka.R.id.action_profileFragment_to_chatFragment,
+                    bundle
+                )
+            }
+            print(usernamex);
 
         }
-        if (viewModel.username.value != sessionManager.fetchUsername()){
+        if (viewModel.username.value != sessionManager.fetchUsername()) {
             binding.chatButton.visibility = View.VISIBLE;
-        }else{
+        } else {
             binding.editProfileButton.visibility = View.VISIBLE;
             binding.editProfileButton.setOnClickListener {
                 val bundle = Bundle()
@@ -80,11 +81,32 @@ class ProfileFragment: Fragment() {
                 bundle.putString("profile_image", viewModel.state.value?.profile_image ?: "")
                 bundle.putBoolean("is_expert", viewModel.state.value?.is_expert ?: false)
                 findNavController().navigate(
-                    R.id.action_profileFragment_to_editProfileFragment,
+                    com.bounswe.heka.R.id.action_profileFragment_to_editProfileFragment,
                     bundle
                 )
             }
         }
         viewModel.getProfile()
     }
+
+//    override fun onResume() {
+//        super.onResume()
+//        changeBarColor(R.color.v_blue)
+//    }
+//
+//    override fun onPause() {
+//        super.onPause()
+//        changeBarColor(R.color.v_red)
+//
+//    }
+
+
+    fun changeBarColor(bar_color: Int) {
+        val window: Window = requireActivity().window
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = ContextCompat.getColor(requireActivity(), bar_color)
+
+    }
+
 }

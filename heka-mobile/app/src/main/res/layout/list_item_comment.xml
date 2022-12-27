@@ -97,7 +97,8 @@
                         android:layout_weight="1"
                         tools:text="This is insanity and this is a long comment as as test."
                         android:textSize="16sp"
-                        android:text="@{state.body}" />
+                        android:text="@{state.body}"
+                        tools:ignore="NestedWeights" />
                 </LinearLayout>
 
 
@@ -124,7 +125,7 @@
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
                         android:drawableLeft="@drawable/ic_baseline_thumb_down_alt_24"
-                        android:drawableTint="@drawable/upvote_color_selector"
+                        android:drawableTint="@drawable/downvote_color_selector"
                         android:textColor="@android:color/darker_gray"
 
                         tools:text="21" />
