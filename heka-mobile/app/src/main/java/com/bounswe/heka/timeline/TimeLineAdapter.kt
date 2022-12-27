@@ -50,8 +50,7 @@ class TimeLineAdapter(private val data: MutableList<TimelineListItemState>, val 
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(binding.timelineImage)
 
-            if(state.username != sessionManager.fetchUsername() ) {
-
+            if(state.username != sessionManager.fetchUsername() && !sessionManager.fetchExpert()) {
                 binding.timelineEditButton.visibility = android.view.View.GONE
             } else {
                 binding.timelineEditButton.visibility = android.view.View.VISIBLE
@@ -60,6 +59,7 @@ class TimeLineAdapter(private val data: MutableList<TimelineListItemState>, val 
             binding.timelineEditButton.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString("slug", state.slug)
+                bundle.putBoolean("expert_attempt" , state.username != sessionManager.fetchUsername() && sessionManager.fetchExpert())
                 binding.root.findNavController()
                     .navigate(R.id.action_homeFragment_to_editPostFragment, bundle)
             }

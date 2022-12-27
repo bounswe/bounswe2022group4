@@ -12,6 +12,8 @@ import javax.inject.Inject
 class EditPostViewModel @Inject constructor(): ViewModel() {
     val post = MutableLiveData<FetchPostResponse>()
     val activityResult = MutableLiveData<Boolean>()
+    //val expertAttempt = MutableLiveData<Boolean>(false)
+
 
     fun fetchPost(slug: String) {
         viewModelScope.launch {
@@ -35,6 +37,9 @@ class EditPostViewModel @Inject constructor(): ViewModel() {
             ApiClient.get().deletePost(post.value!!.slug)
         }
         activityResult.value = true
+    }
+    fun onTagSelected(value: String) {
+        post.value?.category = value
     }
 
 }

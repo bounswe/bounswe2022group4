@@ -52,9 +52,7 @@ class CreatePostViewModel @Inject constructor(): ViewModel() {
                 Log.d("CreatePostViewModel", "createPost: ${e.message}")
             }
             activityResult.value = true
-
         }
-
     }
     fun onTagSelected(value: String) {
         tags.value = value

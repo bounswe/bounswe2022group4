@@ -39,6 +39,7 @@ class ProfileFragment : Fragment() {
             if (it) {
                 sessionManager.clearAuthToken()
                 sessionManager.clearUsername()
+                sessionManager.clearExpert()
                 findNavController().navigate(com.bounswe.heka.R.id.action_profileFragment_to_loginFragment)
             }
         }

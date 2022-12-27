@@ -55,6 +55,7 @@ class FullPostFragment: Fragment() {
         }
         binding.timelineEditButton.setOnClickListener {
             val bundle = Bundle()
+            bundle.putBoolean("expert_attempt" , SessionManager(requireContext()).fetchUsername() != viewModel.state.value?.username && SessionManager(requireContext()).fetchExpert())
             bundle.putString("slug", viewModel.slug.value)
             findNavController().navigate(R.id.action_fullPostFragment_to_editPostFragment, bundle)
         }
@@ -147,7 +148,7 @@ class FullPostFragment: Fragment() {
             }
 
 
-            if (SessionManager(requireContext()).fetchUsername() != viewModel.state.value?.username) {
+            if (SessionManager(requireContext()).fetchUsername() != viewModel.state.value?.username && !SessionManager(requireContext()).fetchExpert()) {
                 binding.timelineEditButton.visibility = View.GONE
             }
             if(viewModel.state.value!!.image == null) {
