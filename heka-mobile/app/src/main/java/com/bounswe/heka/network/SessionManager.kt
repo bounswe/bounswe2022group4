@@ -2,6 +2,7 @@ package com.bounswe.heka.network
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 import com.bounswe.heka.R
 
 class SessionManager (context: Context) {
@@ -32,6 +33,13 @@ class SessionManager (context: Context) {
         editor.apply()
     }
 
+    fun saveExpert(isExpert: Boolean?) {
+        Log.v("Expert", isExpert.toString())
+        val editor = prefs.edit()
+        editor.putBoolean("is_expert", isExpert?:false)
+        editor.apply()
+    }
+
     fun clearAuthToken() {
         val editor = prefs.edit()
         editor.remove(USER_TOKEN)
@@ -41,6 +49,11 @@ class SessionManager (context: Context) {
     fun clearUsername() {
         val editor = prefs.edit()
         editor.remove("username")
+        editor.apply()
+    }
+    fun clearExpert() {
+        val editor = prefs.edit()
+        editor.remove("is_expert")
         editor.apply()
     }
 
@@ -53,6 +66,10 @@ class SessionManager (context: Context) {
 
     fun fetchUsername(): String? {
         return prefs.getString("username", null)
+    }
+    fun fetchExpert(): Boolean {
+        println(prefs.getBoolean("is_expert", false))
+        return prefs.getBoolean("is_expert", false)
     }
 
     fun fetchProfileImage(): String? {

@@ -1,10 +1,12 @@
 package com.bounswe.heka.login
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bounswe.heka.data.LoginRequest
 import com.bounswe.heka.data.LoginResponse
+import com.bounswe.heka.data.ProfileResponse
 import com.bounswe.heka.network.ApiClient
 import com.bounswe.heka.utils.EmailValidator
 import com.bounswe.heka.utils.NameValidator
@@ -23,6 +25,7 @@ class LoginViewModel @Inject constructor(): ViewModel() {
     val loginButtonEnabled = MutableLiveData<Boolean>()
     val toastMessage = MutableLiveData<String>()
     val loginSuccessful = MutableLiveData<LoginResponse>()
+    val profileSuccessful = MutableLiveData<ProfileResponse>()
     val loading = MutableLiveData<Boolean>()
 
     private val emailValidator = EmailValidator()
@@ -54,7 +57,13 @@ class LoginViewModel @Inject constructor(): ViewModel() {
                 toastMessage.value = response.message
 
                 loginSuccessful.value = response
-
+                response.let {
+                    Log.v("Expert", it.toString())
+                    it.username?.let { username ->
+                        val profileResponse = ApiClient.get().getProfile(username)
+                        profileSuccessful.value = profileResponse
+                    }
+                }
             } catch (e: Exception) {
                 toastMessage.value = "$e"
             }
