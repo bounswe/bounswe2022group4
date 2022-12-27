@@ -1,5 +1,6 @@
 package com.bounswe.heka.post
 
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -71,6 +72,7 @@ class EditPostFragment : Fragment() {
             binding.createPostContent.visibility = View.GONE
             binding.createPostTitle.visibility = View.GONE
             binding.createPostTags.visibility = View.VISIBLE
+            binding.editPostButton.text = resources.getString(R.string.update_category);
             viewModel.post.observe(viewLifecycleOwner) {
                 it.let {
                     println(it.category)

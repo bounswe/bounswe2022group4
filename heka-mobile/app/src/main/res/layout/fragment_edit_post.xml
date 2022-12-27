@@ -93,7 +93,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:text="Edit Post"
+                    android:text="EDIT POST"
                     android:onClick="@{() -> viewModel.editPost()}" />
                 <Button
                     android:id="@+id/delete_post_button"
