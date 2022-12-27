@@ -20,9 +20,17 @@ const CommentBox = ({ slug, changeInComments, setChangeInComments }) => {
     };
     getComments(slug, authToken);
   }, [changeInComments]);
+
+  const likeSortedComments = comments.sort((a, b) => (b.upvote - b.downvote) - (a.upvote - a.downvote));
+
+  const sortedComments = likeSortedComments.sort((a, b) => b.is_expert - a.is_expert);
+
   return (
+    
     <div style={{ padding: 14, marginTop: '0.4vh' }}>
-      {comments.map((comment, index) => (
+
+      {sortedComments.map((comment, index) => (
+
         <Comment
           index={comment.id}
           key={index}
@@ -38,7 +46,9 @@ const CommentBox = ({ slug, changeInComments, setChangeInComments }) => {
           isDownvoted={comment.is_downvoted}
           slug={slug}
         />
+
       ))}
+      
     </div>
   );
 };
