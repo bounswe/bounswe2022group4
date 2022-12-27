@@ -22,11 +22,10 @@ class ChatListViewModel @Inject constructor(): ViewModel() {
     var job: Job? = null
 
     init {
-//        setupMockChat()
         initJob()
     }
 
-    fun initJob() {
+    private fun initJob() {
         job = viewModelScope.launch {
             while (true) {
                 fetchChats()
@@ -37,30 +36,6 @@ class ChatListViewModel @Inject constructor(): ViewModel() {
     fun selectChatWithUserInfoPressed(chat: ChatWithUserInfo) {
         _selectedChat.value = Event(chat)
     }
-    private fun setupMockChat() {
-        chatsList.value = MutableList(20){
-            ChatWithUserInfo(
-                Chat(
-                    lastMessage = Message(
-                        "message $it",
-                        "sender $it",
-                        it.toLong(),
-                        true,
-                    ),
-                    ChatInfo(
-                        id = it.toString(),
-                    )
-                ),
-                UserInfo(
-                    "5f9f1b9b9b9b9b1b9b9b9b9b",
-                    "sender $it",
-                    "",
-                    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
-                    true,
-                )
-            )
-        }
-    }
     private fun fetchChats() {
         viewModelScope.launch {
             try {
@@ -70,8 +45,8 @@ class ChatListViewModel @Inject constructor(): ViewModel() {
                         Chat(
                             lastMessage = Message(
                                 "message $it",
-                                "sender $it",
-                                33,
+                                "",
+                                0,
                                 true,
                             ),
                             ChatInfo(
@@ -82,8 +57,8 @@ class ChatListViewModel @Inject constructor(): ViewModel() {
                             "5f9f1b9b9b9b9b1b9b9b9b9b",
                             "$it",
                             "",
-                            "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
-                            true,
+                            getProfileImage(it.toString()),
+                            false,
                         )
                     )
                 }.toMutableList()
@@ -96,6 +71,10 @@ class ChatListViewModel @Inject constructor(): ViewModel() {
     override fun onCleared() {
         super.onCleared()
         job?.cancel()
+    }
+
+    suspend fun getProfileImage(username: String): String {
+        return ApiClient.get().getProfile(username).profile_image?:""
     }
 
 }
