@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="state"
+            type="com.bounswe.heka.post.CommentListItemState" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    >
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginVertical="10dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:minHeight="105dp"
+                android:layout_height="wrap_content"
+                android:background="@{state.is_expert == null ? @color/vt_red : (state.is_expert ? @color/vt_bblue : @color/vt_red)}"
+                tools:background="@color/vt_bblue"
+                android:paddingTop="5dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    >
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/timeline_item_image"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:elevation="12dp"
+                        android:innerRadius="0dp"
+                        android:minHeight="50dp"
+                        android:shape="ring"
+                        app:cardCornerRadius="40dp"
+                        >
+
+                        <ImageView
+                            android:id="@+id/timeline_Profile_Image"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/temp_profile_photo" />
+
+                    </androidx.cardview.widget.CardView>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        />
+
+                    <ImageButton
+                        android:id="@+id/comment_item_edit"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/rounded_corner"
+                        android:minHeight="50dp"
+                        android:src="@drawable/ic_baseline_create_24"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/timeline_item_author"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        tools:text="Author"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp"
+                        android:text="@{state.username}" />
+                    <TextView
+                        android:id="@+id/timeline_item_body"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        tools:text="This is insanity and this is a long comment as as test."
+                        android:textSize="16sp"
+                        android:text="@{state.body}"
+                        tools:ignore="NestedWeights" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/comment_item_upvote"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:drawableLeft="@drawable/ic_baseline_thumb_up_alt_24"
+                        android:drawableTint="@drawable/upvote_color_selector"
+                        android:textColor="@android:color/darker_gray"
+                        tools:text="21" />
+
+                    <Button
+                        android:id="@+id/comment_item_downvote"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:drawableLeft="@drawable/ic_baseline_thumb_down_alt_24"
+                        android:drawableTint="@drawable/downvote_color_selector"
+                        android:textColor="@android:color/darker_gray"
+
+                        tools:text="21" />
+                </LinearLayout>
+
+            </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:translationZ="90dp"
+        android:id="@+id/doctor_frame"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:scaleType="fitStart"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="28dp"
+        android:visibility="@{state.is_expert == null ? View.GONE : (state.is_expert ? View.VISIBLE : View.GONE)}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/doctor_comment_frame"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

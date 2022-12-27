@@ -14,4 +14,6 @@
     <string name="register_fragment_label">Register</string>
     <string name="login">LOGIN</string>
     <string name="dont_have_an_account">Don\'t Have An Account</string>
+    <string name="forgot_password">Forgot Password ?</string>
+    <string name="update_category">UPDATE CATEGORY</string>
 </resources>

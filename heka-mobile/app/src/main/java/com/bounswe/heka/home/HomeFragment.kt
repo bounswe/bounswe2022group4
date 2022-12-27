@@ -28,8 +28,21 @@ class HomeFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        binding.navigateButton.setOnClickListener {
-//            findNavController().navigate(R.id.action_HomeFragment_to_TimelineFragment)
-//        }
+        binding.homeCreateButton.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_createPostFragment)
+        }
+        binding.homeSearchButton.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+        }
+        viewModel.fetchTimeline()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+    }
+
+    companion object {
+        private const val TAG = "HomeFragment"
+        private var bundle: Bundle? = null
     }
 }

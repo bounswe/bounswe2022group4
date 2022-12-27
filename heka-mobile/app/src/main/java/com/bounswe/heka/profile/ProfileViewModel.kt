@@ -11,10 +11,12 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class ProfileViewModel @Inject constructor(): ViewModel() {
+class ProfileViewModel @Inject constructor() : ViewModel() {
+    val state = MutableLiveData<ProfileState>();
+    var username = MutableLiveData<String?>();
+    val logout = MutableLiveData<Boolean>();
+    val isExpert = MutableLiveData<Boolean?>(null);
 
-
-    val logout = MutableLiveData<Boolean>()
     fun logout() {
         println("logout")
         viewModelScope.launch {

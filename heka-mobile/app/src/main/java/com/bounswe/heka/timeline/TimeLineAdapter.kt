@@ -10,6 +10,50 @@ class TimeLineAdapter(private val data: List<TimelineListItemState>): RecyclerVi
     class TimelineListItemViewHolder(val binding: TimelineItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(state: TimelineListItemState){
             binding.state = state
+            if (state.image == null) {
+                binding.timelineImage.visibility = View.GONE
+            } else {
+                binding.timelineImage.visibility = View.VISIBLE
+            }
+            Glide.with(binding.root.context)
+                .load(state.image)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(binding.timelineImage)
+
+            if(state.username != sessionManager.fetchUsername() && !sessionManager.fetchExpert()) {
+                binding.timelineEditButton.visibility = android.view.View.GONE
+            } else {
+                binding.timelineEditButton.visibility = android.view.View.VISIBLE
+            }
+
+            binding.timelineEditButton.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString("slug", state.slug)
+                bundle.putBoolean("expert_attempt" , state.username != sessionManager.fetchUsername() && sessionManager.fetchExpert())
+                binding.root.findNavController()
+                    .navigate(R.id.action_homeFragment_to_editPostFragment, bundle)
+            }
+            binding.card.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString("slug", state.slug)
+                bundle.putString("author_image", state.author_image)
+                binding.root.findNavController()
+                    .navigate(R.id.action_homeFragment_to_fullPostFragment, bundle)
+            }
+            binding.timelineItemUpvote.text = state.upvote.toString()
+            binding.timelineItemDownvote.text = state.downvote.toString()
+            binding.timelineItemUpvote.setOnClickListener {
+                upvote(state.slug)
+            }
+            binding.timelineItemDownvote.setOnClickListener {
+                downvote(state.slug)
+            }
+            binding.timelineProfileImage.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString("username", state.username)
+                binding.root.findNavController()
+                    .navigate(R.id.action_homeFragment_to_profileFragment, bundle)
+            }
         }
     }
 

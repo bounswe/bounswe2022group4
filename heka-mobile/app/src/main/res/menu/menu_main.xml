@@ -5,15 +5,18 @@
     <item
         android:id="@+id/HomeFragment"
         android:orderInCategory="100"
+        android:icon="@drawable/logo"
         android:title="HOME"
         app:showAsAction="never" />
     <item
         android:id="@+id/TimelineFragment"
         android:orderInCategory="100"
-        android:title="TIMELINE"
+        android:icon="@drawable/ic_baseline_chat_bubble_24"
+        android:title="CHAT"
         app:showAsAction="never" />
     <item
         android:id="@+id/ProfileFragment"
+        android:icon="@drawable/ic_baseline_person_24"
         android:orderInCategory="100"
         android:title="PROFILE"
         app:showAsAction="never" />

@@ -61,6 +61,21 @@
         android:name="com.bounswe.heka.home.HomeFragment"
         android:label="@string/home_fragment_label"
         tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_createPostFragment"
+            app:destination="@id/CreatePostFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_editPostFragment"
+            app:destination="@id/EditPostFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_fullPostFragment"
+            app:destination="@id/FullPostFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/ProfileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/SearchFragment" />
     </fragment>
     <fragment
         android:id="@+id/TimelineFragment"
@@ -76,5 +91,101 @@
         <action
             android:id="@+id/action_profileFragment_to_loginFragment"
             app:destination="@id/LoginFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_chatFragment"
+            app:destination="@id/ChatFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/EditProfileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/EditProfileFragment"
+        android:name="com.bounswe.heka.profile.EditProfileFragment"
+        android:label="EditProfile"
+        tools:layout="@layout/fragment_profile_edit">
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/CreatePostFragment"
+        android:name="com.bounswe.heka.post.CreatePostFragment"
+        android:label="Create Post"
+        tools:layout="@layout/fragment_create_post">
+        <action
+            android:id="@+id/action_createPostFragment_to_homeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/CreateCommentFragment"
+        android:name="com.bounswe.heka.post.CreateCommentFragment"
+        android:label="Create Comment"
+        tools:layout="@layout/fragment_create_comment">
+        <action
+            android:id="@+id/action_createCommentFragment_to_homeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/EditPostFragment"
+        android:name="com.bounswe.heka.post.EditPostFragment"
+        android:label="Post"
+        tools:layout="@layout/fragment_edit_post">
+        <action
+            android:id="@+id/action_editPostFragment_to_homeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/EditCommentFragment"
+        android:name="com.bounswe.heka.post.EditCommentFragment"
+        android:label="Post"
+        tools:layout="@layout/fragment_edit_comment">
+        <action
+            android:id="@+id/action_editCommentFragment_to_homeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/FullPostFragment"
+        android:name="com.bounswe.heka.post.FullPostFragment"
+        android:label="Post Details"
+        tools:layout="@layout/fragment_full_post">
+        <action
+            android:id="@+id/action_fullPostFragment_to_homeFragment"
+            app:destination="@id/HomeFragment" />
+        <action
+            android:id="@+id/action_fullPostFragment_to_createCommentFragment"
+            app:destination="@id/CreateCommentFragment" />
+        <action
+            android:id="@+id/action_fullPostFragment_to_editPostFragment"
+            app:destination="@id/EditPostFragment" />
+        <action
+            android:id="@+id/action_fullPostFragment_to_editCommentFragment"
+            app:destination="@id/EditCommentFragment" />
+        <action
+            android:id="@+id/action_fullPostFragment_to_imageFragment"
+            app:destination="@id/ImageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ImageFragment"
+        android:name="com.bounswe.heka.image.ImageFragment"
+        android:label="Image Details"
+        tools:layout="@layout/fragment_image">
+        <action
+            android:id="@+id/action_imagefragment_to_fullPostFragment"
+            app:destination="@id/FullPostFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SearchFragment"
+        android:name="com.bounswe.heka.search.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_homeFragment"
+            app:destination="@id/HomeFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_profileFragment"
+            app:destination="@id/ProfileFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_fullPostFragment"
+            app:destination="@id/FullPostFragment" />
     </fragment>
 </navigation>

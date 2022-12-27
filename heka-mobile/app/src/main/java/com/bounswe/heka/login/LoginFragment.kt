@@ -1,6 +1,7 @@
 package com.bounswe.heka.login
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bounswe.heka.R
 import com.bounswe.heka.databinding.FragmentLoginBinding
+import com.bounswe.heka.network.ApiClient
+import com.bounswe.heka.network.SessionManager
+import com.bounswe.heka.profile.ProfileState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.log
 
@@ -50,15 +54,29 @@ class LoginFragment: Fragment() {
             viewModel.email.value = it
         }
         viewModel.loginSuccessful.observe(viewLifecycleOwner) {
-            if (it != null) {
-                activity?.getSharedPreferences("com.bounswe.heka", 0 )?.edit()?.apply{
-                    putString("jwt", it.jwt)
-                }?.apply()
 
-                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            it?.let {
+                it.username?.let { username ->
+                    sessionManager.saveUsername(username)
+                }
+                it.token?.let { token ->
+                    sessionManager.saveAuthToken(token)
+                }
+
                 viewModel.loginSuccessful.value = null
             }
         }
 
+        viewModel.profileSuccessful.observe(viewLifecycleOwner) {
+
+            it?.let {
+                Log.v("Expert", it.toString())
+                it.is_expert.let { ie ->
+                    sessionManager.saveExpert(ie)
+                }
+                viewModel.profileSuccessful.value = null
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            }
+        }
+        }
     }
-}
