@@ -20,7 +20,6 @@ class HomeViewModel @Inject constructor(): ViewModel() {
             try {
                 ApiClient.get().listPosts().let {
                     adapter.addItems(it.map { post ->
-                        ApiClient.get().getProfile(post.username).let { profile ->
                             TimelineListItemState(
                                 post.category,
                                 post.title,
@@ -35,13 +34,12 @@ class HomeViewModel @Inject constructor(): ViewModel() {
                                 post.is_downvoted,
                                 post.image,
                                 post.location,
-                                profile.profile_image
                             )
-                        }
+
                     }.toMutableList())
                 }
             } catch (e: Exception) {
-
+                Log.e("HomeViewModel", "Error fetching timeline", e)
             }
         }
     }
@@ -71,6 +69,10 @@ class HomeViewModel @Inject constructor(): ViewModel() {
     }
     suspend fun getProfileImage(username: String): String {
 
-        return ApiClient.get().getProfile(username).profile_image?:""
+        return try {
+            ApiClient.get().getProfile(username).profile_image?:""
+        } catch (e: Exception) {
+            ""
+        }
     }
 }
