@@ -96,7 +96,7 @@
                         android:text="@{state.username}" />
                     <TextView
                         android:id="@+id/timeline_item_body"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         tools:text="This is insanity and this is a long comment as as test."
