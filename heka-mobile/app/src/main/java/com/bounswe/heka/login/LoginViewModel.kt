@@ -61,6 +61,7 @@ class LoginViewModel @Inject constructor(): ViewModel() {
                     Log.v("Expert", it.toString())
                     it.username?.let { username ->
                         val profileResponse = ApiClient.get().getProfile(username)
+                        Log.v("Expert", "profileResponse.toString()")
                         profileSuccessful.value = profileResponse
                     }
                 }

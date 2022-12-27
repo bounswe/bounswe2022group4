@@ -63,7 +63,6 @@ class LoginFragment: Fragment() {
                 }
                 it.token?.let { token ->
                     sessionManager.saveAuthToken(token)
-                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                 }
 
                 viewModel.loginSuccessful.value = null
@@ -78,6 +77,7 @@ class LoginFragment: Fragment() {
                     sessionManager.saveExpert(ie)
                 }
                 viewModel.profileSuccessful.value = null
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
             }
         }
         }
