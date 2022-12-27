@@ -5,13 +5,13 @@
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/v_red</item>
-        <item name="colorPrimaryVariant">@color/v_pink</item>
+        <item name="colorPrimary">@color/v_bblue</item>
+        <item name="colorPrimaryVariant">@color/v_blue</item>
         <item name="colorOnPrimary">@color/v_white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/v_blue</item>
-        <item name="colorSecondaryVariant">@color/v_bblue</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/v_red</item>
+        <item name="colorSecondaryVariant">@color/v_pink</item>
+        <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" >@color/v_bblue</item>
         <!-- Customize your theme here. -->
