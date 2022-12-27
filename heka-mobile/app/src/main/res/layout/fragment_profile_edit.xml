@@ -14,7 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/close_button"
@@ -22,15 +22,17 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:background="@android:color/transparent"
             android:drawableLeft="@drawable/ic_baseline_arrow_back_48"
-            android:backgroundTint="@color/black"
+
             />
 
         <FrameLayout
             android:id="@+id/rounded_purple"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="@{viewModel.isExpert == null ? @color/v_white : (viewModel.isExpert ? @color/v_blue : @color/v_red)}"
+            tools:backgroundTint="@color/v_red"
             android:background="@drawable/bottom_rounded_shape"
             android:layout_width="match_parent"
             android:paddingBottom="120dp"
@@ -178,12 +180,14 @@
         <Button
             app:layout_constraintTop_toBottomOf="@id/rounded_purple"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:id="@+id/edit_post_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:layout_marginHorizontal="100dp"
             android:enabled="@{viewModel.editButtonEnabled}"
+            android:backgroundTint="@{viewModel.isExpert == null ? @color/v_white : (viewModel.isExpert ? @color/v_blue : @color/v_red)}"
             android:text="Save"
             android:onClick="@{() -> viewModel.editProfile()}" />
 

@@ -13,32 +13,36 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <LinearLayout
         android:id="@+id/home_text_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:background="?attr/colorPrimary"
+        tools:background="@color/v_bblue"
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
+        android:paddingHorizontal="10dp"
         app:layout_constraintTop_toTopOf="parent" >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:text="HOME"
-            android:layout_marginLeft="10dp"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+
         <Button
+            android:drawableLeft="@drawable/ic_baseline_search_24"
             android:id="@+id/home_search_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Search"
             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text=""
+            android:layout_marginLeft="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
         <Button
             android:id="@+id/home_create_button"
             android:layout_width="wrap_content"
@@ -49,7 +53,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:background="@drawable/gradient"
+        android:background="@color/v_white"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:paddingLeft="8dp"
@@ -64,6 +68,17 @@
         app:layout_constraintTop_toBottomOf="@+id/home_text_view"
         app:layout_constraintVertical_bias="1.0"
         tools:listitem="@layout/timeline_item" />
+    <ImageView
+        android:id="@+id/doctor_frame"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitStart"
+        app:srcCompat="@drawable/logo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

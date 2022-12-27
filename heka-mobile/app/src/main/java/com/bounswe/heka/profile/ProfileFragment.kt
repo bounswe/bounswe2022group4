@@ -89,10 +89,16 @@ class ProfileFragment : Fragment() {
         viewModel.getProfile()
     }
 
-    override fun onResume() {
-        super.onResume()
-        changeBarColor(R.color.v_blue)
-    }
+//    override fun onResume() {
+//        super.onResume()
+//        changeBarColor(R.color.v_blue)
+//    }
+//
+//    override fun onPause() {
+//        super.onPause()
+//        changeBarColor(R.color.v_red)
+//
+//    }
 
 
     fun changeBarColor(bar_color: Int) {
