@@ -1,44 +1,14 @@
 package com.bounswe.heka.timeline
-import android.os.Bundle
+
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.viewModelScope
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.bounswe.heka.R
 import com.bounswe.heka.databinding.TimelineItemBinding
-import com.bounswe.heka.network.ApiClient
-import com.bounswe.heka.network.SessionManager
-import com.bounswe.heka.profile.ProfileState
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlin.reflect.KSuspendFunction1
+class TimeLineAdapter(private val data: List<TimelineListItemState>): RecyclerView.Adapter<TimeLineAdapter.TimelineListItemViewHolder>() {
 
-
-class TimeLineAdapter(private val data: MutableList<TimelineListItemState>, val upvote: (String)->Unit, val downvote:(String)->Unit, val getProfileImage: KSuspendFunction1<String, String>): RecyclerView.Adapter<TimeLineAdapter.TimelineListItemViewHolder>() {
-
-
-    class TimelineListItemViewHolder(val binding: TimelineItemBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        private val sessionManager = SessionManager(binding.root.context)
-        private val image = binding.timelineProfileImage
-
-        fun bind(state: TimelineListItemState, upvote: (String)->Unit, downvote:(String)->Unit, getProfileImage: KSuspendFunction1<String, String>){
-            CoroutineScope(Dispatchers.IO).launch {
-                getProfileImage(state.username).let {
-                    CoroutineScope(Dispatchers.Main).launch {
-                        Glide.with(binding.root.context)
-                            .load(it).placeholder(R.drawable.temp_profile_photo).into(image)
-                    }
-                }
-            }
-
-
+    class TimelineListItemViewHolder(val binding: TimelineItemBinding): RecyclerView.ViewHolder(binding.root){
+        fun bind(state: TimelineListItemState){
             binding.state = state
             if (state.image == null) {
                 binding.timelineImage.visibility = View.GONE
@@ -87,21 +57,13 @@ class TimeLineAdapter(private val data: MutableList<TimelineListItemState>, val 
         }
     }
 
-    fun addItems(items: List<TimelineListItemState>) {
-        data.clear()
-        data.addAll(items)
-        notifyDataSetChanged()
-    }
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TimelineListItemViewHolder {
-        val binding =
-            TimelineItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = TimelineItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return TimelineListItemViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: TimelineListItemViewHolder, position: Int) {
-        holder.bind(data[position], upvote, downvote, getProfileImage)
+        holder.bind(data[position])
     }
 
     override fun getItemCount(): Int {

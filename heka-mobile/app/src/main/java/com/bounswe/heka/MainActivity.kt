@@ -13,7 +13,6 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bounswe.heka.databinding.ActivityMainBinding
-import com.bounswe.heka.network.ApiClient
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,7 +22,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ApiClient.init(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val navView: BottomNavigationView = binding.navView
@@ -34,12 +32,12 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.ChatListFragment, R.id.HomeFragment, R.id.ProfileFragment
+                R.id.TimelineFragment, R.id.HomeFragment, R.id.ProfileFragment
             )
         )
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.ChatListFragment -> {
+                R.id.TimelineFragment -> {
                     navView.visibility = View.VISIBLE
                 }
                 R.id.HomeFragment -> {

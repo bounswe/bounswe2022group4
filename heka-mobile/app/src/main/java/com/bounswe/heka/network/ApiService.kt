@@ -4,23 +4,24 @@ import com.bounswe.heka.data.chat.*
 import com.bounswe.heka.data.post.*
 import retrofit2.http.*
 
+private const val BASE_URL = "http://3.72.25.175:8080/api/"
+private val moshi = Moshi.Builder()
+    .add(KotlinJsonAdapterFactory())
+    .build()
+private val retrofit = Retrofit.Builder()
+    .addConverterFactory(MoshiConverterFactory.create(moshi))
+    .baseUrl(BASE_URL)
+    .build()
 interface ApiService {
     @POST("user/register")
     suspend fun register(@Body request: RegisterRequest): RegisterResponse
     @POST("user/login")
     suspend fun login(@Body request: LoginRequest): LoginResponse
-    @POST("user/forget_password")
-    suspend fun forgetPassword(@Body request: ForgetPasswordRequest): ForgetPasswordResponse
-    @POST("user/reset_password")
-    suspend fun resetPassword(@Body request: ResetPasswordRequest): ResetPasswordResponse
-    @GET("user/profilepage/{username}")
-    suspend fun getProfile(@Path("username") username:String) : ProfileResponse
-    @PUT("user/profilepage/{username}")
-    suspend fun setProfile(@Path("username") username:String, @Body request: ProfilePutRequest) : ProfileResponse
     @GET("user/home")
     suspend fun home() : HomeResponse
-    @POST("user/logout")
+    @GET("user/logout")
     suspend fun logout(): LogoutResponse
+}
 
 
     @POST("post/create-post")

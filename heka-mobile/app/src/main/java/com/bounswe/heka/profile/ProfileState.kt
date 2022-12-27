@@ -1,7 +1,5 @@
 package com.bounswe.heka.profile
 
-import java.sql.Timestamp
-
 data class ProfileState (
     val email: String?,
     val username: String,

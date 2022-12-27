@@ -4,9 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../../layout/custom_preview.xml" value="0.17477203647416414" />
-        <entry key="app/src/main/res/drawable/gradient.xml" value="0.1455" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21965579710144928" />
-        <entry key="app/src/main/res/layout/activity_post.xml" value="0.2171875" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.21965579710144928" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.27898550724637683" />
         <entry key="app/src/main/res/layout/fragment_chat_list.xml" value="0.3080963134765625" />

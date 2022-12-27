@@ -1,18 +1,10 @@
 package com.bounswe.heka.home
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.bounswe.heka.data.post.ListPostsResponse
-import com.bounswe.heka.network.ApiClient
-import com.bounswe.heka.timeline.TimeLineAdapter
-import com.bounswe.heka.timeline.TimelineListItemState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-
 class HomeViewModel @Inject constructor(): ViewModel() {
     val adapter = TimeLineAdapter(mutableListOf(), this::upvotePost, this::downvotePost, this::getProfileImage)
     fun fetchTimeline() {

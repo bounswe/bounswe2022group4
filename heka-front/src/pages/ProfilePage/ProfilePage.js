@@ -11,12 +11,17 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
+  Input,
+  FormGroup,
 } from "reactstrap";
 import "./profilePage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-import { useState } from "react";
+import { BackendApi } from "../../api";
+import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { MessageChat } from "../../components/Chat/MessageChat";
+import { useParams } from "react-router-dom";
+import GridLoader from "react-spinners/GridLoader";
 
 const userData = [
   {
@@ -65,7 +70,7 @@ const userData = [
   },
   {
     id: "4",
-    name: "Melih Aktaş",
+    name: "Melih AktaÅŸ",
     userName: "mlhakts",
     followers: [1, 2],
     following: [1, 2, 3],
@@ -178,35 +183,41 @@ const posts = [
   },
 ];
 
-const comments = [
-  { id: "0", text: "comment1", owner: "1" },
-  { id: "1", text: "comment1", owner: "1" },
-  { id: "2", text: "comment2", owner: "1" },
-  { id: "3", text: "comment3", owner: "1" },
-  { id: "4", text: "comment4", owner: "1" },
-  { id: "5", text: "comment5", owner: "1" },
-  { id: "6", text: "comment6", owner: "2" },
-  { id: "7", text: "comment7", owner: "2" },
-  { id: "8", text: "comment8", owner: "2" },
-  { id: "9", text: "comment9", owner: "2" },
-  { id: "10", text: "comment10", owner: "2" },
-  { id: "11", text: "comment11", owner: "3" },
-  { id: "12", text: "comment12", owner: "3" },
-  { id: "13", text: "comment13", owner: "3" },
-  { id: "14", text: "comment14", owner: "3" },
-  { id: "15", text: "comment15", owner: "3" },
-  { id: "16", text: "comment16", owner: "4" },
-  { id: "17", text: "comment17", owner: "4" },
-  { id: "18", text: "comment18", owner: "4" },
-  { id: "19", text: "comment19", owner: "4" },
-  { id: "20", text: "comment20", owner: "4" },
-];
+const ProfilePage = () => {
+  const [profile, setProfile] = useState({});
+  const [postData, setPostData] = useState([]);
+  const { userName } = useParams();
 
-const ProfilePage = ({ isLogged, authenticationToken, loggedInUser }) => {
-  //
+  const [authToken, setAuthToken] = React.useState("");
+  const [loggedUser, setLoggedUser] = React.useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setLoggedUser(localStorage["user"]);
+  }, [localStorage["user"]]);
+  useEffect(() => {
+    setAuthToken(localStorage["authToken"]);
+  }, [localStorage["authToken"]]);
+  useEffect(() => {
+    const getProfile = async () => {
+      const response = await BackendApi.getProfile(userName, authToken);
+      if (response.status >= 200 && response.status < 300) {
+        setProfile(response.data);
+      }
+    };
+    const getPosts = async () => {
+      const response = await BackendApi.getPosts(authToken);
+      if (response.status >= 200 && response.status < 300) {
+        const filteredData = await response?.data.filter(
+          (post) => post.username === profile.username
+        );
+        setPostData(filteredData);
+        setIsLoading(false);
+      }
+    };
+    getProfile(userName, authToken);
+    getPosts(authToken);
+  }, [postData]);
 
-  ///
-  //
   const showPosts = () => {
     setPostModelOpen(!postModelOpen);
   };
@@ -234,8 +245,45 @@ const ProfilePage = ({ isLogged, authenticationToken, loggedInUser }) => {
   const [followingModelOpen, setFollowingModelOpen] = useState(false);
   const [id, setID] = useState("0");
 
+  const showMessageModel = () => {
+    setMessageModelOpen(!messageModelOpen);
+  };
+
+  const onMessageModelClose = () => {
+    setMessageModelOpen(!messageModelOpen);
+  };
+  const [messageModelOpen, setMessageModelOpen] = useState(false);
+  const [sentMessage, setSentMessage] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const isSent = await onSendMessage(profile.username);
+    if (isSent) {
+      alert("Message sent successfully!");
+    } else {
+      alert("There is an error while sending a message!");
+    }
+    setSentMessage("");
+    setMessageModelOpen(!messageModelOpen);
+  };
+
+  const onSendMessage = async (value) => {
+    const response = await BackendApi.sendMessage(
+      value,
+      sentMessage,
+      authToken
+    );
+    if (!(response.status >= 200 && response.status < 300)) {
+      alert(
+        "Karşıdaki kullanıcı bulunamadı veya serverda bir hata meydana geldi"
+      );
+      return false;
+    } else {
+      return true;
+    }
+  };
+
   return (
-    <div>
+    <div data-testid="profile-page">
       <Container fluid style={{ padding: "0" }}>
         <Row style={{ height: "350px", backgroundColor: "black" }}>
           {/* <img src={bgImg} style={{ height: "400px", zIndex: "-1" }}></img> */}
@@ -261,7 +309,11 @@ const ProfilePage = ({ isLogged, authenticationToken, loggedInUser }) => {
               }}
             >
               <img
-                src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                src={
+                  profile.is_expert
+                    ? "https://cdn-icons-png.flaticon.com/512/3774/3774299.png"
+                    : "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                }
                 alt="Computer Icons User Clip Art - Transparent Png Icon User, Png Download@kindpng.com"
                 style={{ width: "150px", height: "150px" }}
               ></img>
@@ -276,27 +328,66 @@ const ProfilePage = ({ isLogged, authenticationToken, loggedInUser }) => {
                 }}
               >
                 <div style={{ padding: "10px" }}>
-                  <h1 style={{ display: "inline" }}> {userData[id].name}</h1>
+                  <h1 style={{ display: "inline" }}> {profile.username}</h1>
                   <div style={{ marginTop: "1vh", fontStyle: "italic" }}>
                     {" "}
-                    Regular User
+                    {profile.is_expert ? "Doctor" : "Regular User"}
+                  </div>
+                  <div style={{ marginTop: "1vh", fontStyle: "italic" }}>
+                    {" "}
+                    {profile.email}
                   </div>
 
-                  <Button
-                    style={{
-                      float: "right",
-                      color: "blue",
-                      backgroundColor: "white",
-                      borderColor: "blue",
-                    }}
-                  >
-                    Follow
-                  </Button>
+                  <div style={{ marginRigth: "4px" }}>
+                    <Button
+                      style={{
+                        float: "right",
+                        color: "blue",
+                        backgroundColor: "white",
+                        borderColor: "blue",
+                      }}
+                    >
+                      Follow
+                    </Button>
+                    <Button
+                      style={{
+                        float: "right",
+                        color: "blue",
+                        backgroundColor: "white",
+                        borderColor: "blue",
+                      }}
+                      variant="outlined"
+                      onClick={() => showMessageModel()}
+                    >
+                      Send Message
+                    </Button>
+                    <Modal
+                      isOpen={messageModelOpen}
+                      toggle={() => onMessageModelClose()}
+                    >
+                      <ModalHeader>Send First Message</ModalHeader>
+
+                      <ModalBody>
+                        <FormGroup>
+                          <Input
+                            type="text"
+                            name="message"
+                            id="message_input"
+                            placeholder="Sent a message!"
+                            onChange={(e) => {
+                              setSentMessage(e.target.value);
+                            }}
+                          />
+                        </FormGroup>
+                        <Button onClick={handleSubmit}>Send</Button>
+                      </ModalBody>
+                    </Modal>
+                  </div>
                 </div>
                 <div style={{ padding: "10px" }}>
                   <span>
                     <a className="links" onClick={showPosts}>
-                      <b>{userData[id].posts.length}</b> {"Posts "}
+                      <b>{postData?.length}</b> {"Posts "}
                     </a>
                   </span>
                   <span>
@@ -315,8 +406,12 @@ const ProfilePage = ({ isLogged, authenticationToken, loggedInUser }) => {
                   <ModalHeader>Followers</ModalHeader>
 
                   <ModalBody>
-                    {userData[id].followers.map((follower) => {
-                      return <div id={follower}>{userData[follower].name}</div>;
+                    {userData[id].followers.map((follower, idx) => {
+                      return (
+                        <div key={idx} id={follower}>
+                          {userData[follower].name}
+                        </div>
+                      );
                     })}
                   </ModalBody>
                 </Modal>
@@ -324,8 +419,8 @@ const ProfilePage = ({ isLogged, authenticationToken, loggedInUser }) => {
                   <ModalHeader>Following</ModalHeader>
 
                   <ModalBody>
-                    {userData[id].following.map((follow) => {
-                      return <div> {userData[follow].name}</div>;
+                    {userData[id].following.map((follow, idx) => {
+                      return <div key={idx}> {userData[follow].name}</div>;
                     })}
                   </ModalBody>
                 </Modal>
@@ -333,8 +428,8 @@ const ProfilePage = ({ isLogged, authenticationToken, loggedInUser }) => {
                   <ModalHeader>Posts</ModalHeader>
 
                   <ModalBody>
-                    {userData[id].posts.map((post) => {
-                      return <div> {posts[post].header}</div>;
+                    {userData[id].posts.map((post, idx) => {
+                      return <div key={idx}> {posts[post].header}</div>;
                     })}
                   </ModalBody>
                 </Modal>
@@ -370,97 +465,44 @@ const ProfilePage = ({ isLogged, authenticationToken, loggedInUser }) => {
                 </div>
               </Col>
             </Row>
+
             <Row style={{ padding: "30px" }}>
-              <Col sm={3}>
-                <Card
+              {isLoading ? (
+                <div
+                  className="loader"
                   style={{
-                    width: "100%",
-                    padding: "10px",
+                    marginTop: "10vh",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                   }}
                 >
-                  {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
-                  <CardBody>
-                    <CardTitle tag="h5">
-                      My blood pressure is too high
-                    </CardTitle>
-                    <CardSubtitle className="mb-2 text-muted" tag="h6">
-                      Cardiology
-                    </CardSubtitle>
-                    <CardText>
-                      I have a very high blood pressure. What could be the
-                      reason of that? Should I see a doctor?
-                    </CardText>
-                    <Button>See Post</Button>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col sm={3}>
-                <Card
-                  style={{
-                    width: "100%",
-                    padding: "10px",
-                  }}
-                >
-                  {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
-                  <CardBody>
-                    <CardTitle tag="h5">
-                      My friend thinks that she is a bird!
-                    </CardTitle>
-                    <CardSubtitle className="mb-2 text-muted" tag="h6">
-                      Psychology
-                    </CardSubtitle>
-                    <CardText>
-                      She is completely out of her mind! How can I convince her
-                      about she is not a bird?
-                    </CardText>
-                    <Button>See Post</Button>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col sm={3}>
-                <Card
-                  style={{
-                    width: "100%",
-                    padding: "10px",
-                  }}
-                >
-                  {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
-                  <CardBody>
-                    <CardTitle tag="h5">
-                      Which covid vaccine should I choose?
-                    </CardTitle>
-                    <CardSubtitle className="mb-2 text-muted" tag="h6">
-                      Immunology
-                    </CardSubtitle>
-                    <CardText>
-                      Which vaccine is the best in terms of short and long term
-                      side effects? What do you suggest?
-                    </CardText>
-                    <Button>See Post</Button>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col sm={3}>
-                <Card
-                  style={{
-                    width: "100%",
-                    padding: "10px",
-                  }}
-                >
-                  {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
-                  <CardBody>
-                    <CardTitle tag="h5">I feel powerless</CardTitle>
-                    <CardSubtitle className="mb-2 text-muted" tag="h6">
-                      Psychiatry
-                    </CardSubtitle>
-                    <CardText>
-                      I feel powerless. I feel meaningless. I feel hopelessness.
-                      I have deep depression followed by suicidal thoughts.
-                    </CardText>
-                    <Button>See Post</Button>
-                  </CardBody>
-                </Card>
-              </Col>
+                  <GridLoader color="rgb(255, 230, 250)" size={80} />
+                </div>
+              ) : (
+                postData.map((item, idx) => (
+                  <Col sm={3} key={idx}>
+                    <Card
+                      style={{
+                        width: "100%",
+                        padding: "10px",
+                      }}
+                    >
+                      {/* <img alt="Sample" src="https://picsum.photos/300/200" /> */}
+                      <CardBody>
+                        <CardTitle tag="h5">{item?.title}</CardTitle>
+                        <CardSubtitle className="mb-2 text-muted" tag="h6">
+                          {item?.category}
+                        </CardSubtitle>
+                        <CardText>{item?.body}</CardText>
+                        <Link to={"/post/" + item?.slug}>
+                          <Button>See Post</Button>
+                        </Link>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                ))
+              )}
             </Row>
           </CardBody>
         </Card>
@@ -468,22 +510,17 @@ const ProfilePage = ({ isLogged, authenticationToken, loggedInUser }) => {
       <div
         style={{
           position: "fixed",
-          bottom: "280px",
-          right: "0px",
+          bottom: "60px",
+          right: "20px",
           zIndex: "214783647",
           width: "320px",
-          height: "40px",
-          maxHeight:"400px"
+          height: "224px",
         }}
       >
         <MessageChat
-          authenticatonToken={authenticationToken}
-          isLogged={isLogged}
-          loggedInUser={loggedInUser}
           styles={{
             width: "320px",
-            height: "40px",
-            maxHeight:"400px",
+            height: "400px",
           }}
         />
       </div>

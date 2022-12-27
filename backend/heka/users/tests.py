@@ -18,6 +18,7 @@ class RegisterTestCase(APITestCase):
         self.url = reverse('register')
     def test_register(self):
         data = {
+            "name":"Canan Karatay",
             "email":"canan.karatay@gmail.com",
             "username":"canankrty",
             "password":"karatay.1359",

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useRef } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate,  } from 'react-router-dom';
 import { BackendApi } from '../../api';
 import {
   FaUserCircle,
@@ -27,6 +27,11 @@ const SignUpPage = () => {
   const [fullName, setFullName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [password2, setPassword2] = useState('');
+  const [password3, setPassword3] = useState('');
+  const [confirmationErr, setConfirmationErr] = useState();
+  const [passwordReqErr, setPasswordReqErr] = useState();
+
   const [institution, setInstitution] = useState('');
   const [email, setEmail] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -88,6 +93,7 @@ const SignUpPage = () => {
       value: password,
       type: 'password',
     },
+    
   ];
   const handleClick = (e) => {
     const index = parseInt(e.target.id, 0);
@@ -102,6 +108,7 @@ const SignUpPage = () => {
     console.log('username', username);
     console.log('password', password);
     console.log('email', email);
+    
     if (
       username.length !== 0 &&
       password.length !== 0 &&
@@ -117,8 +124,9 @@ const SignUpPage = () => {
       console.log(response);
       if ((response.status >= 200) & (response.status < 300)) {
         setIsAuthenticated(true);
+        const response_1 = await BackendApi.postEmail(email);
       } else if (response.status === 400) {
-        alert('This e-mail had already been registered!');
+        alert('This e-mail or username had already been registered!');
         setUsername('');
         setEmail('');
         setPassword('');
@@ -139,31 +147,54 @@ const SignUpPage = () => {
     console.log('email', email);
     if (
       username.length !== 0 &&
-      password.length !== 0 &&
-      email &&
+      password2.length !== 0 &&
+      email && password2 == password3 && 
       validEmail(email)
     ) {
       setIsExpert(false);
       const response = await BackendApi.postRegister(
         email,
         username,
-        password,
+        password2,
         isExpert
       );
       console.log(response);
+      
       if ((response.status >= 200) & (response.status < 300)) {
         setIsAuthenticated(true);
+        const response_2 = await BackendApi.postEmail(email);
       } else if (response.status === 400) {
-        alert('This e-mail had already been registered!');
+        alert('This e-mail or username had already been registered!');
         setUsername('');
         setEmail('');
-        setPassword('');
+        setPassword2('');
+        setPassword3('');
       }
     } else {
-      alert('Please enter valid registration information!');
-      setUsername('');
-      setEmail('');
-      setPassword('');
+      var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/;
+      if(!(password2.match(passw)))
+      {
+        setPasswordReqErr(true);
+        setUsername('');
+        setEmail('');
+        setPassword2('');
+        setPassword3(''); 
+      }
+      else if (password2 != password3){
+        setConfirmationErr(true);
+        setUsername('');
+        setEmail('');
+        setPassword2('');
+        setPassword3('');
+      }
+      else {
+        alert('Please enter valid registration information!');
+        setUsername('');
+        setEmail('');
+        setPassword2('');
+        setPassword3('');
+      }
+      
     }
   };
 
@@ -179,7 +210,7 @@ const SignUpPage = () => {
   return (
     <>
       {isAuthenticated ? (
-        <Navigate to='/sign-in' replace={true} />
+        <Navigate to='/sign-up-verification'  replace={true} />
       ) : (
         <>
           <Tabs>
@@ -226,6 +257,9 @@ const SignUpPage = () => {
                         value={email}
                         onChange={(e) => {
                           setEmail(e.target.value);
+                          setConfirmationErr(false);
+                          setPasswordReqErr(false);
+
                         }}
                       />
                     </div>
@@ -240,7 +274,9 @@ const SignUpPage = () => {
                         required
                         value={username}
                         onChange={(e) => {
+                          setPasswordReqErr(false);
                           setUsername(e.target.value);
+                          setConfirmationErr(false);
                         }}
                       />
                     </div>
@@ -253,14 +289,49 @@ const SignUpPage = () => {
                         className='form-input'
                         type='password'
                         placeholder='Password'
-                        name='password'
+                        name='password2'
                         required
-                        value={password}
+                        value={password2}
                         onChange={(e) => {
-                          setPassword(e.target.value);
+                          setPasswordReqErr(false);
+                          setPassword2(e.target.value);
+                          setConfirmationErr(false);
                         }}
                       ></input>
                     </div>
+
+                    <div className='input-component'>
+                      <span className='input-item'>
+                        <FaKey />
+                      </span>
+
+                      <input
+                        className='form-input'
+                        type='password'
+                        placeholder='Confirm Password'
+                        name='password3'
+                        required
+                        value={password3}
+                        onChange={(e) => {
+                          setPasswordReqErr(false);
+                          setPassword3(e.target.value);
+                          setConfirmationErr(false);
+                          
+                        }}
+                      ></input>
+                    </div>
+                    {(passwordReqErr) ? (
+                <div className='error-msg'>
+                  <i className='fa fa-times-circle'></i>
+                  Users shall set a password that is longer than 8 characters and contains at least one upper-case letter, one lower-case letter, and one number.
+                </div>
+              ) : null}
+                    {(confirmationErr) ? (
+                <div className='error-msg'>
+                  <i className='fa fa-times-circle'></i>
+                  Password and Confirm Password must be matched
+                </div>
+              ) : null}
                     <button
                       className='sign-up-button'
                       onClick={handleRegularSubmit}
@@ -344,9 +415,11 @@ const SignUpPage = () => {
                             />
                           </div>
                         )}
+                        
                       </>
+                      
                     ))}
-
+                     
                     <button
                       className='sign-up-button'
                       onClick={handleDoctorSubmit}
@@ -354,11 +427,22 @@ const SignUpPage = () => {
                       Sign Up
                       <AiOutlineLogin aria-hidden='true' />
                     </button>
+                   
                   </div>
+                  
+                            
+                                
+                                
+                           
+                        
+                
                 </div>
+                
               </form>
             </div>
+            
           </Content>
+          
         </>
       )}
     </>

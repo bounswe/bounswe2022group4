@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'rest_framework.authtoken',
     'corsheaders',
     'users',
     'drf_yasg',
@@ -65,7 +64,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'heka.urls'
-LOGIN_URL = "/api/user/login"
 
 TEMPLATES = [
     {

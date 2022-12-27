@@ -9,7 +9,7 @@
         android:title="HOME"
         app:showAsAction="never" />
     <item
-        android:id="@+id/ChatListFragment"
+        android:id="@+id/TimelineFragment"
         android:orderInCategory="100"
         android:icon="@drawable/ic_baseline_chat_bubble_24"
         android:title="CHAT"

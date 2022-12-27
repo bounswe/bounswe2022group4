@@ -78,30 +78,16 @@
             app:destination="@id/SearchFragment" />
     </fragment>
     <fragment
-        android:id="@+id/ChatListFragment"
-        android:name="com.bounswe.heka.chat.ChatListFragment"
-        tools:layout="@layout/fragment_chat_list">
-        <action
-            android:id="@+id/action_chatListFragment_to_chatFragment"
-            app:destination="@id/ChatFragment" />
+        android:id="@+id/TimelineFragment"
+        android:name="com.bounswe.heka.timeline.TimelineFragment"
+        android:label="@string/suggested_posts"
+        tools:layout="@layout/fragment_timeline">
     </fragment>
-    <fragment
-        android:id="@+id/ChatFragment"
-        android:name="com.bounswe.heka.chat.ChatFragment"
-        tools:layout="@layout/fragment_chat">
-        <action
-            android:id="@+id/action_chatFragment_to_chatListFragment"
-            app:destination="@id/ChatListFragment" />
-    </fragment>
-
     <fragment
         android:id="@+id/ProfileFragment"
         android:name="com.bounswe.heka.profile.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile">
-        <action
-            android:id="@+id/action_profileFragment_to_homeFragment"
-            app:destination="@id/HomeFragment" />
         <action
             android:id="@+id/action_profileFragment_to_loginFragment"
             app:destination="@id/LoginFragment" />

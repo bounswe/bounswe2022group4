@@ -21,7 +21,6 @@ import kotlin.math.log
 class LoginFragment: Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private val viewModel: LoginViewModel by viewModels()
-    lateinit var sessionManager: SessionManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,8 +34,7 @@ class LoginFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        sessionManager = SessionManager(requireContext())
-        val jwt = sessionManager.fetchAuthToken()
+        val jwt = activity?.getSharedPreferences("com.bounswe.heka", 0)?.getString("jwt", null)
         if (jwt != null) {
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         }

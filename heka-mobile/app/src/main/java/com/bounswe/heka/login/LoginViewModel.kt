@@ -9,10 +9,10 @@ import com.bounswe.heka.data.LoginResponse
 import com.bounswe.heka.data.ProfileResponse
 import com.bounswe.heka.network.ApiClient
 import com.bounswe.heka.utils.EmailValidator
-import com.bounswe.heka.utils.NameValidator
 import com.bounswe.heka.utils.PasswordValidator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import java.util.prefs.Preferences
 import javax.inject.Inject
 
 @HiltViewModel
@@ -30,7 +30,6 @@ class LoginViewModel @Inject constructor(): ViewModel() {
 
     private val emailValidator = EmailValidator()
     private val passwordValidator = PasswordValidator()
-
     init {
         email.observeForever {
             emailError.value = emailValidator.validate(it)
@@ -52,10 +51,9 @@ class LoginViewModel @Inject constructor(): ViewModel() {
         viewModelScope.launch {
             try {
                 loading.value = true
-                val response = ApiClient.get().login(LoginRequest(email = email.value!!, password = password.value!!))
+                val response = Api.retrofitService.login(LoginRequest(email = email.value!!, password = password.value!!))
 
-                toastMessage.value = response.message
-
+                toastMessage.value = "Login successful: ${response.jwt}"
                 loginSuccessful.value = response
                 response.let {
                     Log.v("Expert", it.toString())

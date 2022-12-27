@@ -1,7 +1,17 @@
+from importlib import import_module
+from django.shortcuts import render
+from requests import request
+#from httplib2 import Response
+from yaml import serialize
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from rest_framework.exceptions import AuthenticationFailed
+from .serializers import UserSerializer
 from .models import User
+import jwt, datetime
 from drf_yasg.utils import swagger_auto_schema 
 from drf_yasg import openapi
+from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -15,11 +25,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 from django.core.mail import send_mail
 
-
-
+#@swagger_auto_schema(methods=['post',],request_body=UserSerializer )
 class RegisterView(APIView):
-    permission_classes = [AllowAny]
-    @swagger_auto_schema(request_body = UserSerializer, response=UserSerializer) 
+    @swagger_auto_schema(request_body = UserSerializer, response=UserSerializer) #manual_parameters=parameters)
     def post(self, request):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
@@ -31,7 +39,6 @@ class RegisterView(APIView):
         return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
 class LoginView(APIView):
-    permission_classes = [AllowAny]
     login_schema = openapi.Schema(
     type=openapi.TYPE_OBJECT,
     properties={
@@ -45,9 +52,11 @@ class LoginView(APIView):
         email = request.data["email"]
         password = request.data["password"]
 
+        
         user = User.objects.filter(email=email).first()
+
         if user is None:
-            raise AuthenticationFailed("User not found!")
+            raise AuthenticationFailed("user not found!")
         if not user.check_password(password):
             raise AuthenticationFailed("Incorrect password!")
        
@@ -63,13 +72,23 @@ class LoginView(APIView):
             return Response(data = {'message':'Already logged in!', 'email':email, 'username':user.username,
                                     'token': Token.objects.get_or_create(user=user)[0].key })
         
-      
+        response = Response(status=status.HTTP_200_OK)
+        response.set_cookie(key="jwt", value=encoded_jwt, httponly=True)
+        response.data = {
+            "jwt": encoded_jwt
+        }
+        return response
 
 class HomeView(APIView):
-    permission_classes = [AllowAny]
-    authentication_classes = [TokenAuthentication]
-    @swagger_auto_schema() 
+    parameters=[]
+    parameters.append(openapi.Parameter('jwt', in_ = 'cookie', type=openapi.TYPE_STRING))
+    @swagger_auto_schema(manual_parameters=parameters) 
     def get(self, request):
+        token = request.COOKIES.get("jwt")
+        
+        if not token:
+            raise AuthenticationFailed("unauthenticated user!")
+        
         try:
             user = Token.objects.get(key=request.auth.key).user
             token = Token.objects.get(user=user)
