@@ -22,10 +22,6 @@ class ChatFragment: Fragment() {
     private lateinit var listAdapter: MessagesListAdapter
     private lateinit var listAdapterObserver: RecyclerView.AdapterDataObserver
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -77,7 +73,7 @@ class ChatFragment: Fragment() {
             viewDataBinding.messagesRecyclerView.adapter = listAdapter
             viewModel.initMessages()
         } else {
-            throw Exception("The viewmodel is not initialized")
+            throw Exception("")
         }
     }
 
