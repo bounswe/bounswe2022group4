@@ -5,17 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <import type="android.view.View" />
-
         <variable
             name="viewmodel"
             type="com.bounswe.heka.chat.ChatListViewModel" />
         <variable
             name="chatwithuserinfo"
             type="com.bounswe.heka.data.chat.ChatWithUserInfo" />
-
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -51,7 +47,6 @@
                 tools:src="@drawable/nowzaradan" />
 
         </androidx.cardview.widget.CardView>
-
         <View
             android:id="@+id/onlineView"
             android:layout_width="12dp"

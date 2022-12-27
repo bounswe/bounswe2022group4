@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.bounswe.heka.chatbot.ChatBotViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/textContentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:background="@drawable/gradient"
+            android:id="@+id/messagesRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:bind_messages_list="@{viewModel.messagesList}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/opt1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/list_item_message_recieved" />
+        <Button
+            android:id="@+id/opt1"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@android:color/white"
+            android:minHeight="48dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/opt2"
+            android:onClick="@{() -> viewModel.button1()}"
+            app:layout_constraintRight_toRightOf="parent"/>
+        <Button
+            android:id="@+id/opt2"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@android:color/white"
+            android:minHeight="48dp"
+            android:onClick="@{() -> viewModel.button2()}"
+            app:layout_constraintBottom_toTopOf="@id/opt3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+        <Button
+            android:id="@+id/opt3"
+            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:background="@android:color/white"
+            android:onClick="@{() -> viewModel.button3()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -84,6 +84,9 @@
         <action
             android:id="@+id/action_chatListFragment_to_chatFragment"
             app:destination="@id/ChatFragment" />
+        <action
+            android:id="@+id/action_chatListFragment_to_chatbotFragment"
+            app:destination="@id/ChatBotFragment" />
     </fragment>
     <fragment
         android:id="@+id/ChatFragment"
@@ -93,6 +96,15 @@
             android:id="@+id/action_chatFragment_to_chatListFragment"
             app:destination="@id/ChatListFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/ChatBotFragment"
+        android:name="com.bounswe.heka.chatbot.ChatBotFragment"
+        tools:layout="@layout/fragment_chat_bot">
+        <action
+            android:id="@+id/action_chatbotFragment_to_chatListFragment"
+            app:destination="@id/ChatListFragment" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/ProfileFragment"

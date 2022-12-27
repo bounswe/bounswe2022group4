@@ -49,6 +49,11 @@ class ChatListFragment: Fragment() {
     private fun setupObservers() {
         viewModel.selectedChat.observe(viewLifecycleOwner,
             EventObserver { navigateToChat(it) })
+        viewModel.chatbotIndicator.observe(viewLifecycleOwner){
+            if (it){
+                findNavController().navigate(R.id.action_chatListFragment_to_chatbotFragment)
+            }
+        }
     }
 
     private fun navigateToChat(chatWithUserInfo: ChatWithUserInfo) {

@@ -1,6 +1,8 @@
 package com.bounswe.heka.chat
 
 import androidx.lifecycle.*
+import androidx.navigation.fragment.findNavController
+import com.bounswe.heka.R
 import com.bounswe.heka.data.Event
 import com.bounswe.heka.data.chat.*
 import com.bounswe.heka.network.ApiClient
@@ -19,6 +21,7 @@ class ChatListViewModel @Inject constructor(): ViewModel() {
     private val _selectedChat = MutableLiveData<Event<ChatWithUserInfo>>()
     var selectedChat: LiveData<Event<ChatWithUserInfo>> = _selectedChat
     val chatsList = MutableLiveData<MutableList<ChatWithUserInfo>>()
+    val chatbotIndicator = MutableLiveData<Boolean>()
     var job: Job? = null
 
     init {
@@ -36,6 +39,12 @@ class ChatListViewModel @Inject constructor(): ViewModel() {
     fun selectChatWithUserInfoPressed(chat: ChatWithUserInfo) {
         _selectedChat.value = Event(chat)
     }
+
+    fun goChatbot(){
+        chatbotIndicator.value = true
+    }
+
+
     private fun fetchChats() {
         viewModelScope.launch {
             try {
