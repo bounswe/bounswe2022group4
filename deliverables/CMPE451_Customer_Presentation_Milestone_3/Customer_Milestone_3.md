@@ -136,8 +136,8 @@
 
 
 
-
 - **Oğuzhan Tok**
+
 |Work Title|Related Link|
 | ----------- | ----------- |
 |Backend: Research About Semantic Search|[issue](https://github.com/bounswe/bounswe2022group4/issues/517)
@@ -149,8 +149,6 @@
 |Backend: Bug Fix of the sort functionality "type" parameter|[issue](https://github.com/bounswe/bounswe2022group4/issues/579)
 |Backend: Update Message of the Email|[issue](https://github.com/bounswe/bounswe2022group4/issues/607)
 |Management: API Endpoints will be prepared for the Milestone 3|[issue](https://github.com/bounswe/bounswe2022group4/issues/644)
-
-
 |Heka backend search - Initialized the application and added the user search functionality|[PR](https://github.com/bounswe/bounswe2022group4/pull/527)
 |Backend: Search Application - Initialized the application and added the user search functionality|[PR](https://github.com/bounswe/bounswe2022group4/pull/528)
 |Backend: Search Application - Added the post search functionality|[PR](https://github.com/bounswe/bounswe2022group4/pull/534)
