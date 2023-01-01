@@ -1,4 +1,4 @@
-# Group 2 - Milestone 2 - Group Review
+# Group 4 - Milestone 3 - Group Review
 
 1. [Executive Summary](#executive-summary)
 	* 1.1 Summary of the Project Status
@@ -609,5 +609,108 @@ Mobile
 </br>
 
 ## Individual Reports
+
+<details>
+
+  <summary>
+
+###  *Umut Deniz Şener - Group 4*
+    
+</summary>
+  
+  ###  *Member*
+
+* Name: Umut Deniz Şener
+* Student ID: 2018400255
+* Group4 - Frontend Team
+  
+### *Responsibilities*
+  * Implementing Single Post Page and URL
+  * Implementing Report Post Button
+  * Implementing Report Post Component
+  * Implementing Text Annotation.
+  * Implementing Profile Page Backend Connection.
+  * Implementing Edit Profile Page Backend Connection
+  * Implementing Edit Profile Page UI Update.
+  * Implementing Update Search Bar UI and Location.
+  * Implementing Single Profile Page with Dynamic URL
+  * Implementing Annotations Structure in Posts.
+  * Implementing Image Annotation Backend Connection
+  * Implementing Text Annotation Backend Connection
+  * Implementing Authentication Token Local Storage.
+  * Implementing User Info Local Storage
+  * Implementing Profile Page Unit Test Cases
+  * Implementing Edit Profile Page Unit Test Cases
+  * Implementing Logo
+  * Implementing Profile Page Loading State 
+  * Implementing chatbot
+  * Preparing Realistic Posts For Milestone 3
+  * Preparing Realistic Comments For Milestone 3
+  * Writing Annotation Section For Milestone 3 Report
+  * Reviewing the pull requests and issues in frontend team.
+  * Providing support to other frontend team members while they encountered a problem.
+  * Making research on w3c annotation standarts and react libraries to implement it.
+  * Solving bugs in the implementation of the frontend of our application.
+  * Attending General and Frontend Team Meetings
+
+### *Main contributions*
+
+During the development of the medical experience sharing platform, my main contributions were focused on implementing various features and functionalities related to the annotation feature. This included the implementation of the Single Post Page and URL, which allowed users to view a specific post in detail and share it via a unique URL. I also implemented the Report Post Button, which allowed users to report inappropriate or offensive posts to the platform's administrators. This was accompanied by the implementation of the Report Post Component, which displayed the report form to the user. Additionally, I implemented the Text Annotation feature, which allowed users to highlight and annotate specific text within a post. These efforts were supported by the implementation of the Profile Page Backend Connection and the Edit Profile Page Backend Connection, which enabled the synchronization of user data with the backend database. To enhance the user experience, I implemented the Edit Profile Page UI Update and the Update Search Bar UI and Location, which improved the visual design and functionality of these features. To further expand the annotation feature, I implemented the Single Profile Page with Dynamic URL, which allowed users to view the profile of a specific user and their associated posts and annotations. To ensure the proper structure and organization of annotations within posts, I implemented the Annotations Structure in Posts. Finally, I implemented the Image Annotation Backend Connection and the Text Annotation Backend Connection, which enabled the proper storage and retrieval of annotation data from the backend database.
+
+In addition to these specific tasks, I also contributed to the development of the platform by preparing realistic posts and comments for Milestone 3, and by writing the Annotation section for the Milestone 3 report. I also provided support to other members of the frontend team, reviewed pull requests and issues, and made research on w3c annotation standards and react libraries to ensure the proper implementation of the annotation feature. I also worked to solve any bugs that arose in the frontend of the platform. Finally, I attended both general and frontend team meetings to stay updated on the progress of the project and collaborate with other team members.
+
+
+
+#### *Code Related Significant Issues*
+* [Frontend: Single Post Page and URL](https://github.com/bounswe/bounswe2022group4/issues/506)
+* [Frontend: Report Post Button](https://github.com/bounswe/bounswe2022group4/issues/508)
+* [Frontend: Report Post Component](https://github.com/bounswe/bounswe2022group4/issues/509)
+* [Frontend: Text Annotation](https://github.com/bounswe/bounswe2022group4/issues/511)
+* [Frontend: Profile Page Backend Connection](https://github.com/bounswe/bounswe2022group4/issues/513)
+* [Frontend: Edit Profile Page Backend Connection](https://github.com/bounswe/bounswe2022group4/issues/518)
+* [Frontend: Edit Profile Page UI Update](https://github.com/bounswe/bounswe2022group4/issues/519)
+* [Frontend: Update Search Bar UI and Location](https://github.com/bounswe/bounswe2022group4/issues/521)
+* [Frontend: Single Profile Page with Dynamic URL](https://github.com/bounswe/bounswe2022group4/issues/531)
+* [Frontend: Image Annotation Backend Connection](https://github.com/bounswe/bounswe2022group4/issues/545)
+* [Frontend: Text Annotation Backend Connection](https://github.com/bounswe/bounswe2022group4/issues/567)
+* [Frontend: Authentication Token Local Storage](https://github.com/bounswe/bounswe2022group4/issues/590)
+* [Frontend: User Info Local Storage](https://github.com/bounswe/bounswe2022group4/issues/591)
+* [Frontend: Profile Page Unit Test Cases](https://github.com/bounswe/bounswe2022group4/issues/593)
+* [Frontend: Edit Profile Page Unit Test Cases](https://github.com/bounswe/bounswe2022group4/issues/595)
+* [Frontend: Logo Implementation](https://github.com/bounswe/bounswe2022group4/issues/611)
+* [Frontend: Profile Page Loading State ](https://github.com/bounswe/bounswe2022group4/issues/613)
+* [Frontend: ChatBot Implementation](https://github.com/bounswe/bounswe2022group4/issues/621)
+#### *Management Related Significant Issues*
+* [Management: Preparing Realistic Posts For Milestone 3](https://github.com/bounswe/bounswe2022group4/issues/637)
+* [Management: Preparing Realistic Comments For Milestone 3](https://github.com/bounswe/bounswe2022group4/issues/639)
+* [Management: Write Annotation Section For Milestone 3 Report](https://github.com/bounswe/bounswe2022group4/issues/640)
+
+### *Pull Requests*
+*  [Frontend: Single Post Page and URL](https://github.com/bounswe/bounswe2022group4/pull/507)
+*  [Frontend: Report Post](https://github.com/bounswe/bounswe2022group4/pull/510)
+*  [Frontend: Text Annotation Structure](https://github.com/bounswe/bounswe2022group4/pull/512)
+*  [Frontend: Profile Page Backend Connection](https://github.com/bounswe/bounswe2022group4/pull/514)
+*  [Frontend: Search Bar UI and Place Update](https://github.com/bounswe/bounswe2022group4/pull/522)
+*  [Frontend: Edit Profile Page UI Update](https://github.com/bounswe/bounswe2022group4/pull/523)
+* [Frontend: Edit Profile Page Backend Connection](https://github.com/bounswe/bounswe2022group4/pull/524)
+*  [Frontend: Single Profile Page with Dynamic URL](https://github.com/bounswe/bounswe2022group4/pull/532)
+*  [Frontend: Image Annotation Backend Connection](https://github.com/bounswe/bounswe2022group4/pull/557)
+*  [Frontend: Text Annotation Backend Connection ](https://github.com/bounswe/bounswe2022group4/pull/568)
+*  [Frontend: Local Storage For Authentication Token and User Info](https://github.com/bounswe/bounswe2022group4/pull/592)
+*  [Frontend: Logo Implementation ](https://github.com/bounswe/bounswe2022group4/pull/612)
+*  [Frontend: Profile Page Loading State ](https://github.com/bounswe/bounswe2022group4/pull/614)
+*  [Frontend: ChatBot Implementation ](https://github.com/bounswe/bounswe2022group4/pull/622)
+
+### *Unit Tests*
+* [Frontend: Profile Page Unit Test Cases](https://github.com/bounswe/bounswe2022group4/issues/594)
+*  [Frontend: Edit Profile Page Unit Test Cases ](https://github.com/bounswe/bounswe2022group4/pull/596)
+
+### *Additional Information*
+
+
+
+</details>
+
+
 
    
