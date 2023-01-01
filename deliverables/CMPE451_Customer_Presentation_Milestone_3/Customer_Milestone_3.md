@@ -138,7 +138,28 @@
 
 
 - **Oğuzhan Tok**
+|Work Title|Related Link|
+| ----------- | ----------- |
+|Backend: Research About Semantic Search|[issue](https://github.com/bounswe/bounswe2022group4/issues/517)
+|Backend: Implementation of the Search Functionality for Users|[issue](https://github.com/bounswe/bounswe2022group4/issues/526)
+|Backend: Implementation of the Search Functionality for Posts|[issue](https://github.com/bounswe/bounswe2022group4/issues/533)
+|Backend: Bug Fix of the Post Search Functionality|[issue](https://github.com/bounswe/bounswe2022group4/issues/540)
+|Backend: Search Application - Implement Sorting Option to Reorder Posts by Their Properties|[issue](https://github.com/bounswe/bounswe2022group4/issues/556)
+|Backend: Update response format of the search functionality|[issue](https://github.com/bounswe/bounswe2022group4/issues/564)
+|Backend: Bug Fix of the sort functionality "type" parameter|[issue](https://github.com/bounswe/bounswe2022group4/issues/579)
+|Backend: Update Message of the Email|[issue](https://github.com/bounswe/bounswe2022group4/issues/607)
+|Management: API Endpoints will be prepared for the Milestone 3|[issue](https://github.com/bounswe/bounswe2022group4/issues/644)
 
+
+|Heka backend search - Initialized the application and added the user search functionality|[PR](https://github.com/bounswe/bounswe2022group4/pull/527)
+|Backend: Search Application - Initialized the application and added the user search functionality|[PR](https://github.com/bounswe/bounswe2022group4/pull/528)
+|Backend: Search Application - Added the post search functionality|[PR](https://github.com/bounswe/bounswe2022group4/pull/534)
+|Revert "Backend: Annotations endpoints and database"|[PR](https://github.com/bounswe/bounswe2022group4/pull/538)
+|Backend: Search Application - Bug fix about count parameter|[PR](https://github.com/bounswe/bounswe2022group4/pull/543)
+|Backend: Search Application - Added the sorting functionality for posts|[PR](https://github.com/bounswe/bounswe2022group4/pull/562)
+|Backend: Search Functionality - Update response format|[PR](https://github.com/bounswe/bounswe2022group4/pull/563)
+|Backend: Search Application - Bug fix about sort functionality|[PR](https://github.com/bounswe/bounswe2022group4/pull/565)
+|Backend: Updated message contents of the email|[PR](https://github.com/bounswe/bounswe2022group4/pull/608)
 
 
 - **Elif Tokluoğlu**
