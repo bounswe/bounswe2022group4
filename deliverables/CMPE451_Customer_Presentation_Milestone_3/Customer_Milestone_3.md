@@ -84,6 +84,52 @@
 
 - **Umut Deniz Şener**
 
+|Work Title|Related Link|
+| ----------- | ----------- |
+|Frontend: Single Post Page and URL|[issue](https://github.com/bounswe/bounswe2022group4/issues/506)
+|Frontend: Report Post Button|[issue](https://github.com/bounswe/bounswe2022group4/issues/508)
+|Frontend: Report Post Component|[issue](https://github.com/bounswe/bounswe2022group4/issues/509)
+|Frontend: Text Annotation|[issue](https://github.com/bounswe/bounswe2022group4/issues/511)
+|Frontend: Profile Page Backend Connection|[issue](https://github.com/bounswe/bounswe2022group4/issues/513)
+|Frontend: Edit Profile Page Backend Connection|[issue](https://github.com/bounswe/bounswe2022group4/issues/518)
+|Frontend: Edit Profile Page UI Update|[issue](https://github.com/bounswe/bounswe2022group4/issues/519)
+|Frontend: Update Search Bar UI and Location|[issue](https://github.com/bounswe/bounswe2022group4/issues/521)
+|Frontend: Single Profile Page with Dynamic URL|[issue](https://github.com/bounswe/bounswe2022group4/issues/531)
+|Frontend: Image Annotation Backend Connection|[issue](https://github.com/bounswe/bounswe2022group4/issues/545)
+|Frontend: Text Annotation Backend Connection|[issue](https://github.com/bounswe/bounswe2022group4/issues/567)
+|Frontend: Authentication Token Local Storage|[issue](https://github.com/bounswe/bounswe2022group4/issues/590)
+|Frontend: User Info Local Storage|[issue](https://github.com/bounswe/bounswe2022group4/issues/591)
+|Frontend: Profile Page Unit Test Cases|[issue](https://github.com/bounswe/bounswe2022group4/issues/593)
+|Frontend: Edit Profile Page Unit Test Cases|[issue](https://github.com/bounswe/bounswe2022group4/issues/595)
+|Frontend: Logo Implementation|[issue](https://github.com/bounswe/bounswe2022group4/issues/611)
+|Frontend: Profile Page Loading State |[issue](https://github.com/bounswe/bounswe2022group4/issues/613)
+|Frontend: ChatBot Implementation|[issue](https://github.com/bounswe/bounswe2022group4/issues/621)
+|Management: Preparing Realistic Posts For Milestone 3|[issue](https://github.com/bounswe/bounswe2022group4/issues/637)
+|Management: Preparing Realistic Comments For Milestone 3|[issue](https://github.com/bounswe/bounswe2022group4/issues/639)
+|Management: Write Annotation Section For Milestone 3 Report|[issue](https://github.com/bounswe/bounswe2022group4/issues/640)
+|Frontend: Single Post Page and URL|[PR](https://github.com/bounswe/bounswe2022group4/pull/507)
+ |Frontend: Report Post|[PR](https://github.com/bounswe/bounswe2022group4/pull/510)
+ |Frontend: Text Annotation Structure|[PR](https://github.com/bounswe/bounswe2022group4/pull/512)
+ |Frontend: Profile Page Backend Connection|[PR](https://github.com/bounswe/bounswe2022group4/pull/514)
+ |Frontend: Search Bar UI and Place Update|[PR](https://github.com/bounswe/bounswe2022group4/pull/522)
+ |Frontend: Edit Profile Page UI Update|[PR](https://github.com/bounswe/bounswe2022group4/pull/523)
+|Frontend: Edit Profile Page Backend Connection|[PR](https://github.com/bounswe/bounswe2022group4/pull/524)
+ |Frontend: Single Profile Page with Dynamic URL|[PR](https://github.com/bounswe/bounswe2022group4/pull/532)
+ |Frontend: Image Annotation Backend Connection|[PR](https://github.com/bounswe/bounswe2022group4/pull/557)
+ |Frontend: Text Annotation Backend Connection |[PR](https://github.com/bounswe/bounswe2022group4/pull/568)
+ |Frontend: Local Storage For Authentication Token and User Info|[PR](https://github.com/bounswe/bounswe2022group4/pull/592)
+ |Frontend: Logo Implementation |[PR](https://github.com/bounswe/bounswe2022group4/pull/612)
+ |Frontend: Profile Page Loading State |[PR](https://github.com/bounswe/bounswe2022group4/pull/614)
+ |Frontend: ChatBot Implementation |[PR](https://github.com/bounswe/bounswe2022group4/pull/622)
+|Frontend: Profile Page Unit Test Cases|[PR](https://github.com/bounswe/bounswe2022group4/issues/594)
+ |Frontend: Edit Profile Page Unit Test Cases |[PR](https://github.com/bounswe/bounswe2022group4/pull/596)
+
+
+
+
+
+
+
 
 
 
