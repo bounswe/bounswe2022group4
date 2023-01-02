@@ -986,6 +986,8 @@ I created realistic posts and comments in the application. I also reviewed pull 
 ### *Additional Information*
  I included the issues and pull requests above for the time between Milestone 2 and Milestone 3.
 
+</details>
+
 <details>
 
 	<summary>
@@ -1073,13 +1075,11 @@ I created realistic posts and comments in the application. I also reviewed pull 
 
 ### *Additional Information*
 
-
-</details>
-
+	</details>
 
 
 
-</details>
+
 
 <details>
 
