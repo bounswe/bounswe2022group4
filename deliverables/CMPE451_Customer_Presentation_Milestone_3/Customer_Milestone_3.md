@@ -12,6 +12,7 @@
 	* 2.5 User Interface / User Experience
 	* 2.6 Annotations
 	* 2.7 Standards
+	* 2.8 [Scenarios for Milestone 3](https://github.com/bounswe/bounswe2022group4/wiki/Milestone-III-Scenarios)
 3. [Individual Reports](#individual-reports)
 
 ***
@@ -743,6 +744,8 @@ The standard we follow for the text annotation is as follows:
 }
 ```
 Body's type is TextualBody and it contains the simple text, its language and its format. The target's source is the post url. It has a TextPositionselector. Selector has the start and end positions for the text annotations.
+
+### [Scenarios for Milestone 3](https://github.com/bounswe/bounswe2022group4/wiki/Milestone-III-Scenarios)
 
 </br>
 
