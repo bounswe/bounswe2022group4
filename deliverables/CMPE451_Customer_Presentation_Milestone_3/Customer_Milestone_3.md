@@ -1288,6 +1288,14 @@ I created realistic posts and comments in the application. I also reviewed pull 
 * Team: Frontend Team
 
 ### *Responsibilities*
+- Analyzing and updating code in the CommentBox.js, Comment.js, Post.js, and other relevant files to implement various features that enhanced the functionality and user experience of the website.
+- Preparing unit test cases for the CommentBox and Comment components to ensure the quality and reliability of the code
+- Contributing to the listing of remaining requirements for the frontend team to ensure that all tasks are completed efficiently and effectively.
+- Completion of more than 15+ requirements.
+- Revision of Comment system.
+- Revision of Sign Up system.
+- Coordination of frontend team in order to be sure that as possible as requirements are completed.
+	
 
 ### *Main contributions*	
 
