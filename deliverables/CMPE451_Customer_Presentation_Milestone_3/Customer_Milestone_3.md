@@ -67,7 +67,7 @@
 |Frontend: Comment highlights are added and post shadow is added|[Pull Request](https://github.com/bounswe/bounswe2022group4/pull/623)
 |Frontend: Comment Orders are Added.|[Pull Request](https://github.com/bounswe/bounswe2022group4/pull/625)
 |Frontend: Added Unit Tests for CommentBox and Comment Components|[Pull Request](https://github.com/bounswe/bounswe2022group4/pull/628)
-|Management: Status of Deliverables for Milestone III Report|[Pull Request](https://github.com/bounswe/bounswe2022group4/pull/650)
+|Management: Status of Deliverables for Milestone III Report|[Issue](https://github.com/bounswe/bounswe2022group4/pull/650)
 
 
 - **Fatih Akgöz**
