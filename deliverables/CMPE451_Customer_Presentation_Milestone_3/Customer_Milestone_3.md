@@ -58,6 +58,32 @@
 - **İbrahim Melih Aktaş**
 
 
+|Work Title|Related Link|
+| ----------- | ----------- |
+| Backend: Create database for the annotations |[#515](https://github.com/bounswe/bounswe2022group4/issues/515)
+| Backend: Implement endpoint for the image annotations  |[#529](https://github.com/bounswe/bounswe2022group4/issues/529)
+| Backend: Implement endpoint for the image annotations that returns all annotations for the given post |[#530 ](https://github.com/bounswe/bounswe2022group4/issues/530)
+| Deployment: Change Dockerfile for the Front-end deployment |[#536](https://github.com/bounswe/bounswe2022group4/issues/536)
+| Backend: Change permission for the annotations  |[#544](https://github.com/bounswe/bounswe2022group4/issues/544)
+| Backend: Text Annotation Get Endpoint |[ #547](https://github.com/bounswe/bounswe2022group4/issues/547)
+| Backend: Get and Post endpoints text annotation by post-slug |[#550 ](https://github.com/bounswe/bounswe2022group4/issues/550 )
+| Backend: Create Tests for the image annotations |[#553 ](https://github.com/bounswe/bounswe2022group4/issues/553 )
+| Backend: Create tests for the text annotations |[#554 ](https://github.com/bounswe/bounswe2022group4/issues/554 )
+| Management: Add realistic content to the server |[ #646 ](https://github.com/bounswe/bounswe2022group4/issues/646 )
+| Management: Include database content to the milestone report    | [#645](https://github.com/bounswe/bounswe2022group4/issues/645)
+|  Backend: Annotations endpoints and database      | [PR #537](https://github.com/bounswe/bounswe2022group4/pull/537)
+|   Backend: Adds annotations to the heka-backend #539    | [PR #539](https://github.com/bounswe/bounswe2022group4/pull/539)
+|   Backend: Change permission for the image annotation endpoints #546    | [PR #546](https://github.com/bounswe/bounswe2022group4/pull/546)
+|   Backend: Text annotation endpoints    | [PR #552 ](https://github.com/bounswe/bounswe2022group4/pull/552)
+|    Backend: Unit Tests for annotations   | [PR #610](https://github.com/bounswe/bounswe2022group4/pull/610 )
+
+
+
+
+
+
+
+
 - **Yusuf Bayındır**
 
 
@@ -78,17 +104,6 @@
 
 - **Halil Salih Orhan**
 
-|Work Title|Related Link|
-| ----------- | ----------- |
-|Mobile: User and Post Search #598|[issue](https://github.com/bounswe/bounswe2022group4/issues/598)
-|Mobile: Text Annotations for Posts #560|[issue](https://github.com/bounswe/bounswe2022group4/issues/560)
-|Mobile: Image Annotation of Posts #558|[issue](https://github.com/bounswe/bounswe2022group4/issues/558)
-|Mobile image annotation #559|[PR](https://github.com/bounswe/bounswe2022group4/pull/559)
-|Heka mobile text annotation #566|[PR](https://github.com/bounswe/bounswe2022group4/pull/566)
-|Heka mobile search #599|[PR](https://github.com/bounswe/bounswe2022group4/pull/599)
-|fix chat ui #629|[PR](https://github.com/bounswe/bounswe2022group4/pull/629)
-|Heka mobile #633|[PR](https://github.com/bounswe/bounswe2022group4/pull/633)
-|Update list_item_comment.xml #635|[PR](https://github.com/bounswe/bounswe2022group4/pull/635)
 
 
 - **Yiğit Can Özkaya**
@@ -676,11 +691,56 @@ Mobile
   
   
 
-  
-#### Standarts
 
+#### Standards
+The standard we follow for the image annotation is as follows:
+```json
+{
+    "@context": "http://www.w3.org/ns/anno.jsonld",
+    "id": "http://example.org/anno20",
+    "type": "Annotation",
+    "body": {
+        "type" : "TextualBody",
+        "value" : "<p>example!</p>",
+        "format" : "text/html",
+        "language" : "en"
+    },
+    "target": {
+        "source": "http://example.org/post-slug",
+        "selector": {
+            "type": "FragmentSelector",
+            "conformsTo": "http://www.w3.org/TR/media-frags/",
+            "value": "xywh=50,50,640,480"
+        }
+    }
+}  
+```
+Body's type is TextualBody and it contains the simple text, its language and its format. The target's source is the post url. It has a fragment selector. Target conforms to the following: "http://www.w3.org/TR/media-frags/." Selector has the value of the x, y, width and height coordinates.  
 
+The standard we follow for the text annotation is as follows:
+```json
+{
+    "@context": "http://www.w3.org/ns/anno.jsonld",
+    "id": "http://example.org/anno20",
+    "type": "Annotation",
+    "body": {
+        "type": "TextualBody",
+        "value": "<p>example!</p>",
+        "format": "text/html",
+        "language": "en"
 
+    },
+    "target": {
+        "source": "http://example.org/post-slug",
+        "selector": {
+            "type": "TextPositionSelector",
+            "start": 0,
+            "end": 0
+        }
+    }
+}
+```
+Body's type is TextualBody and it contains the simple text, its language and its format. The target's source is the post url. It has a TextPositionselector. Selector has the start and end positions for the text annotations.
 
 </br>
 
@@ -850,44 +910,84 @@ In addition to these specific tasks, I also contributed to the development of th
 
 </details>
 
+
 <details>
 
-  <summary>
+<summary>
 
-###  *Halil Salih Orhan - Group 4*
+###  *İ. Melih Aktaş - Group 4*
     
 </summary>
   
-  ###  *Member*
 
-* Name: Halil Salih Orhan
-* Student ID: 2018400057
-* Group4 - Mobile Team
+
+ ###  *Member*
+
+* Name: İ.Melih Aktaş
+* Student ID: 2017400015
+* Group4 - Backend Team
   
 ### *Responsibilities*
-* Implementing mobile image annotation
-* Implementing mobile text annotation
-* Implementing mobile search
+  * Keep test server healthy
+  * Return error messages to the team members
+  * When the health check fails restart the server
+  * Create a new database for the annotations
+  * Connect new database to the backend
+  * Decide on the standard using for the image annotations
+  * Decide on the standard using for the text annotations
+  * Implement necessary endpoints for the image annotations
+  * Implement endpoints for the that returns all image annotations according to the post_slug
+  * Implement endpoints for the that returns all text annotations according to the post_slug 
+  * Update Dockerfile of the frontend
+  * Creating Realistic Posts and Comments 
+
+### *Main contributions*
+* Deciding on the annotations standard
+* Creating database and connecting it to the backend for the annotations
+* Implementing endpoints to create image annotations
+* Implementing endpoints to create text 
+* Implementing endpoints to GET image annotations according to the post_slug
+* Implementing endpoints to GET image annotations according to the post_slug
+* Updating Dockerfile of the frontend to reduce image size.(Only the frontend was 2GB. Cloud storage is 8GB. After implementing multi-stage build, image size become 200MB)
+* Maintaining test server. I worked on the problems that occurs on the test server. I sent the logs of the errors to my team. I tried to fix them. If the health checks fail, I restarted the server. 
+* Adding realistic posts to the test-server
+* Taking database dump and write necessary description to run it for the Milestone 3.
 
 #### *Code Related Significant Issues*
+- [Backend: Create database for the annotations](https://github.com/bounswe/bounswe2022group4/issues/515)
+- [Backend: Implement endpoint for the image annotations](https://github.com/bounswe/bounswe2022group4/issues/529)
+- [Backend: Implement endpoint for the image annotations that returns all annotations for the given post ](https://github.com/bounswe/bounswe2022group4/issues/530)
+- [Deployment: Change Dockerfile for the Front-end deployment](https://github.com/bounswe/bounswe2022group4/issues/536)
+- [Backend: Text Annotation Get Endpoint ](https://github.com/bounswe/bounswe2022group4/issues/547)
+- [Backend: Get and Post endpoints text annotation by post-slug](https://github.com/bounswe/bounswe2022group4/issues/550 )
 
-* [|Mobile: User and Post Search #598|](https://github.com/bounswe/bounswe2022group4/issues/598)
-* [|Mobile: Text Annotations for Posts #560|](https://github.com/bounswe/bounswe2022group4/issues/560)
-* [|Mobile: Image Annotation of Posts #558|](https://github.com/bounswe/bounswe2022group4/issues/558)
+
+#### *Management Related Significant Issues*
+- [Management: Add realistic content to the server](https://github.com/bounswe/bounswe2022group4/issues/646)
+- [Management: Include database content to the milestone report](https://github.com/bounswe/bounswe2022group4/issues/645)
 
 ### *Pull Requests*
+- [Backend: Annotations endpoints and database](https://github.com/bounswe/bounswe2022group4/pull/537)
+- [Backend: Adds annotations to the heka-backend](https://github.com/bounswe/bounswe2022group4/pull/539)
+- [Backend: Change permission for the image annotation endpoints](https://github.com/bounswe/bounswe2022group4/pull/546)
+- [Backend: Text annotation endpoints](https://github.com/bounswe/bounswe2022group4/pull/552)
+- [Backend: Unit Tests for annotations](https://github.com/bounswe/bounswe2022group4/pull/610 )
 
-* [|Mobile image annotation #559|](https://github.com/bounswe/bounswe2022group4/pull/559)
-* [|Heka mobile text annotation #566|](https://github.com/bounswe/bounswe2022group4/pull/566)
-* [|Heka mobile search #599|](https://github.com/bounswe/bounswe2022group4/pull/599)
-* [|fix chat ui #629|](https://github.com/bounswe/bounswe2022group4/pull/629)
-* [|Heka mobile #633|](https://github.com/bounswe/bounswe2022group4/pull/633)
-* [|Update list_item_comment.xml #635|](https://github.com/bounswe/bounswe2022group4/pull/635)
+### *Unit Tests*
+- [Backend: Unit Tests for annotations](https://github.com/bounswe/bounswe2022group4/pull/610 )
+- [ Backend: profilepage tests #435 ](https://github.com/bounswe/bounswe2022group4/pull/435/files)
 
 ### *Additional Information*
+ I included the issues and pull requests above for the time between Milestone 2 and Milestone 3.
+
+
+
+
+
+
 
 </details>
 
-
+   
 
    
