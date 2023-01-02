@@ -877,6 +877,7 @@ In addition to these specific tasks, I also contributed to the development of th
   * Creating Realistic Posts and Comments 
 
 ### *Main contributions*
+I implemented the search service as my main job. Later, in my remaining time, I also implemented the sort service. Also, I updated the user model and the e-mail to be sent to the user in this time period. The Search algorithm performs Full Text Search on the title and body of the post. Each word in the given query is searched separately in the relevant fields and a vector is formed. According to this resulting vector, each post gets a rank. Posts are sorted from highest rank to lowest.
 
 
 #### *Code Related Significant Issues*
