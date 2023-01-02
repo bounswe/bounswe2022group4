@@ -86,7 +86,13 @@
 
 
 - **Yusuf Bayındır**
-
+|Work Title|Related Link|
+| ----------- | ----------- |
+|Swagger Integration | [PR #283](https://github.com/bounswe/bounswe2022group4/pull/283) [PR #261](https://github.com/bounswe/bounswe2022group4/pull/261)
+|Backend: Bug-Fix| [PR #353](https://github.com/bounswe/bounswe2022group4/pull/353), [PR #377](https://github.com/bounswe/bounswe2022group4/pull/377),[PR #383](https://github.com/bounswe/bounswe2022group4/pull/383), [PR #401](https://github.com/bounswe/bounswe2022group4/pull/401), [PR #402](https://github.com/bounswe/bounswe2022group4/pull/402), [PR #424](https://github.com/bounswe/bounswe2022group4/pull/424) |
+|Backend: User and Post search|[PR #432](https://github.com/bounswe/bounswe2022group4/pull/432)
+|Backend: Post and Comment related APIs| [PR #604](https://github.com/bounswe/bounswe2022group4/pull/604), [PR #619](https://github.com/bounswe/bounswe2022group4/pull/619),[PR #438](https://github.com/bounswe/bounswe2022group4/pull/438), [PR #369](https://github.com/bounswe/bounswe2022group4/pull/369), [PR #346](https://github.com/bounswe/bounswe2022group4/pull/346) |
+|Backend: Unit Tests for Post and Comment related APIs | [PR #647](https://github.com/bounswe/bounswe2022group4/pull/647)
 
 
 - **Berat Damar**
