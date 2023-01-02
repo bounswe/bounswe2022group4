@@ -107,7 +107,7 @@ class CommentTestCase(APITestCase):
         data = {
             "body"  : "I hope you get better ma'am."
         }
-        url_ = '/api/post/create-comment/' + self.test_post.slug + '/'
+        url_ = '/api/post/create-comment/'
         kwargs = {"slug" : self.test_post.slug}
         request = self.factory.post(url_, data, format="json")
         force_authenticate(request, user=self.test_user_2)
@@ -119,7 +119,7 @@ class CommentTestCase(APITestCase):
             "body" : "I hope you get better ma'am. All I can say, please don't fall \
             asleep on your back as it can increase the risk of stillbirth. Please don't forget to get support from professional."
         }
-        url_ = '/api/post/update-comment/' + self.test_post.slug + '/'
+        url_ = '/api/post/update-comment/' 
         kwargs = {"slug" : self.test_post.slug, "id": self.comment.id}
         request = self.factory.post( url_,  data=new_data,  format="json")
         force_authenticate(request, user=self.test_user_2)
@@ -127,10 +127,17 @@ class CommentTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_delete_comment(self):
-        url_ = '/api/post/delete-comment/' + self.test_post.slug + '/'
+        url_ = '/api/post/delete-comment/'
         kwargs = {"slug" : self.test_post.slug, "id": self.comment.id}
         request = self.factory.post( url_, format="json")
         force_authenticate(request, user=self.test_user_2)
         response = DeleteCommentAPIView.as_view()(request, **kwargs)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_fetch_comment(self):
+        url_ = '/api/post/fetch-comment/'
+        kwargs = {"slug" : self.test_post.slug, "id": self.comment.id}
+        request = self.factory.get( url_, format="json")
+        response = FetchCommentAPIView.as_view()(request, **kwargs)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
