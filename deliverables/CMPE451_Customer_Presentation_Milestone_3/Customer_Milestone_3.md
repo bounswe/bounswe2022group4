@@ -302,17 +302,17 @@
 
 
 * **1.1.1.1 Sign Up** 
-  * **1.1.1.1.1** *Users shall provide their first name and last name.* ➡️ **Status: Not Started***
+  * **1.1.1.1.1** *Users shall provide their first name and last name.* ➡️ **Status: Completed***
   * **1.1.1.1.2** *Users shall provide a username and e-mail address that are unique in the system.* ➡️ **Status: Completed***
   * **1.1.1.1.3** *Users shall be prevented from registration if they enter a username or email address that is already in use .* ➡️ **Status: Completed***
-  * **1.1.1.1.4** *Users shall set a password that is longer than 8 characters and contains at least one upper-case letter, one lower-case letter, and one number.* ➡️ **Status: Not Started*** 
+  * **1.1.1.1.4** *Users shall set a password that is longer than 8 characters and contains at least one upper-case letter, one lower-case letter, and one number.* ➡️ **Status: Completed***
   * **1.1.1.1.5** *Users shall confirm the password by writing the same password again.* ➡️ **Status: Completed*** 
-  * **1.1.1.1.6** *Users shall verify their registration process via email verification.* ➡️ **Status: Not Started***
-  * **1.1.1.1.7** *Health professionals shall be able to register as privileged users.* ➡️ **Status: In Progress***
-  * **1.1.1.1.8** *Health professionals shall provide all the information that users provide for registration.* ➡️ **Status: In Progress***
-  * **1.1.1.1.9** *Health professionals shall provide some additional information regarding their educational backgrounds and professional experience.* ➡️ **Status: In progress***
+  * **1.1.1.1.6** *Users shall verify their registration process via email verification.* ➡️ **Status: Completed***
+  * **1.1.1.1.7** *Health professionals shall be able to register as privileged users.* ➡️ **Status: Completed***
+  * **1.1.1.1.8** *Health professionals shall provide all the information that users provide for registration.* ➡️ **Status: Completed***
+  * **1.1.1.1.9** *Health professionals shall provide some additional information regarding their educational backgrounds and professional experience.* ➡️ **Status: Completed***
   * **1.1.1.1.10** *Health professionals shall be verified by administrators.* ➡️ **Status: Not Started***
-  * **1.1.1.1.11** *Health professionals shall be privileged after their proficiency is verified.* ➡️ **Status: Not Started***
+  * **1.1.1.1.11** *Health professionals shall be privileged after their proficiency is verified.* ➡️ **Status: Completed***
 
 
 * **1.1.1.2. Sign In**
@@ -341,17 +341,17 @@
   * **1.1.2.1.8** *Users shall be able to read a post shared by another user.➡️ **Status: Completed***
   * **1.1.2.1.9** *Users shall be able to edit their posts and comments.➡️ **Status: Completed***
   * **1.1.2.1.10** *Users shall be able to delete their posts and comments.➡️ **Status: Completed***
-  * **1.1.2.1.11** *Users shall be able to report other users' posts and comments.➡️ **Status: Not Started***
+  * **1.1.2.1.11** *Users shall be able to report other users' posts and comments.➡️ **Status: Completed***
   * **1.1.2.1.12** *Users shall be able to upvote other users' posts and comments.➡️ **Status: Completed***
   * **1.1.2.1.13** *Users shall be able to see all posts.➡️ **Status: Completed***
-  * **1.1.2.1.14** *Users shall be able to refer to an external link in their posts or comments using hyperlinks.➡️ **Status: Not Started***
+  * **1.1.2.1.14** *Users shall be able to refer to an external link in their posts or comments using hyperlinks.➡️ **Status: In Progress***
   * **1.1.2.1.15** *Users shall get a notification after their posts or comments record an activity.➡️ **Status: Not Started***
   * **1.1.2.1.16** *Users shall see health professionals' comments on posts as top comments. ➡️ **Status: Completed***
   * **1.1.2.1.17** *Users shall be able to follow health professionals.➡️ **Status: Not Started***
   * **1.1.2.1.18** *Users shall be able to unfollow health professionals.➡️ **Status: Not Started***
   * **1.1.2.1.19** *Users shall be able to follow categories.➡️ **Status: Not Started***
   * **1.1.2.1.20** *Users shall be able to unfollow categories.➡️ **Status: Not Started***
-  * **1.1.2.1.21** *Health professionals shall be able to change the categories of any post.➡️ **Status: In Progress***
+  * **1.1.2.1.21** *Health professionals shall be able to change the categories of any post.➡️ **Status: Completed***
   * **1.1.2.1.22** *Admins shall get a notification after a post is reported. ➡️ **Status: Not Started***
   * **1.1.2.1.23** *Admins shall be able to delete any post or comment if required.➡️ **Status: Not Started***
   * **1.1.2.1.24** *Admins shall send a message to the post owner when a post is deleted.➡️ **Status: Not Started***
@@ -362,11 +362,11 @@
   * **1.1.2.2.1** *Users shall have a profile page.➡️ **Status: Completed***
   * **1.1.2.2.2** *Users shall see other users' user type from their profile pages.➡️ **Status: Completed***
   * **1.1.2.2.3** *Users shall see other users' avatars from their profile pages. ➡️ **Status: Completed***
-  * **1.1.2.2.4** *Users shall see other users' past comments and post from their profile pages.➡️ **Status: Not Started***
+  * **1.1.2.2.4** *Users shall see other users' past comments and post from their profile pages.➡️ **Status: Completed***
   * **1.1.2.2.5** *Users shall have their usernames visible on their profile pages.➡️ **Status: Completed***
-  * **1.1.2.2.6** *Users shall have a label above their avatars that indicates their user type.➡️ **Status: In Progress***
-  * **1.1.2.2.7** *Health professionals shall have a label above their avatars that indicates their user type.➡️ **Status: In Progress***
-  * **1.1.2.2.8** *Health professionals shall have their real names visible on their profile pages.➡️ **Status: Not Started***
+  * **1.1.2.2.6** *Users shall have a label above their avatars that indicates their user type.➡️ **Status: Completed***
+  * **1.1.2.2.7** *Health professionals shall have a label above their avatars that indicates their user type.➡️ **Status: Completed***
+  * **1.1.2.2.8** *Health professionals shall have their real names visible on their profile pages.➡️ **Status: Completed***
   * **1.1.2.2.9** *Admins shall have a label above their avatars that indicates they are admins.➡️ **Status: Not Started***
 
 * **1.1.2.3 Chatting**
@@ -460,7 +460,7 @@
 
 * **1.2.5.1.** *The system shall show the number of upvotes and downvotes given to a post or comment.➡️ **Status: Completed***
 
-* **1.2.5.2.** *The system shall show the number of comments made to a post or comment.➡️ **Status: In Progress***
+* **1.2.5.2.** *The system shall show the number of comments made to a post or comment.➡️ **Status: Completed***
 
 * **1.2.5.3.** *The system shall show the category of a post.➡️ **Status: Completed***
 
@@ -472,7 +472,7 @@
 
 * **1.2.5.7.** *The system shall provide healthcare-related categories to users.➡️ **Status: Completed***
 
-* **1.2.5.8.** *The system shall display the top posts of the current category.➡️ **Status: In Progress***
+* **1.2.5.8.** *The system shall display the top posts of the current category.➡️ **Status: Completed***
 
 </details>
 
@@ -500,7 +500,7 @@
 <details>
 <summary><strong>2.1 Reliability Requirements </strong></summary>
 
-* **2.1.1.** *The system shall always run up to 2000 users.➡️ **Status: In Progress***
+* **2.1.1.** *The system shall always run up to 2000 users.➡️ **Status: Completed***
 * **2.1.2.** *The system shall be portable for website and application.➡️ **Status: Completed***
 * **2.1.3.** *The system shall respond to any user no later than 4 seconds.➡️ **Status: Completed***
 
