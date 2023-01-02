@@ -523,8 +523,9 @@ Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
 ## Example 2: Search A Post   
 ![image](https://user-images.githubusercontent.com/100778825/210244277-17ecb526-5149-4bee-b78b-6abf9d833bb4.png)
 
-
-
+## Example 3: Sort Posts By Different Attributes 
+![image](https://user-images.githubusercontent.com/100778825/210244561-f0dc9eb5-10df-44bf-9fb5-31700fcfb10e.png)
+type parameter can be one of the following values comment_count, upvote_count, create_date, update_date.
 
 
 
