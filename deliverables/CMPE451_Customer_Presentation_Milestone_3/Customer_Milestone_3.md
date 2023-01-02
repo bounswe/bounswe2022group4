@@ -116,6 +116,34 @@
 - **Berat Damar**
 
 
+|Work Title|Related Link|
+| ----------- | ----------- |
+|Frontend: Email Verification for Registration Page |[issue](https://github.com/bounswe/bounswe2022group4/issues/520)
+|Frontend Bug: Compilation and Deployment of Web Application|[issue](https://github.com/bounswe/bounswe2022group4/issues/548)
+|Frontend Bug: Search Results Container Remove Search Bar|[issue](https://github.com/bounswe/bounswe2022group4/issues/555)
+|Frontend: Searching Feature for Posts|[issue](https://github.com/bounswe/bounswe2022group4/issues/569)
+|Frontend: Regular User Password Confirmation for Sign-Up|[issue](https://github.com/bounswe/bounswe2022group4/issues/587)
+|Frontend: Searching Feature for Users|[issue](https://github.com/bounswe/bounswe2022group4/issues/589)
+|Frontend: Unit Test for Search Functionality|[issue](https://github.com/bounswe/bounswe2022group4/issues/600)
+|Frontend: Backend Connection for Sign Up Verification|[issue](https://github.com/bounswe/bounswe2022group4/issues/605)
+|Frontend: Unit Tests for Sign Up Verification|[issue](https://github.com/bounswe/bounswe2022group4/issues/616)
+|PRESENTATION: Create Scenarios For Final Customer Presentation|[issue](https://github.com/bounswe/bounswe2022group4/issues/636)
+|Management: Documenting User Interface and User Experience for Milestone 3|[issue](https://github.com/bounswe/bounswe2022group4/issues/641)
+|Management: Preparing Realistic Posts For Milestone 3|[issue](https://github.com/bounswe/bounswe2022group4/issues/642)
+|Management: Preparing Realistic Comments For Milestone 3|[issue](https://github.com/bounswe/bounswe2022group4/issues/643)
+|Frontend: Email Verification for Sign Up|[PR](https://github.com/bounswe/bounswe2022group4/pull/541)
+ |Frontend Bug: Failure of the Compilation and Test Deployment|[PR](https://github.com/bounswe/bounswe2022group4/pull/549)
+ |Frontend Bug: Search Results Container Remove Search Bar|[PR](https://github.com/bounswe/bounswe2022group4/pull/561)
+ |Frontend : Search Functioanlity for Posts|[PR](https://github.com/bounswe/bounswe2022group4/pull/574)
+ |Frontend: Sign Up Password Confirmation for Regular Users |[PR](https://github.com/bounswe/bounswe2022group4/pull/588)
+ |Frontend : Search Functioanlity for Users|[PR](https://github.com/bounswe/bounswe2022group4/pull/597)
+|Frontend: Unit Test for Search Functionality|[PR](https://github.com/bounswe/bounswe2022group4/pull/601)
+ |Frontend: Sign Up Verification Backend Connection|[PR](https://github.com/bounswe/bounswe2022group4/pull/609)
+ |Frontend: Unit Tests for Sign Up Verification|[PR](https://github.com/bounswe/bounswe2022group4/pull/617)
+ |Frontend Bug: Sign Up Verification Code|[PR](https://github.com/bounswe/bounswe2022group4/pull/631)
+ 
+ 
+
 
 
 - **Erdinç Günaydın**
@@ -1229,6 +1257,95 @@ I created realistic posts and comments in the application. I also reviewed pull 
 * [|Update list_item_comment.xml #635|](https://github.com/bounswe/bounswe2022group4/pull/635)
 
 ### *Additional Information*
+
+</details>
+	
+
+
+
+<details>
+
+  <summary>
+
+###  *Berat Damar - Group 4*
+    
+</summary>
+  
+  ###  *Member*
+
+* Name: Berat Damar
+* Student ID: 2018400039
+* Group4 - Frontend Team
+  
+### *Responsibilities*
+  * Implementing Email Verification for Registration Page
+  * Implementing Searching Feature for Posts
+  * Implementing Regular User Password Confirmation for Sign-Up
+  * Implementing Searching Feature for Users
+  * Resolving Bug about Compilation and Deployment of Web Application
+  * Resolving Bug of "Search Results Container Remove Search Bar"
+  * Implementing  Unit Test Case for Search Functionality 
+  * Implementing Backend Connection for Sign Up Verification
+  * Implementing Backend Connection for Password Confirmation
+  * Implementing Unit Tests for Sign Up Verification
+  * Resolving Bug about Sign Up Verification Code
+  * Preparing realictic scenarios for Final Customer Presentation
+  * Documenting User Interface and User Experience for Milestone 3
+  * Preparing Realistic Posts For Milestone 3
+  * Preparing Realistic Comments For Milestone 3
+  * Reviewing the pull requests and issues in frontend team.
+  * Providing support to other frontend team members while they encountered a problem.
+  * Attending General and Frontend Team Meetings
+  * As a member of the front-end team, contributing to the development of the front-end and the main decisions about the project.
+  
+	
+### *Main contributions*
+
+I am a member of our frontend team for the development of our application. As front-end team, we determined which functionalities we will provide for the Final Milestone. We decided to design and implement annotation related functioanlities for image and text annotation, email verification for sign up process, search functionality for posts and users,password confirmation for regular sign up process, chatbot functioanlity. We assigned these functionalities into every member. I was assgined to email verification for sign up process, search functionality for posts and users,password confirmation for regular sign up process. I was also assigned to finding bugs of the our application,medical experience sharing application,named. After detecting possible bugs, I have resolved them. We met regularly to talk about the progress of tasks assigned to each member and we gave feedbacks for possible improvements. Firstly, I reviewed some popular websites to get idea about the user interface of the email verification related pages. After some research, I designed email verificaiton page as two different page: e-mail validation code screen and success page containing a button for directing login page. I have provided backend connection for email verification page using API for the forgot password feature since backend team has not provided a backend connection for this functionality . Secondly, I have designed and implemented password  confirmation for regular user sign up process for our web application.I also provide backend connection for it. As a next task, I review some populer websites and libraries to design and implement search functionality for users and posts .After that research period, I have designed and implemented search functionality. I also have implemented backend connection using API’s provided by our backend team. I have found three bugs during this milestone. These are “Compilation and Deployment of Web Application”, “Search Results Container Remove Search Bar” and “Static Sign Up Verification Code”. I resolved these bugs. For all these features I implemented, I wrote units test covering many cases. I have contributed to the development of the front-end and the main decisions about the project. I reviewed so many pull requests and made some comments about possible improvements and bugs. Before merging pull requests, I tested functionalities that are provided by that pull request manually to prevent possible bugs and conflicts with our requirements. 
+	
+In addition to code related tasks, I had different management related task for our team progress. I have prepared realistic scenarios for final presentation with Melih Aktaş. I have documented user ınterface and user experience for Milestone 3 Report providing related links for the implementations. I have prepared realistic and well-designed posts and comments,totals 25, for Milestone 3. Thanks to these posts, we can provide our customers real experience of the our application. In other words, we should simulate our system by using different users to provide a insight for our application.  Finally, I attended both general and frontend team meetings to collaborate with other team members.
+
+Code Related Significant Issues
+
+#### *Code Related Significant Issues*
+* [Frontend: Email Verification for Registration Page](https://github.com/bounswe/bounswe2022group4/issues/520)
+* [Frontend Bug: Compilation and Deployment of Web Application](https://github.com/bounswe/bounswe2022group4/issues/548)
+* [Frontend Bug: Search Results Container Remove Search Bar](https://github.com/bounswe/bounswe2022group4/issues/555)
+* [Frontend: Searching Feature for Posts](https://github.com/bounswe/bounswe2022group4/issues/569)
+* [Frontend: Regular User Password Confirmation for Sign-Up](https://github.com/bounswe/bounswe2022group4/issues/587)
+* [Frontend: Searching Feature for Users](https://github.com/bounswe/bounswe2022group4/issues/589)
+* [Frontend: Unit Test for Search Functionality](https://github.com/bounswe/bounswe2022group4/issues/600)
+* [Frontend: Backend Connection for Sign Up Verification](https://github.com/bounswe/bounswe2022group4/issues/605)
+* [Frontend: Unit Tests for Sign Up Verification](https://github.com/bounswe/bounswe2022group4/issues/616)
+
+#### *Management Related Significant Issues*
+* [Management: Create Scenarios For Final Customer Presentation](https://github.com/bounswe/bounswe2022group4/issues/636)
+* [Management: Documenting User Interface and User Experience for Milestone 3](https://github.com/bounswe/bounswe2022group4/issues/641)
+* [Management: Preparing Realistic Posts For Milestone 3](https://github.com/bounswe/bounswe2022group4/issues/642)
+* [Management: Preparing Realistic Comments For Milestone 3](https://github.com/bounswe/bounswe2022group4/issues/643)
+
+
+### *Pull Requests*
+* [Frontend: Email Verification for Sign Up](https://github.com/bounswe/bounswe2022group4/pull/541)
+* [Frontend Bug: Failure of the Compilation and Test Deployment](https://github.com/bounswe/bounswe2022group4/pull/549)
+* [Frontend Bug: Search Results Container Remove Search Bar](https://github.com/bounswe/bounswe2022group4/pull/561)
+* [Frontend : Search Functioanlity for Posts](https://github.com/bounswe/bounswe2022group4/pull/574)
+* [Frontend: Sign Up Password Confirmation for Regular Users](https://github.com/bounswe/bounswe2022group4/pull/588)
+* [Frontend : Search Functioanlity for Users](https://github.com/bounswe/bounswe2022group4/pull/597)
+* [Frontend: Unit Test for Search Functionality](https://github.com/bounswe/bounswe2022group4/pull/601)
+* [Frontend: Sign Up Verification Backend Connection](https://github.com/bounswe/bounswe2022group4/pull/609)
+* [Frontend: Unit Tests for Sign Up Verification](https://github.com/bounswe/bounswe2022group4/pull/617)
+* [Frontend Bug: Sign Up Verification Code](https://github.com/bounswe/bounswe2022group4/pull/631)
+ 
+
+### *Unit Tests*
+* [Frontend: Unit Tests for Sign Up Verification](https://github.com/bounswe/bounswe2022group4/pull/617)
+* [Frontend: Unit Tests for Sign Up Verification](https://github.com/bounswe/bounswe2022group4/issues/616)
+* [Frontend: Unit Test for Search Functionality](https://github.com/bounswe/bounswe2022group4/pull/601)
+* [Frontend: Unit Test for Search Functionality](https://github.com/bounswe/bounswe2022group4/issues/600)
+	
+### *Additional Information*
+
 
 </details>
 	
