@@ -984,7 +984,93 @@ I created realistic posts and comments in the application. I also reviewed pull 
  I included the issues and pull requests above for the time between Milestone 2 and Milestone 3.
 
 
+<summary>
 
+</summary>
+
+###  *Yusuf Bayındır - Group 4*
+
+ ###  *Member*
+
+* Name: Yusuf Bayındır
+* Student ID: 2017400042
+* Group4 - Backend Team
+  
+### *Responsibilities*
+- Integrating Swagger UI and implementing unit tests for registration and login functionalitites. 
+- Revisiting [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements) & [Class Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram), organizing Wiki, and notetaking for some meetings. 
+- Implementing Post and Comment models.
+- Fixing the existing User model, authenticaiton mechanism, implementing basic search functionalities, and revisiting [Requirements.](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)
+- Implementing unit tests for Post and Comment APIs.
+
+### *Main contributions*
+- Note taker. [CMPE451-General Meeting #1](https://github.com/bounswe/bounswe2022group4/wiki/Meeting-%231,-10.10.2022), [Backend Meeting #1](https://github.com/bounswe/bounswe2022group4/wiki/Backend-Team-Meeting-%231,-20.10.2022)
+- Organizing Wiki. [Branch Management](https://github.com/bounswe/bounswe2022group4/wiki/Branch-Management)
+- Backend development: [Swagger Integration](https://github.com/bounswe/bounswe2022group4/issues/254), [Unit Tests](https://github.com/bounswe/bounswe2022group4/issues/291)
+- Revision on Requirements and Class Diagram. [Requirements](https://github.com/bounswe/bounswe2022group4/wiki/Requirements), [Class Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram)
+- Backend: Implementation of Post and Comment APIs.
+- Backend: Development of the existing User model.
+- Backend: Authentication mechanism modification.
+- Backend: Implementation of basic Search APIs.
+- Requirements: Revision on [Requirements.](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)
+
+#### *Code Related Significant Issues*
+* [Swagger integration](https://github.com/bounswe/bounswe2022group4/issues/254)
+* [Unit tests for register and login functionalities](https://github.com/bounswe/bounswe2022group4/issues/291)
+* [Modification of the User model](https://github.com/bounswe/bounswe2022group4/issues/338)
+* [Modification of the authentication mechanism](https://github.com/bounswe/bounswe2022group4/issues/339)
+* [Implementing Post and Comment models](https://github.com/bounswe/bounswe2022group4/issues/340)
+* [Implementing upvote-downvote for Post and Comment](https://github.com/bounswe/bounswe2022group4/issues/378)
+* [Modification of registration API.](https://github.com/bounswe/bounswe2022group4/issues/379)
+* [API for listing comments under a post.](https://github.com/bounswe/bounswe2022group4/issues/380)
+* [API fix for listing posts.](https://github.com/bounswe/bounswe2022group4/issues/381)
+* [Modification of response bodies upon request from other teams.](https://github.com/bounswe/bounswe2022group4/issues/395)
+* [Implementing basic search functionalities.](https://github.com/bounswe/bounswe2022group4/issues/431)
+* [Implementing unit tests for Post and Comment models.](https://github.com/bounswe/bounswe2022group4/issues/481)
+
+
+#### *Management Related Significant Issues*
+* [Revision on requirements](https://github.com/bounswe/bounswe2022group4/issues/226)
+* [Organizing Git workspace](https://github.com/bounswe/bounswe2022group4/issues/253)
+* [Revision on Class Design](https://github.com/bounswe/bounswe2022group4/issues/302)
+
+
+### *Pull Requests*
+*  [Swagger Integration](https://github.com/bounswe/bounswe2022group4/pull/261)
+*  [Enhancement to Swagger Integration](https://github.com/bounswe/bounswe2022group4/pull/283)
+*  [Unit Tests for Register and Login Functionalities](https://github.com/bounswe/bounswe2022group4/pull/298)
+*  [Post and Comment model implementation initiated.](https://github.com/bounswe/bounswe2022group4/pull/346)
+*  [Authentication mechanism modified.](https://github.com/bounswe/bounswe2022group4/pull/353)
+*  [Implementation of Comment APIs.](https://github.com/bounswe/bounswe2022group4/pull/369)
+*  [Handlling some inconsistencies.](https://github.com/bounswe/bounswe2022group4/pull/377)
+*  [Bug-Fix: revisiting permission requirements](https://github.com/bounswe/bounswe2022group4/pull/383)
+*  [Modification of response bodies.](https://github.com/bounswe/bounswe2022group4/pull/401)
+*  [Bug-Fix: revisiting last update time management of posts and comments](https://github.com/bounswe/bounswe2022group4/pull/402)
+*  [Bug-Fix](https://github.com/bounswe/bounswe2022group4/pull/424)
+*  [Implementation of user and post search.](https://github.com/bounswe/bounswe2022group4/pull/432)
+*  [API for listing Comments.](https://github.com/bounswe/bounswe2022group4/pull/438)
+*  [Unit tests for Post and Comment related APIs](https://github.com/bounswe/bounswe2022group4/pull/647) Also: [ #604 ](https://github.com/bounswe/bounswe2022group4/pull/604)[ #619 ](https://github.com/bounswe/bounswe2022group4/pull/619)
+   
+
+### *Unit Tests*
+- POST : *api/post/create-post* [***](37a19edfd797f5e3ad3943067e11e27759d1ffc9)
+- POST : *api/post/update/\<slug>/*  [***](979cd4b589d47e76e1b6b18f0cf51c87d9ba59f2)
+- POST : *api/post/delete/\<slug>/*  [***](eb2c1b0daedca63846e389088b2c67d9fc58946c)
+- GET  : *api/post/fetch/\<slug>/*  [***](f50b9d9268c43ee7e241266d90a9eb2c0d0bf1d5)
+- POST : */api/post/create-comment/{slug}*  [***](b0394517a1eebb42a2871c774984a03fdc19357c)
+- POST : */api/post/update-comment/{slug}/{id}* [***](d94c72f0eda3f43d8aba806cfe9550a901c39a0e)
+- POST : */api/post/delete-comment/{slug}/{id}*  [***](c6a28770f85d9a2c12830251efc81a65f1111682)
+- GET  : */api/post/fetch-comment/{slug}/{id}*  [***](de132b11a40fc0ee24ddd94fef9d5165a97db2aa)
+- POST : */api/post/upvote-post/{slug}*  [***](9cf8c8c3aa26d037d3905e2cb300f7561c188fec)
+- POST : */api/post/downvote-post/{slug}*  [***](94554058bc9b36c11d9893b83f84e519a83bc177)
+- POST : */api/post/upvote-comment/{slug}/{id}*  [***](58eba0ba22cc62748b84cd878d10702b2561e8a4)
+- POST : */api/post/downvote-comment/{slug}/{id}*  [***](0124b48f1c6498b6752ee318594d71c4bb1db1e1)
+
+
+### *Additional Information*
+
+
+</details>
 
 
 
