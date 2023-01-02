@@ -747,19 +747,19 @@ Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
 ## Mobile
 
 **Sign Up Pages** <br><br>
-[Sign Up Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/SignUpPage)
+[Sign Up Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/register)
 ![WhatsApp Image 2023-01-02 at 22 55 49](https://user-images.githubusercontent.com/69752782/210275898-039ae3d9-a426-4e4c-b7dd-79ae1b5c7f93.jpeg)
 
 <br>
 
 **Log In Page** <br><br>
-[Log In Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/SignInPage)
+[Log In Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/login)
 ![WhatsApp Image 2023-01-02 at 22 55 48 (3)](https://user-images.githubusercontent.com/69752782/210275909-67c9d89a-9d89-40b8-ae09-079940f9a450.jpeg)
 
 <br>
 
 **Forget Password Pages** <br><br>
-[Forget Password Pages Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/ForgotPassword)
+[Forget Password Pages Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/forgotpassword)
 ![WhatsApp Image 2023-01-02 at 22 55 49 (1)](https://user-images.githubusercontent.com/69752782/210275925-1a59eb6d-e489-4b39-8abd-365ac1f17282.jpeg)
 ![WhatsApp Image 2023-01-02 at 22 55 49 (2)](https://user-images.githubusercontent.com/69752782/210275928-371853ba-dcdb-4163-8b73-fffb2c29dccb.jpeg)
 
@@ -767,13 +767,13 @@ Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
 <br>
 
 **Create Post Page** <br><br>
-[Create Post Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/CreatePost)
+[Create Post Page Code](https://github.com/bounswe/bounswe2022group4/blob/master/heka-mobile/app/src/main/java/com/bounswe/heka/post/CreatePostViewModel.kt)
 ![WhatsApp Image 2023-01-02 at 22 55 44 (2)](https://user-images.githubusercontent.com/69752782/210275963-0464f2c3-3cc7-461d-b9d9-9961fc33cd8d.jpeg)
 
 <br>
 
 **Home Page** <br><br>
-[Home Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/HomePage)
+[Home Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/timeline)
 ![WhatsApp Image 2023-01-02 at 22 55 43 (1)](https://user-images.githubusercontent.com/69752782/210276009-310022d1-402a-4510-a0e1-8c534377d1bc.jpeg)
 ![WhatsApp Image 2023-01-02 at 22 55 43](https://user-images.githubusercontent.com/69752782/210276015-753c9dbb-ec7c-40d5-94b1-7478b8186dab.jpeg)
 ![WhatsApp Image 2023-01-02 at 22 55 50 (3)](https://user-images.githubusercontent.com/69752782/210276021-982e067a-f2e8-4374-b758-43a68500b249.jpeg)
@@ -783,14 +783,14 @@ Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
 <br>
 
 **Search** <br><br>
-[Search Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/SearchBar)
+[Search Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/search)
 ![WhatsApp Image 2023-01-02 at 22 55 44 (1)](https://user-images.githubusercontent.com/69752782/210276050-1f594a16-42e1-4829-b03d-d3577187ee3c.jpeg)
 ![WhatsApp Image 2023-01-02 at 22 55 47 (2)](https://user-images.githubusercontent.com/69752782/210276052-a9f9aafa-b535-41ab-a6a2-4adeeef1d778.jpeg)
 
 <br>
 
 **Edit Profile** <br><br>
-[Edit Profile Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/EditProfilePage)
+[Edit Profile Code](https://github.com/bounswe/bounswe2022group4/blob/master/heka-mobile/app/src/main/java/com/bounswe/heka/profile/EditProfileViewModel.kt)
 ![WhatsApp Image 2023-01-02 at 22 55 44 (3)](https://user-images.githubusercontent.com/69752782/210276076-4aa59926-0763-48ed-ad37-a2f735675a76.jpeg)
 ![WhatsApp Image 2023-01-02 at 22 55 48 (1)](https://user-images.githubusercontent.com/69752782/210276079-12c7433e-71c0-46b3-969d-7315c94e3ff4.jpeg)
 ![WhatsApp Image 2023-01-02 at 22 55 48](https://user-images.githubusercontent.com/69752782/210276081-5a19ffd0-043d-451f-987e-a83e706c7853.jpeg)
@@ -799,13 +799,13 @@ Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
 <br>
 
 **Create Comment Page** <br><br>
-[Create Comment Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/CreateComment)
+[Create Comment Page Code](https://github.com/bounswe/bounswe2022group4/blob/master/heka-mobile/app/src/main/java/com/bounswe/heka/post/CommentListItemState.kt)
 ![WhatsApp Image 2023-01-02 at 22 55 47 (1)](https://user-images.githubusercontent.com/69752782/210276142-31aadff8-8970-4cfe-860b-390aaea7d089.jpeg)
 
 <br>
 
 **Edit Post Page** <br><br>
-[Create Comment Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/CreateComment)
+[Create Comment Page Code](https://github.com/bounswe/bounswe2022group4/blob/master/heka-mobile/app/src/main/java/com/bounswe/heka/post/EditPostViewModel.kt)
 ![Unknown](https://user-images.githubusercontent.com/69752782/210276657-2af3bb9b-4a6a-48a3-8865-6a3fa59a61e9.jpeg)
 
 
@@ -819,7 +819,7 @@ Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
 
 
 **Chat** <br><br>
-[Chat Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/Chat)
+[Chat Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/chat)
 
 ![WhatsApp Image 2023-01-02 at 22 55 44 (3)](https://user-images.githubusercontent.com/69752782/210276292-705ebaeb-2c6b-44af-8eac-c1d5658c5693.jpeg)
 ![WhatsApp Image 2023-01-02 at 22 55 50 (2)](https://user-images.githubusercontent.com/69752782/210276299-805bc9fd-f62a-4d43-8f51-5b4e9789fd83.jpeg)
@@ -827,7 +827,7 @@ Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
 
 
 **Profile Page** <br><br>
-[Profile Page Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/ProfilePage)
+[Profile Page Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/profile)
 ![WhatsApp Image 2023-01-02 at 22 55 46](https://user-images.githubusercontent.com/69752782/210276308-b698d5c3-f6ba-4f40-b986-8f3c4f2aeae9.jpeg)
 ![WhatsApp Image 2023-01-02 at 22 55 47 (3)](https://user-images.githubusercontent.com/69752782/210276309-8d28d9f9-7778-4b24-9cf4-1f0fa7ee2c34.jpeg)
 ![WhatsApp Image 2023-01-02 at 22 55 48 (2)](https://user-images.githubusercontent.com/69752782/210276492-a807a37a-d357-48bc-8680-333a9c7363f5.jpeg)
@@ -835,22 +835,23 @@ Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
 <br>
 
 **Correct Category Of Post** <br><br>
-[Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/ReportPost)
+[Code ](https://github.com/bounswe/bounswe2022group4/blob/master/heka-mobile/app/src/main/res/layout/fragment_edit_post.xml)
 ![WhatsApp Image 2023-01-02 at 22 55 50 (1)](https://user-images.githubusercontent.com/69752782/210276432-e1636c42-c494-4cd9-8d37-1abb07f7c80c.jpeg)
 ![WhatsApp Image 2023-01-02 at 22 55 50](https://user-images.githubusercontent.com/69752782/210276434-9d3d2ad5-1945-4515-9fd3-1d4d57762000.jpeg)
 <br>
 
 
 **Single Post Page** <br><br>
-[Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/PostPage)
+[Code ](https://github.com/bounswe/bounswe2022group4/blob/master/heka-mobile/app/src/main/res/layout/fragment_full_post.xml)
 ![WhatsApp Image 2023-01-02 at 22 55 43 (2)](https://user-images.githubusercontent.com/69752782/210276411-3dc81975-92aa-40a5-a16d-8bcb2a27b361.jpeg)
 ![WhatsApp Image 2023-01-02 at 22 55 51 (2)](https://user-images.githubusercontent.com/69752782/210276414-eb63dbdf-f4fd-44e5-aa6c-c7f8900969d0.jpeg)
 ![WhatsApp Image 2023-01-02 at 22 55 46 (2)](https://user-images.githubusercontent.com/69752782/210276504-87976d0e-6e60-4899-a4a4-b92e32972999.jpeg)
 
+
+
 <br>
 **Annotation** <br><br>
-[Text Annotation Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/TextAnnotation)
-[Image Annotation Code ](https://github.com/bounswe/bounswe2022group4/blob/master/heka-front/src/components/Post/Post.js)
+[Annotation UI Code ](https://github.com/bounswe/bounswe2022group4/blob/master/heka-mobile/app/src/main/res/layout/fragment_dialog_annotation.xml)
 ![WhatsApp Image 2023-01-02 at 22 55 43 (3)](https://user-images.githubusercontent.com/69752782/210275753-ab085f0c-57fa-4f5c-bb4e-5ffb0ee7f78f.jpeg)
 ![WhatsApp Image 2023-01-02 at 22 55 44](https://user-images.githubusercontent.com/69752782/210275754-582faec2-3f9d-439e-961a-504ed9eac039.jpeg)
 ![WhatsApp Image 2023-01-02 at 22 55 47](https://user-images.githubusercontent.com/69752782/210275755-67ea58af-1fd4-4661-821e-0a2402c60542.jpeg)
