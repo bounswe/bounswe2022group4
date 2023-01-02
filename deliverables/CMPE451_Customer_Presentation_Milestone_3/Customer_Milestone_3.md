@@ -517,19 +517,9 @@ Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
 
 
 
-## Example 1: Register to the Application
+## Example 1: Search A User By Supplying Username
+![image](https://user-images.githubusercontent.com/100778825/210243673-e6a4f9d8-aed6-4b89-89a2-cfdd4231ee08.png)
 
-
-## Example 2: Login to the Application
-
-
-
-## Example 3: Send Message to the Specific User with His/Her Username 
-
-## Example 4: Get Secret Code In Order To Reset Password
-
-
-## Example 5: Reset Password Via Supplying Secret Code and the New Password
 
 
 ## Example 6: Create a New Post
