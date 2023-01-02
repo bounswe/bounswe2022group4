@@ -141,3 +141,11 @@ class CommentTestCase(APITestCase):
         response = FetchCommentAPIView.as_view()(request, **kwargs)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
+    def test_upvote_post(self):
+        url_ = '/api/post/upvote-post/'
+        kwargs = {"slug" : self.test_post.slug}
+        request = self.factory.post( url_, format="json")
+        force_authenticate(request, user=self.test_user_2)
+        response = PostUpvoteAPIView.as_view()(request, **kwargs)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+    
