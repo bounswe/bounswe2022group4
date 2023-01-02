@@ -164,3 +164,11 @@ class CommentTestCase(APITestCase):
         force_authenticate(request, user=self.test_user)
         response = CommentUpvoteAPIView.as_view()(request, **kwargs)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_downvote_comment(self):
+        url_ = '/api/post/downvote-comment/'
+        kwargs = {"slug" : self.test_post.slug, "id": self.comment.id}
+        request = self.factory.post( url_, format="json")
+        force_authenticate(request, user=self.test_user)
+        response = CommentDownvoteAPIView.as_view()(request, **kwargs)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
