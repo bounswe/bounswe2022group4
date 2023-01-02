@@ -148,7 +148,23 @@
 
 - **Erdinç Günaydın**
 
-
+|Work Title|Related Link|
+| ----------- | ----------- |
+|Mobile: Doctors should have a power to change categories of the posts.|[issue](https://github.com/bounswe/bounswe2022group4/issues/573)|
+|Mobile: Doctor comments should be highlighted. |[issue](https://github.com/bounswe/bounswe2022group4/issues/572)|
+|Mobile: Doctor Existence Should Be Added|[issue](https://github.com/bounswe/bounswe2022group4/issues/570)|
+|General: The Whole Project Need A Logo|[issue](https://github.com/bounswe/bounswe2022group4/issues/606)|
+|Mobile: Doctor Profile Page which explicitly state this profile is a doctor.|[issue](https://github.com/bounswe/bounswe2022group4/issues/571)|
+|Management: Documenting User Interface and User Experience of Mobile for Milestone 3|[issue](https://github.com/bounswe/bounswe2022group4/issues/651)|
+|Mobile: Bug about Comments only showing one line of the comments|[issue](https://github.com/bounswe/bounswe2022group4/issues/504)|
+|Mobile: Chat Bot|[issue](https://github.com/bounswe/bounswe2022group4/issues/584)|
+|Mobile: Chat Bot UI elements should be added|[issue](https://github.com/bounswe/bounswe2022group4/issues/586)|
+|chatbot ui and files added (Discarded)|[PR](https://github.com/bounswe/bounswe2022group4/pull/638)|
+|Mobile doctor functionality|[PR](https://github.com/bounswe/bounswe2022group4/pull/630)|
+|Mobile doctor comments|[PR](https://github.com/bounswe/bounswe2022group4/pull/628)|
+|Mobile doctor profile|[PR](https://github.com/bounswe/bounswe2022group4/pull/624)|
+|Line bug fixed at comments, UI enhanced|[test](https://github.com/bounswe/bounswe2022group4/issues/507)|
+|Dark theme problem fixed|[test](https://github.com/bounswe/bounswe2022group4/issues/502)|
 
 
 
@@ -682,7 +698,6 @@ Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
 <img src="https://user-images.githubusercontent.com/74484731/210257214-23f0d6e6-2a58-4f02-afa5-376f40a71b92.png" > 
 
 
-
 **Create Comment Page** <br><br>
 [Create Comment Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/CreateComment)
 <img src="https://user-images.githubusercontent.com/74484731/210260733-07ea7aaf-1272-41ae-a390-2cb28842fcfd.png" > 
@@ -728,73 +743,122 @@ Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
 
 
 
+<br>
+## Mobile
 
-Mobile
+**Sign Up Pages** <br><br>
+[Sign Up Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/SignUpPage)
+![WhatsApp Image 2023-01-02 at 22 55 49](https://user-images.githubusercontent.com/69752782/210275898-039ae3d9-a426-4e4c-b7dd-79ae1b5c7f93.jpeg)
 
-</br>**signup**</br>
-[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/register)
-![photo_2022-12-09 15 23 01](https://user-images.githubusercontent.com/26671168/206707872-23948d6a-9f3a-42cc-adbc-b31d16ab4b94.jpeg)
+<br>
 
-</br>**login**</br>
-[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/login)
-![photo_2022-12-09 15 23 02](https://user-images.githubusercontent.com/26671168/206708087-b490f5ba-d386-4e73-9307-ccc1ecd707ab.jpeg)
+**Log In Page** <br><br>
+[Log In Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/SignInPage)
+![WhatsApp Image 2023-01-02 at 22 55 48 (3)](https://user-images.githubusercontent.com/69752782/210275909-67c9d89a-9d89-40b8-ae09-079940f9a450.jpeg)
 
-</br>**forget password**</br>
-[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/forgotpassword)
-![photo_2022-12-09 15 22 59 (1)](https://user-images.githubusercontent.com/26671168/206708689-bfef9724-f54f-4659-9784-7717192735b2.jpeg)
-![photo_2022-12-09 15 22 59](https://user-images.githubusercontent.com/26671168/206708721-af934ab6-828b-478b-94a4-2dfe30bb7ca7.jpeg)
-![photo_2022-12-09 15 22 57](https://user-images.githubusercontent.com/26671168/206708753-6ead1da0-7c81-4849-b372-5d371a9a4ce3.jpeg)
+<br>
 
-</br>**create post**</br>
-[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/post)
-![photo_2022-12-09 15 22 46](https://user-images.githubusercontent.com/26671168/206709229-c132e82c-c4a2-4445-9fba-efab60cd6ce0.jpeg)
-![photo_2022-12-09 15 22 49](https://user-images.githubusercontent.com/26671168/206709412-d5aba464-1ac2-4104-a755-a8d368d465ba.jpeg)
-![photo_2022-12-09 15 22 49 (1)](https://user-images.githubusercontent.com/26671168/206709433-648bc88a-1eeb-4ae0-95e5-1c4da19fe793.jpeg)
-![photo_2022-12-09 15 22 50](https://user-images.githubusercontent.com/26671168/206709458-c6c5e476-8747-4e96-8b52-1f7be19d9125.jpeg)
-![photo_2022-12-09 15 22 51](https://user-images.githubusercontent.com/26671168/206709482-a04af6a1-45c8-4b35-8610-5117512bb27d.jpeg)
+**Forget Password Pages** <br><br>
+[Forget Password Pages Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/ForgotPassword)
+![WhatsApp Image 2023-01-02 at 22 55 49 (1)](https://user-images.githubusercontent.com/69752782/210275925-1a59eb6d-e489-4b39-8abd-365ac1f17282.jpeg)
+![WhatsApp Image 2023-01-02 at 22 55 49 (2)](https://user-images.githubusercontent.com/69752782/210275928-371853ba-dcdb-4163-8b73-fffb2c29dccb.jpeg)
 
-</br>**home page**</br>
-[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/home)
-![photo_2022-12-09 15 22 47 (1)](https://user-images.githubusercontent.com/26671168/206709360-d49869d5-92d1-465c-8465-ca9af4a834a3.jpeg)
-![photo_2022-12-09 15 22 48](https://user-images.githubusercontent.com/26671168/206709384-15399076-4de3-4869-8ee5-823c4e8395ba.jpeg)
 
-</br>**create comment page**</br>
-[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/post)
-![photo_2022-12-09 15 22 44](https://user-images.githubusercontent.com/26671168/206709796-5bf01d0e-f523-4f22-9949-f761eb4c1f23.jpeg)
+<br>
 
-</br>**Post, Comment, Upvote, Downvote Page**</br>
-[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/post)
-![photo_2022-12-09 15 22 44](https://user-images.githubusercontent.com/26671168/206709084-8f4ed041-6233-49d6-a6b7-d037d601cf29.jpeg)
+**Create Post Page** <br><br>
+[Create Post Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/CreatePost)
+![WhatsApp Image 2023-01-02 at 22 55 44 (2)](https://user-images.githubusercontent.com/69752782/210275963-0464f2c3-3cc7-461d-b9d9-9961fc33cd8d.jpeg)
 
-</br>**Edit Post Page**</br>
-[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/post)
-![photo_2022-12-09 15 22 43](https://user-images.githubusercontent.com/26671168/206709032-a78b2170-c988-4c18-80d8-9e413b9b5a77.jpeg)
+<br>
 
-</br>**Edit Comment Page**</br>
-[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/post)
-![photo_2022-12-09 15 22 40](https://user-images.githubusercontent.com/26671168/206708903-d3233ce2-278e-4901-a1e4-e79845090455.jpeg)
+**Home Page** <br><br>
+[Home Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/HomePage)
+![WhatsApp Image 2023-01-02 at 22 55 43 (1)](https://user-images.githubusercontent.com/69752782/210276009-310022d1-402a-4510-a0e1-8c534377d1bc.jpeg)
+![WhatsApp Image 2023-01-02 at 22 55 43](https://user-images.githubusercontent.com/69752782/210276015-753c9dbb-ec7c-40d5-94b1-7478b8186dab.jpeg)
+![WhatsApp Image 2023-01-02 at 22 55 50 (3)](https://user-images.githubusercontent.com/69752782/210276021-982e067a-f2e8-4374-b758-43a68500b249.jpeg)
+![WhatsApp Image 2023-01-02 at 22 55 51](https://user-images.githubusercontent.com/69752782/210276024-362ade76-37aa-452c-ad3a-455c63a46234.jpeg)
 
-</br>**Post Details Page**</br>
-[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/post)
-![photo_2022-12-09 15 22 42](https://user-images.githubusercontent.com/26671168/206709005-02b24c12-24b7-4a07-af1e-1dbfc72a356c.jpeg)
-![photo_2022-12-09 15 22 44 (1)](https://user-images.githubusercontent.com/26671168/206709147-8e1ca850-9708-498a-b403-1275f4b82e7d.jpeg)
 
-</br>**Chat**</br>
-[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/chat)
-![photo_2022-12-09 15 22 52](https://user-images.githubusercontent.com/26671168/206709564-dc067336-5997-4531-a0ab-2fabe71cec04.jpeg)
-![photo_2022-12-09 15 22 52 (1)](https://user-images.githubusercontent.com/26671168/206709583-384dfb9c-7e72-4d6a-8a74-9838eecaa964.jpeg)
-![photo_2022-12-09 15 22 53](https://user-images.githubusercontent.com/26671168/206709627-23580c2b-a80b-4a17-a330-dd1bcb0290e7.jpeg)
+<br>
 
-</br>**Profile Page**</br>
-[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/profile)
-![photo_2022-12-09 15 22 55](https://user-images.githubusercontent.com/26671168/206708796-f8469160-7fc6-4819-8b1c-5390435186f1.jpeg)
-![photo_2022-12-09 15 22 47](https://user-images.githubusercontent.com/26671168/206709283-5a64a316-207b-4059-9056-ec9b010af9b9.jpeg)
+**Search** <br><br>
+[Search Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/SearchBar)
+![WhatsApp Image 2023-01-02 at 22 55 44 (1)](https://user-images.githubusercontent.com/69752782/210276050-1f594a16-42e1-4829-b03d-d3577187ee3c.jpeg)
+![WhatsApp Image 2023-01-02 at 22 55 47 (2)](https://user-images.githubusercontent.com/69752782/210276052-a9f9aafa-b535-41ab-a6a2-4adeeef1d778.jpeg)
 
-</br>**Edit Profile Page** 
-</br>
-[code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-mobile/app/src/main/java/com/bounswe/heka/profile)
-![photo_2022-12-09 15 22 54](https://user-images.githubusercontent.com/26671168/206709702-91cea36c-3843-42e7-9787-771cc5334694.jpeg)
-![photo_2022-12-09 15 22 54 (1)](https://user-images.githubusercontent.com/26671168/206709731-6ac20167-77ff-4db3-a61b-ab2e3c50cef7.jpeg)
+<br>
+
+**Edit Profile** <br><br>
+[Edit Profile Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/EditProfilePage)
+![WhatsApp Image 2023-01-02 at 22 55 44 (3)](https://user-images.githubusercontent.com/69752782/210276076-4aa59926-0763-48ed-ad37-a2f735675a76.jpeg)
+![WhatsApp Image 2023-01-02 at 22 55 48 (1)](https://user-images.githubusercontent.com/69752782/210276079-12c7433e-71c0-46b3-969d-7315c94e3ff4.jpeg)
+![WhatsApp Image 2023-01-02 at 22 55 48](https://user-images.githubusercontent.com/69752782/210276081-5a19ffd0-043d-451f-987e-a83e706c7853.jpeg)
+![WhatsApp Image 2023-01-02 at 22 55 51 (3)](https://user-images.githubusercontent.com/69752782/210276082-627d7ca0-183e-402f-b91d-2069c587cbab.jpeg)
+
+<br>
+
+**Create Comment Page** <br><br>
+[Create Comment Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/CreateComment)
+![WhatsApp Image 2023-01-02 at 22 55 47 (1)](https://user-images.githubusercontent.com/69752782/210276142-31aadff8-8970-4cfe-860b-390aaea7d089.jpeg)
+
+<br>
+
+**Edit Post Page** <br><br>
+[Create Comment Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/CreateComment)
+![Unknown](https://user-images.githubusercontent.com/69752782/210276657-2af3bb9b-4a6a-48a3-8865-6a3fa59a61e9.jpeg)
+
+
+<br>
+
+**Edit Comment Page** <br><br>
+[Edit Post Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/EditPost)
+![WhatsApp Image 2023-01-02 at 22 55 51 (1)](https://user-images.githubusercontent.com/69752782/210276159-47edf4ca-535d-475d-b6c5-cf07a4492ce2.jpeg)
+
+<br>
+
+
+**Chat** <br><br>
+[Chat Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/Chat)
+
+![WhatsApp Image 2023-01-02 at 22 55 44 (3)](https://user-images.githubusercontent.com/69752782/210276292-705ebaeb-2c6b-44af-8eac-c1d5658c5693.jpeg)
+![WhatsApp Image 2023-01-02 at 22 55 50 (2)](https://user-images.githubusercontent.com/69752782/210276299-805bc9fd-f62a-4d43-8f51-5b4e9789fd83.jpeg)
+
+
+
+**Profile Page** <br><br>
+[Profile Page Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/ProfilePage)
+![WhatsApp Image 2023-01-02 at 22 55 46](https://user-images.githubusercontent.com/69752782/210276308-b698d5c3-f6ba-4f40-b986-8f3c4f2aeae9.jpeg)
+![WhatsApp Image 2023-01-02 at 22 55 47 (3)](https://user-images.githubusercontent.com/69752782/210276309-8d28d9f9-7778-4b24-9cf4-1f0fa7ee2c34.jpeg)
+![WhatsApp Image 2023-01-02 at 22 55 48 (2)](https://user-images.githubusercontent.com/69752782/210276492-a807a37a-d357-48bc-8680-333a9c7363f5.jpeg)
+
+<br>
+
+**Correct Category Of Post** <br><br>
+[Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/ReportPost)
+![WhatsApp Image 2023-01-02 at 22 55 50 (1)](https://user-images.githubusercontent.com/69752782/210276432-e1636c42-c494-4cd9-8d37-1abb07f7c80c.jpeg)
+![WhatsApp Image 2023-01-02 at 22 55 50](https://user-images.githubusercontent.com/69752782/210276434-9d3d2ad5-1945-4515-9fd3-1d4d57762000.jpeg)
+<br>
+
+
+**Single Post Page** <br><br>
+[Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/PostPage)
+![WhatsApp Image 2023-01-02 at 22 55 43 (2)](https://user-images.githubusercontent.com/69752782/210276411-3dc81975-92aa-40a5-a16d-8bcb2a27b361.jpeg)
+![WhatsApp Image 2023-01-02 at 22 55 51 (2)](https://user-images.githubusercontent.com/69752782/210276414-eb63dbdf-f4fd-44e5-aa6c-c7f8900969d0.jpeg)
+![WhatsApp Image 2023-01-02 at 22 55 46 (2)](https://user-images.githubusercontent.com/69752782/210276504-87976d0e-6e60-4899-a4a4-b92e32972999.jpeg)
+
+<br>
+**Annotation** <br><br>
+[Text Annotation Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/TextAnnotation)
+[Image Annotation Code ](https://github.com/bounswe/bounswe2022group4/blob/master/heka-front/src/components/Post/Post.js)
+![WhatsApp Image 2023-01-02 at 22 55 43 (3)](https://user-images.githubusercontent.com/69752782/210275753-ab085f0c-57fa-4f5c-bb4e-5ffb0ee7f78f.jpeg)
+![WhatsApp Image 2023-01-02 at 22 55 44](https://user-images.githubusercontent.com/69752782/210275754-582faec2-3f9d-439e-961a-504ed9eac039.jpeg)
+![WhatsApp Image 2023-01-02 at 22 55 47](https://user-images.githubusercontent.com/69752782/210275755-67ea58af-1fd4-4661-821e-0a2402c60542.jpeg)
+
+
+
+
+
 
 
 
@@ -1350,7 +1414,61 @@ Code Related Significant Issues
 </details>
 	
 	
+<details>
+  <summary>
+    
+###  **Erdinç Günaydın - Group 4**    
+    
+ </summary>
+
+###  **Member**
+- Student ID: 2017400027
+- Email: erdinc.gunaydin@boun.edu.tr
+- Personal Wiki: [Erdinç Günaydın](https://github.com/bounswe/bounswe2022group4/wiki/Erdinç-Günaydın)
+- Team: Mobile Development Team
+  
+### **Responsibilities**
+- My main responsibility is communicator job.
+- I was mainly responsible for implementing doctor entegration to the application. I also shaped the UI and theme completely.
+- My side job was adding a chat bot like front-end team implemented. It could be cool feature if happen.
+
+
+### **Main contributions**
+- Mobile: Integration of health expert profiles into the mobile application.
+- Mobile: Giving more shine to the health experts both profiles and comments to increase visibility.
+- Mobile: Revision of whole application theme as final.
+- Mobile: Creating a logo to the application.
+- Mobile: Fixing bugs like unintended line numbers on comments and.
+- Mobile: Doctor and regular user differentation on comments and profile side.
+
+
+#### **Code Related Significant Issues**
+* [Mobile: Doctors should have a power to change categories of the posts.](https://github.com/bounswe/bounswe2022group4/issues/573)
+* [Mobile: Doctor Existence Should Be Added](https://github.com/bounswe/bounswe2022group4/issues/570)
+* [Mobile: Edit Profile Page and Profile Page Implementation](https://github.com/bounswe/bounswe2022group4/issues/478)
+
+
+#### **Management Related Significant Issues**
+* [General: The Whole Project Need A Logo](https://github.com/bounswe/bounswe2022group4/issues/606)
+* [Management: Documenting User Interface and User Experience of Mobile for Milestone 3](https://github.com/bounswe/bounswe2022group4/issues/651)
+
+
+
+  
+### **Pull Requests**
+[Mobile doctor functionality](https://github.com/bounswe/bounswe2022group4/pull/630)
+[Mobile doctor comments](https://github.com/bounswe/bounswe2022group4/pull/628)
+[Mobile doctor profile](https://github.com/bounswe/bounswe2022group4/pull/624)
+
+  
+### **Additional Information**
+* Contributions are distributed into commits well, all contributions have not explicitly implied on issues, only mojor ones implied.
+</details>
+   </summary>
+
+
 	
+
 <details>
 
   <summary>
