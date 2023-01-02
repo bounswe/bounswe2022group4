@@ -125,3 +125,12 @@ class CommentTestCase(APITestCase):
         force_authenticate(request, user=self.test_user_2)
         response = UpdateCommentAPIView.as_view()(request, **kwargs)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_delete_comment(self):
+        url_ = '/api/post/delete-comment/' + self.test_post.slug + '/'
+        kwargs = {"slug" : self.test_post.slug, "id": self.comment.id}
+        request = self.factory.post( url_, format="json")
+        force_authenticate(request, user=self.test_user_2)
+        response = DeleteCommentAPIView.as_view()(request, **kwargs)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
