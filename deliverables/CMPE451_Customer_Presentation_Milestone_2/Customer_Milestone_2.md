@@ -1,4 +1,4 @@
-# Group 2 - Milestone 2 - Group Review
+# Group 4 - Milestone 2 - Group Review
 
 1. [Executive Summary](#executive-summary)
 	* 1.1 Summary of the Project Status
