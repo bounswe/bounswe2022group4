@@ -988,11 +988,12 @@ I created realistic posts and comments in the application. I also reviewed pull 
 
 </details>
 
+
 <details>
 
-	<summary>
+<summary>
 
-###  **Yusuf Bayındır - Group 4**
+###  *Yusuf Bayındır - Group 4*
 
 </summary>
  
@@ -1075,7 +1076,8 @@ I created realistic posts and comments in the application. I also reviewed pull 
 
 ### *Additional Information*
 
-	</details>
+	
+</details>
 
 
 
