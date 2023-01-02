@@ -350,9 +350,9 @@
 * **1.2.1.1.** *The system shall enable users to search for a health professional.➡️ **Status: In Progress***
 * **1.2.1.2.** *The system shall enable users to search a tag. ➡️ **Status: In Progress***
 * **1.2.1.3.** *The system shall enable users to make an advanced search based on a keyword and/or date and/or location.➡️ **Status: In Progress***
-* **1.2.1.4.** *The system shall provide a sorting option that reorders posts by their posted date.➡️ **Status: Not Started***
-* **1.2.1.5.** *The system shall provide a sort option that reorders posts by their number of comments.➡️ **Status: Not Started***
-* **1.2.1.6.** *The system shall provide a sort option that reorders posts by their number of upvotes.➡️ **Status: Not Started***
+* **1.2.1.4.** *The system shall provide a sorting option that reorders posts by their posted date.➡️ **Status: In Progress***
+* **1.2.1.5.** *The system shall provide a sort option that reorders posts by their number of comments.➡️ **Status: In Progress***
+* **1.2.1.6.** *The system shall provide a sort option that reorders posts by their number of upvotes.➡️ **Status: In Progress***
 * **1.2.1.7.** *The system shall provide a filtering option that filters posts according to their categories.➡️ **Status: Not Started***
 * **1.2.1.8.** *The system shall provide a filtering option that filters posts according to their posted date.➡️ **Status: Not Started***
 * **1.2.1.9.** *The system shall provide a filtering option that filters posts according to their owners' user type.➡️ **Status: Not Started***
