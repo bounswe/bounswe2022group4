@@ -10,7 +10,6 @@ from .views import ListPostsAPIView, ListCommentsOfPostsAPIView
 
 from django.contrib.auth import get_user_model
 from users.models import User, UserManager
-
 from .models import Post, Comment
 
 from django.conf.urls import url
@@ -66,4 +65,10 @@ class PostTestCase(APITestCase):
         response = DeletePostAPIView.as_view()(request, **kwargs)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertFalse(Post.objects.filter(creator=self.test_user))
-
+    
+    def test_fetch_post(self):
+        url_ = '/api/post/fetch/' + self.test_post.slug + '/'
+        kwargs = {"slug" : self.test_post.slug}
+        request = self.factory.get( url_)
+        response = FetchPostAPIView.as_view()(request, **kwargs)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
