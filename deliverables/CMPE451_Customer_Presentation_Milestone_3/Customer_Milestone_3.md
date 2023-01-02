@@ -346,7 +346,7 @@
   * **1.1.2.1.13** *Users shall be able to see all posts.➡️ **Status: Completed***
   * **1.1.2.1.14** *Users shall be able to refer to an external link in their posts or comments using hyperlinks.➡️ **Status: Not Started***
   * **1.1.2.1.15** *Users shall get a notification after their posts or comments record an activity.➡️ **Status: Not Started***
-  * **1.1.2.1.16** *Users shall see health professionals' comments on posts as top comments. ➡️ **Status: In Progress***
+  * **1.1.2.1.16** *Users shall see health professionals' comments on posts as top comments. ➡️ **Status: Completed***
   * **1.1.2.1.17** *Users shall be able to follow health professionals.➡️ **Status: Not Started***
   * **1.1.2.1.18** *Users shall be able to unfollow health professionals.➡️ **Status: Not Started***
   * **1.1.2.1.19** *Users shall be able to follow categories.➡️ **Status: Not Started***
@@ -359,9 +359,9 @@
 
 * **1.1.2.2 Profile Pages**
   
-  * **1.1.2.2.1** *Users shall have a profile page.➡️ **Status: In Progress***
-  * **1.1.2.2.2** *Users shall see other users' user type from their profile pages.➡️ **Status: Not Started***
-  * **1.1.2.2.3** *Users shall see other users' avatars from their profile pages. ➡️ **Status: In Progress***
+  * **1.1.2.2.1** *Users shall have a profile page.➡️ **Status: Completed***
+  * **1.1.2.2.2** *Users shall see other users' user type from their profile pages.➡️ **Status: Completed***
+  * **1.1.2.2.3** *Users shall see other users' avatars from their profile pages. ➡️ **Status: Completed***
   * **1.1.2.2.4** *Users shall see other users' past comments and post from their profile pages.➡️ **Status: Not Started***
   * **1.1.2.2.5** *Users shall have their usernames visible on their profile pages.➡️ **Status: Completed***
   * **1.1.2.2.6** *Users shall have a label above their avatars that indicates their user type.➡️ **Status: In Progress***
