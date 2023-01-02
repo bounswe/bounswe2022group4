@@ -517,12 +517,11 @@ Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
 
 
 
-## Example 1: Search A User By Supplying Username
+## Example 1: Search A User 
 ![image](https://user-images.githubusercontent.com/100778825/210243673-e6a4f9d8-aed6-4b89-89a2-cfdd4231ee08.png)
 
-
-
-## Example 6: Create a New Post
+## Example 2: Search A Post   
+![image](https://user-images.githubusercontent.com/100778825/210244277-17ecb526-5149-4bee-b78b-6abf9d833bb4.png)
 
 
 
