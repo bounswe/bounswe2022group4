@@ -257,16 +257,16 @@
 
 |Deliverable|Status change since Milestone I|Date Delivered| 
 |-----|:--------:|:------:| 
-|[Software Requirements Specification](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)| Requirements spesifications had been changed a little since we decided to provide a chat interface for users to be able to message the any user that can be helpful so we removed the chatbot. Any other requirements that was decided is going to be implemented until the next deliverables or have already been implemented. |09/11/2022 |
-|[Software Design (UML):Use-Case Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Use-Case-Diagram)|Not Changed.|09/11/2022|
-|[Software Design (UML):Class Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram)|Not Changed.|09/11/2022|
-|[Software Design (UML):Sequence Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Sequence-Diagrams)|Not Changed.|09/11/2022|
-|[Scenarios](https://github.com/bounswe/bounswe2022group4/wiki/User-Scenarios) and [Mockups](https://github.com/bounswe/bounswe2022group4/wiki/Mockups) |Not Changed. | 09/11/2022|
-|[Project Plan](https://github.com/bounswe/bounswe2022group4/wiki/Project-Plan)|Not Changed.|09/11/2022|
-|[Individual Contribution Reports](https://github.com/bounswe/bounswe2022group4/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_1/Customer_Milestone_2.md)|New report was written.|09/11/2022|
-|[Software Release](https://github.com/bounswe/bounswe2022group4/releases/tag/customer-presentation-2) | Delivered| 09/11/2022| 
-|Mobile Deliverables [APK](https://github.com/bounswe/bounswe2022group4/releases/download/customer-presentation-2/heka-mobile.apk)|Delivered |09/11/2022|
-|Group Review  | This Report | 09/11/2022|
+|[Software Requirements Specification](https://github.com/bounswe/bounswe2022group4/wiki/Requirements)| Not Changed and Delivered.|09/11/2022 |
+|[Software Design (UML):Use-Case Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Use-Case-Diagram)|Not Changed and Delivered.|09/11/2022|
+|[Software Design (UML):Class Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Class-Diagram)|Not Changed and Delivered.|09/11/2022|
+|[Software Design (UML):Sequence Diagram](https://github.com/bounswe/bounswe2022group4/wiki/Sequence-Diagrams)|Not Changed and Delivered|09/11/2022|
+|[Scenarios](https://github.com/bounswe/bounswe2022group4/wiki/User-Scenarios) and [Mockups](https://github.com/bounswe/bounswe2022group4/wiki/Mockups) | Delivered. | 09/11/2022|
+|[Project Plan](https://github.com/bounswe/bounswe2022group4/wiki/Project-Plan)|Delivered.|09/11/2022|
+|[Individual Contribution Reports](https://github.com/bounswe/bounswe2022group4/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_3/Customer_Milestone_3.md)|New report was written.|09/11/2022|
+|[Software Release](https://github.com/bounswe/bounswe2022group4/releases/tag/customer-presentation-2) | Delivered.| 09/11/2022| 
+|Mobile Deliverables [APK](https://github.com/bounswe/bounswe2022group4/releases/download/customer-presentation-3/heka-mobile.apk)|Delivered.|09/11/2022|
+|Group Review  | Delivered. | 09/11/2022|
 
 
 
