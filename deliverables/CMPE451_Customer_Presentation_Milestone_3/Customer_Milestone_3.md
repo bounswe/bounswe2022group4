@@ -712,6 +712,12 @@ Mobile
 
 ### Annotations
 
+For the frontend implementation of the annotation feature, we used the Recogito library for text annotation and the react-annotation library for image annotation. These libraries allowed us to provide an easy-to-use interface for users to highlight and annotate specific text or regions within a post. When text or an image was selected, it was highlighted to show that it had been annotated and a form was displayed so that users could enter their annotation and submit it to the backend.
+
+For mobile implementation of annotation feature, we implemented custom android views with onDraw and onTouchHandling functionality for image annotation, and overrided the onSelectMenuActionCallbacks of the android TextView for text annotation. These views provided a similar interface to the one available on desktop computers, allowing users to annotate text or images by selecting a region and entering their annotation in a form. Additionally, we implemented a dialog that displayed all existing annotations when an image or text was clicked, providing a convenient way for users to review and interact with annotations made by others.
+
+In the backend, we used the W3C Web Annotation data model to store and retrieve annotation data from the database. This data model provided a standardized and interoperable way to represent annotations and their relationships, ensuring compatibility with other annotation systems.
+
 
 
 
