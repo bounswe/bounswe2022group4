@@ -576,59 +576,98 @@ Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
 
 ### User Interface / User Experience
 
-
-**Sign Up Pages**
-<img src="https://user-images.githubusercontent.com/74484731/206694455-1313f760-52ec-4b35-a2cb-0e5ccd5ad968.jpeg" > 
-<img src="https://user-images.githubusercontent.com/74484731/206694950-976e401b-16b8-43a3-9f9b-3bdefedaebcb.jpeg"> 
+**Sign Up Pages** <br><br>
 [Sign Up Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/SignUpPage)
+<img src="https://user-images.githubusercontent.com/74484731/206694455-1313f760-52ec-4b35-a2cb-0e5ccd5ad968.jpeg" > 
+<img src="https://user-images.githubusercontent.com/74484731/210259801-ce78f4ea-1d13-46f3-9ac5-54498a6d155d.png"> 
 
-**Log In Page**
-<img src="https://user-images.githubusercontent.com/74484731/206697196-bcb64d1b-1371-44c8-98d6-595bd2ebd830.jpeg" > 
+**Log In Page** <br><br>
 [Log In Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/SignInPage)
+<img src="https://user-images.githubusercontent.com/74484731/206697196-bcb64d1b-1371-44c8-98d6-595bd2ebd830.jpeg" > 
 
-**Forget Password Pages**
+**Forget Password Pages** <br><br>
+[Forget Password Pages Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/ForgotPassword)
 <img src="https://user-images.githubusercontent.com/74484731/206697788-66406da9-98f4-418e-b305-04cd01ecc003.jpeg" > 
 <img src="https://user-images.githubusercontent.com/74484731/206697938-b8113e97-96f1-41fd-a0d0-626c32f3f84d.jpeg" > 
 <img src="https://user-images.githubusercontent.com/74484731/206698085-d413825a-f328-46f5-b2ac-362617807f84.jpeg" > 
 <img src="https://user-images.githubusercontent.com/74484731/206698183-89fb2b62-ff82-4ae9-ac00-07524efb2ede.jpeg" > 
-[Forget Password Pages Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/ForgotPassword)
 
-**Create Post Page**
-<img src="https://user-images.githubusercontent.com/74484731/206698513-be145356-a92b-4197-9076-d4db85c8b4a6.jpeg" > 
+**Create Post Page** <br><br>
 [Create Post Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/CreatePost)
+<img src="https://user-images.githubusercontent.com/74484731/210260882-250927c8-f755-492b-a760-918bea492376.png" > 
 
-**Home Page**
-<img src="https://user-images.githubusercontent.com/74484731/206698920-f99384d8-599e-41a6-9480-3d5fb115187f.jpeg" > 
+**Home Page** <br><br>
 [Home Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/HomePage)
+<img src="https://user-images.githubusercontent.com/74484731/210256051-a28c4e32-96ef-434a-99e7-44a6c119c235.png" > 
 
-**Create Comment Page**
-<img src="https://user-images.githubusercontent.com/74484731/206699188-8f6f2a27-a650-483a-bd27-5e2e48e44f8d.jpeg" > 
+**Search** <br><br>
+[Search Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/SearchBar)
+<img src="https://user-images.githubusercontent.com/74484731/210256357-df848a44-c89b-42da-9e68-d6c8d2fbf50e.png" > 
+
+**Edit Profile** <br><br>
+[Edit Profile Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/EditProfilePage)
+<img src="https://user-images.githubusercontent.com/74484731/210256733-f0fd309e-36c4-4046-8195-08264d7ba5c8.png" > 
+
+**Email Verification Page** <br><br>
+[Email Verification Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/SignUpVerificationPage)
+<img src="https://user-images.githubusercontent.com/74484731/210260004-32e86e48-d4f3-4eab-9772-5ef8f783d622.png" > 
+<img src="https://user-images.githubusercontent.com/74484731/210260117-84ccce17-7183-4903-b298-65a7fcab206a.png" > 
+
+
+
+
+
+**Chatbot** <br><br>
+[Chatbot Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/ChatBot)
+<img src="https://user-images.githubusercontent.com/74484731/210256913-2a45fd17-6077-426e-a19a-267fd3db6dee.png" > 
+<img src="https://user-images.githubusercontent.com/74484731/210257214-23f0d6e6-2a58-4f02-afa5-376f40a71b92.png" > 
+
+
+
+**Create Comment Page** <br><br>
 [Create Comment Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/CreateComment)
+<img src="https://user-images.githubusercontent.com/74484731/210260733-07ea7aaf-1272-41ae-a390-2cb28842fcfd.png" > 
 
-**Post, Comment, Upvote, Downvote Page**
-<img src="https://user-images.githubusercontent.com/74484731/206699494-86f6f13d-b8f0-4ad3-88e9-2ce776fbf562.jpeg" > 
+**Post, Comment, Upvote, Downvote Page** <br><br>
 [Related Code 1 ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/Comment)
 [Related Code 2 ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/CommentBox)
 [Related Code 3 ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/PostBox)
 [Related Code 4 ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/PostBox)
+<img src="https://user-images.githubusercontent.com/74484731/210261201-191a8e4e-b849-4b66-8b2a-da93252f990e.png" > 
+<img src="https://user-images.githubusercontent.com/74484731/210258859-a201e749-471e-4689-a04a-9f6b9161b7fd.png" > 
 
-**Search and Category**
-<img src="https://user-images.githubusercontent.com/74484731/206700613-899b2a5a-5508-4a2b-a73a-ef963fd221fc.jpeg" > 
-[Search Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/SearchBar)
-[Category Code  ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/SideBar)
-
-**Edit Post Page**
-<img src="https://user-images.githubusercontent.com/74484731/206701008-32261207-d0f5-4c4a-827a-c853df7eddfb.jpeg" > 
+**Edit Post Page** <br><br>
 [Edit Post Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/EditPost)
+<img src="https://user-images.githubusercontent.com/74484731/206701008-32261207-d0f5-4c4a-827a-c853df7eddfb.jpeg" > 
 
-**Chat**
+**Chat** <br><br>
+[Chat Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/Chat)
+<img src="https://user-images.githubusercontent.com/74484731/210257563-c395595b-f3c4-4174-b7b9-349224ee4530.png" >
 <img src="https://user-images.githubusercontent.com/74484731/206701820-b31b1d73-4ed8-4760-bcea-175a133b002c.jpeg" > 
 <img src="https://user-images.githubusercontent.com/74484731/206701986-85d96de0-86f4-4d92-a358-662979f9970b.jpeg" >
-[Chat Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/Chat)
 
-**Profile Page**
-<img src="https://user-images.githubusercontent.com/74484731/206702252-658b3bad-620b-4af7-a776-74ac904a465e.jpeg" > 
+**Profile Page** <br><br>
 [Profile Page Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/ProfilePage)
+<img src="https://user-images.githubusercontent.com/74484731/210257371-e5a7ddde-d311-4f74-b506-c9d01ec913f3.png" > 
+
+**Report Post** <br><br>
+[Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/ReportPost)
+<img src="https://user-images.githubusercontent.com/74484731/210257851-d606c90d-0d1e-45b3-b153-f145f46fdad9.png" > 
+
+**Single Post Page** <br><br>
+[Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/PostPage)
+<img src="https://user-images.githubusercontent.com/74484731/210258623-66002274-8ea3-48c1-90a7-9e0040f93272.png" > 
+
+**Annotation** <br><br>
+[Text Annotation Code ](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/TextAnnotation)
+[Image Annotation Code ](https://github.com/bounswe/bounswe2022group4/blob/master/heka-front/src/components/Post/Post.js)
+<img src="https://user-images.githubusercontent.com/74484731/210258956-368365ca-fac9-4275-848d-e6cd69be7cfa.png" > 
+<img src="https://user-images.githubusercontent.com/74484731/210259068-0e46e9e9-0075-464b-951b-c84e68c32fb7.png" > 
+<img src="https://user-images.githubusercontent.com/74484731/210259346-34f39e12-9d41-4ba7-819e-454b2f8c7ec5.png" > 
+
+
+
+
 
 
 Mobile
