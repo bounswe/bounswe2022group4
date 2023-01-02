@@ -1289,7 +1289,7 @@ I created realistic posts and comments in the application. I also reviewed pull 
 
 ### *Responsibilities*
 
-	
+### *Main contributions*	
 
 #### *Code Related Significant Issues*
 
