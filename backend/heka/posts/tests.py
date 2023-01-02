@@ -95,9 +95,13 @@ class CommentTestCase(APITestCase):
             "body"     : "I'm a 4 months pregnant. I have terrible insomnia in recent days. What do you recommend me \
                           to cure it?"
         }
+        self.comment_data = {
+          "body"  : "I hope you get better ma'am."
+        }
         self.test_user = User.objects.create(**self.data)
         self.test_user_2 = User.objects.create(**self.data_2)
         self.test_post = Post.objects.create(**self.post_data, creator=self.test_user)
+        self.comment = Comment.objects.create(**self.comment_data, parent=self.test_post, creator=self.test_user_2)
     
     def test_create_comment(self):
         data = {
@@ -109,3 +113,15 @@ class CommentTestCase(APITestCase):
         force_authenticate(request, user=self.test_user_2)
         response = CreateCommentAPIView.as_view()(request, **kwargs)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+    def test_update_comment(self):
+        new_data = {
+            "body" : "I hope you get better ma'am. All I can say, please don't fall \
+            asleep on your back as it can increase the risk of stillbirth. Please don't forget to get support from professional."
+        }
+        url_ = '/api/post/update-comment/' + self.test_post.slug + '/'
+        kwargs = {"slug" : self.test_post.slug, "id": self.comment.id}
+        request = self.factory.post( url_,  data=new_data,  format="json")
+        force_authenticate(request, user=self.test_user_2)
+        response = UpdateCommentAPIView.as_view()(request, **kwargs)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
