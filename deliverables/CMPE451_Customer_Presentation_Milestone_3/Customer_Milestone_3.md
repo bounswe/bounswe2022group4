@@ -13,7 +13,7 @@
 	* 2.6 Annotations
 	* 2.7 Standards
 	* 2.8 [Scenarios for Milestone 3](https://github.com/bounswe/bounswe2022group4/wiki/Milestone-III-Scenarios)
-	* 2.9 [User Manual for Web Application](https://github.com/bounswe/bounswe2022group4/wiki/Milestone-III-Scenarios)
+	* 2.9 [User Manual for Web Application](https://github.com/bounswe/bounswe2022group4/wiki/USER-MANUAL)
 3. [Individual Reports](#individual-reports)
 
 ***
