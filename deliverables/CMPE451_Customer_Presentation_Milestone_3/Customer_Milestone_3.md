@@ -776,6 +776,68 @@ In addition to these specific tasks, I also contributed to the development of th
 
 </details>
 
+<details>
+
+  <summary>
+
+###  *Oğuzhan Tok - Group 4*
+    
+</summary>
+  
+  ###  *Member*
+
+* Name: Oğuzhan Tok
+* Student ID: 2019400267
+* Group4 - Backend Team
+  
+### *Responsibilities*
+  * Implementing Post Search Functionality
+  * Implementing User Search Functionality
+  * Implementing Sort Post According to Create Date
+  * Implementing Sort Post According to Update Date
+  * Implementing Sort Post According to Upvote Count
+  * Implementing Sort Post According to Comment Count
+  * Updating Message Sent Via Email
+  * Updating User Model 
+  * Preparing API Endpoints Documentation 
+  * Reviewing and Merging Pull Requests
+  * Creating Realistic Posts and Comments 
+
+### *Main contributions*
+
+
+#### *Code Related Significant Issues*
+* [Backend: Research About Semantic Search](https://github.com/bounswe/bounswe2022group4/issues/517)
+* [Backend: Implementation of the Search Functionality for Users](https://github.com/bounswe/bounswe2022group4/issues/526)
+* [Backend: Implementation of the Search Functionality for Posts](https://github.com/bounswe/bounswe2022group4/issues/533)
+* [Backend: Bug Fix of the Post Search Functionality](https://github.com/bounswe/bounswe2022group4/issues/540)
+* [Backend: Search Application - Implement Sorting Option to Reorder Posts by Their Properties](https://github.com/bounswe/bounswe2022group4/issues/556)
+* [Backend: Update response format of the search functionality](https://github.com/bounswe/bounswe2022group4/issues/564)
+* [Backend: Bug Fix of the sort functionality "type" parameter](https://github.com/bounswe/bounswe2022group4/issues/579)
+* [Backend: Update Message of the Email](https://github.com/bounswe/bounswe2022group4/issues/607)
+
+#### *Management Related Significant Issues*
+* [Management: API Endpoints will be prepared for the Milestone 3](https://github.com/bounswe/bounswe2022group4/issues/644)
+
+### *Pull Requests*
+*  [Heka backend search - Initialized the application and added the user search functionality](https://github.com/bounswe/bounswe2022group4/pull/527)
+*  [Backend: Search Application - Initialized the application and added the user search functionality](https://github.com/bounswe/bounswe2022group4/pull/528)
+*  [Backend: Search Application - Added the post search functionality](https://github.com/bounswe/bounswe2022group4/pull/534)
+*  [Revert "Backend: Annotations endpoints and database"](https://github.com/bounswe/bounswe2022group4/pull/538)
+*  [Backend: Search Application - Bug fix about count parameter](https://github.com/bounswe/bounswe2022group4/pull/543)
+*  [Backend: Search Application - Added the sorting functionality for posts](https://github.com/bounswe/bounswe2022group4/pull/562)
+*  [Backend: Search Functionality - Update response format](https://github.com/bounswe/bounswe2022group4/pull/563)
+*  [Backend: Search Application - Bug fix about sort functionality](https://github.com/bounswe/bounswe2022group4/pull/565)
+*  [Backend: Updated message contents of the email](https://github.com/bounswe/bounswe2022group4/pull/608)
+
+### *Unit Tests*
+*  [Backend: Implement unit tests for APIs related to Forget Password Functionality](https://github.com/bounswe/bounswe2022group4/issues/484)
+*  [Backend: Implement unit tests for APIs related to Chat model ](https://github.com/bounswe/bounswe2022group4/issues/483)
+
+### *Additional Information*
+
+
+</details>
 
 
    
