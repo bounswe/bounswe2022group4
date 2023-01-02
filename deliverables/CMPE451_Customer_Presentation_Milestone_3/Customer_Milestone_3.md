@@ -985,12 +985,13 @@ I created realistic posts and comments in the application. I also reviewed pull 
 
 <details>
 
-<summary>
+	<summary>
 
-###  *Yusuf Bayındır - Group 4*
+###  **Yusuf Bayındır - Group 4**
 
 </summary>
- ###  *Member*
+ 
+###  *Member*
 
 * Name: Yusuf Bayındır
 * Student ID: 2017400042
