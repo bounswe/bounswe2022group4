@@ -713,6 +713,7 @@ Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
 ![WhatsApp Image 2023-01-02 at 22 55 48 (3)](https://user-images.githubusercontent.com/69752782/210275909-67c9d89a-9d89-40b8-ae09-079940f9a450.jpeg)
 
 <br>
+
 **Forget Password Pages** <br><br>
 [Forget Password Pages Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/ForgotPassword)
 ![WhatsApp Image 2023-01-02 at 22 55 49 (1)](https://user-images.githubusercontent.com/69752782/210275925-1a59eb6d-e489-4b39-8abd-365ac1f17282.jpeg)
@@ -720,11 +721,13 @@ Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
 
 
 <br>
+
 **Create Post Page** <br><br>
 [Create Post Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/CreatePost)
 ![WhatsApp Image 2023-01-02 at 22 55 44 (2)](https://user-images.githubusercontent.com/69752782/210275963-0464f2c3-3cc7-461d-b9d9-9961fc33cd8d.jpeg)
 
 <br>
+
 **Home Page** <br><br>
 [Home Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/pages/HomePage)
 ![WhatsApp Image 2023-01-02 at 22 55 43 (1)](https://user-images.githubusercontent.com/69752782/210276009-310022d1-402a-4510-a0e1-8c534377d1bc.jpeg)
@@ -734,10 +737,12 @@ Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
 
 
 <br>
+
 **Search** <br><br>
 [Search Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/SearchBar)
 ![WhatsApp Image 2023-01-02 at 22 55 44 (1)](https://user-images.githubusercontent.com/69752782/210276050-1f594a16-42e1-4829-b03d-d3577187ee3c.jpeg)
 ![WhatsApp Image 2023-01-02 at 22 55 47 (2)](https://user-images.githubusercontent.com/69752782/210276052-a9f9aafa-b535-41ab-a6a2-4adeeef1d778.jpeg)
+
 <br>
 
 **Edit Profile** <br><br>
@@ -748,9 +753,11 @@ Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
 ![WhatsApp Image 2023-01-02 at 22 55 51 (3)](https://user-images.githubusercontent.com/69752782/210276082-627d7ca0-183e-402f-b91d-2069c587cbab.jpeg)
 
 <br>
+
 **Create Comment Page** <br><br>
 [Create Comment Page Code](https://github.com/bounswe/bounswe2022group4/tree/master/heka-front/src/components/CreateComment)
 ![WhatsApp Image 2023-01-02 at 22 55 47 (1)](https://user-images.githubusercontent.com/69752782/210276142-31aadff8-8970-4cfe-860b-390aaea7d089.jpeg)
+
 <br>
 
 **Edit Post Page** <br><br>
