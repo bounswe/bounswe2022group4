@@ -1295,10 +1295,16 @@ I created realistic posts and comments in the application. I also reviewed pull 
 - Revision of Comment system.
 - Revision of Sign Up system.
 - Coordination of frontend team in order to be sure that as possible as requirements are completed.
-	
+- Preparing status of deliverables for Milestone III.
+- Preparing realistic posts and comments.
 
 ### *Main contributions*	
-
+- Implementation of important features that improved the user experience of the website, including the display of the number of comments made to a post, the highlighting of health professionals' comments, the ordering of comments according to the number of upvotes, downvotes, and user type, and the enhancement of the user sign-up password feature, shodowing on posts and several other features
+- Creation of unit test cases for the CommentBox and Comment components that helped to ensure the reliability and quality of the code	
+- Listing undone requirements and making other team members aware about un-done requirements.
+- Preparing status of deliverables for Milestone III Report.
+- Revising Comment and Sign Up system thoroughly.
+	
 #### *Code Related Significant Issues*
 
 |Work Title|Related Link|
