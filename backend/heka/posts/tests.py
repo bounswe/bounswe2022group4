@@ -72,3 +72,40 @@ class PostTestCase(APITestCase):
         request = self.factory.get( url_)
         response = FetchPostAPIView.as_view()(request, **kwargs)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+
+class CommentTestCase(APITestCase):
+    def setUp(self):
+        self.factory = APIRequestFactory()
+        self.data = {
+            "email": "selen@gmail.com",
+            "username": "selen",
+            "password": "12345",
+            "is_expert": False
+        }
+        self.data_2 = {
+            "email": "yusuf@gmail.com",
+            "username": "yusufbyndr",
+            "password": "adlkcmla12",
+            "is_expert": False
+        }
+        self.post_data = {
+            "category" : "Pregnancy",
+            "title"    : "Sleep during pregnancy",
+            "body"     : "I'm a 4 months pregnant. I have terrible insomnia in recent days. What do you recommend me \
+                          to cure it?"
+        }
+        self.test_user = User.objects.create(**self.data)
+        self.test_user_2 = User.objects.create(**self.data_2)
+        self.test_post = Post.objects.create(**self.post_data, creator=self.test_user)
+    
+    def test_create_comment(self):
+        data = {
+            "body"  : "I hope you get better ma'am."
+        }
+        url_ = '/api/post/create-comment/' + self.test_post.slug + '/'
+        kwargs = {"slug" : self.test_post.slug}
+        request = self.factory.post(url_, data, format="json")
+        force_authenticate(request, user=self.test_user_2)
+        response = CreateCommentAPIView.as_view()(request, **kwargs)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
