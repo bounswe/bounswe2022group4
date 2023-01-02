@@ -109,6 +109,22 @@
 
 - **Miraç Batuhan Malazgirt**
 
+|Work Title|Related Link|
+| ----------- | ----------- |
+|Frontend: Listing the Remaining Requirements for Frontend Team|[Issue](https://github.com/bounswe/bounswe2022group4/issues/525)
+|Frontend: Implementation of number of comments made to a post|[Issue](https://github.com/bounswe/bounswe2022group4/issues/542)
+|Frontend: Health professionals' comments on posts displayment|[Issue](https://github.com/bounswe/bounswe2022group4/issues/575)
+|Frontend: Order of Comments According to the Number of Upvotes, Downvotes and User Type|[Issue](https://github.com/bounswe/bounswe2022group4/issues/576)
+|Frontend: User Sign-up Password Feature Enhancement According to the Requirements|[Issue](https://github.com/bounswe/bounswe2022group4/issues/577)
+|Frontend: Unit Tests for CommentBox and Comment Components|[Issue](https://github.com/bounswe/bounswe2022group4/issues/627)
+|Frontend: Password check functionality is added|[Pull Request](https://github.com/bounswe/bounswe2022group4/pull/602)
+|Frontend: Comment Number Display|[Pull Request](https://github.com/bounswe/bounswe2022group4/pull/603)
+|Frontend: Comment highlights are added and post shadow is added|[Pull Request](https://github.com/bounswe/bounswe2022group4/pull/623)
+|Frontend: Comment Orders are Added.|[Pull Request](https://github.com/bounswe/bounswe2022group4/pull/625)
+|Frontend: Added Unit Tests for CommentBox and Comment Components|[Pull Request](https://github.com/bounswe/bounswe2022group4/pull/628)
+|Management: Status of Deliverables for Milestone III Report|[Pull Request](https://github.com/bounswe/bounswe2022group4/pull/625)
+
+
 
 
 - **Halil Salih Orhan**
