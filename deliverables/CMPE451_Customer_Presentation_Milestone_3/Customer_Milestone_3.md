@@ -121,6 +121,18 @@
 
 - **Yiğit Can Özkaya**
 
+|Work Title|Related Link|
+| ----------- | ----------- |
+|Frontend: Chat UI implementation|[issue](https://github.com/bounswe/bounswe2022group4/issues/581)
+|Frontend: Sending Message with Profile Page|[issue](https://github.com/bounswe/bounswe2022group4/issues/581)
+|Frontend: Connecting Backend to the message from profile page|[issue](https://github.com/bounswe/bounswe2022group4/issues/580)
+|Frontend: UI improvements|[issue](https://github.com/bounswe/bounswe2022group4/issues/580)
+|Creating and preparing scenarios for milestone 3|[issue](https://github.com/bounswe/bounswe2022group4/issues/582)
+|Creating a manual for the wewb application|[issue](https://github.com/bounswe/bounswe2022group4/issues/583)
+|Web application message from chat|[PR](https://github.com/bounswe/bounswe2022group4/pull/615)
+|UI improvements in general|[PR](https://github.com/bounswe/bounswe2022group4/pull/620)
+
+
 - **Umut Deniz Şener**
 
 |Work Title|Related Link|
@@ -1132,6 +1144,45 @@ I created realistic posts and comments in the application. I also reviewed pull 
 * [|Update list_item_comment.xml #635|](https://github.com/bounswe/bounswe2022group4/pull/635)
 
 ### *Additional Information*
+
+</details>
+	
+	
+	
+<details>
+
+  <summary>
+
+###  *Yiğit Can Özkaya - Group 4*
+
+</summary>
+
+  ###  *Member*
+
+* Name: Yiğit Can Özkaya
+* Student ID: 2017400036
+* Group4 - Front Team
+
+### *Responsibilities*
+* Implementing message functionality from profile pages
+* Improving UI for general
+* Creating scenarios for milestone 3 with all features currently in application shown
+* Creating a manual for application
+
+#### *Code Related Significant Issues*
+
+* [|Frontend: Message functionality from profile page|](https://github.com/bounswe/bounswe2022group4/issues/580)
+* [|Frontend: UI improvement and message model for profile page|](https://github.com/bounswe/bounswe2022group4/issues/581)
+
+
+### *Pull Requests*
+
+* [|Frontend: Message functionality from profile page|](https://github.com/bounswe/bounswe2022group4/pull/620)
+* [|Frontend: UI improvement and message model for profile page|](https://github.com/bounswe/bounswe2022group4/pull/615)
+
+
+### *Additional Information*
+* For this milestone, i generally work more with team related issues.
 
 </details>
 
