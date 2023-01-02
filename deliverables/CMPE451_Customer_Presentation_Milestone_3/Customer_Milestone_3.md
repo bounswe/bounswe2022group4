@@ -78,6 +78,17 @@
 
 - **Halil Salih Orhan**
 
+|Work Title|Related Link|
+| ----------- | ----------- |
+|Mobile: User and Post Search #598|[issue](https://github.com/bounswe/bounswe2022group4/issues/598)
+|Mobile: Text Annotations for Posts #560|[issue](https://github.com/bounswe/bounswe2022group4/issues/560)
+|Mobile: Image Annotation of Posts #558|[issue](https://github.com/bounswe/bounswe2022group4/issues/558)
+|Mobile image annotation #559|[PR](https://github.com/bounswe/bounswe2022group4/pull/559)
+|Heka mobile text annotation #566|[PR](https://github.com/bounswe/bounswe2022group4/pull/566)
+|Heka mobile search #599|[PR](https://github.com/bounswe/bounswe2022group4/pull/599)
+|fix chat ui #629|[PR](https://github.com/bounswe/bounswe2022group4/pull/629)
+|Heka mobile #633|[PR](https://github.com/bounswe/bounswe2022group4/pull/633)
+|Update list_item_comment.xml #635|[PR](https://github.com/bounswe/bounswe2022group4/pull/635)
 
 
 - **Yiğit Can Özkaya**
