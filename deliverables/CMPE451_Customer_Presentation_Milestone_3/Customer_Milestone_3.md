@@ -1288,25 +1288,38 @@ I created realistic posts and comments in the application. I also reviewed pull 
 * Frontend Team
 
 ### *Responsibilities*
-* Implementing message functionality from profile pages
-* Improving UI for general
-* Creating scenarios for milestone 3 with all features currently in application shown
-* Creating a manual for application
 
 #### *Code Related Significant Issues*
 
-* [|Frontend: Message functionality from profile page|](https://github.com/bounswe/bounswe2022group4/issues/580)
-* [|Frontend: UI improvement and message model for profile page|](https://github.com/bounswe/bounswe2022group4/issues/581)
+|Work Title|Related Link|
+| ----------- | ----------- |
+|Frontend: Listing the Remaining Requirements for Frontend Team|[Issue](https://github.com/bounswe/bounswe2022group4/issues/525)
+|Frontend: Implementation of number of comments made to a post|[Issue](https://github.com/bounswe/bounswe2022group4/issues/542)
+|Frontend: Health professionals' comments on posts displayment|[Issue](https://github.com/bounswe/bounswe2022group4/issues/575)
+|Frontend: Order of Comments According to the Number of Upvotes, Downvotes and User Type|[Issue](https://github.com/bounswe/bounswe2022group4/issues/576)
+|Frontend: User Sign-up Password Feature Enhancement According to the Requirements|[Issue](https://github.com/bounswe/bounswe2022group4/issues/577)
+|Frontend: Unit Tests for CommentBox and Comment Components|[Issue](https://github.com/bounswe/bounswe2022group4/issues/627)
 
+#### *Management Related Significant Issues*
+	
+|Work Title|Related Link|
+| ----------- | ----------- |
+|Management: Status of Deliverables for Milestone III Report|[Issue](https://github.com/bounswe/bounswe2022group4/pull/650)
 
 ### *Pull Requests*
+	
+|Work Title|Related Link|
+| ----------- | ----------- |
+|Frontend: Password check functionality is added|[Pull Request](https://github.com/bounswe/bounswe2022group4/pull/602)
+|Frontend: Comment Number Display|[Pull Request](https://github.com/bounswe/bounswe2022group4/pull/603)
+|Frontend: Comment highlights are added and post shadow is added|[Pull Request](https://github.com/bounswe/bounswe2022group4/pull/623)
+|Frontend: Comment Orders are Added.|[Pull Request](https://github.com/bounswe/bounswe2022group4/pull/625)
 
-* [|Frontend: Message functionality from profile page|](https://github.com/bounswe/bounswe2022group4/pull/620)
-* [|Frontend: UI improvement and message model for profile page|](https://github.com/bounswe/bounswe2022group4/pull/615)
+### *Unit Tests*
+|Work Title|Related Link|
+| ----------- | ----------- |
+|Frontend: Added Unit Tests for CommentBox and Comment Components|[Pull Request](https://github.com/bounswe/bounswe2022group4/pull/628)
 
-
-### *Additional Information*
-* For this milestone, i generally work more with team related issues.
 
 </details>
 
