@@ -526,11 +526,25 @@ Link To The API and The Swagger Document: http://3.72.25.175:8080/swagger/
 
 ## Example 3: Sort Posts By Different Attributes 
 ![image](https://user-images.githubusercontent.com/100778825/210244561-f0dc9eb5-10df-44bf-9fb5-31700fcfb10e.png)
-type parameter can be one of the following values comment_count, upvote_count, create_date, update_date.
+* type parameter can be one of the following values comment_count, upvote_count, create_date, update_date.
 
+## Example 4: Create Text Annotations
+![image](https://user-images.githubusercontent.com/100778825/210254352-925d34c5-2bd7-4509-a5cf-16a28473e6fb.png)
 
+## Example 5: Create Image Annotations
+![image](https://user-images.githubusercontent.com/100778825/210254379-4a186a4e-3637-432f-bd08-616a5df66b23.png)
 
+## Example 6: Fetch Text Annotations by Id
+![image](https://user-images.githubusercontent.com/100778825/210254437-ce29960d-bdad-48fd-9434-123b675b5db8.png)
 
+## Example 7: Fetch Image Annotations by Id 
+![image](https://user-images.githubusercontent.com/100778825/210254492-75b21333-0e2b-4826-bd30-6f7227201f9f.png)
+
+## Example 8: Fetch Text Annotations by Post Slug
+![image](https://user-images.githubusercontent.com/100778825/210254589-b4f36eb4-8aa8-41d6-a041-7552ade0bce3.png)
+
+## Example 9: Fetch Image Annotations by Post Slug
+![image](https://user-images.githubusercontent.com/100778825/210254617-92840e21-f45e-4629-9ba9-2ed517cdf066.png)
 
 
 
