@@ -120,7 +120,23 @@
 
 - **Erdinç Günaydın**
 
-
+|Work Title|Related Link|
+| ----------- | ----------- |
+|Mobile: Doctors should have a power to change categories of the posts.|[issue](https://github.com/bounswe/bounswe2022group4/issues/573)|
+|Mobile: Doctor comments should be highlighted. |[issue](https://github.com/bounswe/bounswe2022group4/issues/572)|
+|Mobile: Doctor Existence Should Be Added|[issue](https://github.com/bounswe/bounswe2022group4/issues/570)|
+|General: The Whole Project Need A Logo|[issue](https://github.com/bounswe/bounswe2022group4/issues/606)|
+|Mobile: Doctor Profile Page which explicitly state this profile is a doctor.|[issue](https://github.com/bounswe/bounswe2022group4/issues/571)|
+|Management: Documenting User Interface and User Experience of Mobile for Milestone 3|[issue](https://github.com/bounswe/bounswe2022group4/issues/651)|
+|Mobile: Bug about Comments only showing one line of the comments|[issue](https://github.com/bounswe/bounswe2022group4/issues/504)|
+|Mobile: Chat Bot|[issue](https://github.com/bounswe/bounswe2022group4/issues/584)|
+|Mobile: Chat Bot UI elements should be added|[issue](https://github.com/bounswe/bounswe2022group4/issues/586)|
+|chatbot ui and files added (Discarded)|[PR](https://github.com/bounswe/bounswe2022group4/pull/638)|
+|Mobile doctor functionality|[PR](https://github.com/bounswe/bounswe2022group4/pull/630)|
+|Mobile doctor comments|[PR](https://github.com/bounswe/bounswe2022group4/pull/628)|
+|Mobile doctor profile|[PR](https://github.com/bounswe/bounswe2022group4/pull/624)|
+|Line bug fixed at comments, UI enhanced|[test](https://github.com/bounswe/bounswe2022group4/issues/507)|
+|Dark theme problem fixed|[test](https://github.com/bounswe/bounswe2022group4/issues/502)|
 
 
 
@@ -1281,7 +1297,61 @@ I created realistic posts and comments in the application. I also reviewed pull 
 </details>
 	
 	
+<details>
+  <summary>
+    
+###  **Erdinç Günaydın - Group 4**    
+    
+ </summary>
+
+###  **Member**
+- Student ID: 2017400027
+- Email: erdinc.gunaydin@boun.edu.tr
+- Personal Wiki: [Erdinç Günaydın](https://github.com/bounswe/bounswe2022group4/wiki/Erdinç-Günaydın)
+- Team: Mobile Development Team
+  
+### **Responsibilities**
+- My main responsibility is communicator job.
+- I was mainly responsible for implementing doctor entegration to the application. I also shaped the UI and theme completely.
+- My side job was adding a chat bot like front-end team implemented. It could be cool feature if happen.
+
+
+### **Main contributions**
+- Mobile: Integration of health expert profiles into the mobile application.
+- Mobile: Giving more shine to the health experts both profiles and comments to increase visibility.
+- Mobile: Revision of whole application theme as final.
+- Mobile: Creating a logo to the application.
+- Mobile: Fixing bugs like unintended line numbers on comments and.
+- Mobile: Doctor and regular user differentation on comments and profile side.
+
+
+#### **Code Related Significant Issues**
+* [Mobile: Doctors should have a power to change categories of the posts.](https://github.com/bounswe/bounswe2022group4/issues/573)
+* [Mobile: Doctor Existence Should Be Added](https://github.com/bounswe/bounswe2022group4/issues/570)
+* [Mobile: Edit Profile Page and Profile Page Implementation](https://github.com/bounswe/bounswe2022group4/issues/478)
+
+
+#### **Management Related Significant Issues**
+* [General: The Whole Project Need A Logo](https://github.com/bounswe/bounswe2022group4/issues/606)
+* [Management: Documenting User Interface and User Experience of Mobile for Milestone 3](https://github.com/bounswe/bounswe2022group4/issues/651)
+
+
+
+  
+### **Pull Requests**
+[Mobile doctor functionality](https://github.com/bounswe/bounswe2022group4/pull/630)
+[Mobile doctor comments](https://github.com/bounswe/bounswe2022group4/pull/628)
+[Mobile doctor profile](https://github.com/bounswe/bounswe2022group4/pull/624)
+
+  
+### **Additional Information**
+* Contributions are distributed into commits well, all contributions have not explicitly implied on issues, only mojor ones implied.
+</details>
+   </summary>
+
+
 	
+
 <details>
 
   <summary>
