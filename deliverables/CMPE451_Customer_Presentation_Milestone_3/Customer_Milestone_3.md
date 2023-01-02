@@ -850,5 +850,44 @@ In addition to these specific tasks, I also contributed to the development of th
 
 </details>
 
+<details>
+
+  <summary>
+
+###  *Halil Salih Orhan - Group 4*
+    
+</summary>
+  
+  ###  *Member*
+
+* Name: Halil Salih Orhan
+* Student ID: 2018400057
+* Group4 - Mobile Team
+  
+### *Responsibilities*
+* Implementing mobile image annotation
+* Implementing mobile text annotation
+* Implementing mobile search
+
+#### *Code Related Significant Issues*
+
+* [|Mobile: User and Post Search #598|](https://github.com/bounswe/bounswe2022group4/issues/598)
+* [|Mobile: Text Annotations for Posts #560|](https://github.com/bounswe/bounswe2022group4/issues/560)
+* [|Mobile: Image Annotation of Posts #558|](https://github.com/bounswe/bounswe2022group4/issues/558)
+
+### *Pull Requests*
+
+* [|Mobile image annotation #559|](https://github.com/bounswe/bounswe2022group4/pull/559)
+* [|Heka mobile text annotation #566|](https://github.com/bounswe/bounswe2022group4/pull/566)
+* [|Heka mobile search #599|](https://github.com/bounswe/bounswe2022group4/pull/599)
+* [|fix chat ui #629|](https://github.com/bounswe/bounswe2022group4/pull/629)
+* [|Heka mobile #633|](https://github.com/bounswe/bounswe2022group4/pull/633)
+* [|Update list_item_comment.xml #635|](https://github.com/bounswe/bounswe2022group4/pull/635)
+
+### *Additional Information*
+
+</details>
+
+
 
    
