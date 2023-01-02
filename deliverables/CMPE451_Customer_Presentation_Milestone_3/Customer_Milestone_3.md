@@ -1285,15 +1285,16 @@ I created realistic posts and comments in the application. I also reviewed pull 
 
 * Name: Miraç Batuhan Malazgirt
 * Student ID: 2018400156
-* Frontend Team
+* Team: Frontend Team
 
 ### *Responsibilities*
+
+	
 
 #### *Code Related Significant Issues*
 
 |Work Title|Related Link|
 | ----------- | ----------- |
-|Frontend: Listing the Remaining Requirements for Frontend Team|[Issue](https://github.com/bounswe/bounswe2022group4/issues/525)
 |Frontend: Implementation of number of comments made to a post|[Issue](https://github.com/bounswe/bounswe2022group4/issues/542)
 |Frontend: Health professionals' comments on posts displayment|[Issue](https://github.com/bounswe/bounswe2022group4/issues/575)
 |Frontend: Order of Comments According to the Number of Upvotes, Downvotes and User Type|[Issue](https://github.com/bounswe/bounswe2022group4/issues/576)
@@ -1304,6 +1305,7 @@ I created realistic posts and comments in the application. I also reviewed pull 
 	
 |Work Title|Related Link|
 | ----------- | ----------- |
+|Frontend: Listing the Remaining Requirements for Frontend Team|[Issue](https://github.com/bounswe/bounswe2022group4/issues/525)
 |Management: Status of Deliverables for Milestone III Report|[Issue](https://github.com/bounswe/bounswe2022group4/pull/650)
 
 ### *Pull Requests*
