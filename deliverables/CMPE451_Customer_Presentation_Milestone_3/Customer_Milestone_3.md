@@ -1271,4 +1271,43 @@ I created realistic posts and comments in the application. I also reviewed pull 
 
 </details>
 
+	
+		
+<details>
+
+  <summary>
+
+###  *Miraç Batuhan Malazgirt - Group 4*
+
+</summary>
+
+  ###  *Member*
+
+* Name: Miraç Batuhan Malazgirt
+* Student ID: 2018400156
+* Frontend Team
+
+### *Responsibilities*
+* Implementing message functionality from profile pages
+* Improving UI for general
+* Creating scenarios for milestone 3 with all features currently in application shown
+* Creating a manual for application
+
+#### *Code Related Significant Issues*
+
+* [|Frontend: Message functionality from profile page|](https://github.com/bounswe/bounswe2022group4/issues/580)
+* [|Frontend: UI improvement and message model for profile page|](https://github.com/bounswe/bounswe2022group4/issues/581)
+
+
+### *Pull Requests*
+
+* [|Frontend: Message functionality from profile page|](https://github.com/bounswe/bounswe2022group4/pull/620)
+* [|Frontend: UI improvement and message model for profile page|](https://github.com/bounswe/bounswe2022group4/pull/615)
+
+
+### *Additional Information*
+* For this milestone, i generally work more with team related issues.
+
+</details>
+
    
