@@ -987,10 +987,9 @@ I created realistic posts and comments in the application. I also reviewed pull 
 
 <summary>
 
-</summary>
-
 ###  *Yusuf Bayındır - Group 4*
 
+</summary>
  ###  *Member*
 
 * Name: Yusuf Bayındır
